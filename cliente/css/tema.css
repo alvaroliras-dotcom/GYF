@@ -1,0 +1,46 @@
+/* =====================================================================
+   GYF-Rayo · TEMA · El Gordo y el Flaco (maqueta de la firma gráfica, paso 21).
+   Outfit alojada (woff2, sin Google Fonts). Fucsia de la marca; contrastes medidos (WCAG):
+   blanco sobre #E0067A 4,69:1 · #B0045F sobre el fondo 6,5:1 · #FF7AB8 sobre #161616 7,52:1.
+   El fucsia #E0067A sobre el fondo claro da 4,40:1: solo para piezas grandes (≥ 24 px) y elementos, nunca texto pequeño.
+   ===================================================================== */
+@font-face{font-family:"Outfit";font-style:normal;font-weight:300;font-display:swap;src:url(/fuentes/outfit-300.woff2) format("woff2")}
+@font-face{font-family:"Outfit";font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/outfit-400.woff2) format("woff2")}
+@font-face{font-family:"Outfit";font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/outfit-500.woff2) format("woff2")}
+@font-face{font-family:"Outfit";font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/outfit-600.woff2) format("woff2")}
+@font-face{font-family:"Outfit";font-style:normal;font-weight:700;font-display:swap;src:url(/fuentes/outfit-700.woff2) format("woff2")}
+
+:root{
+  --f:"Outfit","DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --base:#FAF7F6;
+  --oscuro:#1C1219;  /* berenjena, decisión de Jean Paul 26/09 */
+  --acento:#E0067A;
+  --acento-txt:#FFFFFF;
+  --acento-texto:#B0045F;
+  --acento-claro:#FF7AB8;
+  --logo-alto:30px;
+}
+@media (min-width:768px){:root{--logo-alto:34px}}
+/* Outfit es algo más ancha que la de Rayo: el titular de la home, un punto más contenido */
+.h1-home{letter-spacing:-.8px}
+.tono-1{background:#F5F1EC}
+
+/* ---------- Tira de logotipos de clientes (paso 22): en gris, a color al pasar el ratón ---------- */
+.logos-sec .etiqueta{margin-bottom:28px}
+.logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (min-width:768px){.logos{gap:16px;grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (min-width:768px){.logos--seis{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1200px){.logos,.logos--seis{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.logo{display:flex;align-items:center;justify-content:center;height:clamp(76px,11vw,112px);padding:10px 12px;background:var(--tinta);border:1px solid var(--linea);border-radius:var(--r-m)}
+.logo img{max-height:62%;max-width:100%;width:auto;object-fit:contain;filter:grayscale(1);opacity:.7;transition:filter .35s var(--ease-salida),opacity .35s var(--ease-salida)}
+.logo:hover img{filter:none;opacity:1}
+.logo--alto img{max-height:96%}
+@media (min-width:768px){.logo{padding:12px 18px;border-radius:var(--r-s)}}
+.logo--marcador{border-style:dashed;color:var(--t4);font-size:.875rem;letter-spacing:.02em}
+@media (prefers-reduced-motion:reduce){.logo img{transition:none}}
+
+/* ---------- Opiniones reales (paso 29): cada tarjeta con su alto (las reseñas largas dejaban
+   las cortas con medio metro de blanco en el móvil) y sin el título vacío (las de Google no traen) ---------- */
+.op-lista{align-items:flex-start;transition:height .35s var(--ease-salida)}
+@media (prefers-reduced-motion:reduce){.op-lista{transition:none}}
+.op__tit:empty{display:none}
