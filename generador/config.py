@@ -128,19 +128,20 @@ NOMBRE_CORTO = {"/": "Inicio", "/quienes-somos/": "Quiénes somos", "/contacto/"
 # Casos (v2): composiciones de estudio con las capturas reales (herramientas/maquetas/maquetas.py → recursos/casos/).
 # (título, qué se hizo, imagen de la galería de la portada, enlace, formato de la galería v/h/g, imagen grande 16:10)
 CASOS = [  # muestra local de este año (Álvaro 26/09)
-    ("Balgas", "Web, ficha y Google Ads", "diseno-web-alcorcon-caso-balgas-vertical.jpg", None, "g", "diseno-web-alcorcon-caso-balgas.jpg"),
+    ("Balgas", "Web, ficha y Google Ads", "diseno-web-alcorcon-caso-balgas-vertical.jpg", "https://reparacioncalderasbalgas.es/", "g", "diseno-web-alcorcon-caso-balgas.jpg"),
     ("Marcos Cerrajeros", "Ficha y web nueva", "diseno-web-alcorcon-caso-marcos-cerrajeros-movil.jpg", "https://www.marcoscerrajeros.es/", "v", "diseno-web-alcorcon-caso-marcos-cerrajeros.jpg"),
     ("Aquita", "Ficha y web desde cero", "diseno-web-arroyomolinos-caso-aquita-portatil.jpg", "https://aquita.es/", "h", "diseno-web-arroyomolinos-caso-aquita.jpg"),
     ("Las Tejas", "Web del restaurante", "diseno-web-alcorcon-caso-las-tejas-movil.jpg", "https://www.restaurantelastejas.es/", "v", "diseno-web-alcorcon-caso-las-tejas.jpg"),
     ("Solvento", "Imagen de marca y web", "diseno-web-caso-solvento-vertical.jpg", "https://solvento.es/", "g", "diseno-web-caso-solvento.jpg"),
     ("RFG Andrade", "Web", "diseno-web-caso-rfg-andrade-portatil.jpg", "https://www.rfgandrade.es/", "h", "diseno-web-caso-rfg-andrade.jpg"),
-    ("Dotti Peluquería", "Ficha de Google", "seo-local-caso-dotti-peluqueria-movil.jpg", None, "v", "seo-local-caso-dotti-peluqueria.jpg"),
+    ("Dotti Peluquería", "Ficha de Google", "seo-local-caso-dotti-peluqueria-movil.jpg", "https://www.google.com/maps/search/?api=1&query=Sal%C3%B3n+de+Belleza+Dotti+Peluquer%C3%ADa+Aravaca", "v", "seo-local-caso-dotti-peluqueria.jpg"),
 ]
 # Etiquetas de cada caso en la lista grande de «Lo más reciente» (lo que se hizo, en píldoras)
 CASOS_ETQ = {"Balgas": ["Web", "Ficha de Google", "Google Ads"], "Marcos Cerrajeros": ["Ficha de Google", "Web"],
              "Aquita": ["Ficha de Google", "Web"], "Las Tejas": ["Web"], "Solvento": ["Imagen de marca", "Rotulación", "Web"], "RFG Andrade": ["Web"],
              "Dotti Peluquería": ["Ficha de Google"]}
 CASOS_VER = "Ver la web"
+CASOS_VER_CASO = {"Dotti Peluquería": "Ver la ficha"}   # v5.7 · Dotti no tiene web: se enlaza su ficha de Google
 # v4 · Cada trabajo puede estar en varias categorías (Álvaro 27/09: «algunos entran en varias»). Las categorías son las
 # URLs de los servicios. Sirve para elegir el caso de cada página cuando no lo fija CASO_URL y será la base del filtro
 # del portfolio. Delfinia y Pousada entrarán en la galería cuando tengan capturas.
@@ -318,7 +319,7 @@ NOTA_CON_NUMERO = False  # Álvaro 26/09: no se enseña el número de reseñas
 # aggregateRating en el schema: NO (decisión paso 26, ver LEEME). Google no da estrellas a un negocio por sus
 # propias reseñas y el número no está a la vista en la página: marcar lo que no se ve es contrario a sus directrices.
 SCHEMA_VALORACION = False
-SAME_AS = [FICHA]   # [PENDIENTE] LinkedIn de empresa, cuando esté corregido (planos-ia 2.4)
+SAME_AS = [FICHA]   # v5.7 (Álvaro 27/09): sin redes sociales. La marca no tiene Facebook ni X y los perfiles personales no se enlazan.
 
 # Tira de logotipos de clientes (en gris, pasan a color al pasar el ratón). Fuente: recursos/clientes/.
 # Si está vacía y existe LOGOS_ORIGEN, build.py copia de ahí (svg/png/webp; logos.json opcional con
@@ -439,7 +440,7 @@ CASO_DETALLE = {  # v5.1: «Hoy», confirmado por Álvaro (27/09) o citado de la
     "Las Tejas": ("Alcorcón", None),
     "Solvento": (None, "Partía de cero: marca, rotulación, papelería y web."),
     "RFG Andrade": ("Madrid", "Web de presentación de una consulta privada."),
-    "Dotti Peluquería": ("Pozuelo de Alarcón", "Sin web: todo el trabajo, en la ficha de Google."),
+    "Dotti Peluquería": ("Aravaca, junto a Pozuelo", "Sin web: todo el trabajo, en la ficha de Google, para salir en Aravaca y en Pozuelo."),
 }
 # Caso más cercano para cada municipio (Alcorcón linda con Getafe, Móstoles, Leganés, Fuenlabrada y Villaviciosa)
 CASO_URL.update({
@@ -476,3 +477,9 @@ OPINION_CITA = {
 MUESTRA_OBJETO = {"JIF 2026": "bocadillo", "Delfinia Piscinas": "abanico", "Vinos Gallegos Pousada": "estrella-cromo"}
 _SERGIO_RES = "…en unos 3 meses nuestra empresa \"calderas Balgas\" posicionaba en los 10 primeros resultados de Google en las zonas solicitadas…"
 OPINION_CITA_PAGINA = {u: {"Sergio": _SERGIO_RES} for u in ("/google-ads/", "/seo-local/", "/diseno-web/", "/contacto/")}
+
+# v5.7 · Maqueta propia de las muestras de «Quiénes somos» que no están en la galería (captura HD de Álvaro).
+# (archivo en recursos/casos, qué se hizo). Solo se usa si el archivo existe.
+MUESTRA_FOTO = {"JIF 2026": ("diseno-web-caso-jif-2026-muestra.jpg", "Web del congreso"),
+                "Delfinia Piscinas": ("diseno-grafico-caso-delfinia-muestra.jpg", "Imagen de marca"),
+                "Vinos Gallegos Pousada": ("diseno-web-caso-vinos-pousada-muestra.jpg", "Imagen de marca y web")}

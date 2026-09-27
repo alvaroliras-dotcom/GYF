@@ -328,6 +328,9 @@ def rejilla_nombres(items):
         return ""
     li = []
     for m, c in zip(ms, casos):
+        mf = getattr(C, "MUESTRA_FOTO", {}).get(m.group(1))   # v5.7: maqueta propia de una muestra que no está en la galería
+        if not c and mf and os.path.exists(os.path.join(RAIZ, "recursos", "casos", mf[0])):
+            c = (m.group(1), mf[1], mf[0])
         mini = (T.foto(c[2], f"{m.group(1)}: {c[1]}", "(max-width: 700px) 44vw, 240px", clase="muestra__foto") if c
                 else f'<span class="muestra__obj" aria-hidden="true">{T.objeto(getattr(C, "MUESTRA_OBJETO", {}).get(m.group(1), "estrella-cromo"), "160px")}</span>')
         li.append(f'<li class="muestra rv{"" if c else " muestra--sin"}">{mini}<strong>{esc(m.group(1))}</strong><span>{inline(m.group(2))}</span></li>')
@@ -415,11 +418,16 @@ OBJ_SIZES = "(min-width: 1600px) 500px, (min-width: 768px) 380px, 230px"
 FORMATOS_OK = {"v", "h", "g"}
 
 
+def ver_de(tit):
+    """v5.7 · Texto del enlace de cada caso: «Ver la web» o, si no tiene web, «Ver la ficha»."""
+    return getattr(C, "CASOS_VER_CASO", {}).get(tit, CASOS_VER)
+
+
 def caso_html(c, i):
     tit, sub, img, url, fmt = c[:5]
     fmt = fmt if fmt in FORMATOS_OK else "v"
     cuerpo = T.foto(img, f"{tit}: {sub}", "(max-width: 900px) 70vw, 34vw", clase="caso__foto")
-    ojo = f'<span class="caso__ojo" aria-hidden="true">{T.ico("flecha-diagonal")}{esc(CASOS_VER)}</span>' if url else ""
+    ojo = f'<span class="caso__ojo" aria-hidden="true">{T.ico("flecha-diagonal")}{esc(ver_de(tit))}</span>' if url else ""
     pie = f'<p class="caso__pie"><strong>{esc(tit)}</strong> {esc(sub)}</p>'
     dentro = f'<div class="caso__marco">{cuerpo}{ojo}</div>{pie}'
     if url:
@@ -1134,7 +1142,7 @@ def caso_sangre(url):
     ir = ""
     if c[3]:
         ext = ' rel="noopener" target="_blank"' if c[3].startswith("http") else ""
-        ir = f'<a class="sangre__ir" href="{A(c[3])}"{ext}>{esc(CASOS_VER)} {T.ico("flecha-diagonal")}</a>'
+        ir = f'<a class="sangre__ir" href="{A(c[3])}"{ext}>{esc(ver_de(c[0]))} {T.ico("flecha-diagonal")}</a>'
     etq = "".join(f"<li>{esc(e)}</li>" for e in CASOS_ETQ.get(c[0], []))
     return f"""<section class="sangre" aria-label="Caso real: {A(c[0])}">
  {T.foto(c[5], f"{c[0]}: {c[1]}", "100vw", clase="sangre__foto")}

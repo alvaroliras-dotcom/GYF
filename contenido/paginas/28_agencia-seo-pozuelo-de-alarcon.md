@@ -33,7 +33,7 @@ Esos textos van en una [LINK web diseñada para su despacho o su clínica](/dise
 
 En Pozuelo de Alarcón las reseñas pesan mucho, porque el cliente decide sobre servicios caros y quiere acertar. Le enseñamos a pedir reseñas reales a todos sus clientes con regularidad, a responderlas con su tono y a mantener la ficha viva. Todo ello forma parte del [LINK SEO local](/seo-local/) 🆕.
 
-A veces no hace falta más. En Pozuelo trabajamos la ficha de Google de Dotti Peluquería, sin web: para un negocio así, la ficha es el escaparate entero.
+A veces no hace falta más. Aquí al lado, en Aravaca, trabajamos la ficha de Google de Dotti Peluquería, sin web, para que salga en Aravaca y en Pozuelo: para un negocio así, la ficha es el escaparate entero.
 
 ## ¿Compensa Google Ads cuando la competencia puja fuerte?
 

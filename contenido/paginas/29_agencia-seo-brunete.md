@@ -58,7 +58,7 @@ FAQ
 
 **¿Vienen hasta Brunete para un negocio pequeño?** Sí. Trabajamos con negocios de todos los tamaños, y el desplazamiento corre de nuestra cuenta.
 
-**¿Puedo encargarles solo la ficha, sin web?** Sí, aceptamos encargos solo de ficha. En un pueblo como Brunete muchas veces es lo más sensato. Es lo que hicimos, por ejemplo, con Dotti Peluquería, en Pozuelo de Alarcón.
+**¿Puedo encargarles solo la ficha, sin web?** Sí, aceptamos encargos solo de ficha. En un pueblo como Brunete muchas veces es lo más sensato. Es lo que hicimos, por ejemplo, con Dotti Peluquería, en Aravaca, junto a Pozuelo.
 
 ---
 Notas para Álvaro:

@@ -9,7 +9,7 @@ from PIL import Image, ImageFilter
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.dirname(os.path.dirname(AQUI))
-CRUDO = "/home/claude/gyf/casos/crudo"
+CRUDO = os.environ.get("GYF_CRUDO", "/home/claude/gyf/trabajo/casos/crudo")   # v5.7: configurable
 OBJ = os.path.join(RAIZ, "herramientas", "objetos3d", "master")
 SALIDA = os.path.join(RAIZ, "recursos", "casos")
 TMP = os.path.join(tempfile.gettempdir(), "gyf-maquetas")
@@ -261,7 +261,35 @@ def composiciones():
         resplandor(400, 560, 320, "#E6D9CB", .9)
         + laptop(60, 120, 540, ruta("marcos-cerrajeros-escritorio.jpg"), "rotateY(12deg)")
         + movil(540, 80, 190, ruta("marcos-cerrajeros-movil.jpg"), "rotate(4deg)", 3))
+    # --- v5.7 · Muestras de «Quiénes somos» (4:3, 800 × 600 → 1.600 × 1.200): solo capturas HD de escritorio ---
+    if os.path.exists(os.path.join(CRUDO_HD, "jif-2026-escritorio.png")):
+        C["diseno-web-caso-jif-2026-muestra"] = (800, 600, F_BERENJENA,
+            resplandor(560, 220, 260, "#E0067A", .45)
+            + laptop(70, 110, 580, ruta_hd("jif-2026-escritorio"), "rotateY(12deg)")
+            + movil(560, 70, 190, ruta("jif-2026-movil.jpg"), "rotate(4deg)", 3))
+    if os.path.exists(os.path.join(CRUDO_HD, "delfinia-escritorio.png")):
+        C["diseno-grafico-caso-delfinia-muestra"] = (800, 600, F_CREMA,
+            resplandor(400, 560, 320, "#E6D9CB", .9)
+            + laptop(80, 90, 600, ruta_hd("delfinia-escritorio", RECORTE_HD.get("delfinia-escritorio")), "rotateY(-14deg) rotateX(4deg)"))
+    if os.path.exists(os.path.join(CRUDO_HD, "vinos-pousada-escritorio.png")):
+        C["diseno-web-caso-vinos-pousada-muestra"] = (800, 600, F_FUCSIA,
+            simbolo_marca(420, -40, 700, "#FF5AAB", .3)
+            + laptop(90, 100, 600, ruta_hd("vinos-pousada-escritorio", RECORTE_HD.get("vinos-pousada-escritorio")), "rotateY(12deg) rotateX(4deg)"))
     return C
+
+
+# v5.7 · Recorte de una captura HD antes de ponerla en pantalla (x0, y0, x1, y1), p. ej. para quitar el aviso de cookies
+RECORTE_HD = {}
+
+
+def ruta_hd(n, caja=None):
+    f = os.path.join(CRUDO_HD, n + ".png")
+    if not caja:
+        return "file://" + f
+    os.makedirs(TMP, exist_ok=True)
+    d = os.path.join(TMP, n + "-recorte.png")
+    Image.open(f).convert("RGB").crop(caja).save(d)
+    return "file://" + d
 
 
 def main(nombres):
