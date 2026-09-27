@@ -275,11 +275,23 @@ def composiciones():
         C["diseno-web-caso-vinos-pousada-muestra"] = (800, 600, F_FUCSIA,
             simbolo_marca(420, -40, 700, "#FF5AAB", .3)
             + laptop(90, 100, 600, ruta_hd("vinos-pousada-escritorio", RECORTE_HD.get("vinos-pousada-escritorio")), "rotateY(12deg) rotateX(4deg)"))
+    if os.path.exists(os.path.join(CRUDO_HD, "ines-ingenieros-escritorio.png")):
+        C["diseno-web-caso-ines-ingenieros-muestra"] = (800, 600, F_CREMA,
+            resplandor(400, 560, 320, "#E6D9CB", .9)
+            + laptop(90, 100, 600, ruta_hd("ines-ingenieros-escritorio"), "rotateY(12deg) rotateX(4deg)"))
+    if os.path.exists(os.path.join(CRUDO_HD, "psicorazon-escritorio.png")):
+        C["diseno-web-caso-psicorazon-muestra"] = (800, 600, F_ROSA,
+            resplandor(400, 250, 260, "#FFFFFF", .45)
+            + laptop(110, 90, 600, ruta_hd("psicorazon-escritorio"), "rotateY(-14deg) rotateX(4deg)"))
+    if os.path.exists(os.path.join(CRUDO_HD, "expertise-escritorio.png")):
+        C["diseno-web-caso-expertise-muestra"] = (800, 600, F_MALVA,
+            simbolo_marca(-80, 60, 640, "#FFFFFF", .45)
+            + laptop(110, 100, 600, ruta_hd("expertise-escritorio", RECORTE_HD.get("expertise-escritorio")), "rotateY(-12deg) rotateX(4deg)"))
     return C
 
 
 # v5.7 · Recorte de una captura HD antes de ponerla en pantalla (x0, y0, x1, y1), p. ej. para quitar el aviso de cookies
-RECORTE_HD = {}
+RECORTE_HD = {"delfinia-escritorio": (298, 0, 1608, 840), "expertise-escritorio": (225, 0, 1695, 880)}   # columna de la web, sin el fondo lateral ni el aviso de cookies
 
 
 def ruta_hd(n, caja=None):

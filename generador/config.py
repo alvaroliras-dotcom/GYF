@@ -482,4 +482,7 @@ OPINION_CITA_PAGINA = {u: {"Sergio": _SERGIO_RES} for u in ("/google-ads/", "/se
 # (archivo en recursos/casos, qué se hizo). Solo se usa si el archivo existe.
 MUESTRA_FOTO = {"JIF 2026": ("diseno-web-caso-jif-2026-muestra.jpg", "Web del congreso"),
                 "Delfinia Piscinas": ("diseno-grafico-caso-delfinia-muestra.jpg", "Imagen de marca"),
-                "Vinos Gallegos Pousada": ("diseno-web-caso-vinos-pousada-muestra.jpg", "Imagen de marca y web")}
+                "Vinos Gallegos Pousada": ("diseno-web-caso-vinos-pousada-muestra.jpg", "Imagen de marca y web"),
+                "Inés Ingenieros": ("diseno-web-caso-ines-ingenieros-muestra.jpg", "Web"),
+                "Psicorazon": ("diseno-web-caso-psicorazon-muestra.jpg", "Web"),
+                "Expertise": ("diseno-web-caso-expertise-muestra.jpg", "Web")}
