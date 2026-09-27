@@ -2,16 +2,16 @@ URL: /
 Title: Agencia SEO en Alcorcón y marketing online | GYF
 Meta description: Agencia SEO y de marketing online en Alcorcón para negocios locales. Vamos a su negocio y el desplazamiento corre de nuestra cuenta. Pida una reunión.
 Keyword principal: agencia SEO en Alcorcón
-H1: Agencia SEO y de marketing online en Alcorcón
+H1: Agencia SEO en Alcorcón: más llamadas de clientes de su zona
 Etiqueta: Agencia SEO y marketing online · Alcorcón
 Entrada corta: Ficha de Google, web y anuncios para negocios de Alcorcón y alrededores. Quien le coge el teléfono es quien dirige su proyecto.
 ---
 
-El Gordo y el Flaco es una agencia SEO y de marketing online de Alcorcón para negocios locales, abierta desde hace 15 años. Trabajamos su ficha de Google, su web y sus anuncios para que le llamen clientes de su zona. Un solo interlocutor dirige su proyecto de principio a fin. Vamos a su negocio y el desplazamiento corre de nuestra cuenta.
+El Gordo y el Flaco es una agencia SEO y de marketing online para negocios locales, abierta en Alcorcón desde 2013. Trabajamos su ficha de Google, su web y sus anuncios para que le encuentren y le llamen quienes buscan cerca. Un solo interlocutor lleva su proyecto. Vamos a su negocio y el desplazamiento corre de nuestra cuenta.
 
 - **Vamos a verle.** A su negocio o a donde le venga bien, en Alcorcón y alrededores.
 - **Primero le escuchamos.** Una reunión y, después, un presupuesto hecho para su caso.
-- **Mantenimiento mes a mes.** Si quiere seguir tras el trabajo, sigue; y lo deja cuando quiera.
+- **Mantenimiento, si lo quiere.** Tras el trabajo, un mínimo de seis meses; después, mes a mes.
 
 ## ¿Qué hace una agencia SEO en Alcorcón por un negocio local?
 
@@ -29,7 +29,7 @@ Esto es lo que hacemos, por orden de lo que más nos piden.
 
 **Diseño gráfico.** Logotipo, imagen de marca, manual de marca, envases, folletos, cartas comerciales, carteles, rotulación y papelería, con los archivos listos para imprenta. Si quiere, también gestionamos la impresión. Más en [LINK diseño gráfico e imagen de marca](/diseno-grafico/) 🆕.
 
-**Redacción publicitaria.** Los textos de su web, de su ficha y de sus anuncios, escritos para que Google los entienda y el cliente se decida. Más en [LINK redacción SEO y publicitaria](/redaccion-seo-copywriting/) 🆕.
+**Redacción SEO y publicitaria.** Los textos de su web, de su ficha y de sus anuncios, escritos para que Google los entienda y el cliente se decida. Más en [LINK redacción SEO y publicitaria](/redaccion-seo-copywriting/) 🆕.
 
 **Analítica.** Google Analytics 4 y Search Console bien configurados, y un informe cada mes que le dice de dónde le llegan las llamadas. Más en [LINK analítica web](/analitica-web/) 🆕.
 
@@ -38,17 +38,17 @@ Esto es lo que hacemos, por orden de lo que más nos piden.
 Con El Gordo y el Flaco, el trabajo empieza en su negocio. Son seis pasos, siempre los mismos:
 
 1. Nos llama o nos deja su teléfono en el formulario.
-2. Vamos a su negocio y hablamos, sin coste.
+2. Vamos a su negocio y hablamos.
 3. Hacemos la auditoría o el análisis de lo que tiene hoy.
-4. Le damos un presupuesto a medida.
+4. Le damos un presupuesto con lo que su caso necesita, ni más ni menos.
 5. Hacemos el trabajo.
-6. Si lo quiere, seguimos con un mantenimiento mensual, con informe cada mes y reunión en persona, que puede dejar cuando quiera.
+6. Si lo quiere, seguimos con un mantenimiento mensual, con informe cada mes y reunión en persona: un mínimo de seis meses y, después, mes a mes.
 
 El precio llega en el paso 4, cuando ya sabemos qué necesita su negocio. Así el presupuesto habla de su caso.
 
 ## ¿Quién hay detrás de El Gordo y el Flaco?
 
-Una agencia de Alcorcón con 15 años de trayectoria y más de 20 años de oficio en publicidad: redacción publicitaria, diseño gráfico, SEO, analítica y marketing directo.
+Una agencia de Alcorcón abierta desde 2013 y más de 20 años de oficio en publicidad: redacción publicitaria, diseño gráfico, SEO, analítica y marketing directo.
 
 Cada proyecto lo dirige un solo interlocutor. Es quien se sienta con usted, quien decide cómo se hace su proyecto y quien le responde al teléfono.
 
@@ -56,13 +56,13 @@ A su lado, un equipo de profesionales: personas especialistas en diseño gráfic
 
 Y, además de las personas, nuestro propio equipo de agentes de IA, cada uno con su nombre y su oficio: estrategia, diseño, redacción, SEO local, analítica… Son agentes de inteligencia artificial y los presentamos como tales. Los dirigimos nosotros y revisamos su trabajo.
 
-Para usted, eso se traduce en algo muy práctico: un solo interlocutor que conoce su caso y, detrás, especialistas de verdad y la potencia de la inteligencia artificial.
+Para usted, eso se traduce en algo muy práctico: un solo interlocutor que conoce su caso y, detrás, especialistas de verdad y agentes de inteligencia artificial que trabajan con ellos.
 
 Y como el oficio viene de la publicidad, somos también una agencia de publicidad en Alcorcón: el anuncio, el folleto y el rótulo salen de la misma casa que la ficha y la web. Si quiere conocer al equipo, lea [LINK quiénes somos](/quienes-somos/) 🆕.
 
 ## Lo más reciente, en SEO local
 
-En quince años hemos trabajado para más de cien clientes de todo tipo: webs, marcas, campañas y material impreso. Hoy nos dedicamos a lo local: que los negocios de la zona consigan clientes desde Google. Estos son los proyectos de este año, cada uno con su web, su ficha o sus anuncios trabajando para que les llamen.
+Desde 2013 hemos trabajado para más de cien clientes de todo tipo: webs, marcas, campañas y material impreso. Hoy nos dedicamos a lo local: que los negocios de la zona consigan clientes desde Google. Aquí van tres de los últimos seis meses, entre muchos más: negocios de Alcorcón y Arroyomolinos con su ficha y su web trabajando para que les llamen.
 
 ## Dónde trabajamos
 
@@ -84,18 +84,18 @@ Esto es lo que han escrito en Google quienes ya han trabajado con nosotros, con 
 
 ## Hablemos en su negocio, sin coste
 
-Llámenos al 670 78 19 40 o déjenos su teléfono en [LINK contacto](/contacto/) 🆕 y le llamamos. Vamos a su negocio, vemos cómo le encuentran hoy sus clientes y, después, le pasamos un presupuesto a medida.
+Llámenos al 670 78 19 40 o déjenos su teléfono en [LINK contacto](/contacto/) 🆕 y le llamamos. Vamos a su negocio, vemos cómo le encuentran hoy sus clientes y, después, le pasamos un presupuesto para su caso.
 
 ---
 FAQ
 
 **¿Vienen ustedes a mi negocio o tengo que ir yo a la oficina?** Vamos nosotros, a su negocio o a donde le venga bien. La oficina de Alcorcón recibe con cita, por si lo prefiere.
 
-**¿Cobran el desplazamiento?** El desplazamiento corre de nuestra cuenta, en Alcorcón y en los municipios de alrededor en los que trabajamos.
+**¿Cobran el desplazamiento?** No. Ni el desplazamiento ni la primera reunión, en Alcorcón y en los municipios de alrededor en los que trabajamos.
 
-**¿Cuánto cuesta trabajar con El Gordo y el Flaco?** Depende de lo que necesite su negocio. Por eso primero hay una reunión y después un presupuesto a medida, hecho para su caso.
+**¿Cuánto cuesta trabajar con El Gordo y el Flaco?** Depende de lo que haya que hacer: la ficha, cuántas páginas, servicios y municipios lleva la web, si hay anuncios. Por eso primero hay una reunión y después un presupuesto hecho para su caso.
 
-**¿Hay que firmar una permanencia?** Trabajamos mes a mes. Cuando termina el trabajo, puede seguir con un mantenimiento mensual y dejarlo cuando quiera.
+**¿Hay que firmar una permanencia?** Por el trabajo inicial, no: la web, la ficha o la auditoría no le obligan a contratar nada más. Si después quiere un mantenimiento mensual, el mínimo son seis meses; a partir de ahí, sigue mes a mes y lo deja cuando quiera.
 
 **¿Hablo con una persona o con una máquina?** Con una persona, siempre la misma, que dirige su proyecto. Detrás trabajan especialistas en diseño, analítica y Google Ads, que también son personas, y nuestros agentes de IA.
 

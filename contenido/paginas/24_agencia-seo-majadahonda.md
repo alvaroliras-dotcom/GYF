@@ -2,18 +2,20 @@ URL: /agencia-seo-majadahonda/
 Title: Agencia SEO en Majadahonda y marketing local | GYF
 Meta description: Agencia SEO y de marketing para negocios de Majadahonda: ficha de Google, reseñas, web y anuncios. Hablamos en persona, en su negocio, sin coste.
 Keyword principal: agencia SEO en Majadahonda
-H1: Agencia SEO y de marketing en Majadahonda
+H1: Agencia SEO en Majadahonda: reseñas que convencen antes de llamar
 Etiqueta: Reseñas y ficha de Google · Majadahonda
 Entrada corta: Clínicas, despachos y comercios del centro de Majadahonda: su reputación en Google, trabajada desde Alcorcón.
 ---
 
-El Gordo y el Flaco cuida la reputación en Google de clínicas, despachos y comercios de Majadahonda. Somos una agencia SEO y de marketing online de Alcorcón: ficha, reseñas, web y anuncios para negocios cuyos clientes leen opiniones antes de llamar. Empezamos con una conversación en su consulta o su tienda, sin coste.
+En Majadahonda, el paciente o el cliente lee opiniones antes de llamar. Por eso El Gordo y el Flaco, agencia SEO y de marketing online de Alcorcón, cuida la ficha de Google, las reseñas, la web y los anuncios de clínicas, despachos y comercios del municipio. Empezamos con una conversación en su consulta o su tienda.
 
 ## ¿Cuánto pesan las reseñas para una clínica o un despacho de Majadahonda?
 
-Pesan casi tanto como el propio servicio. En un municipio con un hospital como el Puerta de Hierro y tantas consultas alrededor, las opiniones pesan. Antes de pedir cita en una clínica o de llamar a un despacho de Majadahonda, el cliente abre la ficha de Google, mira la nota y lee las últimas opiniones. Si son pocas, antiguas o sin respuesta, pasa a la siguiente ficha.
+Mucho. En un municipio con un hospital como el Puerta de Hierro y tantas consultas alrededor, la ficha de Google hace de sala de espera. Antes de pedir cita en una clínica o de llamar a un despacho de Majadahonda, el cliente abre la ficha, mira la nota y lee las últimas opiniones. Si son antiguas o nadie las ha contestado, pasa a la siguiente.
 
-Además de la nota, cuentan el número de reseñas, su fecha y lo que dicen. Una opinión que dice «me explicaron el presupuesto con calma y sin prisas» convence más que cinco estrellas mudas.
+Más que la nota, cuentan la fecha de las reseñas y lo que dicen. Una opinión reciente que dice «me explicaron el presupuesto con calma y sin prisas» convence más que cinco estrellas mudas de hace años.
+
+Lo mismo vale para el comercio de la Gran Vía o de El Carralero: quien duda entre dos tiendas lee qué cuentan de cada una antes de coger el coche.
 
 ## ¿Cómo se consiguen más reseñas sin saltarse las normas de Google?
 
@@ -32,7 +34,7 @@ Le enseñamos a usted y a su equipo a pedirlas, y lo dejamos funcionando. Es una
 
 Una respuesta bien escrita la lee el que dejó la reseña y la leen los cien que vienen detrás. Agradece, concreta el servicio y, cuando hay una queja, muestra cómo se resolvió.
 
-Para una clínica o un despacho, esa respuesta es parte de la imagen profesional. La redactamos con usted, con el tono de su consulta.
+Para una clínica o un despacho, esa respuesta es parte de la imagen profesional. La redactamos con usted, con el tono de su consulta: escribir es la mitad de nuestro oficio, como verá en [LINK redacción SEO y publicitaria](/redaccion-seo-copywriting/) 🆕.
 
 ## La web que confirma lo que dicen las reseñas
 
@@ -40,7 +42,7 @@ Quien ha leído buenas opiniones entra en la web para confirmar. Necesita ver qu
 
 Diseñamos [LINK webs para negocios locales](/diseno-web/) 🆕 rápidas y claras, con la cita o el teléfono siempre visibles. Si además quiere adelantar pacientes o clientes, podemos activar [LINK anuncios en Google y en Maps](/google-ads/) 🆕 para Majadahonda y alrededores.
 
-Para saber cómo está hoy su ficha, pida una [LINK auditoría SEO local](/auditoria-seo-local/) 🆕 gratuita. La recibe por escrito, con lo más urgente arriba.
+Para saber cómo está hoy su ficha, pida una [LINK auditoría SEO local](/auditoria-seo-local/) 🆕 gratuita. La recibe por escrito, con lo urgente arriba.
 
 Nuestra oficina está en Alcorcón, donde somos [LINK agencia SEO en Alcorcón](/) 🆕. Muy cerca de Majadahonda trabajamos también en [LINK Pozuelo de Alarcón](/agencia-seo-pozuelo-de-alarcon/) 🆕 y en [LINK Boadilla del Monte](/agencia-seo-boadilla-del-monte/) 🆕.
 
@@ -50,18 +52,18 @@ Nuestra oficina está en Alcorcón, donde somos [LINK agencia SEO en Alcorcón](
 
 ## Le visitamos en Majadahonda
 
-Llámenos al 670 78 19 40 o escríbanos desde [LINK contacto](/contacto/) 🆕. Vamos a su negocio en Majadahonda, con el desplazamiento de nuestra cuenta, y le explicamos qué haríamos con su ficha y sus reseñas. Con eso le preparamos un presupuesto a medida.
+Llámenos al 670 78 19 40 o escríbanos desde [LINK contacto](/contacto/) 🆕. Desde Alcorcón llegamos en menos de media hora: vamos a su negocio en Majadahonda, con el desplazamiento de nuestra cuenta y sin coste, y le explicamos qué haríamos con su ficha y sus reseñas. Con eso le preparamos un presupuesto, que depende del estado de su ficha y de si necesita también web o anuncios.
 
 ---
 FAQ
 
-**Tengo una clínica en Majadahonda con pocas reseñas. ¿Se puede cambiar?** Sí, con un método constante para pedirlas a todos sus pacientes, dentro de las normas de Google. Lleva su tiempo: las reseñas llegan al ritmo de sus clientes.
+**Las reseñas de mi clínica en Majadahonda son antiguas. ¿Se puede cambiar?** Sí, con un método constante para pedirlas a todos sus pacientes, dentro de las normas de Google. Lo que cuenta es que lleguen con regularidad y hablen del servicio. Lleva su tiempo: las reseñas llegan al ritmo de sus clientes.
 
 **¿Responden ustedes a las reseñas de mi negocio?** Sí, si lo prefiere las contestamos nosotros, con su tono y nombrando el servicio. Es lo que solemos recomendar: sabemos qué conviene decir y usted se quita una tarea.
 
-**¿Qué pasa cuando termina el trabajo?** Si lo desea, seguimos con un mantenimiento mensual de su ficha, con informe cada mes y reunión en persona, que puede dejar cuando quiera.
+**¿Qué pasa cuando termina el trabajo?** Nada que le obligue: el trabajo inicial no incluye permanencia. Si lo desea, seguimos con un mantenimiento mensual de su ficha, con informe cada mes y reunión en persona, durante un mínimo de seis meses; después, mes a mes, y lo deja cuando quiera.
 
 ---
 Notas para Álvaro:
 
-Sin ⚑ abiertas (tanda 7, 27/09): respuestas a reseñas por el cliente, confirmado; Hospital Puerta de Hierro Majadahonda comprobado.
+Tanda 8 (27/09): el ejemplo pasa del número de reseñas a su fecha y su contenido; fuera la repetición «pesan… pesan». Entran la Gran Vía y El Carralero (polígono comercial de Majadahonda, majadahonda.org). Hospital Puerta de Hierro Majadahonda comprobado.

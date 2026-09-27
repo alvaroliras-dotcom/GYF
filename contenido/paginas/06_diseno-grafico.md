@@ -1,13 +1,13 @@
 URL: /diseno-grafico/
-Title: Diseño gráfico para empresas y branding | GYF
+Title: Diseño gráfico para empresas e imagen de marca | GYF
 Meta description: Logotipo, imagen y manual de marca, folletos, carteles y rotulación, con archivos para imprenta y la impresión gestionada. Diseño gráfico desde Alcorcón.
 Keyword principal: diseño gráfico para empresas
-H1: Diseño gráfico y branding para negocios locales
-Etiqueta: Diseño gráfico y branding · Alcorcón
+H1: Diseño gráfico para empresas: que le reconozcan y le elijan
+Etiqueta: Diseño gráfico e imagen de marca · Alcorcón
 Entrada corta: La imagen de su empresa o su comercio, del logotipo al rótulo de la puerta, diseñada en Alcorcón para negocios de la zona.
 ---
 
-El Gordo y el Flaco diseña la imagen de empresas y comercios de Alcorcón y alrededores: logotipo, identidad y manual de marca, envases, folletos, cartas comerciales, carteles, rotulación y papelería. Entregamos los archivos listos para imprenta y, si quiere, gestionamos la impresión. Detrás hay más de 20 años de oficio en publicidad, así que cada pieza se piensa para que el cliente le recuerde y le elija. Empezamos con una reunión en su negocio, sin coste.
+Que el cliente le recuerde y le elija: con esa idea diseña El Gordo y el Flaco la imagen de empresas y comercios de Alcorcón y alrededores. Logotipo, manual de marca, envases, folletos, cartas comerciales, carteles, rotulación y papelería, con los archivos listos para imprenta. Si quiere, también gestionamos la impresión.
 
 ## ¿Qué incluye una imagen de marca para un negocio?
 
@@ -32,7 +32,7 @@ Le entregamos los archivos preparados para imprenta. Y si prefiere olvidarse, ge
 
 ## Diseño gráfico para empresas que viven de su zona
 
-Un negocio de barrio se juega mucho en la primera impresión. El cliente pasa por delante, ve el rótulo y decide en un segundo si entra o sigue andando. Luego le busca en Google y compara su ficha con la del vecino.
+Un negocio de barrio se juega mucho en la primera impresión. El cliente pasa por delante, ve el rótulo y decide en un segundo si entra o sigue andando. Luego le busca en Google y compara su ficha con la del vecino. Pasa igual en una calle de Alcorcón que entre los [LINK comercios de Móstoles](/agencia-seo-mostoles/) 🆕, de [LINK Boadilla del Monte](/agencia-seo-boadilla-del-monte/) 🆕 o de [LINK Brunete](/agencia-seo-brunete/) 🆕.
 
 Por eso diseñamos pensando en dónde se va a ver cada pieza. Un logotipo que funciona en una tarjeta tiene que funcionar también en una lona de cuatro metros y en el icono pequeño de Google Maps.
 
@@ -61,7 +61,7 @@ Cuando el encargo lo pide, llevamos la marca a su página con nuestro servicio d
 1. Nos llama o nos deja su teléfono en el formulario.
 2. Vamos a su negocio, sin coste, y vemos cómo se presenta hoy.
 3. Le proponemos qué piezas necesita y en qué orden.
-4. Le damos un presupuesto a medida.
+4. Le damos un presupuesto según las piezas que necesite.
 5. Diseñamos, lo revisamos con usted y le entregamos los archivos listos para imprenta y para web, con el manual de marca.
 6. Si lo quiere, gestionamos la impresión.
 
@@ -84,7 +84,7 @@ FAQ
 
 **¿Trabajan con comercios fuera de Alcorcón?** Sí. Trabajamos con negocios de Alcorcón y de los municipios de alrededor, como Móstoles, Leganés o Boadilla del Monte, y vamos a verle a su local.
 
-**¿Cuánto cuesta un logotipo o una imagen de marca?** Depende de las piezas que necesite. Después de la reunión le damos un presupuesto a medida.
+**¿Cuánto cuesta un logotipo o una imagen de marca?** Depende de las piezas: no es lo mismo un logotipo que una imagen completa con manual de marca y rotulación. Después de la reunión le damos el presupuesto.
 
 ---
 Notas para Álvaro:

@@ -2,12 +2,12 @@ URL: /agencia-seo-arroyomolinos/
 Title: Agencia SEO en Arroyomolinos y marketing local | GYF
 Meta description: Ayudamos a negocios de Arroyomolinos a salir en Google Maps y a conseguir llamadas con su web y sus anuncios. Vamos a verle y el desplazamiento lo pagamos.
 Keyword principal: agencia SEO en Arroyomolinos
-H1: Agencia SEO y de marketing en Arroyomolinos
+H1: Agencia SEO en Arroyomolinos: negocio recién abierto, visible en Maps
 Etiqueta: Negocios nuevos en Maps · Arroyomolinos
 Entrada corta: Si acaba de abrir en Arroyomolinos, le ayudamos a aparecer en Google desde cero: ficha, web y anuncios, desde Alcorcón.
 ---
 
-El Gordo y el Flaco es una agencia SEO y de marketing online con oficina en Alcorcón que trabaja con negocios de Arroyomolinos, como Aquita, la empresa de control de plagas a la que hicimos la ficha de Google y su primera web. Ayudamos sobre todo a negocios recién abiertos a salir en Google Maps desde cero. Para arrancar, vamos a verle a Arroyomolinos.
+Aquita, empresa de control de plagas de Arroyomolinos, llegó sin web: le pusimos a punto la ficha de Google y le hicimos la primera. Así trabaja El Gordo y el Flaco, agencia SEO y de marketing online de Alcorcón, con los negocios recién abiertos de Arroyomolinos: desde cero y en orden.
 
 ## ¿Cómo sale en Maps un negocio nuevo de Arroyomolinos desde cero?
 
@@ -27,7 +27,7 @@ Es el trabajo de [LINK SEO local](/seo-local/) 🆕, aplicado a quien empieza.
 
 ## Aquita, un caso en Arroyomolinos
 
-Aquita es una empresa de control de plagas de Arroyomolinos. Llegó sin web. Le pusimos a punto la ficha de Google y le hicimos su primera web, desde cero, con el sistema que usamos ahora para todos los negocios locales: estática, rápida en el móvil y pensada para que quien tiene un problema en casa llame en cuanto la abre.
+Su web la hicimos con el sistema que usamos ahora para todos los negocios locales: estática, rápida en el móvil y pensada para que quien tiene un problema en casa llame en cuanto la abre.
 
 Es un ejemplo de lo que puede tener un negocio de su municipio: una [LINK web para negocios locales](/diseno-web/) 🆕 ligera, que carga al instante y cuyo dominio y alojamiento van a nombre del cliente.
 
@@ -39,7 +39,7 @@ Montamos [LINK campañas de Google Ads y anuncios en Maps](/google-ads/) 🆕 pa
 
 Si ya tiene ficha y web pero no le llaman, pida una [LINK auditoría SEO local](/auditoria-seo-local/) 🆕. Es gratuita y le llega por escrito, con los fallos ordenados.
 
-Trabajamos desde Alcorcón, donde somos [LINK agencia SEO en Alcorcón](/) 🆕, y también con negocios de [LINK Móstoles](/agencia-seo-mostoles/) 🆕 y de [LINK Fuenlabrada](/agencia-seo-fuenlabrada/) 🆕, los vecinos de Arroyomolinos.
+Trabajamos desde Alcorcón, a un cuarto de hora largo en coche, donde somos [LINK agencia SEO en Alcorcón](/) 🆕, y también con negocios de [LINK Móstoles](/agencia-seo-mostoles/) 🆕 y de [LINK Fuenlabrada](/agencia-seo-fuenlabrada/) 🆕, los vecinos de Arroyomolinos.
 
 ## Opiniones de nuestros clientes
 
@@ -47,18 +47,18 @@ Trabajamos desde Alcorcón, donde somos [LINK agencia SEO en Alcorcón](/) 🆕,
 
 ## Hablemos de su negocio en Arroyomolinos
 
-Llame al 670 78 19 40 o déjenos un mensaje en [LINK contacto](/contacto/) 🆕. Vamos a Arroyomolinos, con el desplazamiento de nuestra cuenta, y le decimos por dónde empezar. Después, un presupuesto a medida y, si lo quiere, un mantenimiento mensual que deja cuando le parezca.
+Llame al 670 78 19 40 o déjenos un mensaje en [LINK contacto](/contacto/) 🆕. Vamos a Arroyomolinos, con el desplazamiento de nuestra cuenta, y le decimos por dónde empezar. Después, un presupuesto que depende de si parte sin ficha, sin web o sin ninguna de las dos y, si lo quiere, un mantenimiento mensual, con un mínimo de seis meses y, después, mes a mes.
 
 ---
 FAQ
 
 **Acabo de abrir en Arroyomolinos y aún no tengo ficha de Google. ¿Pueden crearla?** Sí. La creamos, la verificamos y la dejamos completa desde el primer día, a nombre de su negocio.
 
-**¿Qué hicieron para Aquita?** La puesta a punto de su ficha de Google y su primera web, desde cero: estática, rápida y pensada para que el cliente llame. Aquita es una empresa de control de plagas de Arroyomolinos.
+**¿Qué hicieron para Aquita?** La ficha de Google y la web: estática, rápida y pensada para que el cliente llame. Aquita es una empresa de control de plagas de Arroyomolinos.
 
-**¿Me cobran por venir a Arroyomolinos?** El desplazamiento corre de nuestra cuenta, y la primera reunión en su negocio es gratuita.
+**¿Me cobran por venir a Arroyomolinos?** No. Ir a verle forma parte de nuestro trabajo, y la primera reunión en su negocio es gratuita.
 
 ---
 Notas para Álvaro:
 
-Sin ⚑ abiertas (tanda 7, 27/09): «municipio joven» fuera (sin dato); Madrid Xanadú comprobado.
+Tanda 8 (27/09): primer párrafo de 64 a menos de 60 palabras, abre con Aquita. Madrid Xanadú, ya comprobado; tiempo en coche (unos 17 minutos, distancia.es).

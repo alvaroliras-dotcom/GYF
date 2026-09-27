@@ -2,16 +2,16 @@ URL: /agencia-seo-mostoles/
 Title: Agencia SEO en Móstoles y marketing local | GYF
 Meta description: Posicionamos negocios de Móstoles en Google y en Maps: ficha, reseñas, web y anuncios. Estamos al lado, en Alcorcón, y vamos a verle sin coste.
 Keyword principal: agencia SEO en Móstoles
-H1: Agencia SEO y de marketing en Móstoles
+H1: Agencia SEO en Móstoles: a por los tres de Maps
 Etiqueta: SEO local y marketing · Móstoles
 Entrada corta: Para comercios y servicios de Móstoles que compiten en Google Maps con muchos negocios iguales. Desde Alcorcón, al lado.
 ---
 
-El Gordo y el Flaco, agencia SEO y de marketing online de Alcorcón, pared con pared con Móstoles, lleva la ficha de Google, las reseñas, la web y los anuncios de comercios mostoleños. Pablo, cliente nuestro, nombra Móstoles en su reseña de Google. Para empezar, vamos a su negocio en Móstoles.
+Móstoles y Alcorcón se tocan: desde nuestra oficina llegamos a su negocio en menos de diez minutos. El Gordo y el Flaco, agencia SEO y de marketing online de Alcorcón, trabaja la ficha de Google, las reseñas, la web y los anuncios de comercios mostoleños que compiten calle a calle en Maps.
 
 ## ¿Cómo destaca un comercio de Móstoles con tanta competencia en Maps?
 
-En Móstoles casi nunca está usted solo en el mapa. Busque cualquier oficio o cualquier tienda y saldrán diez puntos rojos en pocas calles. Google enseña tres. Para estar entre ellos hace falta algo más que tener ficha: tenerla más completa, más activa y mejor valorada que la del vecino.
+En Móstoles casi nunca está usted solo en el mapa. Busque cualquier oficio o cualquier tienda desde la plaza del Pradillo y saldrán diez puntos rojos en pocas calles. Google enseña tres. Para estar entre ellos hace falta algo más que tener ficha: tenerla más completa, más activa y mejor valorada que la del vecino.
 
 Ahí se gana o se pierde casi todo.
 
@@ -24,11 +24,11 @@ Trabajamos la ficha en este orden:
 
 Todo esto forma parte de nuestro servicio de [LINK SEO local](/seo-local/) 🆕.
 
-## Un vecino que ya trabaja en Móstoles
+## Móstoles, a un paso de nuestra oficina
 
-Móstoles y Alcorcón se tocan. Muchos negocios tienen clientes a los dos lados de la frontera, y alguno tiene local en ambos.
+Muchos negocios tienen clientes a los dos lados de la frontera entre Móstoles y Alcorcón. Nosotros también trabajamos a los dos lados.
 
-Es el caso de La Casita de los Animales: no le hicimos la web, le trabajamos la llegada de visitas a su tienda en internet y lo que pasa cuando entran, y hubo meses con subidas de ventas muy grandes. También el de Pablo, que en su reseña de Google cuenta el trabajo de fichas y SEO local que hicimos para él en Alcorcón, Móstoles, Getafe y Leganés.
+Es el caso de La Casita de los Animales: no le hicimos la web; trabajamos la llegada de visitas a su tienda en internet y lo que pasa cuando entran.
 
 Para nosotros, ir a su negocio en Móstoles es cruzar la calle. El desplazamiento corre de nuestra cuenta.
 
@@ -36,9 +36,9 @@ Para nosotros, ir a su negocio en Móstoles es cruzar la calle. El desplazamient
 
 Una buena ficha trae visitas. La web decide si esas visitas llaman o se van a la competencia.
 
-En un mercado tan grande como el de Móstoles, la persona que duda entre usted y otro entra en las dos webs. Gana la que carga rápido en el móvil, explica el servicio sin rodeos y deja el teléfono a un toque. Así son las [LINK webs que diseñamos para negocios locales](/diseno-web/) 🆕.
+En un mercado tan grande como el de Móstoles, la persona que duda entre usted y otro entra en las dos webs. Gana la que carga rápido en el móvil, explica el servicio sin rodeos y deja el teléfono a un toque. Así son las [LINK webs que diseñamos para negocios locales](/diseno-web/) 🆕. Y si su empresa está en el polígono de Las Nieves, donde se busca taller y proveedor más que tienda, la web pesa todavía más que el mapa.
 
-Y si necesita llamadas mientras la ficha y la web cogen fuerza, montamos [LINK anuncios en Google y en Maps](/google-ads/) 🆕 limitados a Móstoles y a los barrios que le interesen.
+Si necesita llamadas mientras la ficha y la web cogen fuerza, montamos [LINK anuncios en Google y en Maps](/google-ads/) 🆕 limitados a Móstoles y a los barrios que le interesen.
 
 ¿Busca por dónde empezar? Pida una [LINK auditoría SEO local de su ficha y su web](/auditoria-seo-local/) 🆕. Es gratuita y le llega por escrito, con los fallos ordenados de más a menos importante.
 
@@ -50,18 +50,18 @@ Si su negocio también mira hacia Alcorcón, nuestra base, esta es la página de
 
 ## Quedamos en su negocio de Móstoles
 
-Llame al 670 78 19 40 o déjenos su teléfono en [LINK contacto](/contacto/) 🆕. Vamos a verle, miramos su ficha con usted delante y después le pasamos un presupuesto a medida. Esa primera visita es gratis.
+Llame al 670 78 19 40 o déjenos su teléfono en [LINK contacto](/contacto/) 🆕. Vamos a verle, miramos su ficha con usted delante y después le pasamos un presupuesto, que depende de lo que haya que arreglar y de los servicios que elija. Esa primera visita es gratis.
 
 ---
 FAQ
 
-**¿Tienen clientes en Móstoles?** Sí. Pablo, por ejemplo, cuenta en su reseña de Google el trabajo de fichas y SEO local que hicimos para él en Móstoles y en otros municipios de la zona.
+**¿Cuánto tardan en venir a Móstoles?** Poco: desde Alcorcón son unos minutos en coche. Quedamos el día que le venga bien, en su negocio.
 
 **Mi negocio está en Móstoles y hay muchos iguales cerca. ¿Tiene sentido trabajar la ficha?** Es justo donde más sentido tiene. Cuando hay mucha competencia, la diferencia la marcan los detalles de la ficha, las fotos y las reseñas, que es lo que trabajamos.
 
-**¿Me ato a un contrato largo?** Trabajamos mes a mes. Después del trabajo ofrecemos un mantenimiento mensual que puede dejar en cuanto quiera.
+**¿Me ato a un contrato largo?** No. El trabajo inicial no le obliga a contratar nada más. Si después quiere un mantenimiento mensual, el mínimo son seis meses; a partir de ahí, va mes a mes y lo deja cuando quiera.
 
 ---
 Notas para Álvaro:
 
-Sin ⚑ abiertas (tanda 7, 27/09): La Casita = captación de tráfico y mejora de la conversión de su tienda en internet (no la web); se quita que atienda en los dos municipios (sin confirmar). Reseña de Pablo cotejada.
+Tanda 8 (27/09): fuera la reseña de Pablo como prueba (y la pregunta frecuente que se apoyaba en ella). Entran la plaza del Pradillo y el polígono de Las Nieves. La Casita se queda sin la frase de «subidas de ventas muy grandes» (resultado sin medir).

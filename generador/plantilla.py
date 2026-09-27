@@ -70,8 +70,8 @@ def _letras(t):
 
 
 def txt_boton(t):
-    return (f'<span class="sr">{html.escape(t)}</span><span class="btn__txt" aria-hidden="true">'
-            f'<span class="btn__a">{_letras(t)}</span><span class="btn__b">{_letras(t)}</span></span>')
+    # v5: el texto va una sola vez; main.js lo parte en letras para la animación (antes salía tres veces en el HTML)
+    return f'<span class="btn__txt">{html.escape(t)}</span>'
 
 
 def boton(t, href, clase="", icono="flecha-diagonal", extra=""):
@@ -93,15 +93,15 @@ def btn_llamar(clase="btn--acento", t=None, extra=""):
 CTX = {"pueblo": None}   # en las landings de municipio, todos los WhatsApp llevan el pueblo
 
 
-def wa_url(pueblo=None):
+def wa_url(pueblo=None, t=None):
     from urllib.parse import quote
     pueblo = pueblo or CTX["pueblo"]
-    t = texto("whatsapp_saludo") + (texto("whatsapp_pueblo", pueblo=pueblo) if pueblo else "") + ": "
+    t = t or (texto("whatsapp_saludo") + (texto("whatsapp_pueblo", pueblo=pueblo) if pueblo else "") + ": ")
     return f"https://wa.me/{N['whatsapp']}?text={quote(t)}"
 
 
-def btn_whatsapp(clase="btn--linea", pueblo=None):
-    return boton("WhatsApp", wa_url(pueblo), clase, "whatsapp-generico", ' rel="noopener" target="_blank"')
+def btn_whatsapp(clase="btn--linea", pueblo=None, t=None, rotulo="WhatsApp"):
+    return boton(rotulo, wa_url(pueblo, t), clase, "whatsapp-generico", ' rel="noopener" target="_blank"')
 
 
 # ---------- Imágenes (las genera rematar.py: 800 y 1600, JPG y WebP) ----------
@@ -120,8 +120,8 @@ def foto(archivo, alt, sizes="(max-width: 900px) 100vw, 50vw", prioridad=False, 
     w, h = medida(archivo)
     alto = round(1600 * h / w)
     carga = 'fetchpriority="high"' if prioridad else 'loading="lazy" decoding="async"'
-    return (f'<picture class="{clase}"><source type="image/webp" srcset="/img/{base}-800.webp 800w, /img/{base}-1600.webp 1600w" sizes="{sizes}">'
-            f'<img src="/img/{base}-1600.jpg" srcset="/img/{base}-800.jpg 800w, /img/{base}-1600.jpg 1600w" sizes="{sizes}" '
+    return (f'<picture class="{clase}"><source type="image/webp" srcset="/img/{base}-800.webp 800w, /img/{base}-1200.webp 1200w, /img/{base}-1600.webp 1600w" sizes="{sizes}">'
+            f'<img src="/img/{base}-1600.jpg" srcset="/img/{base}-800.jpg 800w, /img/{base}-1200.jpg 1200w, /img/{base}-1600.jpg 1600w" sizes="{sizes}" '
             f'width="1600" height="{alto}" alt="{A(alt)}" {carga}></picture>')
 
 
@@ -174,7 +174,7 @@ def cabeza(p, schema, robots="index, follow", precarga=None):
 <link rel="manifest" href="/site.webmanifest">
 {fuentes}
 {pre}
-<script>document.documentElement.classList.add("js")</script>
+<script>document.documentElement.classList.add("js");try{{if(sessionStorage.getItem("gyf-cortina")){{sessionStorage.removeItem("gyf-cortina");document.documentElement.classList.add("con-cortina")}}}}catch(e){{}}</script>
 <link rel="stylesheet" href="/css/estilo.css?v={VERSION}">
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False, separators=(",", ":"))}</script>
 </head>
@@ -219,6 +219,7 @@ def cabecera(actual):
   <div class="menu__top"><img class="menu__logo" src="/marca/{logo_b}" alt="" width="{MARCA['logo_ancho']}" height="{MARCA['logo_alto']}"><button class="menu__cerrar" type="button" aria-label="Cerrar menú">{ico("cerrar")}</button></div>
   <nav class="menu__nav" aria-label="Principal"><ul class="menu__grandes">{grandes}</ul><div class="menu__cols">{cols}</div></nav>
   <div class="menu__contacto">
+   <p class="menu__h">Hablemos</p>
    <p class="estado" data-estado><i></i><span>{N['horario_corto']}</span></p>
    <a class="menu__tel tel" href="tel:{N['telefono_e164']}">{N['telefono']}</a>
    <a class="menu__mail" href="mailto:{N['email']}">{N['email']}</a>
@@ -246,7 +247,7 @@ def estado(clase=""):
 def nota(clase="", enlace=None):
     cuerpo = (f'<strong data-nota>{N["valoracion"]}</strong><span class="estrellas" aria-hidden="true">★★★★★</span>'
               + (f'<span><span data-resenas>{N["resenas"]}</span> reseñas en Google</span>' if getattr(C, "NOTA_CON_NUMERO", True)
-                 else f'<span>en Google<span data-resenas hidden>{N["resenas"]}</span></span>'))
+                 else '<span>en Google</span>'))   # v5: sin el número de reseñas ni oculto
     if enlace:
         return f'<a class="nota {clase}" href="{A(enlace)}"{" rel=noopener target=_blank" if enlace.startswith("http") else ""}>{cuerpo}</a>'
     return f'<p class="nota {clase}">{cuerpo}</p>'
@@ -274,11 +275,10 @@ def pie():
     {estado("estado--claro")}
     <a class="pie__tel tel" href="tel:{N['telefono_e164']}" data-zona="pie">{N['telefono']}</a>
     <a class="pie__mail" href="mailto:{N['email']}">{N['email']}</a>
-    <p class="pie__dir"><a href="{FICHA}" rel="noopener" target="_blank">{N['calle']}, {N['cp']} {N['localidad']} ({N['provincia']})</a></p>
+    <address class="pie__nap"><strong>{N['nombre_largo']}</strong><span>{N['calle']}</span><span>{N['cp']} {N['localidad']} ({N['provincia']})</span><a href="{FICHA}" rel="noopener" target="_blank">Cómo llegar · ver en Google Maps</a></address>
     <div class="acciones">{btn_whatsapp("btn--blanco btn--peq")}</div>
    </div>
    <div class="pie__t pie__t--horario rv">
-    <span class="pie__sim" aria-hidden="true">{objeto("simbolo-cerca", "(max-width: 900px) 60vw, 360px")}</span>
     <p class="pie__h">Horario</p>
     <p class="pie__horas"><strong>{abre}<em>—</em>{cierra}</strong><span>{N['dias_texto']}</span></p>
     <p class="pie__nota">{texto("llms_horario_extra")}</p>

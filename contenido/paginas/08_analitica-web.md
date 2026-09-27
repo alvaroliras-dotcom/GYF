@@ -2,12 +2,12 @@ URL: /analitica-web/
 Title: Analítica web para negocios: GA4 e informes | GYF
 Meta description: Configuramos Google Analytics 4 y Search Console, medimos llamadas y formularios y cada mes le explicamos, en claro, qué funciona y qué conviene cambiar.
 Keyword principal: analítica web para negocios
-H1: Analítica web: saber de dónde vienen sus clientes
+H1: Analítica web para negocios: sepa de dónde vienen sus clientes
 Etiqueta: Analítica web · Alcorcón
 Entrada corta: Google Analytics 4, Search Console y un informe mensual en claro, para negocios de Alcorcón y alrededores.
 ---
 
-El Gordo y el Flaco configura la analítica web de negocios de Alcorcón y alrededores: Google Analytics 4, Search Console y la medición de llamadas y formularios. Cada mes le entregamos un informe y lo repasamos con usted en persona: de dónde vienen sus clientes y qué conviene cambiar. Empezamos revisando lo que ya mide su web, en una reunión en su negocio, sin coste.
+Cuántas llamadas le trae la web, desde dónde y qué conviene cambiar: eso le cuenta la analítica que configura El Gordo y el Flaco a negocios de Alcorcón y alrededores. Google Analytics 4, Search Console y la medición de llamadas y formularios. Cada mes, un informe que repasamos con usted en persona.
 
 ## ¿Cómo saber cuántas llamadas le llegan por la web?
 
@@ -18,7 +18,7 @@ Un toque en el botón de llamar dice que alguien quiso llamarle. La otra mitad d
 Con estos datos se contestan preguntas que cualquier dueño de negocio se hace:
 
 - Qué servicio trae más llamadas.
-- Qué municipio le escribe más.
+- Qué municipio le escribe más: si le llaman más desde [LINK Fuenlabrada](/agencia-seo-fuenlabrada/) 🆕 o desde [LINK Arroyomolinos](/agencia-seo-arroyomolinos/) 🆕, por ejemplo.
 - Si las visitas del móvil llaman más que las del ordenador.
 
 ## ¿Qué trae el informe mensual?
@@ -41,7 +41,7 @@ Si prefiere mirar sus números cuando quiera, sin esperar al informe, le prepara
 
 ## ¿Para qué sirve Search Console en un negocio local?
 
-Search Console es la herramienta gratuita de Google que enseña con qué búsquedas aparece su web, cuántas veces se ha mostrado y cuántas personas han entrado. En El Gordo y el Flaco la usamos para ver si le encuentran por los servicios que usted quiere vender y en los municipios donde trabaja.
+Search Console es la herramienta gratuita de Google que enseña con qué búsquedas aparece su web, cuántas veces se ha mostrado y cuántas personas han entrado. En El Gordo y el Flaco la usamos para ver si le encuentran por los servicios que usted quiere vender y en los municipios donde trabaja, sea Alcorcón o [LINK Majadahonda](/agencia-seo-majadahonda/) 🆕.
 
 A veces descubre cosas que desde dentro se escapan. Una página sale a menudo en Google y entran pocas personas: a menudo ayuda cambiar el título. Una búsqueda con muchas impresiones está esperando su propia página: es la próxima que conviene escribir.
 
@@ -57,7 +57,7 @@ Las webs que hacemos con nuestro servicio de [LINK diseño web](/diseno-web/) �
 
 1. Nos llama o nos deja su teléfono en el formulario.
 2. Vamos a su negocio, sin coste, y revisamos qué mide hoy su web.
-3. Le damos un presupuesto a medida.
+3. Le damos un presupuesto según lo que haya que configurar y medir.
 4. Configuramos Google Analytics 4, Search Console y las conversiones.
 5. Cada mes le enviamos el informe y lo comentamos con usted en una reunión en persona.
 

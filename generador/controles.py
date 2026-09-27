@@ -75,7 +75,7 @@ for url, ruta in sorted(paginas.items()):
     for pat, que in [(r"\((Formulario|Widget|Foto|Imagen|Mapa|Nota)\b", "nota de maqueta entre paréntesis"),
                      (r"\ben contacta con nosotros\b", "«en contacta con nosotros»"),
                      (r"[a-záéíóúñ,] Contacta con nosotros", "«Contacta» con mayúscula a mitad de frase"),
-                     (r"a la hora que sea|24 ?h(oras)?\b(?! no)", "promesa de horario que no es verdad")]:
+                     (r"a la hora que sea|(?<!menos de )24 ?h(oras)?\b(?! no)", "promesa de horario que no es verdad")]:  # «en menos de 24 horas» es plazo de respuesta, no horario (Álvaro, 27/09)
         if re.search(pat, txt) and not (que.startswith("promesa") and url in [u for _, u in LEGALES]) and not (que.startswith("promesa") and re.search(r"no (hacemos|atendemos|damos)[^.]{0,40}24", txt)):
             err.append(f"{url}: {que}")
     if re.search(r"<p><strong>[^<]{3,40}</strong></p>\s*<p><strong>[^<]{3,40}</strong></p>", cuerpo):

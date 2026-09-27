@@ -77,9 +77,9 @@ def negocio_schema():
     area = [BASE] + [v for k, v in PUEBLO.items() if v != BASE]
     d = {
         "@type": N["schema_tipo"], "@id": NEG_ID, "name": N["nombre_largo"],   # el nombre de la ficha (manda)
-        "alternateName": N["nombre"],
+        "alternateName": getattr(C, "ALTERNATE_NAME", N["nombre"]),
         "url": DOMINIO + "/", "telephone": N["telefono_e164"], "email": N["email"],
-        "logo": DOMINIO + "/marca/" + MARCA["simbolo"], "image": DOMINIO + "/og-image.jpg",
+        "logo": DOMINIO + "/android-chrome-512x512.png", "image": DOMINIO + "/og-image.jpg",
         "address": {"@type": "PostalAddress", "streetAddress": N["calle"], "postalCode": N["cp"],
                     "addressLocality": N["localidad"], "addressRegion": N["region"], "addressCountry": "ES"},
         "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": N["dias_schema"],
@@ -96,6 +96,10 @@ def negocio_schema():
         d["priceRange"] = N["precio"]
     if N.get("pago"):
         d["paymentAccepted"] = N["pago"]
+    ss = getattr(C, "SERVICIO_SCHEMA", {})
+    if ss:   # v5 · catálogo de servicios del negocio
+        d["hasOfferCatalog"] = {"@type": "OfferCatalog", "name": "Servicios", "itemListElement": [
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "@id": DOMINIO + u + "#servicio", "name": n}} for u, (n, _) in ss.items()]}
     if N.get("fundacion"):
         d["foundingDate"] = str(N["fundacion"])
     if int(N["resenas"]) == 0 or not getattr(C, "SCHEMA_VALORACION", True):
@@ -107,6 +111,9 @@ def negocio_schema():
                         "hasCredential": [{"@type": "EducationalOccupationalCredential", "name": n, "identifier": i}
                                           for n, i in pe.get("credenciales", [])]}
     return d
+
+
+FAQ_MARCADAS = set()
 
 
 def schema_de(p):
@@ -123,12 +130,24 @@ def schema_de(p):
             {"@type": "ListItem", "position": i + 1, "name": n, "item": DOMINIO + u} for i, (u, n) in enumerate(c)]})
     t = datos.tipo_de(p["url"])
     if t in ("servicio", "marca", "municipio"):
-        g.append({"@type": "Service", "name": p["h1"], "serviceType": N["servicio_tipo"], "provider": {"@id": NEG_ID},
-                  "url": url, "areaServed": {"@type": "City", "name": PUEBLO.get(p["url"], BASE)}})
-    if p["faq"]:
+        ss = getattr(C, "SERVICIO_SCHEMA", {})
+        if p["url"] in ss:   # v5 · servicio: nombre y tipo propios; zona: los 11 municipios
+            nom, tipo = ss[p["url"]]
+            area = [{"@type": "City", "name": a} for a in [BASE] + [v for k, v in PUEBLO.items() if v != BASE]]
+            g.append({"@type": "Service", "@id": url + "#servicio", "name": nom, "serviceType": tipo, "provider": {"@id": NEG_ID},
+                      "url": url, "areaServed": area, "description": p["meta"]})
+        else:                # municipio o página de la marca
+            pb = PUEBLO.get(p["url"], BASE)
+            g.append({"@type": "Service", "@id": url + "#servicio", "name": f"SEO local y marketing online para negocios de {pb}",
+                      "serviceType": "SEO local", "provider": {"@id": NEG_ID}, "url": url,
+                      "areaServed": {"@type": "City", "name": pb}, "description": p["meta"]})
+    # v5: cada pregunta se marca en una sola página (la primera que la trae); en las demás se ve, pero no va al schema
+    faq_propia = [(q, a) for q, a in p["faq"] if q.strip().lower() not in FAQ_MARCADAS]
+    FAQ_MARCADAS.update(q.strip().lower() for q, _ in faq_propia)
+    if faq_propia:
         g.append({"@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"<[^>]+>", "", inline(a))}}
-            for q, a in p["faq"]]})
+            for q, a in faq_propia]})
     return {"@context": "https://schema.org", "@graph": g}
 
 
@@ -289,6 +308,32 @@ def tabla_html(cab, filas):
     return f'<div class="tabla rv"><table class="tabla-datos"><thead><tr>{th}</tr></thead><tbody>{"".join(trs)}</tbody></table></div>'
 
 
+NOMBRE_ITEM = re.compile(r"^\*\*(.+?)\*\*,\s*(.+)$")
+
+
+def rejilla_nombres(items):
+    """v5 · Listas «**Nombre**, qué hace» que son el equipo de agentes o una muestra de trabajos: en rejilla.
+    Agentes: objeto 3D de su oficio y nombre (decisión de Álvaro: sin caras). Trabajos: miniatura del caso si la hay."""
+    ms = [NOMBRE_ITEM.match(x) for x in items]
+    if not all(ms) or len(ms) < 3:
+        return ""
+    ag = getattr(C, "AGENTES_OBJETO", {})
+    if all(m.group(1) in ag for m in ms):
+        li = "".join(f'<li class="agente rv"><span class="agente__obj" aria-hidden="true">{T.objeto(ag[m.group(1)], "160px")}</span>'
+                     f'<strong class="agente__n">{esc(m.group(1))}</strong><span class="agente__t">{inline(m.group(2).rstrip("."))}</span></li>' for m in ms)
+        return f'<ul class="agentes">{li}</ul>'
+    alias = getattr(C, "MUESTRA_CASO", {})
+    casos = [CASO_POR_NOMBRE.get(alias.get(m.group(1), m.group(1))) for m in ms]
+    if sum(1 for c in casos if c) * 2 < len(ms):
+        return ""
+    li = []
+    for m, c in zip(ms, casos):
+        mini = (T.foto(c[2], f"{m.group(1)}: {c[1]}", "(max-width: 700px) 44vw, 240px", clase="muestra__foto") if c
+                else f'<span class="muestra__obj" aria-hidden="true">{T.objeto(getattr(C, "MUESTRA_OBJETO", {}).get(m.group(1), "estrella-cromo"), "160px")}</span>')
+        li.append(f'<li class="muestra rv{"" if c else " muestra--sin"}">{mini}<strong>{esc(m.group(1))}</strong><span>{inline(m.group(2))}</span></li>')
+    return f'<ul class="muestras">{"".join(li)}</ul>'
+
+
 def render_bloques(bl, estructura=None):
     """Markdown en bloques → HTML. estructura (lista) recibe lo que va a ancho completo en la home."""
     out, i, tras = [], 0, [False]
@@ -322,6 +367,8 @@ def render_bloques(bl, estructura=None):
                     m = re.search(r"\[(?:LINK )?([^\]]+)\]\(([^)]+)\)", x)
                     items.append(f'<li><a href="{m.group(2)}">{esc(m.group(1))}{T.ico("flecha-diagonal")}</a></li>')
                 pon(f'<ul class="enlaces">{"".join(items)}</ul>', True)
+            elif (rej := rejilla_nombres(c)):
+                pon(rej, True)
             else:
                 vin = T.simbolo("vineta")
                 pon('<ul class="lista">' + "".join(f"<li>{vin}<span>{inline(x)}</span></li>" for x in c) + "</ul>")
@@ -396,9 +443,11 @@ def portada_home(p):
      {extra}
     </aside>"""
     galeria = ""
+    # v5.2: la galería de portada no repite los casos que se cuentan en «Lo más reciente»
+    gal = [c for c in CASOS if c[0] not in getattr(C, "CASOS_RECIENTES", [])][:7] or CASOS[:7]
     if CASOS:
-        galeria = (f'<section class="galeria" aria-labelledby="galeria-tit" data-galeria><h2 class="sr" id="galeria-tit">Trabajos</h2>'
-                   f'<ul class="galeria__lista">{"".join(caso_html(c, i) for i, c in enumerate(CASOS[:7]))}</ul></section>')
+        galeria = (f'<section class="galeria" aria-label="Trabajos recientes" data-galeria>'
+                   f'<ul class="galeria__lista galeria__lista--{len(gal)}">{"".join(caso_html(c, i) for i, c in enumerate(gal))}</ul></section>')
     return f"""<div class="hero{' hero--galeria' if galeria else ''}" data-hero>
 <section class="portada-a" data-portada>
  <div class="contenedor portada-a__top" data-sale>
@@ -406,13 +455,14 @@ def portada_home(p):
   <h1 class="h1-home">{esc(p['h1'])}</h1>
   <p class="portada-a__corta">{corta}</p>
   <div class="acciones">{T.btn_llamar(extra=' data-zona="portada_boton"')}{T.btn_whatsapp("btn--linea")}</div>
+  <p class="portada-a__gratis">{T.ico("check")}{esc(texto("portada_gratis"))}</p>
  </div>
  <div class="portada-a__centro">
   {T.cinta(CINTA_PORTADA, "cinta--gigante")}
   {objeto_html()}
  </div>
- <span class="portada-a__extra portada-a__extra--a" aria-hidden="true" data-sale>{T.objeto("simbolo-cromo", "220px", "flota-lenta")}</span>
- <span class="portada-a__extra portada-a__extra--b" aria-hidden="true" data-sale>{T.objeto("simbolo-cristal", "150px", "flota-lenta")}</span>
+ <span class="portada-a__extra portada-a__extra--a" aria-hidden="true" data-sale>{T.objeto("chincheta", "220px", "flota-lenta")}</span>
+ <span class="portada-a__extra portada-a__extra--b" aria-hidden="true" data-sale>{T.objeto("estrella-cromo", "150px", "flota-lenta")}</span>
  <div class="contenedor portada-a__pie">
   <nav class="portada-a__serv" aria-label="Servicios" data-sale><ul>{serv}</ul></nav>
   {tarjeta}
@@ -435,14 +485,24 @@ def portada_interior(p, t):
     pild = T.ico(ic) if ic and ic in T.SIMBOLOS else T.simbolo()
     pb = pueblo_de(u) if t == "municipio" else None
     extra = T.boton(CTA_EXTRA[0], CTA_EXTRA[1], "btn--linea") if CTA_EXTRA and CTA_EXTRA[1] != u and t != "contacto" else ""
+    if u == URLS.get("auditoria", "/auditoria-seo-local/"):   # v5.1: en la auditoría, lo primero es pedirla
+        acciones_portada = (T.boton(texto("aud_boton"), "#pedir-auditoria", "btn--acento", "flecha-diagonal", ' data-zona="portada_auditoria"')
+                            + T.btn_whatsapp("btn--linea", t=texto("whatsapp_auditoria"), rotulo="Pedirla por WhatsApp")
+                            + T.btn_llamar("btn--linea", extra=' data-zona="portada_boton"'))
+    else:
+        acciones_portada = T.btn_llamar(extra=' data-zona="portada_boton"') + T.btn_whatsapp("btn--linea", pueblo=pb) + extra
     # v2 · Tarjeta visual a la derecha: el objeto 3D del servicio sobre fucsia, o el pueblo con la chincheta sobre berenjena
     if t == "municipio":
-        vis = (f'<div class="cab-int__vis cab-int__vis--oscuro" aria-hidden="true">{foto_hueco("municipio", "(max-width: 1000px) 92vw, 36vw", "cab-int__fh")}<span class="cab-int__vt">{esc(pb)}</span>'
+        # v5: foto propia de cada municipio (config.FOTOS «municipio-<slug>») si ya está en recursos/fotos; si no, la común
+        clave_m = "municipio-" + u.replace(URLS["municipio"], "").strip("/")
+        if not (FOTOS.get(clave_m) and archivo_foto(FOTOS[clave_m]["archivo"])):
+            clave_m = "municipio"
+        vis = (f'<div class="cab-int__vis cab-int__vis--oscuro" aria-hidden="true">{foto_hueco(clave_m, "(max-width: 1000px) 92vw, 36vw", "cab-int__fh")}'
                f'{T.objeto(OBJETO_MUNICIPIO, "(max-width: 1000px) 50vw, 340px", "cab-int__obj flota-lenta", prioridad=True)}</div>')
     elif u in OBJETO_URL:
         # los objetos casi todo fucsia van sobre berenjena; los de cromo o crema, sobre fucsia
         tono = "oscuro" if OBJETO_URL[u] in OBJETOS_FUCSIA else "acento"
-        vis = (f'<div class="cab-int__vis cab-int__vis--{tono}" aria-hidden="true">{foto_hueco(u, "(max-width: 1000px) 92vw, 36vw", "cab-int__fh")}<span class="cab-int__vt">{esc(nombre(u))}</span>'
+        vis = (f'<div class="cab-int__vis cab-int__vis--{tono}" aria-hidden="true">{foto_hueco(u, "(max-width: 1000px) 92vw, 36vw", "cab-int__fh")}'
                f'{T.objeto(OBJETO_URL[u], "(max-width: 1000px) 50vw, 340px", "cab-int__obj flota-lenta", prioridad=True)}</div>')
     else:
         vis = ""
@@ -454,7 +514,7 @@ def portada_interior(p, t):
    <div class="cab-int__txt">
     <h1 class="h1-int{' h1-int--largo' if len(p['h1']) > 44 else ''}"><span class="h1__pildora" aria-hidden="true">{pild}</span>{esc(p['h1'])}</h1>
     <p class="cab-int__corta">{corta}</p>
-    <div class="acciones">{T.btn_llamar(extra=' data-zona="portada_boton"')}{T.btn_whatsapp("btn--linea", pueblo=pb)}{extra}</div>
+    <div class="acciones">{acciones_portada}</div>
    </div>
    {vis}
   </div>
@@ -531,7 +591,7 @@ def bloque_home(sec, n):
     clase, deco, tras = "seccion blq", "", ""
     if oscuro:
         clase = "franja franja--oscuro blq"
-        deco = f'<span class="franja__obj franja__obj--pasos" aria-hidden="true">{T.objeto("simbolos-grupo", "(max-width: 900px) 40vw, 320px", "flota-lenta")}</span>' + marca_agua()
+        deco = f'<span class="franja__obj franja__obj--pasos" aria-hidden="true">{T.objeto("bocadillo", "(max-width: 900px) 40vw, 320px", "flota-lenta")}</span>' + marca_agua()
     elif zona:
         clase = "franja franja--acento blq"
         deco = f'<span class="franja__obj franja__obj--zona" aria-hidden="true">{T.objeto("chincheta", "(max-width: 900px) 36vw, 260px", "flota-lenta")}</span>'
@@ -598,12 +658,16 @@ def proyectos_html(sec):
     ps = parrafos(sec)
     txt = "".join(f"<p>{inline(x)}</p>" for x in ps)
     items = []
-    for i, c in enumerate(CASOS):
+    destacados = getattr(C, "CASOS_RECIENTES", None)   # v5: tres casos destripados, no la galería repetida
+    lista_c = [CASO_POR_NOMBRE[n] for n in destacados if n in CASO_POR_NOMBRE] if destacados else CASOS
+    for i, c in enumerate(lista_c):
         tit, sub, _, url, _, grande = c
         etq = "".join(f"<li>{esc(e)}</li>" for e in CASOS_ETQ.get(tit, []))
         foto = T.foto(grande, f"{tit}: {sub}", "(max-width: 1000px) 92vw, 58vw", clase="proy__foto")
         marco = f'<div class="proy__marco">{foto}{f"<ul class=proy__etq>{etq}</ul>" if etq else ""}</div>'
-        pie = f'<p class="proy__tit"><strong>{esc(tit)}</strong> {esc(sub)}</p>'
+        muni, partida = getattr(C, "CASO_DETALLE", {}).get(tit, (None, None))
+        pie = (f'<p class="proy__tit"><strong>{esc(tit)}</strong> {esc(sub)}{f" · {esc(muni)}" if muni else ""}'
+               f'{f"<span class=proy__partida>{esc(partida)}</span>" if partida else ""}</p>')
         if url:
             ext = ' rel="noopener" target="_blank"' if url.startswith("http") else ""
             cuerpo = f'<a href="{A(url)}"{ext}>{marco}{pie}<span class="proy__ir" aria-hidden="true">{T.ico("flecha-diagonal")}</span></a>'
@@ -666,7 +730,9 @@ def cifras():
         ob = OBJETOS_CIFRAS[i] if i < len(OBJETOS_CIFRAS) else None
         deco = (f'<span class="cifra__obj" aria-hidden="true">{T.objeto(ob, "(max-width: 900px) 46vw, 340px")}</span>' if ob
                 else f'<span class="cifra__deco" aria-hidden="true">{T.ico(ic)}</span>')
-        tarj.append(f'<div class="cifra cifra--{i} rv"><p class="cifra__n"><span data-cuenta="{A(val)}"{fuente}>{esc(val)}</span>{esc(suf)}</p>'
+        # v5: la nota y el año no se cuentan desde cero (una nota no «sube»); solo las cifras con «+»
+        cuenta = f' data-cuenta="{A(val)}"' if suf == "+" else ""
+        tarj.append(f'<div class="cifra cifra--{i} rv"><p class="cifra__n"><span{cuenta}{fuente}>{esc(val)}</span>{esc(suf)}</p>'
                     f'<p class="cifra__t">{esc(txt)}</p>{b}{deco}</div>')
     return f"""<section class="seccion cifras-sec" aria-label="{A(texto('cifras_etiqueta'))}">
  <div class="contenedor">
@@ -734,7 +800,7 @@ def logos_html():
             os.makedirs(os.path.join(SITIO, "img", "clientes-color"), exist_ok=True)
             shutil.copy(os.path.join(RAIZ, "recursos", "clientes-color", f), os.path.join(SITIO, "img", "clientes-color", f))
             col = f'<img class="logo__color" src="/img/clientes-color/{A(f)}" alt="" width="{w}" height="{h}" loading="lazy" decoding="async">'
-        li.append(f'<li class="logo{" logo--alto" if w / max(h, 1) < 1.8 else ""}"><span class="logo__caja"><img class="logo__gris" src="/img/clientes/{A(f)}" alt="{A(n)}" width="{w}" height="{h}" loading="lazy" decoding="async">{col}</span></li>')
+        li.append(f'<li class="logo{" logo--alto" if w / max(h, 1) < 1.8 else ""}{"" if col else " logo--sin-color"}"><span class="logo__caja"><img class="logo__gris" src="/img/clientes/{A(f)}" alt="{A(n)}" width="{w}" height="{h}" loading="lazy" decoding="async">{col}</span></li>')
     return (f'<section class="seccion logos-sec" aria-label="{tit}"><div class="contenedor">'
             f'<p class="etiqueta">{T.simbolo("etiqueta__sim")}{tit}</p><ul class="logos{"" if len(li) % 12 == 0 else " logos--seis"}" data-logos>{"".join(li)}</ul></div></section>')
 
@@ -823,15 +889,22 @@ def horario_html(sec):
 MAPA_EMBED = f"https://maps.google.com/maps?cid={N['cid']}&z=16&hl=es&output=embed"
 
 
-def mapa():
-    return f"""<section class="seccion mapa-sec" aria-label="Dónde estamos">
+def mapa(sec=None):
+    """v5 · Con `sec` (el bloque «Horario y oficina» de la home) funde horario y mapa en una sola sección."""
+    if sec:
+        cab = (f'<p class="etiqueta">{T.simbolo("etiqueta__sim")}Dónde estamos</p><h2 class="h2-lect" id="{slug(sec["h2"])}">{inline(sec["h2"])}</h2>'
+               f'<div class="mapa__horas">{T.estado()}</div>'
+               f'<div class="prosa">{render_bloques(sec["bl"])}</div>')
+    else:
+        cab = f'<p class="etiqueta">{T.simbolo("etiqueta__sim")}Dónde estamos</p><h2 class="h2-lect">{texto("mapa_titular")}</h2>'
+    txt_mapa = "" if sec else f'<p>{texto("mapa_texto")}</p>'
+    return f"""<section class="seccion mapa-sec{' mapa-sec--horario' if sec else ''}" aria-label="Dónde estamos">
  <div class="contenedor">
   <div class="mapa">
    <div class="mapa__info">
-    <p class="etiqueta">{T.simbolo("etiqueta__sim")}Dónde estamos</p>
-    <h2 class="h2-lect">{texto("mapa_titular")}</h2>
+    {cab}
     <p class="mapa__dir">{N['calle']}<br>{N['cp']} {N['localidad']} ({N['provincia']})</p>
-    <p>{texto("mapa_texto")}</p>
+    {txt_mapa}
     <div class="acciones">{T.boton("Ver en Google Maps", FICHA, "btn--linea", "flecha-diagonal", ' rel="noopener" target="_blank"')}</div>
    </div>
    <div class="mapa__marco"><iframe src="{MAPA_EMBED}" title="Mapa: {A(N['nombre'])}, {A(N['calle'])}, {A(N['localidad'])}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
@@ -842,7 +915,7 @@ def mapa():
 
 
 def tarjeta_opinion(o):
-    serv = esc(o.get("servicio", "")) + (f' · {esc(o["lugar"])}' if o.get("lugar") else "")
+    serv = esc(o.get("servicio") or getattr(C, "OPINION_ETIQUETA", {}).get(o["nombre"], "")) + (f' · {esc(o["lugar"])}' if o.get("lugar") else "")
     marca = " op--marcador" if o.get("marcador") else ""
     return (f'<li class="op{marca}"><span class="estrellas" aria-label="5 estrellas">★★★★★</span>'
             f'<p class="op__tit">{esc(o["titulo"])}</p><div class="op__cuerpo"><p class="op__txt">«{esc(o["texto"])}»</p></div>'
@@ -851,10 +924,23 @@ def tarjeta_opinion(o):
             f'<span class="op__quien"><strong>{esc(o["nombre"])}</strong><span>{serv or "Opinión publicada en Google"}</span></span></div></li>')
 
 
-def opiniones(pb=None, titulo=None, texto_op=""):
+def lista_opiniones(url):
+    """v5 · N1: cada página ordena las reseñas por lo que le toca. Home: todas; interiores: tres y el resto en Google."""
+    por_nombre = {o["nombre"]: o for o in OPINIONES}
+    orden = getattr(C, "OPINION_ORDEN", {}).get(url)
+    munis = [u for u, _ in MUNICIPIOS]
+    if orden is None and url in munis:
+        rot = getattr(C, "OPINION_MUNICIPIO", [])
+        orden = rot[munis.index(url) % len(rot)] if rot else None
+    if orden is None:
+        return OPINIONES[:3] if url != "/" else OPINIONES
+    return [por_nombre[n] for n in orden if n in por_nombre]
+
+
+def opiniones(pb=None, titulo=None, texto_op="", url="/"):
     """Opiniones de la home B de Rayo: título, texto y sello de Google a la izquierda (en el sitio de Clutch),
     carrusel de tarjetas blancas a la derecha con flechas y contador (R33 sin automático). Sello que gira con el scroll (R25)."""
-    lista = sorted(OPINIONES, key=lambda o: 0 if pb and o.get("lugar") == pb else 1)
+    lista = lista_opiniones(url)
     titulo = titulo or esc(texto("opiniones_titular"))
     texto_op = f'<p>{texto_op}</p>' if texto_op else ""
     sello_t = esc(texto("opiniones_sello"))
@@ -927,10 +1013,32 @@ def llamada(url):
 </div>"""
 
 
+def aud_ir():
+    """v5.2 · En la página de la auditoría, la banda final no trae otro formulario: manda al de la página."""
+    return ('<div class="aud-ir"><p class="aud-ir__t">El formulario está un poco más arriba.</p>'
+            + T.boton(texto("aud_boton"), "#pedir-auditoria", "btn--acento", "flecha-diagonal", ' data-zona="banda_auditoria"') + '</div>')
+
+
+def cita_banda(url, salto=0):
+    """v5.1 · Una frase real de la reseña que abre esa página, junto al formulario (la primera frase entera, sin recortar)."""
+    citas = {**getattr(C, "OPINION_CITA", {}), **getattr(C, "OPINION_CITA_PAGINA", {}).get(url, {})}
+    for o in lista_opiniones(url)[salto:]:
+        t = re.sub(r"\s+", " ", o["texto"]).strip().strip("“”\"")
+        elegida = citas.get(o["nombre"])
+        m = re.match(r"(.{25,170}?[.!])(\s|$)", t) if not elegida else re.match(r"(.+)", elegida)
+        if elegida and elegida.strip("… ") not in t:   # la cita tiene que ser literal (se admiten puntos suspensivos)
+            m = None
+        if m:
+            et = getattr(C, "OPINION_ETIQUETA", {}).get(o["nombre"], "")
+            return (f'<figure class="banda__op"><span class="estrellas" aria-label="5 estrellas">★★★★★</span><blockquote>«{esc(m.group(1))}»</blockquote>'
+                    f'<figcaption>{esc(o["nombre"])}{f" · {esc(et)}" if et else ""} · en Google</figcaption></figure>')
+    return ""
+
+
 def banda(url, titulo=None, texto_b=None):
     titulo = titulo or esc(BANDA_TIT.get(url) or texto("banda_titulo"))
     texto_b = texto_b or esc(texto("banda_texto"))
-    extra = f'<a class="banda__extra" href="{CTA_EXTRA[1]}">{esc(CTA_EXTRA[0])} {T.ico("flecha-diagonal")}</a>' if CTA_EXTRA and CTA_EXTRA[1] != url else ""
+    extra = f'<a class="banda__extra" href="{CTA_EXTRA[1]}">{esc(CTA_EXTRA[0])} {T.ico("flecha-diagonal")}</a>' if CTA_EXTRA and not CTA_EXTRA[1].startswith(url if url != "/" else "#") else ""
     obj = (f'<span class="banda__objeto" aria-hidden="true">{T.objeto("simbolo-despiece", "(max-width: 1000px) 40vw, 380px", "flota-lenta")}</span>'
            if OBJETO_PORTADA.get("en_banda") else "")
     return f"""<section class="banda-sec" aria-label="Contacto">
@@ -939,14 +1047,15 @@ def banda(url, titulo=None, texto_b=None):
    <span class="banda__fondo" aria-hidden="true"><img src="/img/obj/banda-fondo.webp" alt="" width="1440" height="900" loading="lazy" decoding="async">{foto_hueco("banda", "100vw", "banda__foto")}</span>
    {obj}
    <div class="banda__txt">
-    <p class="etiqueta etiqueta--claro">{T.simbolo("etiqueta__sim")}{esc(texto("banda_etiqueta"))}</p>
+    <p class="etiqueta etiqueta--claro">{T.simbolo("etiqueta__sim")}{esc("Auditoría gratuita" if url == "/auditoria-seo-local/" else texto("banda_etiqueta"))}</p>
     <h2 class="banda__tit">{titulo}</h2>
     <p class="banda__p">{texto_b}</p>
     {T.estado("estado--claro")}
     <div class="acciones">{T.btn_llamar("btn--acento btn--grande", extra=' data-zona="banda"')}{T.btn_whatsapp("btn--linea-claro")}</div>
     {extra}
+    {cita_banda(url)}
    </div>
-   <div class="banda__form">{llamada(url)}</div>
+   <div class="banda__form">{llamada(url) if url != "/auditoria-seo-local/" else aud_ir()}</div>
   </div>
  </div>
 </section>
@@ -961,18 +1070,23 @@ def lectura(p, entrada, resto, secs_normales, ul=None):
     for k, s in enumerate(secs_normales, 1):
         sid = slug(s["h2"])
         ind.append(f'<li><a href="#{sid}">{esc(plano(s["h2"]))}</a></li>')
-        blq.append(f'<section class="lectura__blq" id="{sid}"><h2 class="h2-lect rv"><span class="h2-lect__n" aria-hidden="true">{k:02d}</span>{inline(s["h2"])}</h2><div class="prosa rv">{render_bloques(s["bl"])}</div></section>')
+        blq.append(f'<section class="lectura__blq" id="{sid}"><h2 class="h2-lect h2-lect--n rv">{inline(s["h2"])}</h2><div class="prosa rv">{render_bloques(s["bl"])}</div></section>')
     # v2 · Un caso real dentro de la columna (la «foto dentro del texto» del artículo de Rayo), tras el segundo bloque
     c = caso_de(p["url"])
-    if c and blq:
+    if c and blq and p["url"] not in [x[2] for x in SERVICIOS_HOME]:   # v5: en los servicios el caso va a sangre, fuera de la columna
+        muni, partida = getattr(C, "CASO_DETALLE", {}).get(c[0], (None, None))
+        pb_pag = next((n for u, n in MUNICIPIOS if u == p["url"]), None)
+        etq = "Caso real" if not pb_pag else ("Caso real en " + pb_pag if muni == pb_pag else "El caso más cercano")
+        donde = f' · {esc(muni)}' if muni else ""
+        mas = f'<span class="lectura__partida">{esc(partida)}</span>' if partida else ""
         fig = (f'<figure class="lectura__caso rv">{T.foto(c[5], f"{c[0]}: {c[1]}", "(max-width: 1200px) 92vw, 720px", clase="lectura__foto")}'
-               f'<figcaption><span class="lectura__etq">Caso real</span><strong>{esc(c[0])}</strong> {esc(c[1])}</figcaption></figure>')
+               f'<figcaption><span class="lectura__etq">{esc(etq)}</span><strong>{esc(c[0])}</strong> {esc(c[1])}{donde}{mas}</figcaption></figure>')
         blq.insert(min(2, len(blq)), fig)
     if True:  # opiniones sale siempre (con reseñas o con la nota de la ficha)
         ind.append('<li><a href="#opiniones">Opiniones</a></li>')
     if p["faq"]:
         ind.append('<li><a href="#preguntas">Preguntas frecuentes</a></li>')
-    extra = f'<a class="mini__extra" href="{CTA_EXTRA[1]}">{esc(CTA_EXTRA[0])} {T.ico("flecha-diagonal")}</a>' if CTA_EXTRA and CTA_EXTRA[1] != p["url"] else ""
+    extra = f'<a class="mini__extra" href="{CTA_EXTRA[1]}">{esc(CTA_EXTRA[0])} {T.ico("flecha-diagonal")}</a>' if CTA_EXTRA and not CTA_EXTRA[1].startswith(p["url"]) else ""
     lista = "".join(ind)
     ent = f'<p class="lectura__entrada rv">{" ".join(inline(x) for x in entrada)}</p>' if entrada else ""
     return f"""<section class="lectura">
@@ -1011,6 +1125,53 @@ def caso_de(url):
     return None
 
 
+def caso_sangre(url):
+    """v5 · Gesto de las páginas de servicio: el caso real a sangre, con su municipio y su punto de partida."""
+    c = caso_de(url)
+    if not c:
+        return ""
+    muni, partida = getattr(C, "CASO_DETALLE", {}).get(c[0], (None, None))
+    ir = ""
+    if c[3]:
+        ext = ' rel="noopener" target="_blank"' if c[3].startswith("http") else ""
+        ir = f'<a class="sangre__ir" href="{A(c[3])}"{ext}>{esc(CASOS_VER)} {T.ico("flecha-diagonal")}</a>'
+    etq = "".join(f"<li>{esc(e)}</li>" for e in CASOS_ETQ.get(c[0], []))
+    return f"""<section class="sangre" aria-label="Caso real: {A(c[0])}">
+ {T.foto(c[5], f"{c[0]}: {c[1]}", "100vw", clase="sangre__foto")}
+ <div class="contenedor sangre__pie">
+  <p class="etiqueta">{T.simbolo("etiqueta__sim")}Caso real{f" · {esc(muni)}" if muni else ""}</p>
+  <p class="sangre__tit"><strong>{esc(c[0])}</strong> {esc(c[1])}</p>
+  {f'<p class="sangre__partida">{esc(partida)}</p>' if partida else ""}
+  {f'<ul class="sangre__etq">{etq}</ul>' if etq else ""}
+  {ir}
+ </div>
+</section>
+"""
+
+
+def zona_municipio(url, pb):
+    """v5 · Gesto de las páginas de municipio: su mapa, y los municipios vecinos donde también trabajamos."""
+    from urllib.parse import quote
+    nom = dict(MUNICIPIOS)
+    slug_m = url.replace(URLS["municipio"], "").strip("/")
+    vecinos = [(URLS["municipio"] + v + "/", nom[URLS["municipio"] + v + "/"]) for v in getattr(C, "VECINOS", {}).get(slug_m, [])
+               if URLS["municipio"] + v + "/" in nom]
+    enl = "".join(f'<li><a href="{u}">{esc(MUNICIPIO_ANCLA.format(pueblo=n))}{T.ico("flecha-diagonal")}</a></li>' for u, n in vecinos)
+    src = f"https://maps.google.com/maps?q={quote(pb + ', Madrid')}&z=13&hl=es&output=embed"
+    return f"""<section class="seccion zona" aria-labelledby="zona-tit">
+ <div class="contenedor zona__in">
+  <div class="zona__txt">
+   <p class="etiqueta">{T.simbolo("etiqueta__sim")}La zona</p>
+   <h2 class="h2" id="zona-tit">{esc(pb)}, desde {esc(BASE)}</h2>
+   <p>Nuestra oficina está en {esc(BASE)} y vamos a verle a su negocio en {esc(pb)}. También trabajamos al lado:</p>
+   <ul class="enlaces">{enl}<li><a href="/">Agencia SEO en {esc(BASE)}{T.ico("flecha-diagonal")}</a></li></ul>
+  </div>
+  <div class="zona__mapa"><iframe src="{src}" title="Mapa de {A(pb)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+ </div>
+</section>
+"""
+
+
 def otros_servicios(url, pb=None):
     """v2 · Franja berenjena con los servicios en tarjetas (icono, objeto 3D, texto corto); al pasar el ratón se
     rellenan de fucsia desde abajo. En un servicio salen los otros seis; en un municipio, los siete."""
@@ -1041,13 +1202,49 @@ def formulario():
   <label>Nombre<input type="text" name="nombre" autocomplete="name" required maxlength="80"></label>
   <label>Teléfono<input type="tel" name="telefono" autocomplete="tel" inputmode="tel" required pattern="[0-9 +()\\-]{{9,20}}" maxlength="20"></label>
  </div>
- <label>Municipio<input type="text" name="municipio" autocomplete="address-level2" maxlength="60" placeholder="{A(texto('form_municipio_ph'))}"></label>
+ <label>Municipio <span class="opcional">(opcional)</span><input type="text" name="municipio" autocomplete="address-level2" maxlength="60" placeholder="{A(texto('form_municipio_ph'))}"></label>
  <label>{texto("form_mensaje_label")} <span class="opcional">(opcional)</span><textarea name="mensaje" maxlength="2000" placeholder="{A(texto('form_mensaje_ph'))}"></textarea></label>
  <label class="trampa" aria-hidden="true">Web<input type="text" name="web" tabindex="-1" autocomplete="off"></label>
  <input type="hidden" name="t" value="">
  {privacidad("privacidad_form")}
  <div class="acciones">{T.boton_form(texto("form_boton"))}</div>
 </form>"""
+
+
+def auditoria_form():
+    """v5 · Formulario propio para pedir la auditoría gratis (lo tenía la web vieja en /auditoria-gratis/#formulario):
+    qué revisar (ficha, web o las dos), nombre, teléfono y la web o el nombre del negocio. Evento solicitud_auditoria."""
+    pts = "".join(f"<li>{T.ico('check')}<span>{esc(x)}</span></li>" for x in texto("aud_puntos").split("|"))
+    return f"""<section class="audform" id="pedir-auditoria" aria-labelledby="audform-tit">
+ <div class="contenedor audform__grid">
+  <div class="audform__txt rv">
+   <p class="etiqueta">{T.simbolo("etiqueta__sim")}Auditoría gratuita</p>
+   <h2 class="h2" id="audform-tit">{esc(texto("aud_titular"))}</h2>
+   <p>{esc(texto("aud_texto"))}</p>
+   <ul class="audform__puntos">{pts}</ul>
+   <div class="audform__op">{cita_banda("/auditoria-seo-local/", 1)}</div>
+  </div>
+  <form class="formulario audform__form rv" action="/enviar.php" method="post" aria-label="Pedir la auditoría gratuita">
+   <div class="aviso aviso--ok" id="aud-ok" hidden>{esc(texto("aud_ok"))}</div>
+   <div class="aviso aviso--error" id="aud-error" hidden>No se ha podido enviar. Llámenos al {N['telefono']} o inténtelo de nuevo.</div>
+   <fieldset class="audform__que"><legend>¿Qué quiere que revisemos?</legend>
+    <label><input type="radio" name="revisar" value="Ficha de Google"> Mi ficha de Google</label>
+    <label><input type="radio" name="revisar" value="Web"> Mi web</label>
+    <label><input type="radio" name="revisar" value="Ficha y web" checked> Las dos</label>
+   </fieldset>
+   <div class="fila-form">
+    <label>Nombre<input type="text" name="nombre" autocomplete="name" required maxlength="80"></label>
+    <label>Teléfono<input type="tel" name="telefono" autocomplete="tel" inputmode="tel" required pattern="[0-9 +()\\-]{{9,20}}" maxlength="20"></label>
+   </div>
+   <label>Su web o el nombre de su negocio <span class="opcional">(opcional)</span><input type="text" name="negocio" maxlength="160" placeholder="{A(texto('aud_negocio_ph'))}"></label>
+   <label class="trampa" aria-hidden="true">Web<input type="text" name="web" tabindex="-1" autocomplete="off"></label>
+   <input type="hidden" name="t" value=""><input type="hidden" name="tipo" value="auditoria"><input type="hidden" name="pagina" value="/auditoria-seo-local/"><input type="hidden" name="origen" value="" data-origen>
+   {privacidad("privacidad_form")}
+   <div class="acciones">{T.boton_form(texto("aud_boton"))}{T.btn_whatsapp("btn--linea", t=texto("whatsapp_auditoria"), rotulo="Pedirla por WhatsApp")}</div>
+  </form>
+ </div>
+</section>
+"""
 
 
 def contacto_cuerpo(p, intro):
@@ -1062,7 +1259,7 @@ def contacto_cuerpo(p, intro):
    <a class="contacto__tel tel" href="tel:{N['telefono_e164']}" data-zona="contacto">{N['telefono']}</a>
    {T.estado("estado--claro")}
    <address class="prosa">
-    <p><strong>Horario:</strong> {N['horario_texto']}. {texto('contacto_horario_extra')}</p>
+    <p><strong>Horario:</strong> {N['horario_texto']}.</p>   <!-- v5.2: lo de fuera de horario ya lo dice el texto de la página -->
     <p><strong>Correo:</strong> <a href="mailto:{N['email']}">{N['email']}</a></p>
     <p><strong>Dirección:</strong> <a href="{FICHA}" rel="noopener" target="_blank">{N['calle']}, {N['cp']} {N['localidad']}</a></p>
     {extra}
@@ -1101,6 +1298,7 @@ def pagina(p):
         else:
             normales.append(s)
     CTX_PAG["home"] = t == "home"
+    puesto_op = False
     if t == "home":
         cuerpo.append(portada_home(p))
         dec, resto = reparte_intro(intro)
@@ -1113,13 +1311,15 @@ def pagina(p):
         puesto_mapa = False
         for n, s in enumerate(normales, 1):
             if s["h2"].startswith(HORARIO_H2):
-                cuerpo.append(horario_html(s)); cuerpo.append(mapa()); puesto_mapa = True
+                cuerpo.append(mapa(s)); puesto_mapa = True   # v5: horario y mapa en una sola sección
             else:
                 cuerpo.append(bloque_home(s, n))
+                if QUIEN_H2 and s["h2"].startswith(QUIEN_H2) and not puesto_op:   # v5.1: opiniones antes de los casos
+                    cuerpo.append(opiniones(pb, *(op or (None, "")), url=p["url"])); puesto_op = True
             if n == CIFRAS_EN.get("home"):
                 cuerpo.append(cifras())
                 cuerpo.append(logos_html())
-                cuerpo.append(cinta_tarjetas())
+                # v5: fuera la cinta de tarjetas en la home (monograma repetido y 700 px de más)
                 cuerpo.append(logotipo_foto())
         if not puesto_mapa:
             cuerpo.append(mapa())
@@ -1131,13 +1331,20 @@ def pagina(p):
             cuerpo.append(lectura(p, [], [], normales))
     else:
         cuerpo.append(portada_interior(p, t))
+        if p["url"] == URLS.get("auditoria", "/auditoria-seo-local/"):
+            cuerpo.append(auditoria_form())
         dec, resto = reparte_intro(intro)
         cuerpo.append(lectura(p, dec, resto, normales, ul))
         if CIFRAS_EN.get(t):
             cuerpo.append(cifras())
+        if t == "servicio":
+            cuerpo.append(caso_sangre(p["url"]))
+        if t == "municipio":
+            cuerpo.append(zona_municipio(p["url"], pb))
         if t in ("servicio", "municipio"):
             cuerpo.append(otros_servicios(p["url"], pb))
-    cuerpo.append(opiniones(pb, *(op or (None, ""))))
+    if not puesto_op:
+        cuerpo.append(opiniones(pb, *(op or (None, "")), url=p["url"]))
     cuerpo.append(faq_html(p["faq"]))
     if t != "contacto":
         cuerpo.append(banda(p["url"], *(cta or (None, None))))

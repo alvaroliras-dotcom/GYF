@@ -2,24 +2,24 @@ URL: /agencia-seo-pozuelo-de-alarcon/
 Title: Agencia SEO en Pozuelo de Alarcón y marketing local | GYF
 Meta description: Agencia SEO y de marketing para negocios de Pozuelo de Alarcón: web, textos, ficha de Google y Google Ads. Primero una reunión en su negocio.
 Keyword principal: agencia SEO en Pozuelo de Alarcón
-H1: Agencia SEO y de marketing en Pozuelo de Alarcón
+H1: Agencia SEO en Pozuelo de Alarcón: clientes que le eligen
 Etiqueta: Despachos y clínicas · Pozuelo de Alarcón
 Entrada corta: Para despachos, clínicas y servicios profesionales de Pozuelo de Alarcón que necesitan distinguirse de sus competidores.
 ---
 
-El Gordo y el Flaco ayuda a despachos, clínicas y servicios profesionales de Pozuelo de Alarcón a distinguirse en un mercado caro y disputado. Como agencia SEO y de marketing online de Alcorcón, trabajamos su marca, sus textos, su ficha de Google y sus anuncios. La primera cita es en su despacho.
+En Pozuelo de Alarcón, el cliente abre varias fichas y varias webs antes de decidir, y casi todas dicen lo mismo. El Gordo y el Flaco, agencia SEO y de marketing online de Alcorcón nacida de la redacción publicitaria, trabaja los textos, la marca, la ficha de Google y los anuncios de despachos y clínicas para que se distingan.
 
 ## ¿Cómo se diferencia un despacho o una clínica de Pozuelo en Google?
 
 Un despacho o una clínica de Pozuelo de Alarcón se diferencia en Google con tres armas al alcance de cualquier presupuesto: una ficha con reseñas que cuentan casos concretos, una web con textos que suenan a quien atiende y una imagen profesional coherente en todas partes. Salir el primero ayuda; que le elijan cuando sale al lado de otros cinco es lo que llena la agenda.
 
-En Pozuelo, de la Avenida de Europa a Somosaguas, el cliente compara mucho. Abre tres fichas, lee reseñas, entra en las webs. Y en ese recorrido casi todas se parecen: la misma foto de archivo, las mismas frases de siempre, el mismo «compromiso con la excelencia».
+En Pozuelo, de la Avenida de Europa a Somosaguas, el cliente compara mucho. Lee reseñas, entra en las webs, vuelve a la ficha. Y en ese recorrido casi todas se parecen: la misma foto de archivo, las mismas frases de siempre, el mismo «compromiso con la excelencia».
 
 Ahí está la oportunidad.
 
 ## Textos que suenan a usted y no a su competencia
 
-La agencia nace de la redacción publicitaria. Escribir es la mitad de nuestro oficio, y en un mercado como el de Pozuelo se nota. Es lo que hacemos en [LINK redacción SEO y publicitaria](/redaccion-seo-copywriting/) 🆕.
+Escribir es la mitad de nuestro oficio, y en un mercado como el de Pozuelo se nota. Es lo que hacemos en [LINK redacción SEO y publicitaria](/redaccion-seo-copywriting/) 🆕.
 
 | Lo que dice casi todo el mundo | Lo que escribimos en su lugar |
 |---|---|
@@ -32,6 +32,8 @@ Esos textos van en una [LINK web diseñada para su despacho o su clínica](/dise
 ## La ficha y las reseñas, en un mercado competido
 
 En Pozuelo de Alarcón las reseñas pesan mucho, porque el cliente decide sobre servicios caros y quiere acertar. Le enseñamos a pedir reseñas reales a todos sus clientes con regularidad, a responderlas con su tono y a mantener la ficha viva. Todo ello forma parte del [LINK SEO local](/seo-local/) 🆕.
+
+A veces no hace falta más. En Pozuelo trabajamos la ficha de Google de Dotti Peluquería, sin web: para un negocio así, la ficha es el escaparate entero.
 
 ## ¿Compensa Google Ads cuando la competencia puja fuerte?
 
@@ -49,7 +51,7 @@ Estamos en Alcorcón, donde somos [LINK agencia SEO en Alcorcón](/) 🆕, y vam
 
 ## Una primera cita en su despacho de Pozuelo
 
-Llame al 670 78 19 40 o escríbanos en [LINK contacto](/contacto/) 🆕. Vamos a Pozuelo de Alarcón, escuchamos cómo trabaja y le enviamos un presupuesto a medida. Tras el proyecto, si lo desea, seguimos con un mantenimiento mensual que se deja cuando se quiera.
+Llame al 670 78 19 40 o escríbanos en [LINK contacto](/contacto/) 🆕. Vamos a Pozuelo de Alarcón, escuchamos cómo trabaja y le enviamos un presupuesto según los textos, las páginas y los servicios que necesite. Tras el proyecto, si lo desea, seguimos con un mantenimiento mensual: un mínimo de seis meses y, después, mes a mes.
 
 ---
 FAQ
@@ -63,4 +65,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-Sin ⚑ abiertas (tanda 7, 27/09): Avenida de Europa y Campus de Somosaguas comprobados (pozuelodealarcon.org).
+Tanda 8 (27/09): entra Dotti Peluquería (Pozuelo, solo ficha). Avenida de Europa y Somosaguas, ya comprobados (pozuelodealarcon.org).

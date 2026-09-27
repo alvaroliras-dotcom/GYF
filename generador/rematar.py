@@ -48,6 +48,9 @@ def al_dia(origen, salidas):
     return all(os.path.exists(s) and os.path.getmtime(s) >= t for s in salidas)
 
 
+ANCHOS_FOTO = (800, 1200, 1600)
+
+
 def imagenes():
     """Fotos y casos (JPG/PNG/WebP) → 800 y 1600 en JPG y WebP. El objeto de portada (con alfa) → 420 y 840
     en WebP con alfa y 840 en PNG (respaldo)."""
@@ -61,13 +64,25 @@ def imagenes():
             if not f.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
                 continue
             b = f.rsplit(".", 1)[0]
-            if al_dia(os.path.join(d, f), [S("img", f"{b}-{w}.{e}") for w in (800, 1600) for e in ("jpg", "webp")]):
+            if al_dia(os.path.join(d, f), [S("img", f"{b}-{w}.{e}") for w in ANCHOS_FOTO for e in ("jpg", "webp")]):
                 n += 1; continue
             im = Image.open(os.path.join(d, f)).convert("RGB")
-            for w in (800, 1600):
+            for w in ANCHOS_FOTO:
                 v = im if im.width == w else im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
-                v.save(S("img", f"{b}-{w}.jpg"), "JPEG", quality=80 if w == 1600 else 78, optimize=True, progressive=True)
-                v.save(S("img", f"{b}-{w}.webp"), "WEBP", quality=76, method=6)
+                # v5: tope de peso por ancho; si se pasa, baja la calidad (fotos con mucho grano pesaban 480 KB)
+                tope = {800: 90_000, 1200: 150_000, 1600: 190_000}[w]
+                for q in (76, 70, 64, 58, 50, 44):
+                    v.save(S("img", f"{b}-{w}.webp"), "WEBP", quality=q, method=6)
+                    if os.path.getsize(S("img", f"{b}-{w}.webp")) <= tope:
+                        break
+                else:   # grano muy fino (p. ej. la foto del ático): un suavizado leve pesa mucho menos que bajar la calidad
+                    from PIL import ImageFilter
+                    v = v.filter(ImageFilter.GaussianBlur(0.6))
+                    v.save(S("img", f"{b}-{w}.webp"), "WEBP", quality=62, method=6)
+                for q in (80 if w == 1600 else 78, 72, 66, 60, 52, 46):
+                    v.save(S("img", f"{b}-{w}.jpg"), "JPEG", quality=q, optimize=True, progressive=True)
+                    if os.path.getsize(S("img", f"{b}-{w}.jpg")) <= tope * 1.35:
+                        break
             n += 1
     o = R("recursos", "objeto", OBJETO_PORTADA["imagen"])
     if os.path.exists(o):
@@ -142,7 +157,11 @@ def copiar():
     os.makedirs(S("js"), exist_ok=True)
     js()
     shutil.copytree(R("cliente", "js", "vendor"), S("js", "vendor"), dirs_exist_ok=True)
-    shutil.copy(R("contenido", "resenas.json"), S("resenas.json"))
+    for f in os.listdir(S("js", "vendor")):   # v5: 644 (con 700 Apache devuelve 403)
+        os.chmod(S("js", "vendor", f), 0o644)
+    # v5.1: en la web solo la nota (sin el número de reseñas ni los textos, que ya van en el HTML de cada página)
+    _r = json.load(open(R("contenido", "resenas.json"), encoding="utf-8"))
+    json.dump({"valoracion": _r.get("valoracion")}, open(S("resenas.json"), "w", encoding="utf-8"), ensure_ascii=False)
 
 
 # ---------- Favicons desde el símbolo fucsia (recursos/og/simbolo-fucsia.png) ----------
@@ -222,7 +241,7 @@ def og_todas():
     return n
 
 
-HTACCESS = r"""# __NOMBRE__ · servidor Apache (hosting Plesk del cliente)
+HTACCESS = r"""# __NOMBRE__ · servidor Apache/LiteSpeed (Hostinger)
 Options -Indexes
 DirectoryIndex index.html
 AddType font/woff2 .woff2
@@ -262,7 +281,7 @@ RewriteRule ^(.*)$ __DOMINIO__/$1/ [L,R=301]
 # 6 · Host: sin www (paso 18)
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ __DOMINIO__%{REQUEST_URI} [L,R=301]
-# 7 · A https. Solo si ni Apache ni el proxy de Plesk (nginx delante) dicen que ya es https:
+# 7 · A https. Solo si ni el servidor ni un proxy delante dicen que ya es https:
 # así no entra en bucle detrás de un proxy (lo que tiró la web de Marcos).
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
@@ -307,27 +326,33 @@ ENVIAR = r"""<?php
 header('X-Robots-Tag: noindex');
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: __CONTACTO__'); exit; }
 $c = function ($k, $max) { return trim(mb_substr(strip_tags($_POST[$k] ?? ''), 0, $max)); };
-$tipo = ($_POST['tipo'] ?? '') === 'llamada' ? 'llamada' : 'contacto';
+$tp = $_POST['tipo'] ?? ''; $tipo = in_array($tp, ['llamada', 'auditoria'], true) ? $tp : 'contacto';
 $pagina = $c('pagina', 120);
 if (!preg_match('#^/[a-z0-9\-/]*$#', $pagina) || strpos($pagina, '//') !== false) { $pagina = '/'; }
 $nombre = $c('nombre', 80); $telefono = $c('telefono', 20); $municipio = $c('municipio', 60); $mensaje = $c('mensaje', 2000);
-$trampa = $_POST['web'] ?? ''; $t = (int)($_POST['t'] ?? 0);
+$revisar = $c('revisar', 40); $negocio = $c('negocio', 160);
+$origen = $c('origen', 120); if (!preg_match('#^/[a-z0-9\-/]*$#', $origen)) { $origen = ''; }
+$trampa = $_POST['web'] ?? ''; $t_txt = trim((string)($_POST['t'] ?? '')); $t = (int)$t_txt;
 $motivo = '';
 if ($trampa !== '') { $motivo = 'trampa'; }
-elseif ($t < 3000 || $t > 86400000) { $motivo = 'tiempo'; }
+elseif ($t_txt !== '' && ($t < 3000 || $t > 86400000)) { $motivo = 'tiempo'; }   /* sin JS «t» llega vacío: vale, la trampa sigue */
 elseif ($nombre === '' || !preg_match('/^[0-9 +()\-]{9,20}$/', $telefono)) { $motivo = 'datos'; }
 elseif (preg_match_all('#https?://#i', $mensaje) > 0) { $motivo = 'enlaces'; }
 $ok = $motivo === '';
 if ($tipo === 'llamada') { $vuelta = $pagina; $clave = 'llamada'; $ancla = '#te-llamamos'; $ancla_ko = '#te-llamamos'; }
+elseif ($tipo === 'auditoria') { $vuelta = '__AUDITORIA__'; $clave = 'auditoria'; $ancla = '#pedir-auditoria'; $ancla_ko = '#pedir-auditoria'; }
 else { $vuelta = '__CONTACTO__'; $clave = 'enviado'; $ancla = '#form-ok'; $ancla_ko = '#form-error'; }
 if (!$ok) { header('Location: ' . $vuelta . '?' . $clave . '=0&motivo=' . $motivo . $ancla_ko); exit; }
 $para = '__EMAIL__';
 if ($tipo === 'llamada') {
   $asunto = '=?UTF-8?B?' . base64_encode('QUE ME LLAMEN · ' . $nombre . ' · ' . $telefono) . '?=';
   $cuerpo = "Petición de llamada desde la web.\n\nNombre: $nombre\nTeléfono: $telefono\nPágina: __DOMINIO__$pagina\n";
+} elseif ($tipo === 'auditoria') {
+  $asunto = '=?UTF-8?B?' . base64_encode('AUDITORÍA GRATIS · ' . $nombre . ' · ' . $telefono) . '?=';
+  $cuerpo = "Petición de auditoría gratuita desde la web.\n\nQué revisar: $revisar\nNombre: $nombre\nTeléfono: $telefono\nWeb o negocio: $negocio\n" . ($origen !== '' ? "Venía de: __DOMINIO__$origen\n" : '');
 } else {
   $asunto = '=?UTF-8?B?' . base64_encode('Web __NOMBRE__: ' . $nombre . ($municipio ? ' (' . $municipio . ')' : '')) . '?=';
-  $cuerpo = "Nombre: $nombre\nTeléfono: $telefono\nMunicipio: $municipio\n\n$mensaje\n\n-- Enviado desde __HOST____CONTACTO__";
+  $cuerpo = "Nombre: $nombre\nTeléfono: $telefono\nMunicipio: $municipio\n\n$mensaje\n\n" . ($origen !== '' ? "Venía de: __DOMINIO__$origen\n" : '') . "-- Enviado desde __HOST____CONTACTO__";
 }
 $cab = "From: Web __NOMBRE__ <web@__HOST_SIN_WWW__>\r\nContent-Type: text/plain; charset=UTF-8\r\n";
 $enviado = @mail($para, $asunto, $cuerpo, $cab);
@@ -346,7 +371,7 @@ def servidor():
     red2 = "\n".join(f"RewriteRule {_ruta_re(a)} {DOMINIO}{b} [L,R=302]" for a, b in REDIRECCIONES_302) or "# (ninguna)"
     gone = "\n".join([f"RewriteRule {_ruta_re(a)} - [G,L]" for a in GONE_410] + [f"RewriteRule {p} - [G,L]" for p in GONE_410_PATRONES])
     sust = {"__NOMBRE__": N["nombre"], "__HOST_SIN_WWW__": host.removeprefix("www."),
-            "__HOST__": host, "__CONTACTO__": URLS["contacto"], "__REDIRECCIONES_302__": red2, "__REDIRECCIONES__": red,
+            "__HOST__": host, "__CONTACTO__": URLS["contacto"], "__AUDITORIA__": "/auditoria-seo-local/", "__REDIRECCIONES_302__": red2, "__REDIRECCIONES__": red,
             "__GONE__": gone or "# (ninguna)", "__EMAIL__": N["email"], "__DOMINIO__": DOMINIO}
     h, e = HTACCESS, ENVIAR
     for k, v in sust.items():
@@ -357,8 +382,14 @@ def servidor():
     open(S("enviar.php"), "w").write(e)
     # Vista previa (Vercel): noindex en TODO lo que sirve Vercel. vercel.json solo lo lee Vercel; en el hosting
     # de producción (Apache) no hace nada, así que producción nunca lleva el noindex (regla 10).
+    # v5: las 301 y 302 también en Vercel (Vercel no lee .htaccess), para probar el mapa en la vista previa.
+    def _ruta_v(a):
+        a = "/" + a.strip("/")
+        return a if "." in a.rsplit("/", 1)[-1] else a + "/"
+    redir = ([{"source": _ruta_v(a), "destination": b, "permanent": True} for a, b in REDIRECCIONES]
+             + [{"source": _ruta_v(a), "destination": b, "permanent": False} for a, b in REDIRECCIONES_302])
     open(S("vercel.json"), "w").write(json.dumps({
-        "cleanUrls": False, "trailingSlash": True,
+        "cleanUrls": False, "trailingSlash": True, "redirects": redir,
         "headers": [{"source": "/(.*)", "headers": [{"key": "X-Robots-Tag", "value": "noindex, nofollow"}]}]}, indent=1))
 
 
@@ -369,7 +400,7 @@ def js():
     """main.js del cliente con sus datos (horario, festivos, dominio, clave de cookies, textos del estado)."""
     N_ = N
     hosts = "|".join(re.escape(h) for h in HOST_PRODUCCION).replace("\\", "\\\\")
-    sust = {"__HOSTS_RE__": hosts, "__COOKIES__": COOKIES_CLAVE, "__TZ__": N_["zona_horaria"],
+    sust = {"__HOSTS_RE__": hosts, "__COOKIES__": COOKIES_CLAVE, "__TZ__": N_["zona_horaria"], "__TELEFONO__": N_["telefono"],
             "__FESTIVOS__": json.dumps(N_["festivos"]), "__PASCUA__": json.dumps(N_.get("festivos_pascua", [])),
             "__DIAS_N__": json.dumps([DIAS_N[d] for d in N_["dias_schema"]]),
             "__ABRE_H__": str(int(N_["abre"][:2])), "__CIERRA_H__": str(int(N_["cierra"][:2])),

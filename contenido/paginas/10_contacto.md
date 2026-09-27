@@ -19,13 +19,13 @@ Estamos en un portal del Parque de Lisboa, una zona residencial de Alcorcón. Se
 
 ## ¿Cuándo puedo llamar?
 
-De lunes a viernes, de 9:00 a 19:00. Al otro lado del teléfono le atenderá Álvaro, que es quien dirige su proyecto.
+De lunes a viernes, de 9:00 a 19:00. En ese horario le atendemos en el momento, y quien le coge el teléfono es quien dirige su proyecto. Si llama fuera de horario, le llamamos a primera hora del siguiente día laborable.
 
 ## Qué pasa después de llamar
 
 1. Nos cuenta en pocos minutos qué necesita.
 2. Quedamos en su negocio, sin coste.
-3. Analizamos su caso y le damos un presupuesto a medida.
+3. Analizamos su caso y le damos un presupuesto para lo que necesita.
 
 ## Opiniones de nuestros clientes
 
@@ -40,7 +40,7 @@ FAQ
 
 **¿Cómo se paga?** Con Bizum, transferencia, tarjeta o en efectivo, como le venga mejor.
 
-**¿Me pueden dar un precio por teléfono?** Preferimos verle antes. Después de la reunión le damos un presupuesto a medida, por escrito.
+**¿Me pueden dar un precio por teléfono?** Preferimos verle antes. Después de la reunión le damos el presupuesto por escrito, con lo que incluye.
 
 ---
 Notas para Álvaro:

@@ -1,18 +1,18 @@
 URL: /google-ads/
 Title: Agencia Google Ads en Alcorcón para negocios | GYF
-Meta description: Campañas de Google Ads y anuncios en Maps para negocios de Alcorcón. La cuenta queda a su nombre y el mantenimiento se deja cuando quiera.
+Meta description: Campañas de Google Ads y anuncios en Maps para negocios de Alcorcón, pensadas para que le llamen. La cuenta de Google Ads queda a su nombre.
 Keyword principal: agencia Google Ads en Alcorcón
-H1: Google Ads y anuncios en Maps para negocios locales
+H1: Agencia Google Ads en Alcorcón: llamadas, no clics
 Etiqueta: Google Ads y anuncios en Maps · Alcorcón
 Entrada corta: Campañas de Google para negocios de Alcorcón y alrededores, pensadas para que suene el teléfono. Primero, una reunión en su negocio.
 ---
 
-El Gordo y el Flaco es una agencia Google Ads en Alcorcón para negocios locales. Montamos y llevamos sus campañas de búsqueda y sus anuncios en Google Maps, limitados a la zona donde usted trabaja, y medimos las llamadas que traen. La cuenta queda a su nombre y la inversión la paga usted directamente a Google. Empezamos con una reunión en su negocio, sin coste.
+Llamadas de clientes de su zona, con la cuenta a su nombre: eso busca El Gordo y el Flaco, agencia Google Ads en Alcorcón, en cada campaña. Montamos y llevamos sus anuncios en la búsqueda y en Google Maps, limitados a donde usted trabaja, y medimos las llamadas que traen. La inversión la paga usted directamente a Google.
 
 - **La cuenta es suya.** A su nombre, con su historial y sus datos, y la inversión va de usted a Google.
 - **Radio corto.** Sus anuncios salen a quien busca cerca: Alcorcón y los municipios de alrededor.
 - **Llamadas contadas.** Cada mes sabe cuántas llamadas y formularios ha traído cada campaña.
-- **Mes a mes.** El mantenimiento es mensual y se deja cuando se quiera.
+- **Mantenimiento claro.** Mensual, con un mínimo de seis meses; después, mes a mes.
 
 ## ¿A nombre de quién queda la cuenta de Google Ads?
 
@@ -32,7 +32,7 @@ Por eso, antes de lanzar una campaña de Maps, revisamos la ficha con usted. Si 
 
 ## ¿Google Ads compensa a un negocio local?
 
-Google Ads compensa a un negocio local cuando lo que le deja un cliente nuevo cubre con holgura lo que cuesta conseguirlo. Ese cálculo cambia mucho de un sector a otro y de un municipio a otro. Una cerrajería y una peluquería de la misma calle pueden tener respuestas opuestas.
+Google Ads compensa a un negocio local cuando lo que le deja un cliente nuevo cubre con holgura lo que cuesta conseguirlo. Ese cálculo cambia mucho de un sector a otro y de un municipio a otro. Una cerrajería y una peluquería de la misma calle pueden tener respuestas opuestas. Y lo que sirve para [LINK un negocio de Fuenlabrada](/agencia-seo-fuenlabrada/) 🆕 puede no servir en [LINK Pozuelo de Alarcón](/agencia-seo-pozuelo-de-alarcon/) 🆕.
 
 Antes de proponerle una campaña, miramos cuatro cosas con usted:
 
@@ -50,20 +50,20 @@ Con esos números delante, le decimos en la reunión qué conviene. A veces lo q
 Una campaña local bien hecha es pequeña y precisa. Estas son las piezas que montamos y vigilamos cada mes:
 
 1. **Las búsquedas.** Elegimos las palabras con las que le buscan sus clientes y nos quedamos con las que traen trabajo.
-2. **La zona.** Los anuncios salen solo en los municipios donde usted trabaja.
+2. **La zona.** Los anuncios salen solo en los municipios donde usted trabaja: si atiende Alcorcón y [LINK Leganés](/agencia-seo-leganes/) 🆕, no paga clics de fuera.
 3. **El horario.** Los anuncios se muestran cuando hay alguien para coger el teléfono.
 4. **Los textos.** Anuncios escritos con oficio de publicidad, con su servicio, su zona y un motivo para llamar.
 5. **El destino.** Si hace falta, preparamos [LINK páginas de aterrizaje](/diseno-web/) 🆕 pensadas para un solo servicio y una sola llamada.
 6. **La medición.** Contamos llamadas, toques en el teléfono y formularios con [LINK analítica web](/analitica-web/) 🆕, para saber qué campaña trae clientes.
 
-Un caso: Balgas, empresa de reparación de calderas de Alcorcón. Le hicimos la web, trabajamos su ficha de Google y le llevamos las campañas de Google Ads.
+Un caso: Balgas, empresa de reparación de calderas de Alcorcón. Remodelamos su web, trabajamos su ficha de Google y le llevamos las campañas de Google Ads.
 
 ## Cómo empezamos
 
 1. Nos llama o nos deja su teléfono en el formulario.
 2. Vamos a su negocio, sin coste, y vemos cómo trabaja y a quién quiere llegar.
 3. Revisamos su ficha, su web y lo que hace la competencia en su zona.
-4. Le damos un presupuesto a medida.
+4. Le damos un presupuesto según las campañas y la zona que haya que cubrir.
 5. Abrimos la cuenta a su nombre, montamos la campaña y cada mes le entregamos un informe y lo repasamos con usted en persona.
 
 ## Opiniones de nuestros clientes
@@ -85,7 +85,7 @@ FAQ
 
 **¿Trabajan con negocios de fuera de Alcorcón?** Sí. Llevamos campañas de negocios de Alcorcón, Móstoles, Leganés, Getafe, Fuenlabrada y el resto de municipios de alrededor, y vamos a verle allí.
 
-**¿Me tengo que quedar un mínimo de meses?** El mantenimiento es mensual. Puede dejarlo el mes que quiera.
+**¿Me tengo que quedar un mínimo de meses?** Montar la campaña no le obliga a seguir. Si quiere que la llevemos cada mes, el mantenimiento tiene un mínimo de seis meses; después, sigue mes a mes y lo deja cuando quiera.
 
 **¿Puedo anunciarme si no tengo web?** Antes de lanzar los anuncios necesitamos una página de aterrizaje: el sitio al que llega quien pulsa y donde decide si le llama. Si no la tiene, se la preparamos primero.
 

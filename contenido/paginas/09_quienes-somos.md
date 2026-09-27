@@ -1,13 +1,13 @@
 URL: /quienes-somos/
 Title: Quiénes somos | El Gordo y el Flaco
-Meta description: El Gordo y el Flaco: 15 años de agencia en Alcorcón, un interlocutor por proyecto, especialistas en diseño, analítica y Google Ads, y agentes de IA.
+Meta description: El Gordo y el Flaco: agencia en Alcorcón desde 2013, un interlocutor por proyecto, especialistas en diseño, analítica y Google Ads, y agentes de IA.
 Keyword principal: quiénes somos El Gordo y el Flaco
 H1: Una agencia de Alcorcón, un interlocutor y un equipo detrás
 Etiqueta: Agencia de marketing online · Alcorcón
-Entrada corta: 15 años de agencia en Alcorcón, un equipo de especialistas y nuestro propio equipo de agentes de IA. Quien le coge el teléfono es quien dirige su proyecto.
+Entrada corta: Agencia en Alcorcón desde 2013, un equipo de especialistas y nuestro propio equipo de agentes de IA. Quien le coge el teléfono es quien dirige su proyecto.
 ---
 
-El Gordo y el Flaco es una agencia de marketing online de Alcorcón que lleva 15 años abierta. Detrás hay más de 20 años de oficio en publicidad: redacción publicitaria, diseño gráfico, SEO, analítica y marketing directo. Cada proyecto lo dirige un solo interlocutor, con un equipo de especialistas, personas, en diseño, analítica web y Google Ads, y con nuestro propio equipo de agentes de IA.
+Abierta en Alcorcón desde 2013, El Gordo y el Flaco es una agencia de marketing online con más de 20 años de oficio en publicidad: redacción, diseño gráfico, SEO, analítica y marketing directo. Un solo interlocutor dirige cada proyecto, con especialistas de carne y hueso en diseño, analítica web y Google Ads, y con nuestros propios agentes de IA.
 
 ## ¿Qué es El Gordo y el Flaco?
 
@@ -59,11 +59,11 @@ El nombre se quedó, y con él un guiño que sigue valiendo: aquí se hacen trab
 Lo normal es que vayamos nosotros a su negocio, en Alcorcón o en los municipios de alrededor, y el desplazamiento corre de nuestra cuenta. Si lo prefiere, también le recibimos con cita en la oficina de Alcorcón.
 
 1. Nos llama o nos deja su teléfono en el formulario.
-2. Vamos a su negocio, sin coste.
+2. Vamos a su negocio y hablamos.
 3. Hacemos una auditoría o un análisis de su caso.
-4. Le damos un presupuesto a medida.
+4. Le damos un presupuesto según lo que haya que hacer.
 5. Hacemos el trabajo.
-6. Si lo quiere, seguimos con un mantenimiento mensual, con informe cada mes y reunión en persona, que puede dejar cuando quiera.
+6. Si lo quiere, seguimos con un mantenimiento mensual, con informe cada mes y reunión en persona: un mínimo de seis meses y, después, mes a mes.
 
 Si quiere ver todo lo que hacemos por un negocio de la ciudad, empiece por nuestra [LINK agencia SEO en Alcorcón](/) 🆕.
 
@@ -71,9 +71,9 @@ Si quiere ver todo lo que hacemos por un negocio de la ciudad, empiece por nuest
 
 Una selección de proyectos, de sectores muy distintos:
 
-- **Balgas**, reparación de calderas en Alcorcón: web, ficha de Google y campañas de Google Ads.
-- **Marcos Cerrajeros**, cerrajería en Alcorcón: ficha de Google y web nueva.
-- **Aquita**, control de plagas en Arroyomolinos: ficha de Google y web nueva, desde cero.
+- **Balgas**, reparación de calderas en Alcorcón: remodelación de su web, ficha de Google y campañas de Google Ads. Según la reseña de su dueño, en unos tres meses estaba entre los diez primeros de Google en sus zonas.
+- **Marcos Cerrajeros**, cerrajería en Alcorcón: ficha de Google y web nueva. Hoy sale en Google Maps cuando se busca «cerrajero en Alcorcón».
+- **Aquita**, control de plagas en Arroyomolinos: ficha de Google y web nueva, desde cero. Hoy sale en Google Maps cuando se busca «control de plagas en Arroyomolinos».
 - **RFG Andrade**, consulta de psiquiatría en Madrid: su web de presentación.
 - **Las Tejas**, restaurante en Alcorcón: su web.
 - **JIF 2026**, congreso científico: toda la web del congreso.
@@ -100,7 +100,7 @@ FAQ
 
 **¿Los agentes de IA son personas?** Son agentes de inteligencia artificial, y así los presentamos. Cada uno tiene un oficio; los dirigimos nosotros y revisamos su trabajo, y quien responde ante usted es una persona.
 
-**¿Cuánto tiempo lleva El Gordo y el Flaco?** 15 años de agencia en Alcorcón y más de 20 años de oficio en publicidad.
+**¿Cuánto tiempo lleva El Gordo y el Flaco?** La agencia está abierta en Alcorcón desde 2013. Si ve en algún registro mercantil una sociedad con este nombre de 2016, es la misma agencia; hoy trabaja sin forma de sociedad. El oficio viene de antes: de las agencias y del marketing directo.
 
 ---
 Notas para Álvaro:

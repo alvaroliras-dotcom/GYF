@@ -2,12 +2,12 @@ URL: /agencia-seo-leganes/
 Title: Agencia SEO en Leganés y marketing local | GYF
 Meta description: Agencia SEO y de marketing para negocios de Leganés: que le encuentren en Google y en Maps y que le llamen. Primero una reunión, luego el presupuesto.
 Keyword principal: agencia SEO en Leganés
-H1: Agencia SEO y de marketing en Leganés
+H1: Agencia SEO en Leganés: que su barrio le encuentre primero
 Etiqueta: SEO y webs que hacen llamar · Leganés
 Entrada corta: Comercio de barrio y empresas de servicios de Leganés: ficha, web y anuncios para que el teléfono suene. Vamos a verle.
 ---
 
-El Gordo y el Flaco es la agencia SEO y de marketing online que viene desde Alcorcón a sentarse con el comercio de barrio y las empresas de servicios de Leganés. Trabajamos ficha de Google, web y anuncios con una meta: que el cliente de su calle le encuentre y le llame. La primera reunión no cuesta nada.
+Al comercio de barrio de Leganés le basta, muchas veces, con salir bien en Maps; a la empresa de servicios, no. El Gordo y el Flaco, agencia SEO y de marketing online de Alcorcón, trabaja la ficha de Google, la web y los anuncios de los dos, y va a verle a Leganés.
 
 ## ¿Necesita un negocio de barrio de Leganés una web o basta con la ficha?
 
@@ -23,6 +23,8 @@ Aquí compiten calle a calle. La peluquería de una esquina contra la de la esqu
 
 La parte de la ficha la cubre nuestro servicio de [LINK SEO local](/seo-local/) 🆕. La web, cuando toca, la hacemos con el mismo criterio: [LINK diseño web](/diseno-web/) 🆕 pensado para que el visitante acabe llamando.
 
+Un oficio de barrio que hemos trabajado así es Marcos Cerrajeros, en Alcorcón: pusimos a punto su ficha de Google y le hicimos una web nueva que sustituyó a la antigua.
+
 ## ¿Qué necesita la web de una empresa de servicios de Leganés?
 
 Las empresas de servicios de los parques empresariales de Leganés no venden en el mostrador. Venden por teléfono y por correo, a veces a clientes que nunca han pisado su oficina.
@@ -35,13 +37,11 @@ Cuando hace falta empujar, activamos [LINK Google Ads](/google-ads/) 🆕 con la
 
 ## ¿Qué pasa en la primera reunión?
 
-Nos llama o nos escribe. Vamos a Leganés, a su negocio, o quedamos donde le resulte cómodo. El viaje lo pagamos nosotros.
+Nos llama o nos escribe. Vamos a Leganés, a su negocio, o quedamos donde le resulte cómodo. El viaje lo pagamos nosotros, y la reunión no le cuesta nada.
 
 Allí escuchamos más que hablamos: qué vende, a quién, qué le funciona y qué no. Si quiere, después revisamos su ficha y su web con una [LINK auditoría SEO local](/auditoria-seo-local/) 🆕, gratuita, que recibe por escrito y ordenada por importancia.
 
-Con eso preparamos un presupuesto a medida. Terminado el trabajo, puede quedarse con un mantenimiento mensual o dejarlo cuando quiera.
-
-Pablo, uno de nuestros clientes, nombra Leganés en su reseña de Google junto a Alcorcón, Móstoles y Getafe, al hablar del trabajo de fichas y SEO local que hicimos con él.
+Con eso preparamos el presupuesto, que depende de si basta la ficha o hace falta también web y anuncios. Terminado el trabajo, puede seguir con un mantenimiento mensual: un mínimo de seis meses y, después, mes a mes, hasta que decida dejarlo.
 
 Nuestra base está en Alcorcón, donde somos [LINK agencia SEO en Alcorcón](/) 🆕. Muy cerca de Leganés trabajamos también en [LINK Getafe](/agencia-seo-getafe/) 🆕 y en [LINK Fuenlabrada](/agencia-seo-fuenlabrada/) 🆕.
 
@@ -51,7 +51,7 @@ Nuestra base está en Alcorcón, donde somos [LINK agencia SEO en Alcorcón](/) 
 
 ## Una conversación en su negocio de Leganés
 
-Llame al 670 78 19 40, de lunes a viernes, de 9:00 a 19:00, o use la página de [LINK contacto](/contacto/) 🆕. Fijamos día y vamos a Leganés.
+Llame al 670 78 19 40, de lunes a viernes, de 9:00 a 19:00, y le atendemos en el momento; si llama fuera de ese horario, le devolvemos la llamada a primera hora del siguiente día laborable. También puede usar la página de [LINK contacto](/contacto/) 🆕. Fijamos día y vamos a Leganés.
 
 ---
 FAQ
@@ -65,4 +65,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-Sin ⚑ abiertas (tanda 7, 27/09): Leganés Tecnológico comprobado (Butarque es el estadio, no se usa). Reseña de Pablo cotejada.
+Tanda 8 (27/09): fuera la reseña de Pablo como prueba; entra Marcos Cerrajeros como caso de oficio cercano. Leganés Tecnológico comprobado (leganestecnologico.es).

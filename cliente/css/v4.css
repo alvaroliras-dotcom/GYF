@@ -63,3 +63,210 @@
 .op-dialogo[open]{animation:opAbre .35s var(--ease-salida)}
 @keyframes opAbre{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.op-dialogo[open]{animation:none}}
+
+/* v5 · Formulario propio de la auditoría gratis */
+.audform{padding-block:clamp(24px,4vw,64px) clamp(48px,6vw,96px);scroll-margin-top:90px}
+.audform__grid{display:grid;gap:clamp(24px,4vw,56px);align-items:start}
+@media (min-width:960px){.audform__grid{grid-template-columns:1fr 1.05fr}}
+.audform__txt{display:grid;gap:16px}
+.audform__txt p{color:var(--t2);font-size:1.125rem;line-height:1.6;max-width:44ch}
+.audform__puntos{display:grid;gap:10px;margin-top:6px}
+.audform__puntos li{display:flex;gap:10px;align-items:flex-start;font-weight:500;color:var(--t1)}
+.audform__puntos .ico{flex:none;width:22px;height:22px;color:var(--acento);margin-top:1px}
+.audform__form{background:#fff;border-radius:var(--r-l);padding:clamp(24px,3vw,40px);box-shadow:0 30px 60px -40px rgba(28,18,25,.35);border:1px solid var(--linea)}
+.audform__que{border:0;padding:0;margin:0 0 6px;display:flex;flex-wrap:wrap;gap:8px}
+.audform__que legend{font-weight:600;margin-bottom:10px;color:var(--t1)}
+.audform__que label{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1.5px solid var(--linea);border-radius:999px;cursor:pointer;font-weight:500;transition:border-color .2s,background-color .2s}
+.audform__que input{accent-color:var(--acento);width:18px;height:18px;margin:0}
+.audform__que label:has(input:checked){border-color:var(--acento);background:rgba(224,6,122,.06)}
+.audform__que label:focus-within{outline:2px solid var(--acento);outline-offset:2px}
+
+/* v5 · NAP claro en el pie (nombre de la ficha, dirección y teléfono) */
+.pie__nap{font-style:normal;display:grid;gap:2px;font-size:1rem;line-height:1.45;color:#fff}
+.pie__nap strong{font-weight:600;font-size:1.0625rem}
+.pie__nap a{color:#fff;margin-top:6px;font-size:.9375rem;text-underline-offset:3px}
+
+/* v5 · Menú de escritorio equilibrado: cuatro columnas alineadas arriba y trama del símbolo G+F detrás */
+.menu::before{content:"";position:fixed;inset:0;pointer-events:none;background:url(/marca/trama-simbolo.svg) 0 0/220px 220px repeat;opacity:.04}
+.menu::after{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 30% 45%,var(--oscuro) 0%,transparent 75%);opacity:.7}
+.menu__in{position:relative;z-index:1}
+.menu__pie{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);font-size:.875rem;color:rgba(255,255,255,.6)}
+.menu__contacto .menu__h{margin-bottom:0}
+@media (min-width:1024px){
+  .menu__in{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto minmax(32px,1fr) auto minmax(32px,1fr) auto;column-gap:clamp(40px,5vw,80px);row-gap:0}
+  .menu__nav{display:grid;grid-template-columns:auto auto auto;justify-content:space-between;column-gap:clamp(32px,4vw,64px);grid-row:3;align-self:start;align-items:start}
+  .menu__cols{display:contents}
+  .menu__cols .menu__col{margin-top:0}
+  .menu__grandes a{font-size:clamp(2.25rem,1rem + 2.6vw,3.25rem);white-space:nowrap;line-height:1.1}
+  .menu__grandes{margin-top:-6px}
+  .menu__contacto{grid-row:3;grid-column:2;align-self:start;align-content:start;gap:16px;padding-left:clamp(32px,3vw,48px);border-left:1px solid rgba(255,255,255,.14)}
+  .menu__h{margin-bottom:14px}
+  .menu__pie{grid-column:1/-1;grid-row:5}
+  .menu__top{grid-row:1}
+  .menu__cols a{padding:5px 0}
+}
+
+/* v5 · Punto de partida de cada caso */
+.lectura__partida,.proy__partida{display:block;margin-top:4px;font-size:.9375rem;font-weight:300;opacity:.8}
+
+/* v5 · Home más corta (≤ 20 pantallas): tarjetas de servicio y cifras más bajas, horario dentro del mapa */
+@media (min-width:900px){
+  .apil__in{min-height:min(440px,calc(100vh - 200px))}
+  .cifra{min-height:300px}
+}
+.mapa__horas{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:10px 0 14px}
+.mapa__horas strong{font-weight:600;color:var(--t1)}
+.mapa-sec--horario .prosa p{margin-bottom:.6em}
+/* v5 · Galería de portada más compacta: mismas siete piezas, menos altura (de ~2.500 a ~1.500 px a 1.440) */
+@media (min-width:900px){
+  .galeria__lista{row-gap:3vh}
+  .caso--0{grid-column:1/4;grid-row:1;margin-top:0}
+  .caso--1{grid-column:5/9;grid-row:1;margin-top:10vh}
+  .caso--2{grid-column:10/13;grid-row:1;margin-top:2vh;margin-left:0}
+  .caso--3{grid-column:2/5;grid-row:2;margin-top:-4vh}
+  .caso--4{grid-column:6/9;grid-row:2;margin-top:12vh}
+  .caso--5{grid-column:10/13;grid-row:2;margin-top:-2vh}
+  .caso--6{grid-column:4/7;grid-row:3;margin-top:-10vh}
+}
+@media (min-width:900px){
+  .quien__foto{--ar:1/1 !important;aspect-ratio:1/1}
+  .franja__foto{--ar:16/5 !important;aspect-ratio:16/5}
+}
+/* v5 · Móvil: la tarjeta de servicio enseña el caso, no la foto de ambiente (la home baja unas 4 pantallas) */
+@media (max-width:899px){
+  .apil__fh{display:none}
+}
+/* v5 · La palabra de la cinta pasa por delante del monograma 3D: ninguna palabra clave queda tapada */
+.portada-a__centro .cinta{z-index:3}
+.portada-a__centro .objeto{z-index:1}
+/* v5 · Cortinilla más corta (entra 0,26 s, sale 0,45 s) y logotipos de la tira más legibles */
+.js .cortina{animation-duration:.45s;animation-delay:0s}
+.js .cortina.entra{animation-duration:.26s}
+.js .cortina.entra .cortina__sim{animation-duration:.2s;animation-delay:.04s}
+.logo__gris{opacity:.72}
+/* v5 · Movimiento reducido: la portada no se queda fija, así la galería no pasa por encima del H1 ni de «Llamar» */
+@media (prefers-reduced-motion:reduce){
+  .hero--galeria .portada-a{position:relative;height:auto;min-height:0}
+}
+
+/* v5 · El número de cada H2 de lectura sale de un contador CSS (antes estaba dentro del H2 y Google lo leía: «01¿Qué…») */
+.lectura__col{counter-reset:blq}
+.h2-lect--n::before{counter-increment:blq;content:counter(blq,decimal-leading-zero);display:inline-grid;place-items:center;min-width:2.1em;height:1.35em;padding:0 .45em;margin-right:.45em;border-radius:999px;background:var(--acento);color:#fff;font-size:.42em;font-weight:600;letter-spacing:0;vertical-align:.45em}
+/* v5 · Promesa de la primera reunión bajo los botones de la portada (sobre todo para el móvil) */
+.portada-a__gratis{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:.9375rem;color:var(--t2)}
+.portada-a__gratis .ico{width:18px;height:18px;color:var(--acento)}
+/* v5 · «Quiénes somos»: equipo de agentes y muestra de trabajos en rejilla */
+.agentes,.muestras{list-style:none;padding:0;display:grid;gap:14px;margin:1.4em 0;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:700px){.agentes{grid-template-columns:repeat(3,minmax(0,1fr))}.muestras{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.agente{position:relative;background:var(--oscuro);color:rgba(255,255,255,.8);border-radius:var(--r-m);padding:18px 18px 20px;display:flex;flex-direction:column;gap:4px;min-height:190px;overflow:hidden}
+.agente__obj{width:96px;height:96px;margin:-6px 0 8px -8px}
+.agente__obj img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 12px 16px rgba(0,0,0,.35))}
+.agente__n{color:#fff;font-size:1.125rem;font-weight:600}
+.agente__t{font-size:.9375rem;line-height:1.4}
+.muestra{background:#fff;border-radius:var(--r-m);box-shadow:0 0 0 1px var(--linea);overflow:hidden;display:flex;flex-direction:column;gap:4px;padding-bottom:16px;font-size:.9375rem;line-height:1.45}
+.muestra .muestra__foto img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.muestra strong,.muestra>span{padding:0 16px}
+.muestra strong{margin-top:12px;color:var(--t1);font-size:1.0625rem}
+.muestra--sin{padding-top:4px;border-top:4px solid var(--acento)}
+/* v5 · Gesto de los servicios: el caso real a sangre */
+.sangre{position:relative;margin:var(--sec) 0 0;background:var(--oscuro);color:rgba(255,255,255,.82)}
+.sangre__foto img{display:block;width:100%;height:clamp(320px,62vw,820px);object-fit:cover}
+.sangre__pie{display:grid;gap:10px;padding-block:clamp(28px,4vw,56px)}
+.sangre__pie .etiqueta{color:rgba(255,255,255,.7)}
+.sangre__tit{font-size:clamp(1.5rem,1.1rem + 1.4vw,2.5rem);line-height:1.15;color:rgba(255,255,255,.75)}
+.sangre__tit strong{color:#fff;font-weight:600}
+.sangre__partida{max-width:60ch;font-size:1.0625rem}
+.sangre__etq{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.sangre__etq li{padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.3);font-size:.875rem}
+.sangre__ir{justify-self:start;display:inline-flex;align-items:center;gap:8px;color:var(--acento-claro);font-weight:600;text-decoration:none}
+.sangre__ir .ico{width:18px;height:18px}
+/* v5 · Gesto de los municipios: la zona con su mapa y los vecinos */
+.zona__in{display:grid;gap:28px;align-items:center}
+@media (min-width:900px){.zona__in{grid-template-columns:5fr 7fr;gap:56px}}
+.zona__txt p{margin:.6em 0 1em;max-width:48ch}
+.zona__mapa{border-radius:var(--r-l);overflow:hidden;aspect-ratio:4/3;background:var(--crema);box-shadow:0 0 0 1px var(--linea)}
+.zona__mapa iframe{display:block;width:100%;height:100%;border:0}
+.agentes .agente .agente__n{color:#fff;display:block}
+@media (min-width:1000px){.agentes{grid-template-columns:repeat(5,minmax(0,1fr))}.agente{min-height:170px;padding:14px 14px 16px}.agente__obj{width:76px;height:76px}.agente__t{font-size:.875rem}}
+/* v5.1 · La cortinilla solo sale al llegar desde un enlace interno (no desde Google ni al recargar) */
+.js:not(.con-cortina) .cortina:not(.entra){display:none}
+/* v5.1 · Una opinión real junto al formulario de la banda final */
+.banda__op{margin:18px 0 0;padding:16px 18px;border-radius:var(--r-m);background:rgba(255,255,255,.08);max-width:56ch}
+.banda__op .estrellas{color:#ffc933;font-size:.875rem;letter-spacing:2px}
+.banda__op blockquote{margin:6px 0 8px;color:#fff;font-size:1rem;line-height:1.5}
+.banda__op figcaption{font-size:.8125rem;color:rgba(255,255,255,.7)}
+/* v5.1 · Móvil: servicios y «Quién hay detrás» en carrusel horizontal (la home baja unas 6 pantallas) */
+@media (max-width:899px){
+  .apiladas,.piezas{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+    margin-inline:calc(-1 * var(--gutter));padding:4px var(--gutter) 16px;scroll-padding-inline:var(--gutter)}
+  .apiladas::-webkit-scrollbar,.piezas::-webkit-scrollbar{display:none}
+  .apil,.pieza{flex:0 0 84%;scroll-snap-align:start}
+  .apil{position:relative;top:auto}
+  .apil__in{height:100%;transform:none !important}
+  .apil__caso .apil__foto img{aspect-ratio:16/10}
+}
+/* v5.1 · Escritorio: tarjetas de servicio más bajas */
+@media (min-width:1000px){
+  .apil__in{min-height:min(360px,calc(100vh - 220px));padding:clamp(24px,2.6vw,40px)}
+  .apil__caso .apil__foto img{min-height:260px;max-height:320px}
+  .apiladas{gap:18px}
+}
+/* v5.1 · Galería de portada en dos filas (4 + 3) */
+@media (min-width:900px){
+  .galeria__lista{column-gap:20px;row-gap:2vh}
+  .caso--0{grid-column:1/4;grid-row:1;margin-top:0}
+  .caso--1{grid-column:4/7;grid-row:1;margin-top:8vh}
+  .caso--2{grid-column:7/10;grid-row:1;margin-top:2vh}
+  .caso--3{grid-column:10/13;grid-row:1;margin-top:10vh}
+  .caso--4{grid-column:2/5;grid-row:2;margin-top:-2vh}
+  .caso--5{grid-column:6/9;grid-row:2;margin-top:4vh}
+  .caso--6{grid-column:10/13;grid-row:2;margin-top:0}
+  .apil__tit{font-size:clamp(2.125rem,1.1rem + 2.4vw,3.5rem)}
+}
+/* v5.1 · Fuera el monograma 3D del pie (salía recortado en escritorio y repetía el del cierre) */
+.pie__sim{display:none}
+/* v5.2 · Logos sin versión en color: se quedan visibles (antes desaparecían en el móvil y al pasar el ratón) */
+.logo.logo--sin-color .logo__gris,.logo.logo--sin-color:hover .logo__gris{opacity:.9 !important}
+/* v5.2 · Galería de portada con cuatro trabajos, en una fila escalonada */
+@media (min-width:900px){
+  .galeria__lista--4 .caso--0{grid-column:1/4;grid-row:1;margin-top:0}
+  .galeria__lista--4 .caso--1{grid-column:4/7;grid-row:1;margin-top:10vh}
+  .galeria__lista--4 .caso--2{grid-column:7/10;grid-row:1;margin-top:3vh}
+  .galeria__lista--4 .caso--3{grid-column:10/13;grid-row:1;margin-top:12vh}
+}
+/* v5.2 · Auditoría: la banda final manda al formulario de la página; opinión real al lado del formulario */
+.aud-ir{background:#fff;color:var(--t2);border-radius:var(--r-m);padding:24px;display:grid;gap:10px}
+.aud-ir__t{font-size:1.25rem;font-weight:600;color:var(--t1);line-height:1.25}
+.aud-ir .btn{justify-self:start}
+.audform__op .banda__op{background:var(--oscuro);max-width:none;margin-top:0}
+.audform__op{grid-column:1/-1}
+@media (min-width:900px){.audform__op{grid-column:2}}
+/* v5.2 · «La zona»: si el mapa no carga, se ve un fondo de la marca con la chincheta, no un recuadro vacío */
+.zona__mapa{position:relative;background:radial-gradient(circle at 50% 45%,#fff 0,var(--crema) 70%)}
+.zona__mapa::before{content:"";position:absolute;left:50%;top:44%;width:84px;height:84px;transform:translate(-50%,-50%);
+  background:url(/img/obj/chincheta-400.webp) center/contain no-repeat;opacity:.9}
+.zona__mapa iframe{position:relative;z-index:1}
+/* v5.2 · Aviso de cookies más bajo en el móvil: ya no tapa los botones de la portada */
+@media (max-width:899px){
+  .cookies{bottom:78px;padding:12px 14px;gap:8px;font-size:.8125rem}
+  .cookies p{margin:0;line-height:1.4}
+  .cookies .acciones,.cookies__botones{display:flex;gap:8px;flex-wrap:nowrap}
+  .cookies .btn{padding:8px 14px;min-height:40px;font-size:.875rem}
+}
+/* v5.3 · Muestras sin captura: objeto de oficio sobre crema; opinión de la auditoría bajo los puntos; mapa con fondo si no carga */
+.muestra__obj{display:grid;place-items:center;aspect-ratio:4/3;background:var(--crema)}
+.muestra__obj img{width:46%;height:auto}
+.muestra--sin{border-top:0;padding-top:0}
+.audform__op{margin-top:18px}
+.audform__op .banda__op{max-width:none}
+.mapa__marco{position:relative;background:radial-gradient(circle at 50% 45%,#fff 0,var(--crema) 70%)}
+.mapa__marco::before{content:"";position:absolute;left:50%;top:44%;width:84px;height:84px;transform:translate(-50%,-50%);
+  background:url(/img/obj/chincheta-400.webp) center/contain no-repeat;opacity:.9}
+.mapa__marco iframe{position:relative;z-index:1}
+/* v5.3 · Móvil: los seis pasos de la home en carrusel */
+@media (max-width:699px){
+  .franja .pasos{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+    margin-inline:calc(-1 * var(--gutter));padding:4px var(--gutter) 16px;scroll-padding-inline:var(--gutter)}
+  .franja .pasos::-webkit-scrollbar{display:none}
+  .franja .paso{flex:0 0 72%;scroll-snap-align:start}
+}

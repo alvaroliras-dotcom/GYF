@@ -52,7 +52,23 @@ html,body{width:100%;height:100%;overflow:hidden}
 """
 
 
+CRUDO_HD = CRUDO + "-hd"          # capturas de escritorio a resolución real (si están, mandan)
+_NITIDO = os.path.join(tempfile.gettempdir(), "maquetas-nitido")
+
+
 def ruta(n):
+    """Las capturas de escritorio salen en la pantalla del portátil a más tamaño del que tienen: si hay versión HD
+    (crudo-hd/), se usa esa; si no, se amplía al doble con Lanczos y un enfoque suave para que no se vea borrosa."""
+    hd = os.path.join(CRUDO_HD, n.rsplit(".", 1)[0] + ".png")
+    if os.path.exists(hd):
+        return "file://" + hd
+    if n.startswith("dotti-busqueda") or "escritorio" in n:
+        os.makedirs(_NITIDO, exist_ok=True)
+        dest = os.path.join(_NITIDO, n.rsplit(".", 1)[0] + ".png")
+        im = Image.open(os.path.join(CRUDO, n)).convert("RGB")
+        im = im.resize((im.width * 2, im.height * 2), Image.LANCZOS).filter(ImageFilter.UnsharpMask(radius=1.6, percent=110, threshold=2))
+        im.save(dest)
+        return "file://" + dest
     return "file://" + os.path.join(CRUDO, n)
 
 
@@ -157,22 +173,22 @@ def composiciones():
         resplandor(560, 260, 230, "#E0067A", .55)
         + laptop(70, 108, 500, ruta("marcos-cerrajeros-escritorio.jpg"), "rotateY(14deg)")
         + movil(548, 88, 170, ruta("marcos-cerrajeros-movil.jpg"), "rotate(5deg)", 3)
-        + obj("simbolo-cromo", 20, 320, 150, -8, 4))
+        + obj("estrella-cromo", 20, 320, 150, -8, 4))
     C["diseno-web-arroyomolinos-caso-aquita"] = (800, 500, F_CREMA,
         resplandor(400, 470, 300, "#E6D9CB", .9)
         + laptop(130, 70, 540, ruta("aquita-escritorio.jpg"))
         + movil(600, 170, 138, ruta("aquita-movil.jpg"), "rotate(-3deg)", 3)
-        + obj("simbolos-grupo", 26, 30, 170, 0, 0))
+        + obj("chincheta", 26, 30, 170, 0, 0))
     C["diseno-web-alcorcon-caso-las-tejas"] = (800, 500, F_BERENJENA,
         resplandor(200, 120, 220, "#FF7AB8", .3)
         + laptop(210, 90, 520, ruta("las-tejas-escritorio.jpg"), "rotateY(-12deg)")
         + movil(90, 120, 160, ruta("las-tejas-movil.jpg"), "rotate(-5deg)", 3)
-        + obj("simbolo-despiece", 620, 330, 170, 0, 4))
+        + obj("bocadillo", 620, 330, 170, 0, 4))
     C["diseno-web-caso-solvento"] = (800, 500, F_MALVA,
         simbolo_marca(-60, 40, 520, "#FFFFFF", .45) + resplandor(560, 180, 220, "#FFFFFF", .5)
         + laptop(215, 82, 520, ruta("solvento-escritorio.jpg"), "rotateY(-16deg) rotateX(4deg)")
         + movil(95, 130, 158, ruta("solvento-movil.jpg"), "rotate(-3deg)", 3)
-        + obj("simbolo-cristal", 650, 24, 130, 8, 4))
+        + obj("abanico", 650, 24, 130, 8, 4))
     C["diseno-web-caso-rfg-andrade"] = (800, 500, F_ROSA,
         resplandor(400, 250, 260, "#FFFFFF", .45)
         + laptop(140, 76, 520, ruta("rfg-andrade-escritorio.jpg"), "rotateY(8deg)")
@@ -189,11 +205,11 @@ def composiciones():
     C["diseno-web-alcorcon-caso-marcos-cerrajeros-movil"] = (500, 750, F_FUCSIA,
         simbolo_marca(40, 60, 640, "#FF5AAB", .3)
         + movil(135, 110, 230, ruta("marcos-cerrajeros-movil.jpg"), "rotate(-5deg)")
-        + obj("simbolo-berenjena", 300, 510, 170, 6, 4))
+        + obj("lupa", 300, 510, 170, 6, 4))
     C["diseno-web-alcorcon-caso-las-tejas-movil"] = (500, 750, F_CREMA,
         resplandor(250, 700, 260, "#E6D9CB", .9)
         + movil(135, 95, 230, ruta("las-tejas-movil.jpg"), "rotate(4deg)")
-        + obj("simbolo-fucsia", 24, 470, 160, -6, 4))
+        + obj("estrella", 24, 470, 160, -6, 4))
     C["seo-local-caso-dotti-peluqueria-movil"] = (500, 750, F_BERENJENA,
         resplandor(250, 360, 230, "#E0067A", .5)
         + movil(130, 100, 240, panel, "rotate(-4deg)")
@@ -202,7 +218,7 @@ def composiciones():
     C["diseno-web-arroyomolinos-caso-aquita-portatil"] = (750, 500, F_BERENJENA,
         resplandor(560, 120, 200, "#E0067A", .45)
         + laptop(150, 70, 640, ruta("aquita-escritorio.jpg"), "rotateY(-18deg) rotateX(5deg)")
-        + obj("simbolo-bicolor", 14, 250, 170, -6, 4))
+        + obj("bocadillo", 14, 250, 170, -6, 4))
     C["diseno-web-caso-rfg-andrade-portatil"] = (750, 500, F_FUCSIA,
         simbolo_marca(-40, 20, 520, "#FF5AAB", .35)
         + laptop(80, 70, 660, ruta("rfg-andrade-escritorio.jpg"), "rotateY(16deg) rotateX(4deg)"))
@@ -216,7 +232,7 @@ def composiciones():
         simbolo_marca(180, 330, 520, "#FFFFFF", .5)
         + laptop(60, 120, 500, ruta("solvento-escritorio.jpg"), "rotateY(-10deg)")
         + movil(90, 300, 200, ruta("solvento-movil.jpg"), "rotate(-4deg)", 3)
-        + obj("simbolo-cristal", 390, 550, 170, -6, 4))
+        + obj("abanico", 390, 550, 170, -6, 4))
     # --- Tarjetas de servicio de la home (4:3, 800 × 600 → 1.600 × 1.200), sin objeto: el de la tarjeta va encima ---
     busq = tapar("dotti-busqueda-google.jpg", [(752, 0, 800, 34)], "dotti-busqueda.jpg")
     C["servicio-seo-local-ficha-dotti"] = (800, 600, F_FUCSIA,
@@ -256,8 +272,9 @@ def main(nombres):
         b = p.chromium.launch()
         for n in (nombres or list(C)):
             w, h, fondo, piezas = C[n]
-            pg = b.new_page(viewport={"width": w, "height": h}, device_scale_factor=2)
-            html = (f"<!doctype html><html><head><meta charset=utf-8><style>{CSS}</style></head><body>"
+            Z = 3   # Chromium rasteriza las capas en 3D a 1 px por px CSS (ignora el device_scale_factor): se agranda con zoom y se reduce
+            pg = b.new_page(viewport={"width": w * Z, "height": h * Z}, device_scale_factor=1)
+            html = (f"<!doctype html><html><head><meta charset=utf-8><style>{CSS} html{{zoom:{Z}}}</style></head><body>"
                     f'<div class="lienzo"><div class="fondo" style="background:{fondo}"></div><div class="escena">{piezas}</div></div></body></html>')
             f = os.path.join(TMP, n + ".html"); open(f, "w", encoding="utf-8").write(html)
             pg.goto("file://" + f); pg.wait_for_timeout(250)

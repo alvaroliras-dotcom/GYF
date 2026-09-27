@@ -1,17 +1,17 @@
 URL: /agencia-seo-fuenlabrada/
 Title: Agencia SEO en Fuenlabrada y marketing local | GYF
-Meta description: SEO local, diseño web y Google Ads para negocios de Fuenlabrada. Mantenimiento mensual que se deja cuando se quiera y reunión en su negocio sin coste.
+Meta description: SEO local, diseño web y Google Ads para negocios de Fuenlabrada: una página por servicio y una reunión en su negocio, sin coste.
 Keyword principal: agencia SEO en Fuenlabrada
-H1: Agencia SEO y de marketing en Fuenlabrada
+H1: Agencia SEO en Fuenlabrada: gane las búsquedas de cada servicio
 Etiqueta: SEO local para pymes · Fuenlabrada
 Entrada corta: Pymes, comercios y talleres de Fuenlabrada que pelean por las mismas búsquedas: ficha, web por servicios y anuncios.
 ---
 
-El Gordo y el Flaco, agencia SEO y de marketing online con oficina en Alcorcón, ayuda a las pymes de Fuenlabrada a ganar búsquedas que se reparten entre muchos negocios iguales. Lo hacemos con la ficha de Google, una web con una página por servicio y anuncios bien acotados. Empezamos en su pyme, hablando con calma.
+Por cada búsqueda en Fuenlabrada compiten muchos negocios que ofrecen casi lo mismo. El Gordo y el Flaco, agencia SEO y de marketing online con oficina en Alcorcón, ayuda a sus pymes a ganarlas con la ficha de Google, una web con una página por servicio y anuncios bien acotados.
 
 ## Cuando cien negocios buscan al mismo cliente
 
-Fuenlabrada tiene un tejido enorme de pymes, comercios y polígonos, del Cobo Calleja a El Álamo. Eso es una buena noticia para quien vende y una mala para quien quiere salir en Google: por cada búsqueda compiten muchos negocios que ofrecen casi lo mismo.
+Fuenlabrada tiene un tejido enorme de pymes, comercios y polígonos, del Cobo Calleja a El Álamo. Eso es una buena noticia para quien vende y una mala para quien quiere salir en Google.
 
 En ese escenario, la ficha genérica y la web de una sola página pierden.
 
@@ -30,7 +30,7 @@ Un ejemplo con un negocio de reformas:
 | pintar un local | Una página de pintura para negocios |
 | reforma completa de piso | Una página de reformas completas |
 
-Esta es la base de las [LINK webs que hacemos para negocios locales](/diseno-web/) 🆕: estáticas, rápidas y ordenadas por servicios.
+Esta es la base de las [LINK webs que hacemos para negocios locales](/diseno-web/) 🆕: estáticas, rápidas y ordenadas por servicios. Y cada página necesita su texto, escrito para quien busca ese servicio y no otro: es nuestro trabajo de [LINK redacción SEO](/redaccion-seo-copywriting/) 🆕.
 
 La ficha acompaña. Cada servicio dado de alta, con su descripción, fotos reales y reseñas que lo mencionan. Es el trabajo de [LINK SEO local](/seo-local/) 🆕 que hacemos para cada cliente.
 
@@ -40,7 +40,7 @@ Y cuando hay que adelantar llamadas, los [LINK anuncios de Google Ads](/google-a
 
 El plazo depende de su punto de partida y de cuánto se mueva la competencia en Fuenlabrada, y se lo decimos con su caso delante.
 
-Sí podemos contarle lo que dice un cliente. Sergio, de Balgas, escribe en su reseña de Google que «en unos 3 meses» estaban «en los 10 primeros resultados en las zonas solicitadas». Es su experiencia, no una promesa.
+Lo que sí podemos enseñarle es un caso cercano: Balgas, reparación de calderas en Alcorcón, con el resultado contado por su dueño. Es su experiencia, no una promesa.
 
 Si quiere saber dónde está usted hoy, empiece por una [LINK auditoría SEO local](/auditoria-seo-local/) 🆕. Es gratuita. Le entregamos por escrito lo que frena su ficha y su web, ordenado por importancia.
 
@@ -52,7 +52,7 @@ Trabajamos desde Alcorcón, donde somos [LINK agencia SEO en Alcorcón](/) 🆕,
 
 ## Pida una reunión en su pyme de Fuenlabrada
 
-Llámenos al 670 78 19 40 o escríbanos en [LINK contacto](/contacto/) 🆕. Vamos a Fuenlabrada, con el desplazamiento de nuestra cuenta, vemos su negocio y le preparamos un presupuesto a medida. Después, si quiere, seguimos con un mantenimiento mensual que usted puede dejar cuando lo crea oportuno.
+Llámenos al 670 78 19 40 o escríbanos en [LINK contacto](/contacto/) 🆕. Vamos a Fuenlabrada, con el desplazamiento de nuestra cuenta, vemos su negocio y le preparamos un presupuesto según el número de servicios y de municipios que quiera trabajar. Después, si quiere, seguimos con un mantenimiento mensual, con un mínimo de seis meses; a partir de ahí, mes a mes.
 
 ---
 FAQ
@@ -61,9 +61,9 @@ FAQ
 
 **Mi negocio de Fuenlabrada ya tiene web, hecha por otra empresa. ¿Pueden trabajar sobre ella?** Sí. Revisamos la que tiene y le decimos si conviene mejorarla o hacer una nueva. El dominio y el alojamiento siempre quedan a su nombre.
 
-**¿Publican precios?** Preferimos verle antes. Cada pyme parte de un sitio distinto, así que el presupuesto se hace a medida después de la reunión.
+**¿Publican precios?** Preferimos verle antes. Cada pyme parte de un sitio distinto: el presupuesto depende de cuántos servicios tenga y del estado de su ficha y su web.
 
 ---
 Notas para Álvaro:
 
-Sin ⚑ abiertas (tanda 7, 27/09): cita de Sergio cotejada; Cobo Calleja y El Álamo comprobados (ayto-fuenlabrada.es). El ejemplo de reformas es ilustrativo.
+Tanda 8 (27/09): cita de Sergio cotejada; Cobo Calleja y El Álamo comprobados (El Álamo: polígono de Fuenlabrada, CP 28946, no el municipio). El ejemplo de reformas es ilustrativo.

@@ -1,13 +1,13 @@
 URL: /seo-local/
-Title: Optimizar ficha de Google My Business y SEO local | GYF
-Meta description: Optimizamos su ficha de Google My Business, sus reseñas y sus publicaciones para que su negocio salga en Google Maps cuando le buscan cerca.
+Title: Optimizar su ficha de Google y SEO local en Alcorcón | GYF
+Meta description: Optimizamos su ficha de Google Business Profile (antes Google My Business) para que su negocio salga en Google Maps cuando le buscan cerca.
 Keyword principal: optimizar ficha de Google My Business
 H1: SEO local: su negocio, arriba en Google Maps
 Etiqueta: SEO local y ficha de Google · Alcorcón
 Entrada corta: Ficha de Google, reseñas y publicaciones al día, para que el cliente de su barrio le encuentre en el mapa y le llame.
 ---
 
-El Gordo y el Flaco optimiza la ficha de Google Business Profile de negocios de Alcorcón y alrededores: datos, categorías, fotos, reseñas y publicaciones, para que salgan en Google Maps cuando les buscan cerca. Es el servicio que más nos piden, y también lo hacemos solo, sin web. Empezamos con una reunión en su negocio, sin coste, y después le damos un presupuesto a medida.
+Que su negocio salga en Google Maps cuando le buscan cerca: para eso pone al día El Gordo y el Flaco la ficha de Google Business Profile de negocios de Alcorcón y alrededores. Datos, categorías, fotos, reseñas y publicaciones. Es el servicio que más nos piden, y también lo hacemos solo, sin web.
 
 Cuando alguien busca «cerrajero», «peluquería» o «reparación de calderas» desde el móvil, Google suele enseñarle primero un mapa con unos pocos negocios. Quien está ahí se lleva buena parte de las llamadas. Nuestro trabajo es que el suyo sea uno de ellos más a menudo.
 
@@ -41,7 +41,7 @@ Lo que solemos encontrar cuando un negocio de la zona no aparece:
 - Las reseñas se pararon hace meses y nadie las contesta.
 - La web no habla de sus servicios ni de su municipio.
 
-Cada negocio tiene su combinación. Para saber cuál es la suya, [LINK pida una auditoría SEO local](/auditoria-seo-local/) 🆕: es gratuita y se la entregamos por escrito, con lo más urgente arriba.
+Cada negocio tiene su combinación. Y cada municipio, su competencia: no se pelea igual el mapa entre los [LINK negocios de Getafe](/agencia-seo-getafe/) 🆕 que en [LINK Majadahonda](/agencia-seo-majadahonda/) 🆕 o en [LINK Brunete](/agencia-seo-brunete/) 🆕. Para saber qué le pasa a su ficha, [LINK pida una auditoría SEO local](/auditoria-seo-local/) 🆕: es gratuita y le llega en un informe en PDF, con lo más urgente arriba.
 
 ## Reseñas y publicaciones: la ficha, viva
 
@@ -55,7 +55,7 @@ Las publicaciones alternan sus servicios y los municipios donde trabaja. Son peq
 
 ## ¿Cuánto se tarda en ver resultados?
 
-Depende del sector, de la competencia en su zona y de cómo esté hoy la ficha, así que el plazo se habla con su caso delante. Lo que sí podemos contarle es lo que cuenta un cliente. Sergio, de Balgas, reparación de calderas en Alcorcón, escribió en su reseña que «en unos 3 meses» estaban «en los 10 primeros resultados en las zonas solicitadas». Es su experiencia, contada por él.
+Depende del sector, de la competencia en su zona y de cómo esté hoy la ficha, así que el plazo se habla con su caso delante. Lo que sí podemos contarle es lo que cuenta un cliente. Sergio, de Balgas, reparación de calderas en Alcorcón, escribió en su reseña que «en unos 3 meses» su empresa «posicionaba en los 10 primeros resultados de Google en las zonas solicitadas». Es su experiencia, contada por él. Y hoy Marcos Cerrajeros y Aquita salen en Google Maps cuando se busca «cerrajero en Alcorcón» o «control de plagas en Arroyomolinos».
 
 El SEO local es el centro de lo que hacemos como [LINK agencia SEO en Alcorcón](/) 🆕. Y funciona mejor cuando la ficha, la web y las reseñas dicen lo mismo.
 
@@ -78,9 +78,9 @@ FAQ
 
 **¿Trabajan con negocios fuera de Alcorcón?** Sí. Con negocios de Getafe, Móstoles, Leganés, Fuenlabrada, Majadahonda, Boadilla del Monte, Arroyomolinos, Villaviciosa de Odón, Pozuelo de Alarcón y Brunete, y vamos a verle con el desplazamiento de nuestra cuenta.
 
-**¿Tengo que quedarme un mínimo de meses?** Trabajamos mes a mes. Tras poner la ficha al día le ofrecemos un mantenimiento mensual, con un informe cada mes y una reunión en persona, que puede dejar cuando quiera.
+**¿Tengo que quedarme un mínimo de meses?** Poner la ficha al día no le obliga a nada más. Si después quiere el mantenimiento mensual, con un informe cada mes y una reunión en persona, el mínimo son seis meses; a partir de ahí, va mes a mes y lo deja cuando quiera.
 
 ---
 Notas para Álvaro:
 
-Sin ⚑ abiertas (tanda 7, 27/09): cita de Sergio cotejada con su reseña; nombres de las reseñas tal cual; mantenimiento como está (aparcado); tabla como lista de apartados que se trabajan según la ficha; respuestas a reseñas por el cliente, confirmado.
+Sin ⚑ abiertas (tanda 7, 27/09): cita de Sergio cotejada con su reseña; nombres de las reseñas tal cual; mantenimiento: mínimo de seis meses y después mes a mes (Álvaro, 27/09); tabla como lista de apartados que se trabajan según la ficha; respuestas a reseñas por el cliente, confirmado.

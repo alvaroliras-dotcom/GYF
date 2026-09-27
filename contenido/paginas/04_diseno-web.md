@@ -2,12 +2,12 @@ URL: /diseno-web/
 Title: Diseño web en Alcorcón para negocios locales | GYF
 Meta description: Diseñamos páginas web para negocios locales de Alcorcón: rápidas, pensadas para el móvil y para que el cliente llame. Primero, una reunión.
 Keyword principal: diseño web en Alcorcón
-H1: Diseño de páginas web para negocios de Alcorcón
+H1: Diseño web en Alcorcón: webs que hacen sonar el teléfono
 Etiqueta: Diseño web · Alcorcón y alrededores
 Entrada corta: Webs para negocios locales que se abren al momento en el móvil y llevan al cliente al botón de llamar. Primero, una reunión.
 ---
 
-El Gordo y el Flaco diseña páginas web estáticas para negocios locales de Alcorcón y alrededores, rápidas en el móvil y pensadas para que el cliente llame. El dominio y el alojamiento quedan a nombre del cliente. Tras la entrega ofrecemos un mantenimiento mensual que se deja cuando se quiera. Primero, una reunión en su negocio, sin coste.
+Webs que se abren al momento en el móvil y llevan al cliente a llamar: así diseña El Gordo y el Flaco las páginas de negocios locales de Alcorcón y alrededores. Son webs estáticas, con el dominio y el alojamiento a nombre del cliente. Tras la entrega, un mantenimiento mensual opcional, con un mínimo de seis meses.
 
 ## ¿Qué tipo de web hacemos para un negocio local?
 
@@ -42,15 +42,15 @@ Si algún día decide seguir con otra persona, la web, el dominio y el alojamien
 
 ## ¿Qué pasa después de publicar la web?
 
-Después de la entrega le ofrecemos un mantenimiento mensual, con un informe cada mes y una reunión en persona para repasarlo. Lo que incluye se ajusta a su web y a lo que necesite su negocio. Va mes a mes y lo deja cuando quiera.
+Después de la entrega le ofrecemos un mantenimiento mensual, con un informe cada mes y una reunión en persona para repasarlo. Lo que incluye se ajusta a su web y a lo que necesite su negocio. El mínimo son seis meses; después, va mes a mes y lo deja cuando quiera.
 
 El dominio y el alojamiento los renueva usted directamente con el proveedor, a su nombre.
 
 ## Diseño web en Alcorcón, con quien le va a ver
 
-El Gordo y el Flaco suma 15 años de agencia en Alcorcón y más de 20 años de oficio en publicidad. Quien se sienta con usted en su negocio es quien dirige su web de principio a fin, con nuestro equipo de diseño, redacción y SEO detrás.
+El Gordo y el Flaco está abierta en Alcorcón desde 2013. Quien se sienta con usted en su negocio es quien dirige su web de principio a fin, con nuestro equipo de diseño, redacción y SEO detrás.
 
-Hemos hecho webs para negocios de Alcorcón como Balgas, reparación de calderas, Marcos Cerrajeros y el restaurante Las Tejas; para Aquita, control de plagas en Arroyomolinos, que estrenó su primera web con nosotros; y toda la web de un congreso científico, JIF 2026. Trabajamos con negocios de Alcorcón y de los municipios de alrededor, y vamos a verle con el desplazamiento de nuestra cuenta.
+Hemos hecho webs para negocios de Alcorcón como Balgas, reparación de calderas, Marcos Cerrajeros y el restaurante Las Tejas; para Aquita, control de plagas en [LINK Arroyomolinos](/agencia-seo-arroyomolinos/) 🆕, que estrenó su primera web con nosotros; y toda la web de un congreso científico, JIF 2026. Trabajamos con negocios de Alcorcón y de municipios de alrededor como [LINK Leganés](/agencia-seo-leganes/) 🆕 o [LINK Boadilla del Monte](/agencia-seo-boadilla-del-monte/) 🆕, y vamos a verle con el desplazamiento de nuestra cuenta.
 
 ## Opiniones de nuestros clientes
 
@@ -60,7 +60,7 @@ Lo que dicen de sus webs quienes ya las tienen.
 
 ## Hablemos de su web en su negocio, sin coste
 
-Llámenos al 670 78 19 40 o déjenos su teléfono en [LINK contacto](/contacto/) 🆕. Vamos a verle, nos cuenta qué necesita su web y qué debería conseguir, y después le pasamos un presupuesto a medida.
+Llámenos al 670 78 19 40 o déjenos su teléfono en [LINK contacto](/contacto/) 🆕. Vamos a verle, nos cuenta qué necesita su web y qué debería conseguir, y después le pasamos un presupuesto con lo que su web necesita.
 
 ---
 FAQ
@@ -69,11 +69,11 @@ FAQ
 
 **¿Me escriben ustedes los textos?** Sí. Los textos forman parte del trabajo y se escriben para su negocio y su zona.
 
-**¿Tengo ya una web; la pueden rehacer?** Sí. Revisamos la que tiene, vemos qué le funciona y le proponemos la nueva en la reunión. Es lo que hicimos con Marcos Cerrajeros.
+**¿Tengo ya una web; la pueden rehacer?** Sí. Revisamos la que tiene, vemos qué le funciona y le proponemos la nueva en la reunión. Es lo que hicimos con Marcos Cerrajeros, que hoy sale en Google Maps cuando se busca «cerrajero en Alcorcón».
 
-**¿Tengo que quedarme con el mantenimiento?** El mantenimiento es mensual y opcional: lo contrata si quiere y lo deja cuando quiera.
+**¿Tengo que quedarme con el mantenimiento?** No. Hacer la web no le obliga a contratarlo. Si lo quiere, es mensual, con un mínimo de seis meses; después, sigue mes a mes y lo deja cuando quiera.
 
 ---
 Notas para Álvaro:
 
-Sin ⚑ abiertas (tanda 7, 27/09): las piezas dependen del cliente (p. ej. Pousada: teléfono y correo). Mantenimiento: contenido aparcado por Álvaro.
+Sin ⚑ abiertas (tanda 7, 27/09): las piezas dependen del cliente (p. ej. Pousada: teléfono y correo). Mantenimiento: opcional, mínimo de seis meses y después mes a mes (Álvaro, 27/09).
