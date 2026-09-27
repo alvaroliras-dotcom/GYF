@@ -49,14 +49,12 @@
     ioL.observe(logos);
   }
 
-  /* ---------- Cabecera (R4, variación B): se esconde al bajar y vuelve al subir, con fondo ---------- */
+  /* ---------- Cabecera: siempre a la vista (Álvaro, 27/09: el menú no puede desaparecer); al bajar, compacta y con fondo ---------- */
   var cab = d.querySelector("[data-cab]"), menu = d.querySelector("[data-menu]"), yAnt = 0;
   function alScroll() {
     var y = w.scrollY;
     if (cab && !(menu && menu.classList.contains("abierta"))) {
-      if (y < 10) { cab.classList.remove("con-fondo", "oculta"); }
-      else if (y > yAnt + 4 && y > 140) { cab.classList.add("oculta"); }
-      else if (y < yAnt - 4) { cab.classList.remove("oculta"); cab.classList.add("con-fondo"); }
+      cab.classList.toggle("con-fondo", y >= 10);
     }
     yAnt = y;
     if (subir) subir.classList.toggle("visible", y > (d.documentElement.scrollHeight - w.innerHeight) * .2 && y > 600);
