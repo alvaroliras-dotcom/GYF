@@ -7,7 +7,7 @@ Etiqueta: SEO local y marketing · Móstoles
 Entrada corta: Para comercios y servicios de Móstoles que compiten en Google Maps con muchos negocios iguales. Desde Alcorcón, al lado.
 ---
 
-El Gordo y el Flaco, agencia SEO y de marketing online de Alcorcón, pared con pared con Móstoles, lleva la ficha de Google, las reseñas, la web y los anuncios de comercios mostoleños. Ya trabajamos el SEO de la tienda en internet de La Casita de los Animales, que atiende en ambos municipios. Para empezar, vamos a su negocio en Móstoles.
+El Gordo y el Flaco, agencia SEO y de marketing online de Alcorcón, pared con pared con Móstoles, lleva la ficha de Google, las reseñas, la web y los anuncios de comercios mostoleños. Pablo, cliente nuestro, nombra Móstoles en su reseña de Google. Para empezar, vamos a su negocio en Móstoles.
 
 ## ¿Cómo destaca un comercio de Móstoles con tanta competencia en Maps?
 
@@ -28,7 +28,7 @@ Todo esto forma parte de nuestro servicio de [LINK SEO local](/seo-local/) 🆕.
 
 Móstoles y Alcorcón se tocan. Muchos negocios tienen clientes a los dos lados de la frontera, y alguno tiene local en ambos.
 
-Es el caso de La Casita de los Animales, que atiende en Alcorcón y en Móstoles y a la que trabajamos el SEO de su tienda en internet, para que venda más. También el de Pablo, que en su reseña de Google cuenta el trabajo de fichas y SEO local que hicimos para él en Alcorcón, Móstoles, Getafe y Leganés.
+Es el caso de La Casita de los Animales: no le hicimos la web, le trabajamos la llegada de visitas a su tienda en internet y lo que pasa cuando entran, y hubo meses con subidas de ventas muy grandes. También el de Pablo, que en su reseña de Google cuenta el trabajo de fichas y SEO local que hicimos para él en Alcorcón, Móstoles, Getafe y Leganés.
 
 Para nosotros, ir a su negocio en Móstoles es cruzar la calle. El desplazamiento corre de nuestra cuenta.
 
@@ -55,7 +55,7 @@ Llame al 670 78 19 40 o déjenos su teléfono en [LINK contacto](/contacto/) �
 ---
 FAQ
 
-**¿Tienen clientes en Móstoles?** Sí. Trabajamos el SEO de la tienda en internet de La Casita de los Animales, que atiende en Móstoles y en Alcorcón, y Pablo menciona Móstoles en su reseña de Google.
+**¿Tienen clientes en Móstoles?** Sí. Pablo, por ejemplo, cuenta en su reseña de Google el trabajo de fichas y SEO local que hicimos para él en Móstoles y en otros municipios de la zona.
 
 **Mi negocio está en Móstoles y hay muchos iguales cerca. ¿Tiene sentido trabajar la ficha?** Es justo donde más sentido tiene. Cuando hay mucha competencia, la diferencia la marcan los detalles de la ficha, las fotos y las reseñas, que es lo que trabajamos.
 
@@ -64,5 +64,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ La Casita de los Animales ya no está en la muestra de casos. La mantengo aquí solo como ejemplo de SEO de tienda en internet (texto, H2 «Un vecino…» y FAQ «¿Tienen clientes en Móstoles?»). Si prefieres quitarla, me lo dices y rehago esos tres puntos con la reseña de Pablo. Además, digo que «atiende en Alcorcón y en Móstoles» (así venía en la web vieja). Confirma que tiene local en los dos municipios.
-⚑ Reseña de Pablo: parafraseada. Hay que cotejar que nombra Móstoles y el trabajo de fichas y SEO local.
+Sin ⚑ abiertas (tanda 7, 27/09): La Casita = captación de tráfico y mejora de la conversión de su tienda en internet (no la web); se quita que atienda en los dos municipios (sin confirmar). Reseña de Pablo cotejada.

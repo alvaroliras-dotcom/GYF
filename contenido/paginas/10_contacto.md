@@ -13,6 +13,10 @@ El Gordo y el Flaco atiende en el [670 78 19 40](tel:+34670781940) y en info@elg
 
 Lo habitual es que vayamos nosotros a su negocio, en Alcorcón o en los municipios de alrededor, o que quedemos donde le venga bien. Si prefiere venir, le recibimos en Alcorcón con cita previa: llámenos antes y le damos día y hora.
 
+## Cómo llegar a la oficina
+
+Estamos en un portal del Parque de Lisboa, una zona residencial de Alcorcón. Se aparca sin problema en la calle, el autobús para en la misma puerta y el metro queda a cerca de un kilómetro.
+
 ## ¿Cuándo puedo llamar?
 
 De lunes a viernes, de 9:00 a 19:00. Al otro lado del teléfono le atenderá Álvaro, que es quien dirige su proyecto.
@@ -41,4 +45,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ Cómo llegar, transporte público y aparcamiento: no los pongo porque no están confirmados.
+Sin ⚑ abiertas (tanda 7, 27/09): cómo llegar confirmado por Álvaro (Parque de Lisboa, aparcamiento en la calle, autobús en la puerta, metro a cerca de un kilómetro).

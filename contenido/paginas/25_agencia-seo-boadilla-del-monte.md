@@ -13,7 +13,7 @@ El Gordo y el Flaco trabaja para academias, clínicas y servicios profesionales 
 
 La que un cliente acostumbrado a elegir con cuidado reconoce como seria en el primer vistazo. En Boadilla del Monte, quien busca una academia para sus hijos o un despacho para un asunto delicado mira la ficha de Google y la web con lupa. Un logotipo improvisado o unas fotos de móvil torcidas le hacen dudar antes de llamar.
 
-La marca es la primera prueba de que usted cuida los detalles.
+La marca es la primera prueba de que usted cuida los detalles. En un municipio que convive con el Palacio del Infante Don Luis y la Ciudad Grupo Santander, el listón de lo que parece serio está alto.
 
 Por eso en Boadilla empezamos muchas veces por el principio: el logotipo, los colores, la tipografía y el tono con el que habla su negocio. Después, todo lo demás se construye encima.
 
@@ -59,4 +59,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ Entidades de Boadilla (Ciudad Financiera, Palacio del Infante): no las nombro sin verificar.
+Sin ⚑ abiertas (tanda 7, 27/09): Palacio del Infante Don Luis y Ciudad Grupo Santander comprobados.

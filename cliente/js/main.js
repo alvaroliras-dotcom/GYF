@@ -17,6 +17,38 @@
   var raton = w.matchMedia && w.matchMedia("(hover: hover) and (pointer: fine)").matches;
   var ancho = function () { return w.innerWidth; };
 
+  /* ---------- v2 · Cortinilla fucsia entre páginas: al pulsar un enlace interno sube desde abajo y, al
+     cubrir la pantalla, se navega; en la página nueva sale hacia arriba (CSS). Sin JS o con movimiento
+     reducido, no existe. Vuelta atrás desde la caché: se quita. ---------- */
+  var cortina = d.querySelector("[data-cortina]");
+  if (cortina && !reducido) {
+    d.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("a[href]");
+      if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (a.target === "_blank" || a.hasAttribute("download")) return;
+      var url;
+      try { url = new URL(a.href, w.location.href); } catch (x) { return; }
+      if (url.origin !== w.location.origin || !/^https?:$/.test(url.protocol)) return;
+      if (url.pathname === w.location.pathname && url.hash) return;          /* ancla en la misma página */
+      if (/\.(php|xml|txt|json|pdf|jpg|png|webp)$/i.test(url.pathname)) return;
+      e.preventDefault();
+      cortina.classList.remove("entra"); void cortina.offsetWidth; cortina.classList.add("entra");
+      setTimeout(function () { w.location.href = url.href; }, 520);
+    });
+    w.addEventListener("pageshow", function (e) { if (e.persisted) { cortina.classList.remove("entra"); cortina.style.animation = "none"; cortina.style.transform = "translateY(-101%)"; } });
+  }
+
+  /* ---------- v2 · Logotipos: en pantallas sin ratón pasan a color solos, uno detrás de otro, al verse ---------- */
+  var logos = d.querySelector("[data-logos]");
+  if (logos && !raton && "IntersectionObserver" in w) {
+    var ioL = new IntersectionObserver(function (ents) {
+      if (!ents[0].isIntersecting) return;
+      [].forEach.call(logos.querySelectorAll(".logo"), function (l, i) { setTimeout(function () { l.classList.add("en-color"); }, reducido ? 0 : 150 + i * 110); });
+      ioL.disconnect();
+    }, { threshold: .35 });
+    ioL.observe(logos);
+  }
+
   /* ---------- Cabecera (R4, variación B): se esconde al bajar y vuelve al subir, con fondo ---------- */
   var cab = d.querySelector("[data-cab]"), menu = d.querySelector("[data-menu]"), yAnt = 0;
   function alScroll() {
@@ -367,22 +399,45 @@
   }
   if (d.readyState === "complete") arranca(); else w.addEventListener("load", arranca);
 
-  /* Objeto 3D (tipo «3d» en config.py): solo ordenador, sin movimiento reducido y con WebGL. La imagen fija
-     de debajo es el LCP; el lienzo se funde encima cuando ya ha pintado el primer fotograma. */
+  /* Objeto 3D y piezas en vivo (v2: un solo módulo, /js/vendor/web3d.min.js, con una copia de three): solo
+     ordenador, sin movimiento reducido y con WebGL. Las imágenes fijas de debajo son el LCP y el respaldo; cada
+     lienzo se funde encima cuando ya ha pintado. Las piezas se montan al acercarse a su sección. */
+  var web3d = null;
+  function conWeb3D(fn) {
+    if (w.Web3D) return fn(w.Web3D);
+    if (web3d) return web3d.push(fn);
+    web3d = [fn];
+    carga(["/js/vendor/web3d.min.js"], function () { var l = web3d; web3d = null; if (w.Web3D) l.forEach(function (f) { f(w.Web3D); }); });
+  }
+  function hayWebGL() { try { var cv = d.createElement("canvas"); return !!(cv.getContext("webgl2") || cv.getContext("webgl")); } catch (e) { return false; } }
   function objeto3d() {
+    if (reducido || !raton || ancho() < 900 || !hayWebGL()) return;
     var el = d.querySelector("[data-objeto3d]");
-    if (!el || reducido || !raton || ancho() < 900) return;
-    try { var cv = d.createElement("canvas"); if (!(cv.getContext("webgl2") || cv.getContext("webgl"))) return; } catch (e) { return; }
     var ya = function () {
-      carga(["/js/vendor/objeto3d.min.js"], function () {
-        if (!w.Objeto3D) return;
-        w.Objeto3D.montar(el.querySelector(".objeto__lienzo"), {
+      if (el) conWeb3D(function (M) {
+        M.montar(el.querySelector(".objeto__lienzo"), {
           svg: el.getAttribute("data-objeto3d"), color: el.getAttribute("data-color") || null,
           listo: function () { requestAnimationFrame(function () { el.classList.add("con-3d"); }); }
         }).catch(function () {});
       });
     };
     if ("requestIdleCallback" in w) w.requestIdleCallback(ya, { timeout: 2500 }); else setTimeout(ya, 800);
+    var piezas = d.querySelector("[data-piezas]");
+    if (piezas && "IntersectionObserver" in w) {
+      var ioP = new IntersectionObserver(function (ents) {
+        if (!ents[0].isIntersecting) return;
+        ioP.disconnect();
+        conWeb3D(function (M) {
+          [].forEach.call(piezas.querySelectorAll("[data-pieza]"), function (c) {
+            try {
+              var r = M.montarPieza(c, { listo: function () { c.classList.add("con-3d"); } });
+              if (r && r.catch) r.catch(function () {});
+            } catch (e) {}
+          });
+        });
+      }, { rootMargin: "600px 0px" });
+      ioP.observe(piezas);
+    }
   }
 
   /* Divide en palabras los nodos de texto de un elemento (conserva enlaces y negritas) */
@@ -453,21 +508,104 @@
     }
     /* R22 · Paralaje de las fotos dentro de su marco (×1,2) */
     d.querySelectorAll(".caso__foto img").forEach(function (im) {
-      G.fromTo(im, { yPercent: -7 }, { yPercent: 7, ease: "none", scrollTrigger: { trigger: im.closest(".caso"), start: "top bottom", end: "bottom top", scrub: true } });
+      G.fromTo(im, { yPercent: -5 }, { yPercent: 5, ease: "none", scrollTrigger: { trigger: im.closest(".caso"), start: "top bottom", end: "bottom top", scrub: true } });
     });
 
-    /* R11 · Palabras que se encienden: la segunda mitad gris de los H2 y el manifiesto. En táctil, sin scrub. */
+    /* v2 · Titulares que se revelan: cada palabra de los H2 sube desde su máscara al entrar (0,9 s, power4.out,
+       60 ms entre palabras). R11 · La segunda mitad gris se enciende palabra a palabra con el scroll. */
+    function envuelve(el) {
+      var out = [];
+      (function rec(n, gris) {
+        [].slice.call(n.childNodes).forEach(function (c) {
+          if (c.nodeType === 3) {
+            var f = d.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function (t) {
+              if (!t) return;
+              if (/^\s+$/.test(t)) { f.appendChild(d.createTextNode(t)); return; }
+              var m = d.createElement("span"); m.className = "rev-l";
+              var s2 = d.createElement("span"); s2.textContent = t; if (gris) s2.className = "pal";
+              m.appendChild(s2); f.appendChild(m); out.push(s2);
+            });
+            c.parentNode.replaceChild(f, c);
+          } else if (c.nodeType === 1) rec(c, gris || c.classList.contains("gris"));
+        });
+      })(el, false);
+      return out;
+    }
+    d.querySelectorAll("main .h2, .banda__tit, .pie__titular").forEach(function (h) {
+      var pals = envuelve(h);
+      if (!pals.length) return;
+      G.set(pals, { yPercent: 110 });
+      ST.create({ trigger: h, start: "top 88%", once: true, onEnter: function () {
+        G.to(pals, { yPercent: 0, duration: .9, ease: "power4.out", stagger: .06 });
+      } });
+    });
     d.querySelectorAll(".enciende").forEach(function (el) {
-      var obj = el.classList.contains("h2") ? el.querySelector(".gris") : el;
-      if (!obj) return;
-      var pals = palabras(obj);
-      var larga = !el.classList.contains("h2");
+      var esH2 = el.classList.contains("h2");
+      var pals = esH2 ? [].slice.call(el.querySelectorAll(".gris .pal")) : palabras(el);
+      if (!pals.length) return;
       if (raton) {
         G.fromTo(pals, { opacity: .2 }, { opacity: 1, stagger: .1, ease: "none",
-          scrollTrigger: { trigger: el, start: "top 85%", end: larga ? "bottom 55%" : "top 40%", scrub: true } });
+          scrollTrigger: { trigger: el, start: "top 85%", end: esH2 ? "top 40%" : "bottom 55%", scrub: true } });
       } else {
         G.fromTo(pals, { opacity: .2 }, { opacity: 1, stagger: .05, duration: .5, ease: "power1.out", scrollTrigger: { trigger: el, start: "top 80%" } });
       }
+    });
+
+    /* v2 · R7 · Tarjetas apiladas: se pegan arriba (sticky, CSS) y la de debajo encoge y se oscurece un poco
+       cuando la siguiente sube a taparla. */
+    var apil = [].slice.call(d.querySelectorAll("[data-apil]"));
+    apil.forEach(function (li, i) {
+      var sig = apil[i + 1]; if (!sig) return;
+      G.to(li.querySelector(".apil__in"), { scale: .93, ease: "none",
+        scrollTrigger: { trigger: sig, start: "top bottom", end: "top " + (24 + (i + 1) * 12) + "px", scrub: true } });
+    });
+    d.querySelectorAll(".apil__obj").forEach(function (o) {
+      G.fromTo(o, { y: 40, rotation: -6 }, { y: -40, rotation: 6, ease: "none", scrollTrigger: { trigger: o.closest(".apil"), start: "top bottom", end: "bottom top", scrub: true } });
+    });
+
+    /* R5 · Galería de la portada: cada caso sube a su velocidad (data-vel) por encima de la portada fija */
+    if (w.matchMedia("(min-width: 900px)").matches) {
+      d.querySelectorAll(".galeria .caso[data-vel]").forEach(function (c) {
+        var v = parseFloat(c.getAttribute("data-vel")) || 1;
+        G.fromTo(c, { y: (v - 1) * 260 }, { y: (1 - v) * 260, ease: "none", scrollTrigger: { trigger: c, start: "top bottom", end: "bottom top", scrub: true } });
+      });
+    }
+    /* v3 · R22 · La foto a sangre del manifiesto y las fotos de las franjas se mueven dentro de su marco */
+    d.querySelectorAll(".foto-sangre .fotohueco__img img, .franja__foto .fotohueco__img img").forEach(function (im) {
+      G.fromTo(im, { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: im.closest(".fotohueco"), start: "top bottom", end: "bottom top", scrub: true } });
+    });
+    /* R22 · Los casos grandes se mueven dentro de su marco */
+    d.querySelectorAll(".proy__foto img").forEach(function (im) {
+      G.fromTo(im, { yPercent: -5 }, { yPercent: 5, ease: "none", scrollTrigger: { trigger: im.closest(".proy"), start: "top bottom", end: "bottom top", scrub: true } });
+    });
+    /* R19 · Los objetos de las cifras entran de lado y con escala; los de las franjas, con paralaje */
+    d.querySelectorAll(".cifra__obj").forEach(function (o, i) {
+      G.from(o, { x: i % 2 ? -70 : 70, y: 50, scale: 1.2, opacity: 0, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: o.parentNode, start: "top 80%", once: true } });
+    });
+    d.querySelectorAll(".franja__obj, .horario__obj, .banda__objeto, .opiniones__obj, .contacto__obj, .cab-int__obj").forEach(function (o) {
+      G.fromTo(o, { y: 50 }, { y: -50, ease: "none", scrollTrigger: { trigger: o.parentNode, start: "top bottom", end: "bottom top", scrub: true } });
+    });
+    /* R17 · El nombre gigante del pie baja desde arriba con el scroll */
+    /* v4 · GORDO entra por la izquierda, FLACO por la derecha y el monograma G+F cae girando hasta su sitio */
+    var pl = d.querySelector("[data-pie-nombre] .lg");
+    if (pl) {
+      var stp = { trigger: pl, start: "top 100%", end: "top 45%", scrub: true };
+      G.fromTo(pl.querySelector(".lg__gordo"), { xPercent: -45, opacity: .2 }, { xPercent: 0, opacity: 1, ease: "none", scrollTrigger: stp });
+      G.fromTo(pl.querySelector(".lg__flaco"), { xPercent: 45, opacity: .2 }, { xPercent: 0, opacity: 1, ease: "none", scrollTrigger: stp });
+      G.fromTo(pl.querySelector(".lg__simbolo"), { yPercent: -120, rotation: -200, scale: 1.6 }, { yPercent: 0, rotation: 0, scale: 1, ease: "none", scrollTrigger: stp });
+    }
+    /* v4 · La foto se mueve dentro de las letras del logotipo; el trazo se dibuja y el monograma gira */
+    d.querySelectorAll("[data-lgfoto]").forEach(function (c) {
+      var im = c.querySelector(".lgfoto__mascara img");
+      if (im) G.fromTo(im, { yPercent: -18 }, { yPercent: 18, ease: "none", scrollTrigger: { trigger: c, start: "top bottom", end: "bottom top", scrub: true } });
+      var a = c.querySelector(".lgfoto__trazo .lg__simbolo");
+      if (a) G.fromTo(a, { rotation: -90, scale: .6 }, { rotation: 0, scale: 1, ease: "none", scrollTrigger: { trigger: c, start: "top 90%", end: "top 35%", scrub: true } });
+      G.from(c.querySelectorAll(".lgfoto__trazo .lg__gordo, .lgfoto__trazo .lg__flaco"), { opacity: 0, duration: 1.2, stagger: .15, ease: "power2.out", scrollTrigger: { trigger: c, start: "top 80%", once: true } });
+    });
+    /* v4 · El logotipo en trazo de las franjas oscuras se desliza en horizontal */
+    d.querySelectorAll("[data-marca-agua]").forEach(function (m) {
+      G.fromTo(m, { xPercent: 6 }, { xPercent: -14, ease: "none", scrollTrigger: { trigger: m.parentNode, start: "top bottom", end: "bottom top", scrub: true } });
     });
 
     /* R21 · La banda final se abre: el fondo pasa de scaleX 1,14 y radio 200 a su sitio (el texto no se deforma) */

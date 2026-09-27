@@ -42,6 +42,8 @@ Muchas veces el encargo parte de algo que ya existe: un logotipo antiguo, unos c
 
 Para Solvento hicimos en su momento la imagen completa: la marca, la rotulación de sus furgonetas, la papelería y la web. Hoy le estamos haciendo una web nueva pensada sobre todo para administradores de fincas.
 
+Otros ejemplos: para Delfinia Piscinas, empresa de mantenimiento de piscinas, hicimos la imagen completa y la rotulación; para Vinos Gallegos Pousada, que lleva el vino gallego a bares y restaurantes, su imagen de marca y su web.
+
 ## ¿Diseñan piezas para redes sociales?
 
 Sí. En El Gordo y el Flaco diseñamos piezas para redes sociales: plantillas de publicaciones, portadas, imágenes para promociones y anuncios, con la misma imagen que el resto de su marca. Las entregamos listas para publicar, y la publicación la lleva el propio negocio.
@@ -87,5 +89,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ Casos con reseña: Alberto Martín (Delfinia Piscinas: imagen completa y rotulación) y David Díaz (Vinos Pousada: imagen de marca) servirían como casos con nombre. ¿Los autorizas?
-⚑ «revisamos las pruebas y le llega el trabajo terminado» (gestión de impresión): confirma que el proceso es así.
+Sin ⚑ abiertas (tanda 7, 27/09): Delfinia y Pousada autorizados (pueden salir en varias categorías); gestión de impresión confirmada.

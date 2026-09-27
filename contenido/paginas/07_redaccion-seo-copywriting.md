@@ -78,4 +78,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ «Lo revisamos con usted antes de publicarlo» y FAQ «usted lo revisa»: doy por hecho que el cliente revisa los textos antes de publicar. Confírmalo.
+Sin ⚑ abiertas (tanda 7, 27/09): el cliente revisa los textos antes de publicar, confirmado (se entrega lo más terminado posible).

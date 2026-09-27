@@ -13,7 +13,7 @@ El Gordo y el Flaco es la agencia SEO y de marketing online que viene desde Alco
 
 Un negocio de barrio en Leganés puede empezar solo con la ficha de Google, y muchos deberían. La web entra cuando la ficha ya trae visitas y hace falta convencer: explicar servicios, enseñar trabajos, responder dudas antes de que el cliente llame a otro.
 
-Aquí compiten calle a calle. La peluquería de una esquina contra la de la esquina siguiente. El taller contra el taller. Quien busca desde el móvil decide en segundos, y decide con lo que ve en el mapa.
+Aquí compiten calle a calle. La peluquería de una esquina contra la de la esquina siguiente. El taller contra el taller. Quien busca desde el móvil decide en segundos, y decide con lo que ve en el mapa. Y en Leganés Tecnológico la cosa cambia: allí se busca proveedor, y pesan más la web y los anuncios.
 
 | Si su negocio… | Le basta con… | Le conviene sumar… |
 |---|---|---|
@@ -65,5 +65,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ Reseña de Pablo: parafraseada. Hay que cotejar que nombra Leganés.
-⚑ Parques empresariales de Leganés (Leganés Tecnológico, Butarque…): no los nombro sin verificar. Si los confirmas, suben la parte única.
+Sin ⚑ abiertas (tanda 7, 27/09): Leganés Tecnológico comprobado (Butarque es el estadio, no se usa). Reseña de Pablo cotejada.

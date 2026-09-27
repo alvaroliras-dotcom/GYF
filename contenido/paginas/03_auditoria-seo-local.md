@@ -41,7 +41,7 @@ Cuando nos encarga el trabajo, la auditoría se convierte en la hoja de ruta del
 
 ## Quién la hace
 
-La hace El Gordo y el Flaco, una casa con más de 20 años de oficio en SEO, analítica, redacción publicitaria y diseño, con el apoyo de Matías, nuestro agente de IA de SEO local. Quien dirige su auditoría es quien después dirigiría el trabajo si usted nos lo encarga. Por eso el informe está escrito para que se pueda ejecutar, punto por punto.
+La hace El Gordo y el Flaco, una casa con más de 20 años de oficio en SEO, analítica, redacción publicitaria y diseño. Quien dirige su auditoría es quien después dirigiría el trabajo si usted nos lo encarga. Por eso el informe está escrito para que se pueda ejecutar, punto por punto.
 
 Somos una [LINK agencia SEO en Alcorcón](/) 🆕 y hacemos auditorías para negocios de Alcorcón, Getafe, Móstoles, Leganés, Fuenlabrada, Majadahonda, Boadilla del Monte, Arroyomolinos, Villaviciosa de Odón, Pozuelo de Alarcón y Brunete.
 
@@ -69,5 +69,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ Tabla: las dos últimas filas (páginas de municipio y móvil/teléfono) amplían la lista de Matías; confirma que tu auditoría las revisa.
-⚑ «con el apoyo de Matías, nuestro agente de IA de SEO local»: confirma que quieres nombrarlo aquí.
+Sin ⚑ abiertas (tanda 7, 27/09): la auditoría revisa también municipios y móvil; no se nombra a ningún agente.

@@ -11,7 +11,7 @@ El Gordo y el Flaco, agencia SEO y de marketing online con oficina en Alcorcón,
 
 ## Cuando cien negocios buscan al mismo cliente
 
-Fuenlabrada tiene un tejido enorme de pymes, comercios y polígonos. Eso es una buena noticia para quien vende y una mala para quien quiere salir en Google: por cada búsqueda compiten muchos negocios que ofrecen casi lo mismo.
+Fuenlabrada tiene un tejido enorme de pymes, comercios y polígonos, del Cobo Calleja a El Álamo. Eso es una buena noticia para quien vende y una mala para quien quiere salir en Google: por cada búsqueda compiten muchos negocios que ofrecen casi lo mismo.
 
 En ese escenario, la ficha genérica y la web de una sola página pierden.
 
@@ -66,5 +66,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ Cita de Sergio (Balgas): fragmentos del briefing; hay que cotejarlos con su reseña literal.
-⚑ Polígonos de Fuenlabrada (Cobo Calleja, etc.): no los nombro sin verificar. El ejemplo de reformas es ilustrativo, no un cliente.
+Sin ⚑ abiertas (tanda 7, 27/09): cita de Sergio cotejada; Cobo Calleja y El Álamo comprobados (ayto-fuenlabrada.es). El ejemplo de reformas es ilustrativo.

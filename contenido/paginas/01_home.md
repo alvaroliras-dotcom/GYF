@@ -74,7 +74,7 @@ Si su negocio está algo más lejos, llámenos y lo hablamos.
 
 Atendemos de lunes a viernes, de 9:00 a 19:00.
 
-La oficina está en la Av. del Alcalde José Aranda, 51, 28924 Alcorcón, y recibimos con cita. Aunque casi siempre somos nosotros los que vamos a verle.
+La oficina está en la Av. del Alcalde José Aranda, 51, 28924 Alcorcón, en el Parque de Lisboa, y recibimos con cita. Aunque casi siempre somos nosotros los que vamos a verle.
 
 ## Opiniones de nuestros clientes
 
@@ -104,4 +104,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ Solvento: lo he puesto como «Empresa de servicios» porque no tengo su sector. Dime a qué se dedica en dos o tres palabras.
+(Sin ⚑ abiertas.)

@@ -72,11 +72,12 @@ Una selección de proyectos, de sectores muy distintos:
 - **Balgas**, reparación de calderas en Alcorcón: web, ficha de Google y campañas de Google Ads.
 - **Marcos Cerrajeros**, cerrajería en Alcorcón: ficha de Google y web nueva.
 - **Aquita**, control de plagas en Arroyomolinos: ficha de Google y web nueva, desde cero.
-- **RFG Andrade**, psiquiatría.
+- **RFG Andrade**, consulta de psiquiatría en Madrid: su web de presentación.
 - **Las Tejas**, restaurante en Alcorcón: su web.
-- **La Boutique**, estética.
 - **JIF 2026**, congreso científico: toda la web del congreso.
-- **Solvento**: en su momento, imagen de marca, rotulación de furgonetas, papelería y web; ahora, su web nueva, pensada para administradores de fincas.
+- **Solvento**, mantenimiento, fontanería y obra para comunidades de vecinos: en su momento, imagen de marca, rotulación de furgonetas, papelería y web; ahora, su web nueva, pensada para administradores de fincas.
+- **Delfinia Piscinas**, mantenimiento de piscinas: imagen completa y rotulación.
+- **Vinos Gallegos Pousada**, distribución de vino gallego para bares y restaurantes: imagen de marca y web.
 
 ## Opiniones de nuestros clientes
 
@@ -95,16 +96,11 @@ FAQ
 
 **¿Quién me atiende si llamo?** Quien dirige su proyecto. Siempre el mismo interlocutor.
 
-**¿Los agentes de IA son personas?** Son agentes de inteligencia artificial, y así los presentamos. Cada uno tiene un oficio; los dirigimos nosotros, y quien responde ante usted es una persona.
+**¿Los agentes de IA son personas?** Son agentes de inteligencia artificial, y así los presentamos. Cada uno tiene un oficio; los dirigimos nosotros y revisamos su trabajo, y quien responde ante usted es una persona.
 
 **¿Cuánto tiempo lleva El Gordo y el Flaco?** 15 años de agencia en Alcorcón y más de 20 años de oficio en publicidad.
 
 ---
 Notas para Álvaro:
 
-⚑ Relato sin nombres: la historia de la casa ya no dice quién eres ni cuántos años llevas por tu cuenta (se va la nota de «7-8 años»). Los dos socios, sin nombres; «el otro, no tanto» queda sin identificar.
-⚑ RFG Andrade y La Boutique: entran en la muestra con el sector que figura en la home (psiquiatría, estética), sin decir qué hicimos ni dónde. Dime en una línea el trabajo y el municipio de cada uno.
-⚑ La Casita de los Animales: fuera de la muestra.
-⚑ Solvento: sigue sin sector. Dime a qué se dedica en una línea.
-⚑ «Los dirigimos nosotros y revisamos su trabajo» (agentes): confirma que quieres decirlo así.
-⚑ Title y URL no nombraban a nadie; se mantienen. H1, meta y entrada corta cambiados.
+Sin ⚑ abiertas (tanda 7, 27/09: sectores, La Boutique fuera hasta que tenga foto real, Delfinia y Pousada dentro, agentes «los dirigimos y revisamos su trabajo»).

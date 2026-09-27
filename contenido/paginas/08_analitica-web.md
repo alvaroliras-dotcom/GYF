@@ -28,6 +28,7 @@ El informe mensual de El Gordo y el Flaco resume en pocas páginas lo que ha pas
 | Qué mira | Qué pregunta responde |
 |---|---|
 | Llamadas y formularios | ¿Cuántos clientes ha traído la web este mes? |
+| Su ficha de Google | ¿Cuántas llamadas, visitas a la web y rutas ha dado la ficha? |
 | Búsquedas en Search Console | ¿Con qué palabras le encuentran en Google? |
 | Páginas más vistas | ¿Qué servicios interesan más? |
 | Origen de las visitas | ¿Vienen de Google, de Maps, de un anuncio o de las redes? |
@@ -50,7 +51,7 @@ Medir tiene sentido cuando cambia algo. La analítica le dice dónde poner el es
 
 Si lleva campañas de [LINK Google Ads](/google-ads/) 🆕, la analítica le enseña qué campañas traen llamadas y cuáles conviene ajustar. Si está pensando en una web nueva, le dice qué páginas de la actual funcionan y cuáles merece la pena rehacer.
 
-Todas las webs que hacemos con nuestro servicio de [LINK diseño web](/diseno-web/) 🆕 salen con la medición de llamadas y formularios puesta desde el primer día.
+Las webs que hacemos con nuestro servicio de [LINK diseño web](/diseno-web/) 🆕 pueden salir con la medición de llamadas y formularios puesta desde el primer día; lo decidimos con usted al hacerla.
 
 ## Cómo empezamos
 
@@ -84,5 +85,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ Tabla del informe mensual: el contenido lo he deducido de los informes de Iñaki. Confirma que incluye la ficha de Google y esas seis filas.
-⚑ «Todas las webs […] salen con la medición de llamadas y formularios puesta desde el primer día»: el sistema de Balgas lleva esos eventos; confirma que lo quieres prometer para todas.
+Sin ⚑ abiertas (tanda 7, 27/09): el informe tiene dos partes, web y ficha; la medición no se promete en todas las webs.

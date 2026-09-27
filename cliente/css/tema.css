@@ -32,12 +32,9 @@
 @media (min-width:768px){.logos--seis{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (min-width:1200px){.logos,.logos--seis{grid-template-columns:repeat(6,minmax(0,1fr))}}
 .logo{display:flex;align-items:center;justify-content:center;height:clamp(76px,11vw,112px);padding:10px 12px;background:var(--tinta);border:1px solid var(--linea);border-radius:var(--r-m)}
-.logo img{max-height:62%;max-width:100%;width:auto;object-fit:contain;filter:grayscale(1);opacity:.7;transition:filter .35s var(--ease-salida),opacity .35s var(--ease-salida)}
-.logo:hover img{filter:none;opacity:1}
-.logo--alto img{max-height:96%}
+/* v2: el paso de gris a color va en cliente/css/v2.css (dos imágenes: gris y original) */
 @media (min-width:768px){.logo{padding:12px 18px;border-radius:var(--r-s)}}
 .logo--marcador{border-style:dashed;color:var(--t4);font-size:.875rem;letter-spacing:.02em}
-@media (prefers-reduced-motion:reduce){.logo img{transition:none}}
 
 /* ---------- Opiniones reales (paso 29): cada tarjeta con su alto (las reseñas largas dejaban
    las cortas con medio metro de blanco en el móvil) y sin el título vacío (las de Google no traen) ---------- */

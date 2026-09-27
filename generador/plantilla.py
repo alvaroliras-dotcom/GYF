@@ -25,6 +25,23 @@ if "fill=" not in _MONO:
     _MONO = f'<g fill="currentColor">{_MONO}</g>'
 
 
+# ---------- v4 · El logotipo como elemento gráfico: GORDO, & y FLACO en tres <symbol> (se animan por separado) ----------
+_LG = open(os.path.join(RAIZ, "recursos", "marca", "logo-horizontal-color.svg"), encoding="utf-8").read()
+LG_VB = re.search(r'viewBox="([^"]+)"', _LG).group(1)
+_LG_P = [re.sub(r"(\d+\.\d)\d+", r"\1", d) for d in re.findall(r'<path[^>]* d="([^"]+)"', _LG)]
+_LG_PARTES = {"gordo": _LG_P[0:5], "simbolo": _LG_P[10:12], "flaco": _LG_P[5:10]}
+LG_SIMBOLOS = "".join(f'<symbol id="lg-{k}" viewBox="{LG_VB}">' + "".join(f'<path d="{d}"/>' for d in v) + "</symbol>"
+                      for k, v in _LG_PARTES.items())
+
+
+def logotipo(clase=""):
+    """El logotipo completo en tres piezas (lg__gordo, lg__simbolo (el monograma G+F), lg__flaco) para moverlas por separado.
+    Color con fill/stroke desde el CSS. Decorativo: aria-hidden."""
+    ancho, alto = LG_VB.split()[2:4]   # el <use> de un <symbol> ocupa 0 0 100% 100%: el <svg> va en origen 0
+    return (f'<svg class="lg {clase}" viewBox="0 0 {ancho} {alto}" aria-hidden="true" focusable="false">'
+            + "".join(f'<use class="lg__{k}" href="#lg-{k}"/>' for k in ("gordo", "simbolo", "flaco")) + "</svg>")
+
+
 def sprite(html_pagina):
     """Solo los símbolos que usa la página (se inserta al abrir <body>)."""
     usados = sorted(set(re.findall(r'href="#i-([a-z0-9-]+)"', html_pagina)))
@@ -33,7 +50,8 @@ def sprite(html_pagina):
         raise SystemExit(f"plantilla: iconos que no están en recursos/iconos/sprite.svg: {faltan}")
     cuerpo = "".join(SIMBOLOS[u] for u in usados)
     return (f'<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">'
-            f'<symbol id="simbolo-c" viewBox="{VB}">{_CUERPO}</symbol><symbol id="simbolo-m" viewBox="{VB}">{_MONO}</symbol>{cuerpo}</svg>')
+            f'<symbol id="simbolo-c" viewBox="{VB}">{_CUERPO}</symbol><symbol id="simbolo-m" viewBox="{VB}">{_MONO}</symbol>'
+            f'{LG_SIMBOLOS if "#lg-" in html_pagina else ""}{cuerpo}</svg>')
 
 
 def ico(nombre, clase=""):
@@ -107,6 +125,13 @@ def foto(archivo, alt, sizes="(max-width: 900px) 100vw, 50vw", prioridad=False, 
             f'width="1600" height="{alto}" alt="{A(alt)}" {carga}></picture>')
 
 
+# ---------- v2 · Objetos 3D de la marca (los genera rematar.py en /img/obj/: 400, 800 y 1.200, WebP con alfa) ----------
+def objeto(nombre, sizes="(max-width: 900px) 60vw, 420px", clase="", alt="", prioridad=False):
+    carga = 'fetchpriority="high"' if prioridad else 'loading="lazy" decoding="async"'
+    return (f'<img class="obj3d {clase}" src="/img/obj/{nombre}-800.webp" srcset="/img/obj/{nombre}-400.webp 400w, '
+            f'/img/obj/{nombre}-800.webp 800w, /img/obj/{nombre}-1200.webp 1200w" sizes="{sizes}" width="800" height="800" alt="{A(alt)}" {carga}>')
+
+
 # ---------- <head> ----------
 def og_ruta(url):
     """Imagen para redes de cada página (la genera rematar.py en /og/). La 404 usa la general."""
@@ -149,6 +174,7 @@ def cabeza(p, schema, robots="index, follow", precarga=None):
 <link rel="manifest" href="/site.webmanifest">
 {fuentes}
 {pre}
+<script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="/css/estilo.css?v={VERSION}">
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False, separators=(",", ":"))}</script>
 </head>
@@ -176,6 +202,7 @@ def cabecera(actual):
     logo_b = MARCA.get("logo_blanco") or MARCA["logo"]
     return f"""<body>
 <!--SPRITE-->
+<div class="cortina" aria-hidden="true" data-cortina><svg class="cortina__sim" viewBox="{VB0}"><use href="#simbolo-m"/></svg></div>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="cab" data-cab>
  <div class="contenedor cab__in">
@@ -225,7 +252,7 @@ def nota(clase="", enlace=None):
     return f'<p class="nota {clase}">{cuerpo}</p>'
 
 
-# ---------- Pie: tres tarjetas blancas (variación A), sin nombre gigante ----------
+# ---------- Pie (v2, el de Rayo): el logotipo gigante a sangre que baja con el scroll (R17) y tarjetas de color ----------
 def pie():
     serv = [(n, u) for n, u in (MENU[1][1] if isinstance(MENU[1][1], list) else [])]
     base = [] if N["localidad"] in [n for _, n in MUNICIPIOS] else [(N["localidad"], "/")]
@@ -233,24 +260,32 @@ def pie():
     grandes = [(n, d) for n, d in MENU if not isinstance(d, list)]
     lst = lambda L: "".join(f'<li><a href="{u}">{n}</a></li>' for n, u in L)
     leg = "".join(f'<li><a href="{u}">{n}</a></li>' for n, u in LEGALES)
+    abre, cierra = N["abre"].lstrip("0"), N["cierra"].lstrip("0")
     return f"""</main>
 <footer class="pie">
  <div class="contenedor">
+  <div class="pie__nombre" aria-hidden="true" data-pie-nombre>{logotipo("pie__lg")}</div>
   <div class="pie__tarjetas">
    <div class="pie__t pie__t--menu rv">
     <p class="pie__titular">{texto("pie_titular")}</p>
     <ul class="pie__grandes">{lst(grandes)}</ul>
    </div>
    <div class="pie__t pie__t--contacto rv">
-    {estado()}
-    <a class="pie__tel tel" href="tel:{N['telefono_e164']}">{N['telefono']}</a>
+    {estado("estado--claro")}
+    <a class="pie__tel tel" href="tel:{N['telefono_e164']}" data-zona="pie">{N['telefono']}</a>
     <a class="pie__mail" href="mailto:{N['email']}">{N['email']}</a>
-    <p class="pie__dir"><a href="{FICHA}" rel="noopener" target="_blank">{N['calle']}, {N['cp']} {N['localidad']} ({N['provincia']})</a><br>{N['horario_texto']}</p>
-    <div class="acciones">{btn_whatsapp("btn--linea btn--peq")}</div>
+    <p class="pie__dir"><a href="{FICHA}" rel="noopener" target="_blank">{N['calle']}, {N['cp']} {N['localidad']} ({N['provincia']})</a></p>
+    <div class="acciones">{btn_whatsapp("btn--blanco btn--peq")}</div>
+   </div>
+   <div class="pie__t pie__t--horario rv">
+    <span class="pie__sim" aria-hidden="true">{objeto("simbolo-cerca", "(max-width: 900px) 60vw, 360px")}</span>
+    <p class="pie__h">Horario</p>
+    <p class="pie__horas"><strong>{abre}<em>—</em>{cierra}</strong><span>{N['dias_texto']}</span></p>
+    <p class="pie__nota">{texto("llms_horario_extra")}</p>
    </div>
    <div class="pie__t pie__t--listas rv">
     <div><p class="pie__h">Servicios</p><ul>{lst(serv)}</ul></div>
-    {f'<div><p class="pie__h">Zonas</p><ul>{lst(zona)}</ul></div>' if zona else ""}
+    {f'<div class="pie__zonas"><p class="pie__h">Zonas</p><ul>{lst(zona)}</ul></div>' if zona else ""}
    </div>
   </div>
   <div class="pie__legal">

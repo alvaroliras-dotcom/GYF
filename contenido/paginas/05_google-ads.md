@@ -87,9 +87,9 @@ FAQ
 
 **¿Me tengo que quedar un mínimo de meses?** El mantenimiento es mensual. Puede dejarlo el mes que quiera.
 
-**¿Puedo anunciarme en Maps si no tengo web?** Sí, el anuncio de Maps puede llevar a la llamada o a la ficha. Aun así, una página propia del servicio suele convertir mejor, y se lo valoramos en la reunión.
+**¿Puedo anunciarme si no tengo web?** Antes de lanzar los anuncios necesitamos una página de aterrizaje: el sitio al que llega quien pulsa y donde decide si le llama. Si no la tiene, se la preparamos primero.
 
 ---
 Notas para Álvaro:
 
-⚑ FAQ de Maps sin web: el anuncio puede llevar a la llamada o a la ficha. Es cómo funciona Google, no algo que me hayas dicho; confirma que lo ofreces así.
+Sin ⚑ abiertas (tanda 7, 27/09): sin web no hay anuncios; primero, página de aterrizaje.

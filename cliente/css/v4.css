@@ -1,0 +1,41 @@
+/* =====================================================================
+   GYF v4 · El logotipo también manda (Jean Paul)
+   1. Pie: GORDO, el monograma G+F y FLACO entran por separado con el scroll.
+   2. Home: el logotipo a todo el ancho con una foto dentro de las letras.
+   3. Franjas oscuras (pasos y opiniones): el logotipo en trazo, enorme y cortado, de fondo.
+   ===================================================================== */
+.lg{display:block;width:100%;height:auto;overflow:visible}
+.lg use{transform-box:fill-box;transform-origin:50% 50%}
+
+/* 1 · Pie */
+.pie__lg{fill:var(--acento)}
+.pie__nombre{overflow:hidden}
+
+/* 2 · Logotipo con foto dentro */
+.lgfoto{padding-block:clamp(64px,8vw,140px) clamp(48px,6vw,96px);overflow:hidden;background:var(--oscuro);color:rgba(255,255,255,.8);border-radius:var(--r-l,32px);margin-inline:clamp(0px,1vw,16px)}
+.lgfoto .etiqueta{color:rgba(255,255,255,.8)}
+.lgfoto__caja{position:relative;aspect-ratio:726/118}
+.lgfoto__mascara{position:absolute;inset:0;
+  -webkit-mask:url(/marca/logo-horizontal-color.svg) center/100% 100% no-repeat;
+          mask:url(/marca/logo-horizontal-color.svg) center/100% 100% no-repeat}
+.lgfoto__mascara picture,.lgfoto__mascara img{position:absolute;left:0;width:100%;height:340%;top:-120%;object-fit:cover;display:block}
+.lgfoto__trazo{position:absolute;inset:0;fill:none;stroke:var(--acento);stroke-width:1;vector-effect:non-scaling-stroke;pointer-events:none}
+.lgfoto__pie{margin-top:clamp(16px,2vw,28px);justify-content:flex-end}
+@media (max-width:700px){.lgfoto__pie{justify-content:flex-start}}
+
+/* 3 · Marca de agua en las franjas oscuras */
+.franja--oscuro{position:relative;overflow:hidden}
+.marca-agua{position:absolute;left:-6%;bottom:-2%;width:150%;z-index:0;pointer-events:none;opacity:.9}
+.marca-agua .lg{fill:none;stroke:rgba(224,6,122,.28);stroke-width:1.2;vector-effect:non-scaling-stroke}
+.franja--oscuro>.contenedor{position:relative;z-index:1}
+@media (max-width:700px){.marca-agua{width:260%;left:-10%;bottom:1%}}
+@media (prefers-reduced-motion:reduce){.lg use{transform:none!important}}
+/* Las fotos ya vienen con su dirección de arte: sin velo fucsia en modo de fusión (costaba 100 ms de bloqueo en Lighthouse) */
+.fotohueco--vineta:not(.fotohueco--vacio)::after{display:none}
+
+/* Cabecera interior: con fotos claras, el rótulo blanco necesita un fondo oscuro abajo y va por encima del objeto 3D */
+.cab-int__fh .fotohueco__img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(28,18,25,.78) 0%,rgba(28,18,25,.35) 32%,transparent 58%);pointer-events:none}
+.cab-int__fh .fotohueco__img{position:absolute;inset:0}
+.cab-int__vt{z-index:5;text-shadow:0 2px 18px rgba(28,18,25,.55)}
+/* Detrás de un objeto fucsia: la foto a color, solo algo más oscura (ya no se pasa a gris) */
+.cab-int__vis--oscuro .cab-int__fh .fotohueco__img img{filter:brightness(.72) saturate(.9)}

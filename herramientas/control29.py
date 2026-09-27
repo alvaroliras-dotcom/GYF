@@ -82,7 +82,7 @@ with sync_playwright() as p:
                 pg.screenshot(path=f"{a.salida}/{nombre}-{w}-entera.png", full_page=True)
             desb = pg.evaluate("""() => { const W = document.documentElement.clientWidth; const r = [];
                 document.querySelectorAll('body *').forEach(e => { const b = e.getBoundingClientRect();
-                  if (b.right > W + 1 && b.width > 0 && !e.closest('.cinta,.galeria,.op-lista,.menu,[aria-hidden=true],.cursor-foto,.sr')) r.push(e.className || e.tagName); });
+                  if (b.right > W + 1 && b.width > 0 && !e.closest('.cinta,.galeria,.op-lista,.menu,[aria-hidden=true],.cursor-foto,.sr,.fotohueco')) r.push(e.className || e.tagName); });
                 return {pagina: document.documentElement.scrollWidth > W, piezas: [...new Set(r)].slice(0, 6)}; }""")
             linea = f"{ruta} @{w}: desborde {'SÍ' if desb['pagina'] else 'no'}{(' ' + str(desb['piezas'])) if desb['piezas'] else ''} · invisibles {inv or 'ninguno'} · JS {'; '.join(errores) or 'sin errores'}"
             print(linea)

@@ -1,0 +1,413 @@
+/* =====================================================================
+   GYF · v2 · COLOR, CAJAS, OBJETOS 3D Y MOVIMIENTO (la riqueza visual de Rayo).
+   Va la última (rematar.py la une detrás de base.css y tema.css): lo de aquí manda.
+   Contrastes (WCAG): texto pequeño sobre claro #B0045F (6,5:1) · sobre berenjena #FF7AB8 (7,2:1) o blanco ·
+   sobre fucsia #E0067A solo blanco (4,69:1). El fucsia como texto sobre claro, solo en tamaños grandes.
+   ===================================================================== */
+:root{
+  --crema:#F5F1EC;
+  --oscuro-2:#2A1B25;          /* tarjetas sobre berenjena */
+  --ease-cortina:cubic-bezier(.77,0,.175,1);
+  --sombra-t:0 30px 60px -30px rgba(28,18,25,.35);
+  --top-apil:24px;
+}
+
+/* ---------- Cortinilla fucsia de entrada y entre páginas ---------- */
+.cortina{display:none}
+.js .cortina{display:grid;place-items:center;position:fixed;inset:0;z-index:300;background:var(--acento);pointer-events:none;
+  animation:cortina-sale .8s var(--ease-cortina) .1s both}
+.cortina__sim{width:clamp(64px,7vw,96px);height:auto;color:#fff;animation:cortina-sim .45s ease-out .05s both}
+@keyframes cortina-sale{to{transform:translateY(-101%)}}
+@keyframes cortina-sim{to{opacity:0;transform:translateY(-24px)}}
+.js .cortina.entra{animation:cortina-entra .5s var(--ease-cortina) both}
+.js .cortina.entra .cortina__sim{animation:cortina-sim-in .4s ease-out .15s both}
+@keyframes cortina-entra{from{transform:translateY(101%)}to{transform:none}}
+@keyframes cortina-sim-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.js .cortina{display:none}}
+
+/* ---------- Objetos 3D (imágenes con alfa) ---------- */
+.obj3d{display:block;width:100%;height:auto;pointer-events:none;user-select:none}
+@media (prefers-reduced-motion:no-preference){
+  .flota-lenta{animation:flota-l 3.2s ease-in-out infinite alternate}
+  .gira-lento{animation:gira-l 28s linear infinite}
+}
+@keyframes flota-l{from{transform:translateY(-10px) rotate(-2deg)}to{transform:translateY(10px) rotate(2deg)}}
+@keyframes gira-l{to{transform:rotate(360deg)}}
+
+/* ---------- Franjas de lado a lado (berenjena y fucsia) ---------- */
+.franja{position:relative;padding-block:clamp(72px,8vw,140px);margin-bottom:var(--sec);border-radius:var(--r-l);isolation:isolate}
+.franja--oscuro{background:var(--oscuro);color:rgba(255,255,255,.8);
+  --t1:#FFFFFF;--t2:rgba(255,255,255,.82);--t3:rgba(255,255,255,.7);--t4:rgba(255,255,255,.35);--linea:rgba(255,255,255,.14);
+  --tinta:var(--oscuro-2);--ico-acento:var(--acento-claro);--acento-texto:var(--acento-claro)}
+.franja--acento{background:var(--acento);color:#fff;
+  --t1:#FFFFFF;--t2:#FFFFFF;--t3:#FFFFFF;--t4:rgba(255,255,255,.45);--linea:rgba(255,255,255,.35);
+  --ico-acento:#FFFFFF;--acento-texto:#FFFFFF}
+.franja .h2,.franja .entradilla{color:var(--t1)}
+.franja .etiqueta{color:var(--t2)}
+.franja--oscuro .etiqueta__sim{color:var(--acento-claro)}
+.franja--acento .etiqueta__sim,.franja--acento .vineta{color:#fff}
+.franja .prosa p a{color:var(--t1)}
+.franja--oscuro .prosa p a{color:var(--acento-claro)}
+.franja .btn--linea{border-color:var(--t1);color:var(--t1)}
+.franja__obj{position:absolute;z-index:2;pointer-events:none;width:clamp(120px,18vw,280px)}
+.franja__obj--pasos{right:4%;top:clamp(-90px,-6vw,-50px)}
+.franja__obj--zona{right:5%;top:clamp(-100px,-7vw,-60px);width:clamp(110px,15vw,230px)}
+.franja>.contenedor{position:relative;z-index:1}
+
+/* ---------- Portada: objetos alrededor y la estrella en la tarjeta ---------- */
+.portada-a__extra{position:absolute;z-index:2;pointer-events:none;display:none}
+@media (min-width:900px){
+  .portada-a__extra{display:block}
+  .portada-a__extra--a{right:5%;top:calc(var(--cab-alto) - 6px);width:clamp(150px,13vw,220px)}
+  .portada-a__extra--b{right:27%;top:calc(var(--cab-alto) + 60px);width:clamp(84px,7.5vw,120px)}
+}
+.tarjeta{position:relative}
+.tarjeta__obj{position:absolute;left:-40px;top:-46px;width:92px;pointer-events:none;z-index:1}
+@media (max-width:899px){.tarjeta__obj{left:auto;right:-8px;top:-40px;width:78px}}
+.portada-a__serv a{position:relative;border-radius:999px;padding:4px 10px 4px 6px;margin-left:-6px;isolation:isolate;transition:color .3s}
+.portada-a__serv a::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--acento);transform:scaleX(0);transform-origin:0 50%;transition:transform .35s var(--ease-letras);z-index:-1}
+@media (hover:hover){.portada-a__serv a:hover{color:#fff}.portada-a__serv a:hover .ico{color:#fff;--ico-acento:#fff}.portada-a__serv a:hover::before{transform:none}}
+
+/* Galería de casos (composiciones con su propio fondo) */
+.caso__marco{background:var(--crema)}
+.caso__foto img{transform:scale(1.12)}
+@media (min-width:900px){.galeria__lista{row-gap:6vh}}
+
+/* ---------- Manifiesto: las ventajas en tarjetas ---------- */
+.ventajas li{border-top:0;padding:26px 24px;background:#fff;border-radius:var(--r-m);box-shadow:0 1px 0 var(--linea);row-gap:6px}
+.ventajas .ico{width:44px;height:44px;padding:10px;border-radius:50%;background:var(--acento);color:#fff;--ico-acento:#fff;grid-row:span 2}
+.ventajas span{color:var(--t3)}
+
+/* ---------- Servicios en tarjetas apiladas (R7) ---------- */
+.apiladas{display:grid;gap:clamp(16px,2vw,28px);margin-top:clamp(32px,3.4vw,56px)}
+.apil{position:sticky;top:calc(var(--top-apil) + var(--i) * 12px)}
+.apil__in{position:relative;border-radius:var(--r-l);padding:clamp(24px,3.4vw,50px);display:grid;gap:24px;transform-origin:50% 0;
+  box-shadow:0 -18px 50px -30px rgba(28,18,25,.45);will-change:transform}
+.apil--oscuro .apil__in{background:var(--oscuro);color:rgba(255,255,255,.82);--ico-acento:var(--acento-claro)}
+.apil--acento .apil__in{background:var(--acento);color:#fff;--ico-acento:#fff}
+.apil--claro .apil__in{background:#fff;color:var(--t2);box-shadow:0 -18px 50px -30px rgba(28,18,25,.35),0 0 0 1px var(--linea)}
+.apil__txt{display:flex;flex-direction:column;gap:18px}
+.apil__cab{display:flex;justify-content:space-between;align-items:center}
+.apil__ico{width:clamp(56px,5vw,76px);height:clamp(56px,5vw,76px);border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.1);transition:background-color .4s,color .4s}
+.apil--claro .apil__ico{background:var(--crema);color:var(--t1)}
+.apil--acento .apil__ico{background:rgba(255,255,255,.18)}
+.apil__ico .ico{width:46%;height:46%}
+.apil__num{font-size:clamp(1.25rem,.9rem + 1vw,2rem);font-weight:500;opacity:.7}
+.apil__tit{font-size:clamp(2.125rem,1.1rem + 3.3vw,4.375rem);font-weight:600;line-height:1.02;letter-spacing:-.8px;color:inherit;text-wrap:balance}
+.apil--oscuro .apil__tit,.apil--acento .apil__tit{color:#fff}
+.apil--claro .apil__tit{color:var(--t1)}
+.apil__tit a{text-decoration:none;color:inherit;background:linear-gradient(currentColor,currentColor) 0 100%/0 3px no-repeat;transition:background-size .5s var(--ease-salida)}
+@media (hover:hover){.apil__tit a:hover{background-size:100% 3px}.apil:hover .apil__ico{background:var(--acento);color:#fff;--ico-acento:#fff}.apil--acento:hover .apil__ico{background:var(--oscuro)}}
+.apil__p{font-size:clamp(1rem,.95rem + .2vw,1.125rem);line-height:1.6;max-width:48ch}
+.apil__p a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.apil--oscuro .apil__p a{color:var(--acento-claro)}
+.apil--claro .apil__p a{color:var(--acento-texto)}
+.apil__etq{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.apil__etq li{padding:7px 14px;border-radius:999px;font-size:.875rem;line-height:1.2;border:1px solid rgba(255,255,255,.3)}
+.apil--claro .apil__etq li{border-color:var(--linea);background:var(--crema);color:var(--t2)}
+.apil__vis{position:relative;min-width:0}
+.apil__foto,.apil__foto img{display:block;width:100%;border-radius:var(--r-m)}
+.apil__foto img{aspect-ratio:4/3;object-fit:cover;height:auto}
+.apil__obj{position:absolute;right:-3%;top:-12%;width:clamp(110px,15vw,240px);filter:drop-shadow(0 26px 30px rgba(20,6,14,.3))}
+@media (min-width:1000px){
+  .apil__in{grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(32px,4vw,64px);min-height:min(600px,calc(100vh - 140px))}
+  .apil__vis{align-self:center}
+}
+@media (max-width:999px){
+  :root{--top-apil:16px}
+  .apil__foto img{aspect-ratio:16/10}
+  .apil__obj{top:-18%;width:30%}
+}
+
+/* ---------- Pasos en tarjetas (sobre berenjena en la home, blancas en las interiores) ---------- */
+.pasos{display:grid;gap:14px;border:0;margin-top:8px}
+@media (min-width:700px){.pasos{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
+@media (min-width:1100px){.franja .pasos{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+.paso{position:relative;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto 1fr;gap:20px;align-items:start;padding:26px 26px 30px;
+  border-top:0;border-radius:var(--r-m);background:#fff;box-shadow:0 1px 0 var(--linea);overflow:hidden;isolation:isolate;min-height:200px}
+.paso::before{content:"";position:absolute;inset:0;background:var(--acento);transform:translateY(101%);transition:transform .55s var(--ease-letras);z-index:-1}
+.paso__n{font-size:clamp(3rem,2.2rem + 2.4vw,4.5rem);font-weight:600;line-height:.85;letter-spacing:-2px;color:var(--acento);min-width:0;grid-column:1;grid-row:1}
+.paso__ico{grid-column:2;grid-row:1;width:56px;height:56px;border:0;background:var(--crema)}
+.paso__txt{grid-column:1/-1;align-self:end;font-size:clamp(1.125rem,1rem + .5vw,1.5rem);line-height:1.3}
+@media (min-width:1000px){.paso{grid-template-columns:1fr auto;padding:32px 32px 36px}.paso__ico{width:64px;height:64px}}
+.franja--oscuro .paso{background:var(--oscuro-2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);min-height:250px}
+.franja--oscuro .paso__n{color:var(--acento-claro)}
+.franja--oscuro .paso__ico{background:rgba(255,255,255,.08)}
+.franja--oscuro .paso__ico .ico{color:#fff}
+@media (hover:hover){
+  .paso:hover::before{transform:none}
+  .paso:hover .paso__n,.paso:hover .paso__txt,.paso:hover .paso__ico .ico{color:#fff;--ico-acento:#fff}
+  .paso:hover .paso__ico{background:rgba(255,255,255,.18)}
+}
+.paso__n,.paso__txt,.paso__ico{transition:color .35s,background-color .35s}
+.lectura__blq .pasos{grid-template-columns:1fr}
+@media (min-width:700px){.lectura__blq .pasos{grid-template-columns:1fr 1fr}}
+
+/* ---------- Cifras en mosaico con objetos que se salen (Rayo) ---------- */
+.cifras-sec{position:relative}
+.cifra{overflow:visible;box-shadow:0 1px 0 var(--linea)}
+.cifra--1,.cifra--3{background:#fff}
+.cifra--2{background:var(--oscuro);--t1:#fff;--t2:rgba(255,255,255,.82)}
+.cifra--2 .cifra__n,.cifra--2 .cifra__t{color:#fff}
+.cifra__n,.cifra__t{position:relative;z-index:1}
+.cifra__obj{position:absolute;z-index:2;right:-24px;top:-54px;width:clamp(130px,19vw,300px);pointer-events:none;filter:drop-shadow(0 30px 36px rgba(20,6,14,.28))}
+.cifra--1 .cifra__obj{right:6%;top:auto;bottom:-40px;width:clamp(130px,17vw,270px)}
+.cifra--2 .cifra__obj{right:-18px;top:-48px}
+.cifra--3 .cifra__obj{right:-10px;top:auto;bottom:-44px}
+@media (max-width:899px){.cifra{min-height:240px}.cifra__obj{width:40%;right:-10px;top:-34px}.cifra--1 .cifra__obj,.cifra--3 .cifra__obj{bottom:-24px}}
+
+/* ---------- Logotipos: de gris a su color original ---------- */
+.logos{gap:12px}
+@media (min-width:768px){.logos{gap:16px}}
+.logo{position:relative;background:#fff;border:1px solid var(--linea);border-radius:var(--r-m);height:clamp(92px,11vw,128px);
+  transition:transform .4s var(--ease-salida),box-shadow .4s var(--ease-salida),border-color .3s}
+.logo__caja{position:relative;display:block;width:100%;height:56%}
+.logo--alto .logo__caja{height:80%}
+.logo__caja img{position:absolute;inset:0;margin:auto;max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain}
+.logo__gris{opacity:.5;transition:opacity .35s ease}
+.logo__color{opacity:0;transform:scale(.94);transition:opacity .35s ease,transform .5s var(--ease-salida)}
+.logo.en-color .logo__color{opacity:1;transform:none}
+.logo.en-color .logo__gris{opacity:0}
+@media (hover:hover){
+  .logo:hover{transform:translateY(-6px);border-color:var(--acento);box-shadow:0 24px 40px -24px rgba(224,6,122,.45)}
+  .logo:hover .logo__color{opacity:1;transform:none}
+  .logo:hover .logo__gris{opacity:0}
+}
+
+/* ---------- «¿Quién hay detrás…?»: tres tarjetas con una pieza que gira ---------- */
+.piezas{display:grid;gap:16px;margin-top:clamp(8px,1vw,16px)}
+@media (min-width:900px){.piezas{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+.pieza{position:relative;border-radius:var(--r-l);padding:clamp(22px,2.4vw,34px);display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.pieza--oscuro{background:var(--oscuro);color:rgba(255,255,255,.82)}
+.pieza--acento{background:var(--acento);color:#fff}
+.pieza--claro{background:#fff;color:var(--t2);box-shadow:0 1px 0 var(--linea)}
+.pieza__vis{position:relative;aspect-ratio:1/.86;margin:-6px -6px 4px}
+.pieza__img,.pieza__lienzo{position:absolute;inset:0;width:100%;height:100%}
+.pieza__img{object-fit:contain;transition:opacity .8s var(--ease-salida)}
+.pieza__lienzo{opacity:0;transition:opacity .8s var(--ease-salida)}
+.pieza__lienzo canvas{width:100%!important;height:100%!important}
+.pieza.con-3d .pieza__lienzo{opacity:1}
+.pieza.con-3d .pieza__img{opacity:0}
+@media (prefers-reduced-motion:no-preference){.pieza:not(.con-3d) .pieza__img{animation:flota-l 3.4s ease-in-out infinite alternate}}
+.pieza__etq{display:flex;gap:.6em;align-items:baseline;font-size:clamp(1.375rem,1.1rem + .8vw,1.875rem);font-weight:600;line-height:1.15;letter-spacing:-.3px}
+.pieza--oscuro .pieza__etq,.pieza--acento .pieza__etq{color:#fff}
+.pieza--claro .pieza__etq{color:var(--t1)}
+.pieza__etq span{font-size:.55em;font-weight:500;opacity:.75}
+.pieza__txt{font-size:1rem;line-height:1.6}
+.quien .blq__tras{margin-top:clamp(32px,3vw,48px)}
+
+/* ---------- «Lo más reciente»: título clavado a la izquierda y los casos en grande ---------- */
+.proyectos__in{display:grid;gap:36px}
+.proyectos__cab{display:grid;gap:22px;align-content:start}
+.proyectos__cab .prosa{color:var(--t3);max-width:46ch}
+.proyectos__lista{display:grid;gap:clamp(44px,6vw,96px)}
+.proy a{display:block;position:relative;text-decoration:none;color:inherit}
+.proy__marco{position:relative;border-radius:var(--r-m);overflow:hidden;aspect-ratio:16/10;background:var(--crema);box-shadow:var(--sombra-t)}
+.proy__foto,.proy__foto img{display:block;width:100%;height:100%;object-fit:cover}
+.proy__foto img{transform:scale(1.1);will-change:transform}
+.proy__etq{position:absolute;left:clamp(12px,1.6vw,22px);top:clamp(12px,1.6vw,22px);display:flex;flex-wrap:wrap;gap:6px}
+.proy__etq li{background:#fff;color:var(--t1);border-radius:999px;padding:6px 14px;font-size:.875rem;line-height:1.2;box-shadow:0 6px 16px -8px rgba(0,0,0,.3)}
+.proy__tit{margin-top:18px;font-size:clamp(1.375rem,1.05rem + 1vw,2rem);line-height:1.2;color:var(--t3);letter-spacing:-.3px}
+.proy__tit strong{color:var(--t1);font-weight:600}
+.proy__ir{position:absolute;right:clamp(12px,1.6vw,22px);top:clamp(12px,1.6vw,22px);width:56px;height:56px;border-radius:50%;background:var(--acento);color:#fff;
+  display:grid;place-items:center;transform:scale(.6);opacity:0;transition:transform .45s var(--ease-salida),opacity .3s}
+.proy__ir .ico{width:22px;height:22px;--ico-acento:#fff}
+.proy a:focus-visible .proy__ir{transform:none;opacity:1}
+@media (hover:hover){.proy a:hover .proy__ir{transform:none;opacity:1}}
+@media (min-width:1000px){
+  .proyectos__in{grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:clamp(32px,4vw,64px)}
+  .proyectos__cab{position:sticky;top:120px;align-self:start}
+}
+
+/* ---------- «Dónde trabajamos» en franja fucsia ---------- */
+.franja--acento .cinta--fina{color:rgba(255,255,255,.42)}
+.franja--acento .cinta--fina .cinta__sep{color:#fff}
+.franja--acento .cinta-sec{padding-block:clamp(20px,3vw,40px) clamp(28px,3vw,48px)}
+.franja--acento .enlaces a{color:#fff}
+.franja--acento .enlaces li,.franja--acento .enlaces{border-color:rgba(255,255,255,.4)}
+@media (hover:hover){.franja--acento .enlaces a:hover{color:#fff}}
+.franja .blq__cab{margin-bottom:clamp(28px,3vw,48px)}
+
+/* ---------- Horario: tarjeta berenjena con las horas ---------- */
+.horario{border-top:0;padding-top:0;gap:32px}
+.horario__cab{display:grid;gap:22px}
+.horario__txt{max-width:52ch}
+.horario__tarjeta{position:relative;background:var(--oscuro);color:#fff;border-radius:var(--r-l);padding:clamp(28px,4vw,56px);display:grid;gap:16px;align-content:end;min-height:clamp(300px,30vw,420px)}
+.horario__tarjeta .horario__grande span{color:rgba(255,255,255,.75)}
+.horario__tarjeta .horario__grande strong{color:#fff}
+.horario__tarjeta .horario__grande em{color:var(--acento-claro)}
+.horario__obj{position:absolute;right:clamp(12px,3vw,48px);top:clamp(-80px,-5vw,-40px);width:clamp(140px,20vw,290px);pointer-events:none}
+@media (min-width:1000px){
+  .horario{grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:48px;align-items:stretch}
+  .horario__grande,.horario__txt{grid-column:auto}
+  .horario__cab{grid-row:auto}
+}
+
+/* ---------- Mapa en caja ---------- */
+.mapa{background:#fff;box-shadow:0 1px 0 var(--linea)}
+
+/* ---------- Opiniones sobre berenjena ---------- */
+.opiniones-sec{overflow:visible}
+.opiniones__cab{position:relative}
+.opiniones-sec .estrellas{color:var(--acento-claro)}
+.opiniones-sec .sello{color:#fff}
+.opiniones__obj{position:absolute;right:0;top:clamp(-120px,-8vw,-70px);width:clamp(96px,11vw,170px);pointer-events:none}
+@media (max-width:999px){.opiniones__obj{right:-6px;top:-90px;width:96px}}
+.op{--t1:#1C1219;--t2:#3A2F36;--t3:#6B5F66;--linea:#E0DDDB;background:#fff;color:var(--t2)}
+.op .estrellas{color:var(--acento)}
+.op__ini{background:var(--acento)}
+.opiniones-sec .redondo{border-color:#fff;color:#fff}
+
+/* ---------- FAQ en caja ---------- */
+.faq{background:#fff;border-radius:var(--r-l);padding:clamp(24px,4vw,64px);box-shadow:0 1px 0 var(--linea)}
+.faq__lista summary{transition:color .3s}
+@media (hover:hover){.faq__lista summary:hover{color:var(--acento-texto)}}
+
+/* ---------- Banda final: fondo desenfocado y símbolo cromado ---------- */
+.banda__fondo{overflow:hidden}
+.banda__fondo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75}
+.banda__fondo::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 15% 20%,rgba(224,6,122,.35),transparent 70%)}
+.banda__objeto{position:absolute;z-index:2;right:clamp(12px,4vw,64px);top:clamp(-120px,-8vw,-70px);width:clamp(140px,22vw,340px);pointer-events:none;filter:drop-shadow(0 40px 40px rgba(0,0,0,.35))}
+@media (min-width:1000px){.banda__objeto{right:clamp(40px,6vw,110px);top:-150px;width:clamp(200px,18vw,280px);z-index:0}}
+@media (max-width:999px){.banda__objeto{display:block;right:-10px;top:-70px;width:130px}}
+.banda .btn--acento{box-shadow:0 20px 40px -18px rgba(224,6,122,.8)}
+
+/* ---------- Cabecera interior con tarjeta visual ---------- */
+.cab-int__vis{position:relative;border-radius:var(--r-l);min-height:250px;display:flex;align-items:flex-end;padding:clamp(22px,2.6vw,36px);overflow:visible;isolation:isolate}
+.cab-int__vis--acento{background:var(--acento)}
+.cab-int__vis--oscuro{background:var(--oscuro)}
+.cab-int__vis::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(70% 60% at 70% 30%,rgba(255,255,255,.22),transparent 70%);z-index:-1}
+.cab-int__vt{position:relative;z-index:2;font-size:clamp(2rem,1.2rem + 2.4vw,3.5rem);font-weight:600;letter-spacing:-.8px;line-height:1;color:#fff;max-width:9ch;text-wrap:balance}
+.cab-int__obj{position:absolute;right:-4%;top:-14%;width:min(70%,320px);filter:drop-shadow(0 30px 40px rgba(20,6,14,.35))}
+@media (min-width:1000px){
+  .cab-int--vis .cab-int__etq{grid-column:1/-1;padding-top:0}
+  .cab-int--vis .cab-int__txt{grid-column:1/8;grid-row:2}
+  .cab-int--vis .cab-int__vis{grid-column:8/13;grid-row:2;min-height:440px;align-self:stretch}
+  .cab-int--vis .cab-int__obj{top:-8%;width:78%}
+}
+@media (max-width:999px){.cab-int__vis{margin-top:48px}}
+
+/* ---------- Páginas interiores: número en los H2, caso real y la tarjeta de llamada en fucsia ---------- */
+.h2-lect__n{display:inline-grid;place-items:center;min-width:2.1em;height:1.35em;padding:0 .45em;margin-right:.45em;border-radius:999px;background:var(--acento);color:#fff;font-size:.42em;font-weight:600;letter-spacing:0;vertical-align:.45em}
+.lectura__caso{margin-top:64px}
+.lectura__foto,.lectura__foto img{display:block;width:100%;border-radius:var(--r-m)}
+.lectura__caso figcaption{margin-top:14px;color:var(--t3);font-size:1rem;display:flex;flex-wrap:wrap;gap:.4em;align-items:center}
+.lectura__caso figcaption strong{color:var(--t1);font-weight:600}
+.lectura__etq{font-size:.8125rem;text-transform:uppercase;letter-spacing:.08em;padding:4px 10px;border-radius:999px;background:var(--oscuro);color:#fff;margin-right:.3em}
+.indice{box-shadow:0 1px 0 var(--linea)}
+.mini{background:var(--acento)!important;color:#fff;--ico-acento:#fff}
+.mini__tit{color:#fff!important}
+.mini .estado{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);color:#fff}
+.mini .btn--acento{background:#fff;border-color:#fff;color:var(--oscuro);--ico-acento:var(--acento)}
+.mini .btn--linea{border-color:#fff;color:#fff}
+.mini__extra{color:#fff!important}
+.tabla{background:#fff;border-radius:var(--r-m);padding:8px clamp(14px,2vw,24px);box-shadow:0 1px 0 var(--linea)}
+.lectura .filas{border:0;display:grid;gap:12px}
+.lectura .fila{border:0;background:#fff;border-radius:var(--r-m);padding:22px 24px;box-shadow:0 1px 0 var(--linea)}
+.lectura .filas:hover .fila{opacity:1}
+
+/* ---------- Otros servicios: tarjetas berenjena que se rellenan de fucsia ---------- */
+.otros__cab{display:grid;gap:18px;margin-bottom:clamp(28px,3vw,48px)}
+.otros__lista{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:640px){.otros__lista{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1000px){.otros__lista--6{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .otros__lista--7{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.otros__lista--7 li:first-child{grid-column:span 2}}
+@media (min-width:640px) and (max-width:999px){.otros__lista--7 li:first-child{grid-column:1/-1}}
+.otro{position:relative;display:grid;gap:10px;align-content:start;min-height:clamp(220px,19vw,270px);padding:26px 26px 30px;border-radius:var(--r-m);
+  background:var(--oscuro);color:rgba(255,255,255,.8);text-decoration:none;overflow:hidden;isolation:isolate;--ico-acento:var(--acento-claro)}
+.otro::before{content:"";position:absolute;inset:0;background:var(--acento);transform:translateY(101%);transition:transform .45s var(--ease-letras);z-index:-1}
+.otro__ico{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;color:#fff;margin-bottom:6px}
+.otro__ico .ico{width:24px;height:24px}
+.otro__tit{font-size:clamp(1.5rem,1.2rem + .8vw,2rem);font-weight:600;line-height:1.1;letter-spacing:-.4px;color:#fff;max-width:12ch}
+.otro__txt{font-size:.9375rem;line-height:1.5;max-width:26ch;position:relative;z-index:1}
+.otro__obj{position:absolute;right:-22px;bottom:-26px;width:clamp(110px,10vw,150px);z-index:-1;transition:transform .6s var(--ease-salida)}
+.otro__ir{position:absolute;top:22px;right:22px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;transition:transform .45s var(--ease-salida),background-color .3s}
+.otro__ir .ico{width:18px;height:18px;--ico-acento:#fff}
+@media (hover:hover){
+  .otro:hover::before{transform:none}
+  .otro:hover{color:#fff;--ico-acento:#fff}
+  .otro:hover .otro__obj{transform:translate(-10px,-12px) rotate(-8deg) scale(1.08)}
+  .otro:hover .otro__ir{transform:rotate(45deg);background:rgba(255,255,255,.18)}
+}
+.otro:focus-visible{outline-color:var(--acento-texto)}
+
+/* ---------- Contacto: los datos en tarjeta berenjena ---------- */
+.contacto__datos{position:relative;background:var(--oscuro);color:rgba(255,255,255,.82);border-radius:var(--r-l);padding:clamp(26px,3.6vw,52px);
+  --t1:#fff;--t2:rgba(255,255,255,.82);--t3:rgba(255,255,255,.7);--linea:rgba(255,255,255,.14);--ico-acento:var(--acento-claro);--acento-texto:var(--acento-claro)}
+.contacto__datos .prosa p a,.contacto__datos address a{color:var(--acento-claro)}
+.contacto__tel{color:#fff}
+.contacto__obj{position:absolute;right:-12px;top:-64px;width:clamp(110px,14vw,200px);pointer-events:none}
+.contacto__form .formulario{box-shadow:0 1px 0 var(--linea)}
+
+/* ---------- Pie (Rayo): el logotipo gigante a sangre y tarjetas de color ---------- */
+.pie{padding-top:clamp(24px,3vw,48px);padding-bottom:28px}
+.pie__nombre{overflow:hidden;margin-bottom:clamp(20px,2.6vw,40px);padding-block:4px}
+.pie__nombre img{width:100%;height:auto;display:block}
+.pie__tarjetas{display:grid;gap:14px}
+.pie__t{border-radius:var(--r-m);padding:clamp(26px,2.6vw,40px);display:grid;gap:14px;align-content:start;background:#fff;box-shadow:0 1px 0 var(--linea)}
+.pie__titular{font-size:clamp(1.75rem,1.3rem + 1.4vw,2.5rem);line-height:1.1;font-weight:600;letter-spacing:-.4px;color:var(--t1)}
+.pie__grandes{display:grid;gap:2px;margin-top:6px}
+.pie__grandes a{font-size:clamp(1.375rem,1.1rem + .9vw,1.875rem);font-weight:600;text-decoration:none;color:var(--t1);display:inline-block;transition:transform .35s var(--ease-salida),color .3s}
+.pie__t--contacto{background:var(--acento);color:#fff;box-shadow:none}
+.pie__tel{font-size:clamp(2rem,1.4rem + 2vw,3.25rem);font-weight:600;letter-spacing:-1px;line-height:1;text-decoration:none;color:#fff}
+.pie__mail{color:#fff;text-decoration:none;font-size:1.125rem}
+.pie__dir{font-size:.9375rem}
+.pie__dir a{color:#fff}
+.pie__t--horario{background:var(--oscuro);color:rgba(255,255,255,.82);box-shadow:none;align-content:space-between}
+.pie__t--horario .pie__h{color:rgba(255,255,255,.7)}
+.pie__horas{display:grid;gap:4px}
+.pie__horas strong{font-size:clamp(2.75rem,1.6rem + 2.4vw,4rem);flex-wrap:wrap;font-weight:600;letter-spacing:-2px;line-height:.95;color:#fff;display:flex;gap:.12em;align-items:center}
+.pie__horas em{font-style:normal;font-weight:300;color:var(--acento-claro)}
+.pie__nota{font-size:.9375rem;color:rgba(255,255,255,.75)}
+.pie__h{font-size:.8125rem;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:6px}
+.pie__t--listas{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:20px}
+.pie__t--listas ul{display:grid;gap:4px;font-size:.9375rem}
+.pie__t--listas a{text-decoration:none;color:var(--t2);display:inline-block;transition:transform .35s var(--ease-salida),color .3s}
+@media (min-width:900px){
+  .pie__tarjetas{grid-template-columns:repeat(12,minmax(0,1fr));gap:20px}
+  .pie__t--menu{grid-column:1/5}.pie__t--contacto{grid-column:5/9}.pie__t--horario{grid-column:9/13}
+  .pie__t--listas{grid-column:1/-1;grid-template-columns:minmax(0,1fr) minmax(0,2fr)}
+  .pie__zonas ul{columns:2;column-gap:24px;display:block}
+  .pie__zonas li{padding:2px 0}
+}
+@media (hover:hover){
+  .pie__grandes a:hover,.pie__t--listas a:hover{color:var(--acento-texto);transform:translateX(.4rem)}
+  .pie__mail:hover,.pie__dir a:hover{text-decoration:underline}
+}
+.pie__legal{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center;font-size:.8125rem;color:var(--t3);padding:24px 4px 0}
+.pie__legal ul{display:flex;flex-wrap:wrap;gap:6px 18px}
+.pie__legal a{color:var(--t3)}
+
+/* ---------- Titulares que se revelan (los envuelve main.js; sin JS se ven quietos) ---------- */
+.rev-l{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.rev-l>span{display:inline-block}
+
+/* ---------- Movimiento reducido: objetos quietos ---------- */
+@media (prefers-reduced-motion:reduce){.flota-lenta,.gira-lento,.pieza__img{animation:none!important}}
+
+/* Horas en la tarjeta: caben en 320 px */
+.horario>*{min-width:0}
+.horario__tarjeta .horario__grande strong{font-size:clamp(2.75rem,1rem + 8vw,7rem);flex-wrap:wrap}
+/* Los objetos que se salen de sus tarjetas no pueden ensanchar la página en el móvil (clip no rompe el sticky) */
+main,.pie{overflow-x:clip}
+@media (max-width:699px){.paso,.franja--oscuro .paso{min-height:0;gap:14px;padding:22px}.paso__txt{align-self:start}}
+
+/* Pasos dentro de la columna de lectura: 3 o 6 en filas de tres; sin huérfanos */
+@media (min-width:700px){.lectura__blq .pasos:has(>li:nth-child(3):last-child){grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* ---------- Cinta de tarjetas (R15): dos filas en sentido contrario ---------- */
+.cinta-tarj{display:grid;gap:clamp(12px,1.4vw,20px);padding-bottom:var(--sec);overflow:hidden}
+.cinta--tarjetas .cinta__grupo{gap:clamp(12px,1.4vw,20px);padding-right:clamp(12px,1.4vw,20px)}
+.ct{flex:none;display:grid;place-items:center;width:clamp(200px,26vw,380px);aspect-ratio:4/3;border-radius:var(--r-m);overflow:hidden;position:relative}
+.ct--crema{background:linear-gradient(160deg,#fff,#EDE5DB)}
+.ct--claro{background:linear-gradient(160deg,#FFE3EF,#F6BFD8)}
+.ct--oscuro{background:radial-gradient(90% 80% at 70% 30%,#4A1F3B,#1C1219)}
+.ct--acento{background:radial-gradient(100% 90% at 30% 20%,#FF2E97,#E0067A 55%,#B10460)}
+.ct__obj{width:68%;height:auto}
+.ct--txt{place-items:end start;padding:clamp(18px,2vw,28px);color:#fff}
+.ct--txt b{font-size:clamp(1.75rem,1.1rem + 2vw,3rem);font-weight:600;line-height:1.02;letter-spacing:-.8px;max-width:8ch}
+.ct__sim{position:absolute;right:clamp(16px,2vw,26px);top:clamp(16px,2vw,26px);height:clamp(28px,3vw,44px);color:rgba(255,255,255,.9)}
+.ct--oscuro .ct__sim{color:var(--acento-claro)}
+
+/* Emil · respuesta al pulsar: todo lo que se pulsa se hunde un 3 % (160 ms) */
+.btn:active,.redondo:active,.otro:active,.cab__burger:active,.cab__circulo:active{transform:scale(.97);transition-duration:.16s}

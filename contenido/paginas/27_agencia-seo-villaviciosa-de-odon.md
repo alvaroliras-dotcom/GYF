@@ -15,7 +15,7 @@ El Gordo y el Flaco, agencia SEO y de marketing online de Alcorcón, ayuda al co
 
 ## ¿Es posible entrar entre los tres primeros de Maps en Villaviciosa de Odón?
 
-En Villaviciosa de Odón puede ser más alcanzable que en municipios grandes. Es un pueblo residencial, con comercio y servicios de proximidad, donde a menudo compiten menos negocios por cada búsqueda. Con una ficha trabajada de verdad, estar entre los primeros que enseña Google es un objetivo razonable; la posición exacta la decide Google.
+En Villaviciosa de Odón puede ser más alcanzable que en municipios grandes. Es un pueblo residencial, con su castillo, el campus de la Universidad Europea y comercio y servicios de proximidad, donde a menudo compiten menos negocios por cada búsqueda. Con una ficha trabajada de verdad, estar entre los primeros que enseña Google es un objetivo razonable; la posición exacta la decide Google.
 
 Lo que marca la diferencia aquí son cosas que muchos negocios pequeños tienen a medias.
 
@@ -65,4 +65,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ Entidades de Villaviciosa (el castillo, el campus): no las nombro sin verificar.
+Sin ⚑ abiertas (tanda 7, 27/09): castillo (Archivo Histórico del Ejército del Aire) y campus de la Universidad Europea comprobados.

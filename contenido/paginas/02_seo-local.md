@@ -15,15 +15,15 @@ Cuando alguien busca «cerrajero», «peluquería» o «reparación de calderas�
 
 Optimizar la ficha de Google My Business (hoy se llama Google Business Profile) es dejar cada apartado de la ficha completo, exacto y al día, para que Google entienda qué hace su negocio, dónde está y para quién. Es la base del SEO local y lo primero que revisamos.
 
-Esto es lo que tocamos, apartado por apartado:
+Estos son los apartados que revisamos. En cada ficha trabajamos los que ese negocio necesita:
 
 | Apartado de la ficha | Qué hacemos |
 |---|---|
 | Nombre, dirección y teléfono | Que coincidan letra por letra con su web y con los directorios donde aparece |
 | Categoría principal y secundarias | Elegir las que responden a lo que de verdad buscan sus clientes |
 | Servicios y descripción | Cada servicio con su nombre y su texto, escritos para su zona |
-| Horario | El real, con los festivos marcados |
-| Fotos | Del local, del trabajo hecho y de quien atiende |
+| Horario | El real, y los días especiales cuando cambia |
+| Fotos | Del local y del trabajo hecho |
 | Publicaciones | Entradas periódicas sobre sus servicios y sobre su zona |
 | Reseñas | Un método para pedirlas a sus clientes y una respuesta para cada una |
 
@@ -49,7 +49,7 @@ Una ficha perfecta que se queda quieta pierde fuerza. Las reseñas nuevas y las 
 
 Trabajamos solo con reseñas reales, de sus clientes reales. Le enseñamos a pedirlas bien: a todos sus clientes, con un mensaje corto para WhatsApp o para el correo y el enlace directo a su ficha. Cada cliente cuenta, con sus palabras, qué le hicieron y en qué pueblo. Así lo pide Google, y así convence al siguiente cliente que la lee.
 
-Cada reseña, buena o mala, tiene su respuesta, escrita para esa persona.
+Cada reseña, buena o mala, tiene su respuesta, escrita para esa persona. Si lo prefiere, las contestamos nosotros por usted: es lo que solemos recomendar, porque sabemos qué conviene decir y a usted le quitamos una tarea.
 
 Las publicaciones alternan sus servicios y los municipios donde trabaja. Son pequeñas, pero le dicen a Google, cada pocas semanas, qué hace usted y dónde.
 
@@ -83,7 +83,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ Cita de Sergio (Balgas): uso solo los fragmentos del briefing, «en unos 3 meses» y «en los 10 primeros resultados en las zonas solicitadas». Hay que cotejarla con su reseña literal.
-⚑ Mantenimiento: digo solo «informe cada mes y reunión en persona». Qué incluye (reseñas, publicaciones…) sigue pendiente de definir.
-⚑ Tabla: confirma que estos siete apartados son lo que haces en cada ficha (sobre todo el horario «con los festivos marcados» y las fotos «de quien atiende»).
-⚑ «Pablo, Eva, Sergio y los demás»: nombres de las reseñas de la ficha; si el widget no las enseña así, se quita la frase.
+Sin ⚑ abiertas (tanda 7, 27/09): cita de Sergio cotejada con su reseña; nombres de las reseñas tal cual; mantenimiento como está (aparcado); tabla como lista de apartados que se trabajan según la ficha; respuestas a reseñas por el cliente, confirmado.

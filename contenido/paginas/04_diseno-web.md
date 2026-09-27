@@ -15,7 +15,7 @@ Hacemos webs estáticas: la web se construye de antemano y se sirve tal cual, li
 
 Es el sistema de las webs de Balgas, de Marcos Cerrajeros, de Aquita y de Las Tejas. Cada una tiene su diseño y sus fotos. Lo que comparten es la forma de trabajar.
 
-Toda web que hacemos para un negocio local lleva estas piezas:
+Cada web lleva las piezas que necesita su negocio. Estas son las que más usamos:
 
 | Pieza | Para qué sirve |
 |---|---|
@@ -32,7 +32,7 @@ Una web trae llamadas cuando explica bien qué hace usted. Por eso los textos lo
 
 Si su negocio necesita logotipo o imagen de marca, lo diseñamos dentro del mismo proyecto, para que todo hable el mismo idioma. Lo contamos en [LINK diseño gráfico e imagen de marca](/diseno-grafico/) 🆕.
 
-Y dejamos medido desde el primer día cuántas llamadas y formularios llegan, para que cada mes sepa lo que la web le da. Así se hace en [LINK analítica web](/analitica-web/) 🆕.
+Y, si su web lo necesita, dejamos medido desde el primer día cuántas llamadas y formularios llegan, para que cada mes sepa lo que la web le da. Así se hace en [LINK analítica web](/analitica-web/) 🆕.
 
 ## ¿A nombre de quién quedan el dominio y el alojamiento?
 
@@ -76,5 +76,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ Mantenimiento de la web: su contenido está pendiente de definir. He escrito solo «informe cada mes y reunión en persona» y «lo que incluye se ajusta a su web». Cuando lo cierres, se detalla aquí.
-⚑ Tabla de piezas: confirma que todas van en cada web (WhatsApp, formulario «le llamamos», páginas de municipio, medición de llamadas desde el primer día).
+Sin ⚑ abiertas (tanda 7, 27/09): las piezas dependen del cliente (p. ej. Pousada: teléfono y correo). Mantenimiento: contenido aparcado por Álvaro.

@@ -13,7 +13,7 @@ Detrás hay más de 20 años de oficio en publicidad. Quien le coge el teléfono
 
 ## ¿Cómo sale en Google Maps una empresa de polígono de Getafe?
 
-Una empresa de polígono en Getafe aparece en Google Maps cuando su ficha dice con precisión qué hace, a quién sirve y dónde está, y cuando su web lo confirma con una página para cada servicio. Quien la busca rara vez escribe el nombre. Escribe lo que necesita. A veces, desde la nave de al lado.
+Una empresa de polígono en Getafe aparece en Google Maps cuando su ficha dice con precisión qué hace, a quién sirve y dónde está, y cuando su web lo confirma con una página para cada servicio. Quien la busca rara vez escribe el nombre. Escribe lo que necesita. A veces, desde la nave de al lado, en Los Ángeles, San Marcos o El Carralero.
 
 La ficha de un polígono tiene sus trampas. Una dirección de nave que Google sitúa mal. Un acceso por una calle interior. Una categoría genérica que le mete en el mismo saco que cien negocios que hacen otra cosa.
 
@@ -67,5 +67,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ Reseña de Pablo: la parafraseo, no la cito literal. Hay que cotejar que habla de fichas y SEO local y que nombra Alcorcón, Móstoles, Getafe y Leganés.
-⚑ Polígonos de Getafe (Los Ángeles, San Marcos, El Carralero…): no los nombro sin verificar. Si los confirmas, suben la parte única de la página.
+Sin ⚑ abiertas (tanda 7, 27/09): reseña de Pablo cotejada (nombra Getafe); polígonos comprobados en getafe.es.

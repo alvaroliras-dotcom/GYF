@@ -13,7 +13,7 @@ El Gordo y el Flaco ayuda a despachos, clínicas y servicios profesionales de Po
 
 Un despacho o una clínica de Pozuelo de Alarcón se diferencia en Google con tres armas al alcance de cualquier presupuesto: una ficha con reseñas que cuentan casos concretos, una web con textos que suenan a quien atiende y una imagen profesional coherente en todas partes. Salir el primero ayuda; que le elijan cuando sale al lado de otros cinco es lo que llena la agenda.
 
-En Pozuelo, el cliente compara mucho. Abre tres fichas, lee reseñas, entra en las webs. Y en ese recorrido casi todas se parecen: la misma foto de archivo, las mismas frases de siempre, el mismo «compromiso con la excelencia».
+En Pozuelo, de la Avenida de Europa a Somosaguas, el cliente compara mucho. Abre tres fichas, lee reseñas, entra en las webs. Y en ese recorrido casi todas se parecen: la misma foto de archivo, las mismas frases de siempre, el mismo «compromiso con la excelencia».
 
 Ahí está la oportunidad.
 
@@ -63,4 +63,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ Entidades de Pozuelo (Ciudad de la Imagen, Avenida de Europa, el campus): no las nombro sin verificar.
+Sin ⚑ abiertas (tanda 7, 27/09): Avenida de Europa y Campus de Somosaguas comprobados (pozuelodealarcon.org).

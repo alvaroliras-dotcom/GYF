@@ -17,6 +17,15 @@ S = lambda *p: os.path.join(RAIZ, "sitio", *p)
 def css():
     base = open(R("base", "css", "base.css"), encoding="utf-8").read()
     tema = open(R("cliente", "css", "tema.css"), encoding="utf-8").read()
+    v2 = R("cliente", "css", "v2.css")
+    if os.path.exists(v2):   # v2: color, cajas, objetos 3D y movimiento (va detrás de base y tema: manda)
+        tema += "\n" + open(v2, encoding="utf-8").read()
+    v3 = R("cliente", "css", "v3.css")
+    if os.path.exists(v3):   # v3: el símbolo G+F manda y los huecos de foto (la última)
+        tema += "\n" + open(v3, encoding="utf-8").read()
+    v4 = R("cliente", "css", "v4.css")
+    if os.path.exists(v4):   # v4: fotos artísticas y el logotipo como elemento gráfico
+        tema += "\n" + open(v4, encoding="utf-8").read()
     # el tema va DESPUÉS de la base para que sus variables manden; las @font-face, arriba
     fuentes = "".join(re.findall(r"@font-face\{[^}]+\}", tema))
     tema = re.sub(r"@font-face\{[^}]+\}", "", tema)
@@ -33,6 +42,12 @@ def css():
     return len(todo)
 
 
+def al_dia(origen, salidas):
+    """True si todas las salidas existen y son más nuevas que el original (no hace falta regenerarlas)."""
+    t = os.path.getmtime(origen)
+    return all(os.path.exists(s) and os.path.getmtime(s) >= t for s in salidas)
+
+
 def imagenes():
     """Fotos y casos (JPG/PNG/WebP) → 800 y 1600 en JPG y WebP. El objeto de portada (con alfa) → 420 y 840
     en WebP con alfa y 840 en PNG (respaldo)."""
@@ -45,8 +60,10 @@ def imagenes():
         for f in sorted(os.listdir(d)):
             if not f.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
                 continue
-            im = Image.open(os.path.join(d, f)).convert("RGB")
             b = f.rsplit(".", 1)[0]
+            if al_dia(os.path.join(d, f), [S("img", f"{b}-{w}.{e}") for w in (800, 1600) for e in ("jpg", "webp")]):
+                n += 1; continue
+            im = Image.open(os.path.join(d, f)).convert("RGB")
             for w in (800, 1600):
                 v = im if im.width == w else im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
                 v.save(S("img", f"{b}-{w}.jpg"), "JPEG", quality=80 if w == 1600 else 78, optimize=True, progressive=True)
@@ -66,6 +83,41 @@ def imagenes():
         if OBJETO_PORTADA.get(k):
             os.makedirs(S("objeto"), exist_ok=True)
             shutil.copy(R("recursos", "objeto", OBJETO_PORTADA[k]), S("objeto", OBJETO_PORTADA[k]))
+    return n
+
+
+OBJ_MASTER = R("herramientas", "objetos3d", "master")
+OBJ_ANCHOS = (400, 800, 1200)
+
+
+def objetos():
+    """v2 · Familia de objetos 3D (máster PNG 1.600 con alfa) → WebP con alfa a 400, 800 y 1.200 en /img/obj/.
+    Además, un fondo desenfocado para la banda final (el símbolo de cromo muy de cerca, oscuro y fuera de foco)."""
+    from PIL import ImageFilter, ImageEnhance
+    if not os.path.isdir(OBJ_MASTER):
+        sys.exit("rematar: faltan los objetos 3D (python3 herramientas/objetos3d/generar.py)")
+    os.makedirs(S("img", "obj"), exist_ok=True)
+    vivos = {f[:-4] for f in os.listdir(OBJ_MASTER) if f.endswith(".png")}
+    for f in os.listdir(S("img", "obj")):
+        if f != "banda-fondo.webp" and f.rsplit("-", 1)[0] not in vivos:
+            os.remove(S("img", "obj", f))
+    n = 0
+    for f in sorted(os.listdir(OBJ_MASTER)):
+        if not f.endswith(".png"):
+            continue
+        b = f[:-4]
+        if al_dia(os.path.join(OBJ_MASTER, f), [S("img", "obj", f"{b}-{w}.webp") for w in OBJ_ANCHOS]):
+            n += 1; continue
+        im = Image.open(os.path.join(OBJ_MASTER, f)).convert("RGBA")
+        for w in OBJ_ANCHOS:
+            im.resize((w, w), Image.LANCZOS).save(S("img", "obj", f"{b}-{w}.webp"), "WEBP", quality=80, method=6)
+        n += 1
+    g = Image.open(os.path.join(OBJ_MASTER, "simbolo-cerca-cromo.png")).convert("RGBA").resize((900, 900), Image.LANCZOS)
+    fondo = Image.new("RGBA", (1440, 900), (0, 0, 0, 0))
+    fondo.alpha_composite(g, (620, 60))
+    fondo = fondo.filter(ImageFilter.GaussianBlur(16))
+    fondo = ImageEnhance.Brightness(fondo).enhance(.7)
+    fondo.save(S("img", "obj", "banda-fondo.webp"), "WEBP", quality=70, method=6)
     return n
 
 
@@ -338,11 +390,16 @@ def js():
 def main():
     copiar()
     n = imagenes()
+    no = objetos()
     k = css()
     servidor()
     o = og_todas()
-    print(f"rematar: {n} fotos × 4 variantes · {o} imágenes para redes · estilo.css {k/1024:.1f} KB · v{VERSION}")
+    print(f"rematar: {n} fotos × 4 variantes · {no} objetos 3D × 3 · {o} imágenes para redes · estilo.css {k/1024:.1f} KB · v{VERSION}")
 
 
 if __name__ == "__main__":
-    main()
+    if sys.argv[1:] == ["rapido"]:   # solo CSS y JS (para iterar el diseño; la entrega siempre con el rematar completo)
+        copiar(); servidor(); shutil.copy(S("og", "inicio.jpg"), S("og-image.jpg"))
+        print(f"rematar rápido (sin regenerar imágenes ni imágenes para redes): estilo.css {css()/1024:.1f} KB")
+    else:
+        main()

@@ -538,27 +538,7 @@ input:focus,textarea:focus{outline:2px solid var(--acento);outline-offset:1px;bo
 @media (min-width:1000px){.contacto__grid{grid-template-columns:5fr 7fr;column-gap:56px}}
 .formulario__confianza{color:var(--t3);font-size:.9375rem}
 
-/* ---------- 19. Pie: tres tarjetas blancas (variación A, sin nombre gigante) ---------- */
-.pie{padding-bottom:28px}
-.pie__tarjetas{display:grid;gap:16px}
-.pie__t{background:var(--tinta);border-radius:var(--r-m);padding:32px 30px;display:grid;gap:16px;align-content:start}
-.pie__titular{font-size:clamp(1.75rem,1.3rem + 1.4vw,2.5rem);line-height:1.1;font-weight:600;letter-spacing:-.4px;color:var(--t1)}
-.pie__grandes{display:grid;gap:2px;margin-top:8px}
-.pie__grandes a{font-size:clamp(1.375rem,1.1rem + .9vw,1.875rem);font-weight:600;text-decoration:none;color:var(--t1);display:inline-block;transition:transform .3s var(--ease),color .3s}
-.pie__tel{font-size:clamp(1.75rem,1.3rem + 1.4vw,2.5rem);font-weight:600;letter-spacing:-.5px;text-decoration:none;color:var(--t1)}
-.pie__mail{color:var(--t1);text-decoration:none;font-size:1.125rem}
-.pie__dir{color:var(--t3);font-size:.9375rem}
-.pie__dir a{color:var(--t2)}
-.pie__h{font-size:.8125rem;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:8px}
-.pie__t--listas{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:20px}
-.pie__t--listas ul{display:grid;gap:3px;font-size:.9375rem}
-.pie__t--listas a{text-decoration:none;color:var(--t2)}
-@media (hover:hover){.pie__grandes a:hover,.pie__t--listas a:hover,.pie__mail:hover{color:var(--acento-texto);transform:translateX(.4rem)}.pie__t--listas a{display:inline-block;transition:transform .3s var(--ease),color .3s}}
-.pie__legal{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center;font-size:.8125rem;color:var(--t3);padding:24px 4px 0}
-.pie__legal ul{display:flex;flex-wrap:wrap;gap:6px 18px}
-.pie__legal a{color:var(--t3)}
-.pie__credito a{color:var(--t2)}
-@media (min-width:1000px){.pie__tarjetas{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.pie__t{padding:40px}}
+/* ---------- 19. Pie: en cliente/css/v2.css (v2, el de Rayo: logotipo gigante y tarjetas de color) ---------- */
 
 /* Subir (R10) */
 .subir{position:fixed;right:24px;bottom:24px;z-index:40;width:56px;height:56px;border-radius:50%;background:var(--tinta);border:1px solid var(--linea);display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .3s,transform .3s,visibility 0s .3s;text-decoration:none;color:var(--t1)}

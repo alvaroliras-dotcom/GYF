@@ -154,6 +154,13 @@ if NEGOCIO.get("festivos_locales_pendientes"):
 if any('data-marcador="logos"' in open(r, encoding="utf-8").read() for r in paginas.values()):
     avi.append("logos de clientes: sale el MARCADOR (faltan los logotipos en recursos/clientes/)")
 
+# v3 · Huecos de foto que siguen con el marcador (no es error: el diseño está listo para recibirlas)
+_pend = set()
+for ruta in paginas.values():
+    _pend |= set(re.findall(r'fotohueco--vacio[^"]*"[^>]*data-foto="([^"]+)"', open(ruta, encoding="utf-8").read()))
+if _pend:
+    avi.append(f"fotos pendientes ({len(_pend)}): se ve el marcador; soltarlas en recursos/fotos/ → {', '.join(sorted(_pend))}")
+
 print(f"Páginas HTML: {len(paginas)}")
 print(f"ERRORES: {len(err)}"); [print("  ✗", e) for e in err[:80]]
 print(f"AVISOS: {len(avi)}"); [print("  ·", a) for a in avi[:80]]

@@ -11,7 +11,7 @@ El Gordo y el Flaco cuida la reputación en Google de clínicas, despachos y com
 
 ## ¿Cuánto pesan las reseñas para una clínica o un despacho de Majadahonda?
 
-Pesan casi tanto como el propio servicio. Antes de pedir cita en una clínica o de llamar a un despacho de Majadahonda, el cliente abre la ficha de Google, mira la nota y lee las últimas opiniones. Si son pocas, antiguas o sin respuesta, pasa a la siguiente ficha.
+Pesan casi tanto como el propio servicio. En un municipio con un hospital como el Puerta de Hierro y tantas consultas alrededor, las opiniones pesan. Antes de pedir cita en una clínica o de llamar a un despacho de Majadahonda, el cliente abre la ficha de Google, mira la nota y lee las últimas opiniones. Si son pocas, antiguas o sin respuesta, pasa a la siguiente ficha.
 
 Además de la nota, cuentan el número de reseñas, su fecha y lo que dicen. Una opinión que dice «me explicaron el presupuesto con calma y sin prisas» convence más que cinco estrellas mudas.
 
@@ -57,12 +57,11 @@ FAQ
 
 **Tengo una clínica en Majadahonda con pocas reseñas. ¿Se puede cambiar?** Sí, con un método constante para pedirlas a todos sus pacientes, dentro de las normas de Google. Lleva su tiempo: las reseñas llegan al ritmo de sus clientes.
 
-**¿Responden ustedes a las reseñas de mi negocio?** Le ayudamos a redactar las respuestas, con su tono y nombrando el servicio. Usted decide si las publica o si prefiere que lo hagamos nosotros.
+**¿Responden ustedes a las reseñas de mi negocio?** Sí, si lo prefiere las contestamos nosotros, con su tono y nombrando el servicio. Es lo que solemos recomendar: sabemos qué conviene decir y usted se quita una tarea.
 
 **¿Qué pasa cuando termina el trabajo?** Si lo desea, seguimos con un mantenimiento mensual de su ficha, con informe cada mes y reunión en persona, que puede dejar cuando quiera.
 
 ---
 Notas para Álvaro:
 
-⚑ «Le ayudamos a redactar las respuestas… o prefiere que lo hagamos nosotros»: lo deduzco del SEO local. Confirma que ofreces responder reseñas por el cliente.
-⚑ Entidades concretas de Majadahonda (hospital, zonas comerciales): no las nombro sin verificar.
+Sin ⚑ abiertas (tanda 7, 27/09): respuestas a reseñas por el cliente, confirmado; Hospital Puerta de Hierro Majadahonda comprobado.

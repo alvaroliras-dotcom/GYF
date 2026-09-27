@@ -13,7 +13,7 @@ El Gordo y el Flaco es una agencia SEO y de marketing online con oficina en Alco
 
 Un negocio nuevo en Arroyomolinos sale en Google Maps cuando crea y verifica su ficha, la completa a fondo y empieza a sumar reseñas y fotos desde el primer mes. Google se fía más de lo que ya conoce, así que al principio cada detalle cuenta el doble. El camino es trabajar en orden.
 
-Arroyomolinos es un municipio joven y en crecimiento. Llegan vecinos nuevos que todavía no conocen el barrio y lo buscan todo en el móvil: el fontanero, la peluquería, la academia, el veterinario. Si su negocio acaba de abrir, compite con otros que llevan años en la ficha.
+En Arroyomolinos, con Madrid Xanadú a un paso, muchos vecinos lo buscan todo en el móvil: el fontanero, la peluquería, la academia, el veterinario. Si su negocio acaba de abrir, compite con otros que llevan años en la ficha.
 
 El orden que seguimos con un negocio recién abierto:
 
@@ -61,4 +61,4 @@ FAQ
 ---
 Notas para Álvaro:
 
-⚑ «Municipio joven y en crecimiento»: ángulo de Nuria, sin dato. No nombro Xanadú ni barrios sin verificar.
+Sin ⚑ abiertas (tanda 7, 27/09): «municipio joven» fuera (sin dato); Madrid Xanadú comprobado.
