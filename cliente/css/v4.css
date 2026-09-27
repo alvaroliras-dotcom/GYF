@@ -39,3 +39,27 @@
 .cab-int__vt{z-index:5;text-shadow:0 2px 18px rgba(28,18,25,.55)}
 /* Detrás de un objeto fucsia: la foto a color, solo algo más oscura (ya no se pasa a gris) */
 .cab-int__vis--oscuro .cab-int__fh .fotohueco__img img{filter:brightness(.72) saturate(.9)}
+
+/* v4.1 · Opiniones: todas las tarjetas iguales, algo más altas que anchas; la larga se corta con «Leer más» */
+.op-recorta{align-items:stretch}
+.op-recorta .op{aspect-ratio:4/5;min-height:0}
+.op-recorta .op__cuerpo{flex:1 1 auto;min-height:0;overflow:hidden;position:relative}
+.op-recorta .op--larga .op__cuerpo{-webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent);mask-image:linear-gradient(to bottom,#000 72%,transparent)}
+.op__mas{align-self:flex-start;background:none;border:0;padding:4px 0;font:inherit;font-weight:600;font-size:.9375rem;color:var(--acento);cursor:pointer;
+  text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;display:inline-flex;gap:6px;align-items:center}
+.op__mas::after{content:"→";text-decoration:none;transition:transform .3s var(--ease-salida)}
+@media (hover:hover){.op__mas:hover::after{transform:translateX(4px)}}
+.op__mas:focus-visible{outline:2px solid var(--acento);outline-offset:4px;border-radius:4px}
+.op__mas[hidden]{display:none}
+@media (max-width:560px){.op-recorta .op{aspect-ratio:auto;height:min(520px,118vw)}}
+/* La reseña completa, en una tarjeta grande encima */
+.op-dialogo{border:0;padding:0;background:transparent;width:min(92vw,620px);max-height:88vh;overflow:visible}
+.op-dialogo::backdrop{background:rgba(28,18,25,.72);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.op-dialogo__in{max-height:88vh;overflow:auto;border-radius:var(--r-m)}
+.op-dialogo__in .op{flex:none;width:100%;aspect-ratio:auto;height:auto;padding:clamp(28px,4vw,48px)}
+.op-dialogo__in .op__txt{font-size:1.0625rem;line-height:1.65}
+.op-dialogo__x{position:absolute;top:-18px;right:-12px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:var(--acento);color:#fff;font-size:26px;line-height:1;cursor:pointer;box-shadow:0 10px 24px -8px rgba(224,6,122,.6)}
+.op-dialogo__x:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.op-dialogo[open]{animation:opAbre .35s var(--ease-salida)}
+@keyframes opAbre{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.op-dialogo[open]{animation:none}}

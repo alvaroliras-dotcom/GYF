@@ -136,10 +136,12 @@
     var ul = d.querySelector("[data-opiniones]"); if (!ul || !ops || !ops.length) return;
     ul.innerHTML = ops.map(function (o) {
       return '<li class="op' + (o.marcador ? " op--marcador" : "") + '"><span class="estrellas" aria-label="5 estrellas">★★★★★</span>' +
-        '<p class="op__tit">' + esc(o.titulo) + '</p><p class="op__txt">«' + esc(o.texto) + '»</p>' +
+        '<p class="op__tit">' + esc(o.titulo) + '</p><div class="op__cuerpo"><p class="op__txt">«' + esc(o.texto) + '»</p></div>' +
+        '<button type="button" class="op__mas" data-op-mas hidden>Leer más</button>' +
         '<div class="op__pie"><span class="op__ini" aria-hidden="true">' + esc((o.nombre || "?").charAt(0)) + '</span><span class="op__quien"><strong>' +
         esc(o.nombre) + '</strong><span>' + (esc(o.servicio) + (o.lugar ? " · " + esc(o.lugar) : "") || "Opinión publicada en Google") + '</span></span></div></li>';
     }).join("");
+    recortaOp();
     cuentaOp();
   }
   function ponResenas(r) {
@@ -308,6 +310,38 @@
     }
   }
 
+  /* ---------- v4.1 · Opiniones: tarjetas iguales (4:5); la reseña larga se corta con «Leer más» y se lee entera en una
+     tarjeta grande encima (dialog nativo: Esc, X o clic fuera). Sin JS no se corta nada. El texto completo sigue en la página. ---------- */
+  var opDlg = null;
+  function dialogoOp() {
+    if (opDlg) return opDlg;
+    opDlg = d.createElement("dialog"); opDlg.className = "op-dialogo"; opDlg.setAttribute("aria-label", "Reseña completa");
+    opDlg.innerHTML = '<button type="button" class="op-dialogo__x" aria-label="Cerrar">×</button><div class="op-dialogo__in"></div>';
+    d.body.appendChild(opDlg);
+    opDlg.querySelector(".op-dialogo__x").addEventListener("click", function () { opDlg.close(); });
+    opDlg.addEventListener("click", function (e) { if (e.target === opDlg) opDlg.close(); });
+    return opDlg;
+  }
+  function recortaOp() {
+    var ul = d.querySelector("[data-opiniones]"); if (!ul) return;
+    ul.classList.add("op-recorta");
+    ul.querySelectorAll(".op").forEach(function (li) {
+      var c = li.querySelector(".op__cuerpo"), b = li.querySelector("[data-op-mas]"); if (!c || !b) return;
+      var larga = c.scrollHeight > c.clientHeight + 2;
+      li.classList.toggle("op--larga", larga); b.hidden = !larga;
+    });
+  }
+  d.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("[data-op-mas]"); if (!b) return;
+    var li = b.closest(".op"), dl = dialogoOp(), cl = li.cloneNode(true);
+    cl.classList.remove("op--larga"); var mb = cl.querySelector("[data-op-mas]"); if (mb) mb.remove();
+    var inn = dl.querySelector(".op-dialogo__in"); inn.innerHTML = ""; inn.appendChild(cl);
+    if (dl.showModal) dl.showModal(); else dl.setAttribute("open", "");
+  });
+  recortaOp();
+  w.addEventListener("resize", function () { w.requestAnimationFrame(recortaOp); }, { passive: true });
+  if (d.fonts && d.fonts.ready) d.fonts.ready.then(recortaOp);
+
   /* ---------- Opiniones: flechas y contador «1 / N» (R33, sin automático) ---------- */
   var opl = d.querySelector("[data-opiniones]"), opc = d.querySelector("[data-op-cuenta]");
   function cuentaOp() {
@@ -316,6 +350,7 @@
     var n = opl.querySelectorAll(".op").length, i = Math.round(opl.scrollLeft / (li.offsetWidth + 24));
     opc.textContent = Math.min(n, i + 1) + " / " + n;
     /* El carril toma el alto de la reseña que se ve: una reseña larga no deja a las cortas con un hueco en blanco */
+    if (opl.classList.contains("op-recorta")) { opl.style.height = ""; return; }
     var act = opl.querySelectorAll(".op")[Math.min(n - 1, i)];
     if (act) opl.style.height = (act.offsetHeight + 6) + "px";
   }

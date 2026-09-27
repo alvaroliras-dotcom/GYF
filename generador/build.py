@@ -845,7 +845,8 @@ def tarjeta_opinion(o):
     serv = esc(o.get("servicio", "")) + (f' · {esc(o["lugar"])}' if o.get("lugar") else "")
     marca = " op--marcador" if o.get("marcador") else ""
     return (f'<li class="op{marca}"><span class="estrellas" aria-label="5 estrellas">★★★★★</span>'
-            f'<p class="op__tit">{esc(o["titulo"])}</p><p class="op__txt">«{esc(o["texto"])}»</p>'
+            f'<p class="op__tit">{esc(o["titulo"])}</p><div class="op__cuerpo"><p class="op__txt">«{esc(o["texto"])}»</p></div>'
+            f'<button type="button" class="op__mas" data-op-mas hidden>Leer más</button>'
             f'<div class="op__pie"><span class="op__ini" aria-hidden="true">{esc(o["nombre"][:1])}</span>'
             f'<span class="op__quien"><strong>{esc(o["nombre"])}</strong><span>{serv or "Opinión publicada en Google"}</span></span></div></li>')
 

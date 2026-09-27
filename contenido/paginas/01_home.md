@@ -52,11 +52,11 @@ Una agencia de Alcorcón con 15 años de trayectoria y más de 20 años de ofici
 
 Cada proyecto lo dirige un solo interlocutor. Es quien se sienta con usted, quien decide cómo se hace su proyecto y quien le responde al teléfono.
 
-A su lado, profesionales de confianza cuando el proyecto los pide. Trabajamos así desde mucho antes de que se pusiera de moda el teletrabajo.
+A su lado, un equipo de profesionales: personas especialistas en diseño gráfico, diseño web, analítica web y Google Ads. Trabajamos con ellas desde mucho antes de que se pusiera de moda el teletrabajo.
 
-Y un equipo de agentes de IA que trabaja cada día, cada uno con su nombre y su oficio: estrategia, diseño, redacción, SEO local, analítica… Son agentes de inteligencia artificial y los presentamos como tales. Los dirigimos nosotros.
+Y, además de las personas, nuestro propio equipo de agentes de IA, cada uno con su nombre y su oficio: estrategia, diseño, redacción, SEO local, analítica… Son agentes de inteligencia artificial y los presentamos como tales. Los dirigimos nosotros y revisamos su trabajo.
 
-Para usted, eso se traduce en algo muy práctico: un solo interlocutor que conoce su caso y un equipo completo detrás.
+Para usted, eso se traduce en algo muy práctico: un solo interlocutor que conoce su caso y, detrás, especialistas de verdad y la potencia de la inteligencia artificial.
 
 Y como el oficio viene de la publicidad, somos también una agencia de publicidad en Alcorcón: el anuncio, el folleto y el rótulo salen de la misma casa que la ficha y la web. Si quiere conocer al equipo, lea [LINK quiénes somos](/quienes-somos/) 🆕.
 
@@ -97,7 +97,7 @@ FAQ
 
 **¿Hay que firmar una permanencia?** Trabajamos mes a mes. Cuando termina el trabajo, puede seguir con un mantenimiento mensual y dejarlo cuando quiera.
 
-**¿Hablo con una persona o con una máquina?** Con una persona, siempre la misma, que dirige su proyecto. Los agentes de IA trabajan detrás.
+**¿Hablo con una persona o con una máquina?** Con una persona, siempre la misma, que dirige su proyecto. Detrás trabajan especialistas en diseño, analítica y Google Ads, que también son personas, y nuestros agentes de IA.
 
 **¿Cómo se paga?** Con Bizum, transferencia, tarjeta o en efectivo.
 

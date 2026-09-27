@@ -1,13 +1,13 @@
 URL: /quienes-somos/
 Title: Quiénes somos | El Gordo y el Flaco
-Meta description: El Gordo y el Flaco: 15 años de agencia en Alcorcón, un solo interlocutor por proyecto, profesionales de confianza y agentes de IA con nombre propio.
+Meta description: El Gordo y el Flaco: 15 años de agencia en Alcorcón, un interlocutor por proyecto, especialistas en diseño, analítica y Google Ads, y agentes de IA.
 Keyword principal: quiénes somos El Gordo y el Flaco
 H1: Una agencia de Alcorcón, un interlocutor y un equipo detrás
 Etiqueta: Agencia de marketing online · Alcorcón
-Entrada corta: 15 años de agencia en Alcorcón, profesionales de confianza y diez agentes de IA. Quien le coge el teléfono es quien dirige su proyecto.
+Entrada corta: 15 años de agencia en Alcorcón, un equipo de especialistas y nuestro propio equipo de agentes de IA. Quien le coge el teléfono es quien dirige su proyecto.
 ---
 
-El Gordo y el Flaco es una agencia de marketing online de Alcorcón que lleva 15 años abierta. Detrás hay más de 20 años de oficio en publicidad: redacción publicitaria, diseño gráfico, SEO, analítica y marketing directo. Cada proyecto lo dirige un solo interlocutor, con profesionales de confianza cuando el proyecto los pide y un equipo de agentes de IA que trabaja cada día.
+El Gordo y el Flaco es una agencia de marketing online de Alcorcón que lleva 15 años abierta. Detrás hay más de 20 años de oficio en publicidad: redacción publicitaria, diseño gráfico, SEO, analítica y marketing directo. Cada proyecto lo dirige un solo interlocutor, con un equipo de especialistas, personas, en diseño, analítica web y Google Ads, y con nuestro propio equipo de agentes de IA.
 
 ## ¿Qué es El Gordo y el Flaco?
 
@@ -21,9 +21,9 @@ Con los años sumamos el diseño gráfico, el SEO y la analítica. Hoy lo juntam
 
 Cada proyecto tiene un solo interlocutor. Es quien se sienta con usted, quien decide cómo se hace su proyecto y quien responde de él. Sabe a quién llamar, y quien le contesta conoce su caso.
 
-Cuando el proyecto lo pide, sumamos profesionales de confianza. Trabajamos así desde mucho antes de que se pusiera de moda el teletrabajo: cada encargo, con la gente que ese encargo necesita.
+A su lado trabaja un equipo de profesionales: personas especialistas en diseño gráfico, diseño web, analítica web y Google Ads. Trabajamos así desde mucho antes de que se pusiera de moda el teletrabajo: cada encargo, con los especialistas que ese encargo necesita.
 
-Y cada día trabajamos con un equipo de agentes de IA, cada uno con su nombre y su oficio. Son agentes de inteligencia artificial y los presentamos como lo que son. Los dirigimos nosotros y revisamos su trabajo.
+Y, además de las personas, tenemos nuestro propio equipo de agentes de IA, cada uno con su nombre y su oficio. Son agentes de inteligencia artificial y los presentamos como lo que son. Los dirigimos nosotros y revisamos su trabajo.
 
 Para un negocio pequeño eso tiene ventajas claras:
 
@@ -33,7 +33,9 @@ Para un negocio pequeño eso tiene ventajas claras:
 
 ## El equipo
 
-Estos son los agentes de IA que trabajan en la agencia:
+Las personas: especialistas en diseño gráfico, diseño web, analítica web y Google Ads que trabajan con nosotros en cada proyecto que lo necesita.
+
+Y los agentes de IA que trabajan en la agencia:
 
 - **Jean Pierre**, dirección y estrategia.
 - **Jean Paul**, diseño web y gráfico.

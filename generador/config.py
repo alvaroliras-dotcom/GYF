@@ -188,7 +188,7 @@ QUIEN_H2 = "¿Quién hay detrás"
 PIEZAS_VIVAS = [("simbolo", "simbolo-fucsia", "-0.16,-0.5", "fucsia"), ("simbolo", "simbolo-cromo", "-0.18,0.5", "cromo"),
                 ("simbolo", "simbolo-berenjena", "0.12,-0.55", "berenjena")]
 # Etiqueta corta de cada una de esas tres tarjetas (microtexto de interfaz)
-PIEZAS_ETQ = ["Un solo interlocutor", "Profesionales de confianza", "Agentes de IA"]
+PIEZAS_ETQ = ["Un solo interlocutor", "Especialistas de verdad", "Agentes de IA"]
 CASOS_H2 = "Lo más reciente"
 
 CIFRAS = [
@@ -268,7 +268,7 @@ TEXTOS = {
     "llms_resumen": "Agencia SEO y de marketing online de {localidad} para negocios locales: ficha de Google, web, Google Ads, diseño gráfico, redacción y analítica.",
     "llms_horario_extra": "Reuniones en el negocio del cliente; la oficina recibe con cita.",
     "llms_datos": ["- 15 años de agencia en Alcorcón y más de 20 años de oficio en publicidad.",
-                   "- Un solo interlocutor por proyecto, profesionales de confianza cuando hacen falta y un equipo de agentes de IA con nombre propio, presentados como tales.",
+                   "- Un solo interlocutor por proyecto, un equipo de especialistas (personas) en diseño gráfico, diseño web, analítica web y Google Ads, y un equipo propio de agentes de IA con nombre propio, presentados como tales.",
                    "- Primera reunión en el negocio del cliente, sin coste; presupuesto a medida por escrito.",
                    "- Mantenimiento mensual sin permanencia."],
     "llms_no_hace": ["- No da precios cerrados por la web: el presupuesto llega tras la reunión."],
