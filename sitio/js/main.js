@@ -17,6 +17,22 @@
   var raton = w.matchMedia && w.matchMedia("(hover: hover) and (pointer: fine)").matches;
   var ancho = function () { return w.innerWidth; };
 
+  /* ---------- v5 · Botones: el HTML lleva el texto una sola vez (lo que lee Google); aquí se parte en letras
+     para la animación, con el texto para lectores de pantalla aparte. ---------- */
+  (function () {
+    var e1 = function (c) { return c === " " ? "&nbsp;" : ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c] || c); };
+    var letras = function (t) { var o = ""; for (var i = 0; i < t.length; i++) o += '<span style="--i:' + i + '">' + e1(t.charAt(i)) + "</span>"; return o; };
+    if (!raton) return;   /* sin ratón no hay hover: el texto se queda tal cual */
+    var parte = function () { d.querySelectorAll(".btn__txt").forEach(function (e) {
+      if (e.firstElementChild) return;
+      var t = e.textContent, sr = d.createElement("span");
+      sr.className = "sr"; sr.textContent = t; e.parentNode.insertBefore(sr, e);
+      e.setAttribute("aria-hidden", "true");
+      e.innerHTML = '<span class="btn__a">' + letras(t) + '</span><span class="btn__b">' + letras(t) + "</span>";
+    }); };
+    if ("requestIdleCallback" in w) w.requestIdleCallback(parte, { timeout: 1500 }); else setTimeout(parte, 300);
+  })();
+
   /* ---------- v2 · Cortinilla fucsia entre páginas: al pulsar un enlace interno sube desde abajo y, al
      cubrir la pantalla, se navega; en la página nueva sale hacia arriba (CSS). Sin JS o con movimiento
      reducido, no existe. Vuelta atrás desde la caché: se quita. ---------- */
@@ -32,8 +48,9 @@
       if (url.pathname === w.location.pathname && url.hash) return;          /* ancla en la misma página */
       if (/\.(php|xml|txt|json|pdf|jpg|png|webp)$/i.test(url.pathname)) return;
       e.preventDefault();
+      try { sessionStorage.setItem("gyf-cortina", "1"); } catch (x) {}   /* v5.1: la página siguiente sale con cortinilla; desde Google, no */
       cortina.classList.remove("entra"); void cortina.offsetWidth; cortina.classList.add("entra");
-      setTimeout(function () { w.location.href = url.href; }, 520);
+      setTimeout(function () { w.location.href = url.href; }, 280);   /* v5: 280 ms (antes 520) */
     });
     w.addEventListener("pageshow", function (e) { if (e.persisted) { cortina.classList.remove("entra"); cortina.style.animation = "none"; cortina.style.transform = "translateY(-101%)"; } });
   }
@@ -118,7 +135,7 @@
       if (s) s.textContent = abierto ? "Abierto ahora · hasta las 19:00" : "Ahora cerrado · déjenos su teléfono";
     });
     var txt;
-    if (abierto) txt = "Le llamamos hoy, en cuanto colguemos.";
+    if (abierto) txt = "Le llamamos enseguida.";
     else if (laborable && h < 9) txt = "Le llamamos hoy a partir de las 9:00.";
     else {
       var sig = new Date(hoy.getTime()), n = 0;
@@ -132,33 +149,11 @@
 
   /* ---------- Reseñas: nota, número y opiniones desde /resenas.json ---------- */
   function esc(x) { return String(x || "").replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-  function ponOpiniones(ops) {
-    var ul = d.querySelector("[data-opiniones]"); if (!ul || !ops || !ops.length) return;
-    ul.innerHTML = ops.map(function (o) {
-      return '<li class="op' + (o.marcador ? " op--marcador" : "") + '"><span class="estrellas" aria-label="5 estrellas">★★★★★</span>' +
-        '<p class="op__tit">' + esc(o.titulo) + '</p><div class="op__cuerpo"><p class="op__txt">«' + esc(o.texto) + '»</p></div>' +
-        '<button type="button" class="op__mas" data-op-mas hidden>Leer más</button>' +
-        '<div class="op__pie"><span class="op__ini" aria-hidden="true">' + esc((o.nombre || "?").charAt(0)) + '</span><span class="op__quien"><strong>' +
-        esc(o.nombre) + '</strong><span>' + (esc(o.servicio) + (o.lugar ? " · " + esc(o.lugar) : "") || "Opinión publicada en Google") + '</span></span></div></li>';
-    }).join("");
-    recortaOp();
-    cuentaOp();
-  }
   function ponResenas(r) {
-    if (!r || !r.resenas) return;
-    ponOpiniones(r.opiniones);
-    var nota = String(r.valoracion), num = String(r.resenas);
-    d.querySelectorAll("[data-nota]").forEach(function (e) { e.textContent = nota; });
-    d.querySelectorAll("[data-resenas]").forEach(function (e) { e.textContent = num; });
-    d.querySelectorAll('[data-fuente="valoracion"]').forEach(function (e) { e.setAttribute("data-cuenta", nota); e.textContent = nota; });
-    d.querySelectorAll('[data-fuente="resenas"]').forEach(function (e) { e.setAttribute("data-cuenta", num); e.textContent = num; });
-    d.querySelectorAll('script[type="application/ld+json"]').forEach(function (s) {
-      try {
-        var j = JSON.parse(s.textContent), g = j["@graph"] || [j];
-        g.forEach(function (n) { if (n.aggregateRating) { n.aggregateRating.ratingValue = nota.replace(",", "."); n.aggregateRating.reviewCount = parseInt(num, 10); } });
-        s.textContent = JSON.stringify(j);
-      } catch (e) {}
-    });
+    /* v5.1: /resenas.json solo lleva la nota; las reseñas ya van ordenadas por página en el HTML */
+    if (!r || !r.valoracion) return;
+    var nota = String(r.valoracion);
+    d.querySelectorAll("[data-nota], [data-fuente='valoracion']").forEach(function (e) { e.textContent = nota; });
   }
   w.__resenas = ("fetch" in w) ? fetch("/resenas.json", { cache: "no-cache" }).then(function (x) { return x.ok ? x.json() : null; }).then(ponResenas).catch(function () {}) : null;
 
@@ -173,7 +168,7 @@
     var datos = {}; camposForm(f).forEach(function (i) { datos[i.name] = i.value; });
     try { sessionStorage.setItem(claveForm(f), JSON.stringify(datos)); } catch (x) {}
   }, true);
-  var errForm = /[?&](llamada|enviado)=0/.test(q), okForm = /[?&](llamada|enviado)=1/.test(q);
+  var errForm = /[?&](llamada|enviado|auditoria)=0/.test(q), okForm = /[?&](llamada|enviado|auditoria)=1/.test(q);
   if (errForm || okForm) d.querySelectorAll("form").forEach(function (f) {
     var k = claveForm(f);
     try {
@@ -198,7 +193,30 @@
     tj.querySelectorAll(".llamada__form, .llamada__tit, [data-promesa]").forEach(function (x) { x.hidden = true; });
   }
   if (lko && /llamada=0/.test(q)) lko.hidden = false;
-  var avisoVuelta = (ok && !ok.hidden && ok) || (ko && !ko.hidden && ko) || (lok && !lok.hidden && lok) || (lko && !lko.hidden && lko);
+  /* v5 · Vuelta del formulario de la auditoría gratis */
+  var aok = d.getElementById("aud-ok"), ako = d.getElementById("aud-error");
+  if (aok && /auditoria=1/.test(q)) {
+    aok.hidden = false;
+    var af = aok.closest("form"); if (af) { [].forEach.call(af.children, function (ch) { if (ch !== aok) ch.hidden = true; }); af.classList.add("formulario--hecho"); }
+  }
+  if (ako && /auditoria=0/.test(q)) ako.hidden = false;
+  /* v5.2 · De qué página venía quien pide la auditoría o escribe (la última interna antes de esta) */
+  try {
+    var prev = sessionStorage.getItem("gyf-pag-actual");
+    if (prev && prev !== w.location.pathname) sessionStorage.setItem("gyf-pag-previa", prev);
+    sessionStorage.setItem("gyf-pag-actual", w.location.pathname);
+    var pv = sessionStorage.getItem("gyf-pag-previa");
+    if (pv) d.querySelectorAll("[data-origen]").forEach(function (i) { i.value = pv; });
+  } catch (x) {}
+  /* v5.2 · El «Recibido» de la llamada dice cuándo llamamos, según el horario */
+  if (lok && /llamada=1/.test(q) && typeof ABIERTO !== "undefined" && ABIERTO === false) lok.textContent = "Recibido. Le llamamos a primera hora del siguiente día laborable.";
+  /* v5 · El aviso de error dice qué ha fallado (motivo que devuelve enviar.php) */
+  var mot = /[?&]motivo=([a-z_\-]+)/i.exec(q), TEL = "670 78 19 40";
+  var textoMotivo = { datos: "Revise el nombre y el teléfono: el teléfono necesita al menos 9 cifras. Si lo prefiere, llámenos al " + TEL + ".",
+    tiempo: "No se ha podido enviar. Vuelva a intentarlo en unos segundos o llámenos al " + TEL + ".",
+    enlaces: "El mensaje no puede llevar enlaces a otras webs. Quítelos y vuelva a enviarlo, o llámenos al " + TEL + "." };
+  if (mot && textoMotivo[mot[1]]) [ko, lko, ako].forEach(function (x) { if (x && !x.hidden) x.textContent = textoMotivo[mot[1]]; });
+  var avisoVuelta = (ok && !ok.hidden && ok) || (ko && !ko.hidden && ko) || (lok && !lok.hidden && lok) || (lko && !lko.hidden && lko) || (aok && !aok.hidden && aok) || (ako && !ako.hidden && ako);
   if (avisoVuelta) {
     for (var pr = avisoVuelta; pr; pr = pr.parentElement) if (pr.classList && pr.classList.contains("rv")) pr.classList.add("dentro");
     if (w.requestAnimationFrame) requestAnimationFrame(function () { try { avisoVuelta.scrollIntoView({ block: "center" }); } catch (x) {} });
@@ -221,14 +239,20 @@
   }
   if (/llamada=1/.test(q)) w.dataLayer.push({ event: "solicitud_llamada", pagina: w.location.pathname });
   if (/enviado=1/.test(q)) w.dataLayer.push({ event: "formulario_enviado", pagina: w.location.pathname });
-  if (/(llamada|enviado)=/.test(q) && w.history && history.replaceState) {
+  if (/auditoria=1/.test(q)) w.dataLayer.push({ event: "solicitud_auditoria", pagina: w.location.pathname });
+  if (/(llamada|enviado|auditoria)=/.test(q) && w.history && history.replaceState) {
     try { history.replaceState(null, "", w.location.pathname + w.location.hash); } catch (e) {}
   }
   /* Medición: Llamar y WhatsApp (con la zona y si estamos en horario), reseñas de Google, «Déjenos su teléfono» y el CTA extra */
   var PAG = w.location.pathname;
   function ubicacion(a) {
-    var zona = a.closest("[data-zona], .cab, .menu, .portada-a, .cab-int, .tarjeta, .llamada, .banda, .horario, .faq, .mapa, .lectura, .pie, .barra-movil, section");
-    return zona ? (zona.getAttribute("data-zona") || zona.className.split(" ")[0]) : "otro";
+    var zona = a.closest("[data-zona], .lectura__lado, .audform, .cab, .menu, .portada-a, .cab-int, .tarjeta, .llamada, .banda, .horario, .faq, .mapa, .lectura, .pie, .barra-movil, section");
+    var LIMPIO = { cab: "cabecera", menu: "menu", "portada-a": "portada", "cab-int": "portada_interior", tarjeta: "tarjeta_portada",
+      llamada: "le_llamamos", banda: "banda_final", horario: "horario", faq: "preguntas", mapa: "mapa", lectura: "texto", pie: "pie",
+      "barra-movil": "barra_movil", seccion: "seccion", franja: "seccion", lectura__lado: "indice", audform: "auditoria" };
+    if (!zona) return "otra";
+    var cl = zona.className.split(" ")[0];
+    return zona.getAttribute("data-zona") || LIMPIO[cl] || "seccion";
   }
   d.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("a[href]");
@@ -236,6 +260,8 @@
     var href = a.getAttribute("href");
     if (/^tel:/.test(href) || /wa\.me\//.test(href)) {
       w.dataLayer.push({ event: /^tel:/.test(href) ? "click_llamar" : "click_whatsapp", ubicacion: ubicacion(a), pagina: PAG, abierto: ABIERTO === true });
+    } else if (/^mailto:/.test(href)) {
+      w.dataLayer.push({ event: "click_email", ubicacion: ubicacion(a), pagina: PAG });
     } else if (/maps\.google\.com\/\?cid/.test(href)) {
       w.dataLayer.push({ event: "click_resenas_google", ubicacion: ubicacion(a), pagina: PAG });
     } else if (a.classList.contains("tarjeta__ir")) {
@@ -256,10 +282,10 @@
     f._err = ahora;
     w.dataLayer.push({ event: "form_error", formulario: tipoForm(f), campo: e.target.name || "", motivo: "validacion", pagina: PAG });
   }, true);
-  var mq = /[?&](llamada|enviado)=0/.exec(q);
+  var mq = /[?&](llamada|enviado|auditoria)=0/.exec(q);
   if (mq) {
     var mm = /[?&]motivo=([a-z_\-]+)/i.exec(q);
-    w.dataLayer.push({ event: "form_error", formulario: mq[1] === "llamada" ? "llamada" : "contacto", motivo: mm ? mm[1] : "servidor", pagina: PAG });
+    w.dataLayer.push({ event: "form_error", formulario: mq[1] === "enviado" ? "contacto" : mq[1], motivo: mm ? mm[1] : "servidor", pagina: PAG });
   }
   if (PROD && GTM) {
     w.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
@@ -427,7 +453,7 @@
     d.body.appendChild(sc);
   }
   function arranca() {
-    if (!reducido) carga(["/js/vendor/gsap.min.js", "/js/vendor/ScrollTrigger.min.js", "/js/vendor/lenis.min.js"], capa);
+    if (!reducido && !d.querySelector(".legal")) carga(["/js/vendor/gsap.min.js", "/js/vendor/ScrollTrigger.min.js", "/js/vendor/lenis.min.js"], capa);
     objeto3d();
   }
   if (d.readyState === "complete") arranca(); else w.addEventListener("load", arranca);
@@ -454,7 +480,10 @@
         }).catch(function () {});
       });
     };
-    if ("requestIdleCallback" in w) w.requestIdleCallback(ya, { timeout: 2500 }); else setTimeout(ya, 800);
+    /* v5.4: el módulo 3D (530 KB) espera al primer gesto (ratón, rueda o tecla) o a 4 s: no compite con la carga */
+    var hecho = false, una = function () { if (hecho) return; hecho = true; ["pointermove", "wheel", "keydown", "touchstart"].forEach(function (ev) { w.removeEventListener(ev, una); }); ya(); };
+    ["pointermove", "wheel", "keydown", "touchstart"].forEach(function (ev) { w.addEventListener(ev, una, { passive: true, once: true }); });
+    setTimeout(una, 4000);
     var piezas = d.querySelector("[data-piezas]");
     if (piezas && "IntersectionObserver" in w) {
       var ioP = new IntersectionObserver(function (ents) {
@@ -587,7 +616,7 @@
 
     /* v2 · R7 · Tarjetas apiladas: se pegan arriba (sticky, CSS) y la de debajo encoge y se oscurece un poco
        cuando la siguiente sube a taparla. */
-    var apil = [].slice.call(d.querySelectorAll("[data-apil]"));
+    var apil = ancho() >= 900 ? [].slice.call(d.querySelectorAll("[data-apil]")) : [];   /* v5.1: en el móvil van en carrusel */
     apil.forEach(function (li, i) {
       var sig = apil[i + 1]; if (!sig) return;
       G.to(li.querySelector(".apil__in"), { scale: .93, ease: "none",

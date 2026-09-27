@@ -1,6 +1,348 @@
 {
  "cleanUrls": false,
  "trailingSlash": true,
+ "redirects": [
+  {
+   "source": "/servicios/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/mapa-de-servicios/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/seo-local/",
+   "destination": "/seo-local/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/seo-local/optimizacion-ficha-gbp-02/",
+   "destination": "/seo-local/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/seo-local/optimizacion-ficha-gbp/",
+   "destination": "/seo-local/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/seo-local/estrategia-resenas-reputacion/",
+   "destination": "/seo-local/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/seo-local/auditoria-seo-local/",
+   "destination": "/auditoria-seo-local/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/seo-local/redaccion-seo-local/",
+   "destination": "/redaccion-seo-copywriting/",
+   "permanent": true
+  },
+  {
+   "source": "/auditoria-gratis/",
+   "destination": "/auditoria-seo-local/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/diseno-web/",
+   "destination": "/diseno-web/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/diseno-web/webs-para-conversion/",
+   "destination": "/diseno-web/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/diseno-web/responsive-velocidad/",
+   "destination": "/diseno-web/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/diseno-web/integraciones-analitica-ficha-google/",
+   "destination": "/diseno-web/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/diseno-web/arquitectura-web-seo/",
+   "destination": "/diseno-web/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/desarrollo-paginas-web/",
+   "destination": "/diseno-web/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/mantenimiento/",
+   "destination": "/diseno-web/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/google-ads/",
+   "destination": "/google-ads/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/google-ads/google-ads-local/",
+   "destination": "/google-ads/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/google-ads/paginas-aterrizaje-conversion/",
+   "destination": "/google-ads/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/google-ads/display-geolocalizado/",
+   "destination": "/google-ads/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/google-ads/anuncios-en-maps-youtube/",
+   "destination": "/google-ads/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/diseno-grafico/",
+   "destination": "/diseno-grafico/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/diseno-grafico/imagen-marca-branding/",
+   "destination": "/diseno-grafico/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/diseno-grafico/diseno-grafico-para-web-y-redes-sociales/",
+   "destination": "/diseno-grafico/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/diseno-grafico/packaging-etiquetado-producto/",
+   "destination": "/diseno-grafico/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/diseno-grafico/diseno-editorial-y-publicitario/",
+   "destination": "/diseno-grafico/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/diseno/",
+   "destination": "/diseno-grafico/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/marketing-contenidos/",
+   "destination": "/redaccion-seo-copywriting/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/marketing-contenidos/redaccion-seo-web/",
+   "destination": "/redaccion-seo-copywriting/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/marketing-contenidos/copywriting-emocional/",
+   "destination": "/redaccion-seo-copywriting/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/marketing-contenidos/entradas-blog-local/",
+   "destination": "/redaccion-seo-copywriting/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/marketing-contenidos/publicaciones-para-gbp/",
+   "destination": "/seo-local/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/estrategia-contenido/",
+   "destination": "/redaccion-seo-copywriting/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/analitica-web/",
+   "destination": "/analitica-web/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/analitica-web/implementacion-ga4-search-console/",
+   "destination": "/analitica-web/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/analitica-web/informes-mensuales-personalizados/",
+   "destination": "/analitica-web/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/analitica-web/cuadro-de-mando-local/",
+   "destination": "/analitica-web/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/analitica-web/auditorias-de-rendimiento-local/",
+   "destination": "/analitica-web/",
+   "permanent": true
+  },
+  {
+   "source": "/informes-mensuales-personalizados/",
+   "destination": "/analitica-web/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/estrategia/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/servicios/posicionamiento-buscadores/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/sobre-gyf/",
+   "destination": "/quienes-somos/",
+   "permanent": true
+  },
+  {
+   "source": "/empresa/",
+   "destination": "/quienes-somos/",
+   "permanent": true
+  },
+  {
+   "source": "/formulario-ampliado-de-contaco/",
+   "destination": "/contacto/",
+   "permanent": true
+  },
+  {
+   "source": "/arrancamos/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/en-construccion/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/politica-de-cookies-ue/",
+   "destination": "/politica-de-cookies/",
+   "permanent": true
+  },
+  {
+   "source": "/mas-informacion-sobre-las-cookies/",
+   "destination": "/politica-de-cookies/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/curso-de-google-analytics/",
+   "destination": "/analitica-web/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/luxurycomm/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/el-atelier-de-fabula/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/ines-ingenieros-consultores/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/psicorazon/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/maribel-yebenes/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/vinos-pousada/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/expertise/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/apunto-let/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/zinzin-madrid/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/momentos-madrid/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/maria-lisboa-villa/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/mundo-calor/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/aurea/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/red-yellow-red/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/delfinia-piscinas/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/sure-limpieza-sostenible/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/trabajos/",
+   "destination": "/",
+   "permanent": false
+  },
+  {
+   "source": "/trabajos/solvento/",
+   "destination": "/",
+   "permanent": false
+  },
+  {
+   "source": "/trabajos/la-casita-de-los-animales/",
+   "destination": "/",
+   "permanent": false
+  }
+ ],
  "headers": [
   {
    "source": "/(.*)",
