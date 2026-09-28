@@ -290,20 +290,33 @@
   .galeria__lista--9 .caso--8{grid-column:7/11;grid-row:3;margin-top:4vh}
 }
 /* v5.9 · Portada B (Álvaro 28/09): el titular manda. H1 enorme a todo el ancho con «más llamadas» en fucsia,
-   la G+F 3D pegada a la última palabra del titular (va en línea, así cae siempre detrás de «zona», sea cual sea
-   el ancho), la nota de Google junto a los botones y la cinta abriendo la galería */
+   la nota de Google junto a los botones y la cinta abriendo la galería.
+   v5.9.1 · Abajo, pegada al borde de la pantalla, una fila: texto y botones · G+F 3D girando · servicios · tarjeta.
+   Así cabe todo en la primera pantalla (antes, los servicios y la tarjeta se salían por abajo). */
 .portada-a{grid-template-rows:auto 1fr auto}
 .portada-a__top{position:relative;z-index:2}
 .h1-caja{font-size:clamp(3rem,.4rem + 7.6vw,8.75rem);font-weight:700;letter-spacing:-.055em;line-height:.9;color:var(--t1)}
 .portada-a .h1-home{display:inline;font-size:1em;font-weight:inherit;letter-spacing:inherit;line-height:inherit;max-width:none}
 .h1-home__acento{color:var(--acento)}
-.h1-caja__obj{display:inline-block;position:relative;width:1.05em;height:.9em;margin-left:.1em;vertical-align:-.08em}
-.h1-caja__obj .objeto{position:absolute;left:50%;top:50%;width:1.25em;transform:translate(-50%,-50%) rotate(-8deg);z-index:3}
+.portada-a__texto{display:grid;gap:12px;align-content:end}
+.portada-a__texto .acciones{margin-top:4px}
 .portada-a__nota{margin-top:2px}
-@media (min-width:900px){.portada-a{grid-template-rows:auto minmax(40px,1fr) auto}.portada-a__top{grid-template-columns:1fr}}
-@media (min-width:900px) and (max-height:820px){.h1-caja{font-size:clamp(3rem,.4rem + 6.2vw,7rem)}}
+.portada-a__gratis{margin-top:0}
+.portada-a__centro{position:relative;min-height:0;display:grid;place-items:center}
+.portada-a__centro .objeto{position:relative;left:auto;top:auto;transform:none;width:clamp(170px,40vw,240px)}
+@media (min-width:900px){
+  .portada-a__top{grid-template-columns:1fr}
+  .portada-a{grid-template-rows:auto 1fr auto}
+  .portada-a__pie{grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr) auto;grid-template-areas:"texto centro tarjeta" "serv serv tarjeta";align-items:end;column-gap:clamp(20px,2.4vw,40px);row-gap:18px}
+  .portada-a__texto{grid-area:texto}.portada-a__centro{grid-area:centro;align-self:center}.portada-a__serv{grid-area:serv}.portada-a .tarjeta{grid-area:tarjeta}
+  .portada-a__centro .objeto{width:clamp(170px,16vw,300px)}
+}
+@media (min-width:1200px){
+  .portada-a__pie{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr) minmax(0,1fr) auto;grid-template-areas:"texto centro serv tarjeta"}
+  .portada-a__serv ul{columns:1}
+  .portada-a__centro .objeto{width:clamp(200px,19vw,380px)}
+}
+@media (min-width:1500px){.portada-a__serv ul{columns:2;column-gap:28px}}
+@media (min-width:900px) and (max-height:820px){.h1-caja{font-size:clamp(3rem,.4rem + 5.6vw,6.25rem)}.portada-a__centro .objeto{width:clamp(150px,13vw,230px)}}
 .galeria__cinta{overflow:hidden;margin:0 0 clamp(16px,3vh,40px)}
 .galeria__cinta .cinta--gigante{font-size:clamp(64px,8vw,140px)}
-.h1-home__fin{white-space:nowrap}
-.h1-caja__obj .objeto,.h1-caja__obj .objeto__flota,.h1-caja__obj .objeto__lienzo{display:block}
-@media (max-width:599px){.h1-caja__obj{width:.9em}.h1-caja__obj .objeto{width:1.05em}}
