@@ -77,7 +77,6 @@ Una selección de proyectos, de sectores muy distintos:
 - **RFG Andrade**, consulta de psiquiatría en Madrid: su web de presentación.
 - **Las Tejas**, restaurante en Alcorcón: su web.
 - **JIF 2026**, congreso científico: toda la web del congreso.
-- **Inés Ingenieros**, ingeniería y consultoría técnica de grandes obras, como el estadio Santiago Bernabéu: su web.
 - **Solvento**, mantenimiento, fontanería y obra para comunidades de vecinos: en su momento, imagen de marca, rotulación de furgonetas, papelería y web; ahora, su web nueva, pensada para administradores de fincas.
 - **Delfinia Piscinas**, mantenimiento de piscinas: imagen completa y rotulación.
 - **Vinos Gallegos Pousada**, distribución de vino gallego para bares y restaurantes: imagen de marca y web.

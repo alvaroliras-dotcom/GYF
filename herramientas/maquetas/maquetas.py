@@ -275,10 +275,6 @@ def composiciones():
         C["diseno-web-caso-vinos-pousada-muestra"] = (800, 600, F_FUCSIA,
             simbolo_marca(420, -40, 700, "#FF5AAB", .3)
             + laptop(90, 100, 600, ruta_hd("vinos-pousada-escritorio", RECORTE_HD.get("vinos-pousada-escritorio")), "rotateY(12deg) rotateX(4deg)"))
-    if os.path.exists(os.path.join(CRUDO_HD, "ines-ingenieros-escritorio.png")):
-        C["diseno-web-caso-ines-ingenieros-muestra"] = (800, 600, F_CREMA,
-            resplandor(400, 560, 320, "#E6D9CB", .9)
-            + laptop(90, 100, 600, ruta_hd("ines-ingenieros-escritorio"), "rotateY(12deg) rotateX(4deg)"))
     if os.path.exists(os.path.join(CRUDO_HD, "psicorazon-escritorio.png")):
         C["diseno-web-caso-psicorazon-muestra"] = (800, 600, F_ROSA,
             resplandor(400, 250, 260, "#FFFFFF", .45)
@@ -287,6 +283,31 @@ def composiciones():
         C["diseno-web-caso-expertise-muestra"] = (800, 600, F_MALVA,
             simbolo_marca(-80, 60, 640, "#FFFFFF", .45)
             + laptop(110, 100, 600, ruta_hd("expertise-escritorio", RECORTE_HD.get("expertise-escritorio")), "rotateY(-12deg) rotateX(4deg)"))
+    # --- v5.8 · Las mismas muestras en los formatos de la galería de la portada ---
+    if os.path.exists(os.path.join(CRUDO_HD, "vinos-pousada-escritorio.png")):
+        C["diseno-web-caso-vinos-pousada-vertical"] = (600, 800, F_FUCSIA,
+            simbolo_marca(120, 360, 560, "#FF5AAB", .35) + resplandor(300, 200, 240, "#FFD1E6", .35)
+            + laptop(40, 250, 520, ruta_hd("vinos-pousada-escritorio", RECORTE_HD.get("vinos-pousada-escritorio")), "rotateY(6deg) rotateX(3deg)")
+            + obj("estrella-cromo", 390, 560, 170, -8, 4))
+    if os.path.exists(os.path.join(CRUDO, "jif-2026-movil.jpg")):
+        C["diseno-web-caso-jif-2026-movil"] = (500, 750, F_BERENJENA,
+            resplandor(250, 360, 230, "#E0067A", .5)
+            + movil(135, 100, 230, ruta("jif-2026-movil.jpg"), "rotate(4deg)")
+            + obj("bocadillo", 22, 500, 150, -8, 4))
+    if os.path.exists(os.path.join(CRUDO_HD, "psicorazon-escritorio.png")):
+        C["diseno-web-caso-psicorazon-portatil"] = (750, 500, F_ROSA,
+            resplandor(400, 250, 260, "#FFFFFF", .45)
+            + laptop(90, 70, 640, ruta_hd("psicorazon-escritorio"), "rotateY(14deg) rotateX(4deg)"))
+    if os.path.exists(os.path.join(CRUDO_HD, "expertise-escritorio.png")):
+        C["diseno-web-caso-expertise-vertical"] = (600, 800, F_MALVA,
+            simbolo_marca(160, 360, 520, "#FFFFFF", .5)
+            + laptop(40, 250, 520, ruta_hd("expertise-escritorio", RECORTE_HD.get("expertise-escritorio")), "rotateY(-6deg) rotateX(3deg)")
+            + obj("abanico", 30, 560, 160, 8, 4))
+    if os.path.exists(os.path.join(CRUDO_HD, "delfinia-escritorio.png")):
+        C["diseno-grafico-caso-delfinia-portatil"] = (750, 500, F_CREMA,
+            resplandor(380, 470, 300, "#E6D9CB", .9)
+            + laptop(130, 70, 640, ruta_hd("delfinia-escritorio", RECORTE_HD.get("delfinia-escritorio")), "rotateY(-16deg) rotateX(5deg)")
+            + obj("chincheta", 16, 40, 150, 0, 4))
     return C
 
 

@@ -270,3 +270,40 @@
   .franja .pasos::-webkit-scrollbar{display:none}
   .franja .paso{flex:0 0 72%;scroll-snap-align:start}
 }
+/* v5.8 · Galería de portada con nueve trabajos. Móvil: rejilla de dos columnas escalonada (antes, tira deslizable
+   con una tarjeta y media a la vista). Escritorio: tres filas escalonadas (4 + 3 + 2) */
+@media (max-width:899px){
+  .galeria__lista--9{display:block;columns:2;column-gap:12px;overflow:visible;padding:10px var(--gutter) 24px}
+  .galeria__lista--9 .caso{break-inside:avoid;max-width:none;width:100%;margin:0 0 18px;display:block}
+  .galeria__lista--9 .caso__pie{font-size:.875rem;line-height:1.35}
+}
+@media (min-width:900px){
+  .galeria__lista--9{row-gap:2vh}
+  .galeria__lista--9 .caso--0{grid-column:1/4;grid-row:1;margin-top:0}
+  .galeria__lista--9 .caso--1{grid-column:4/7;grid-row:1;margin-top:8vh}
+  .galeria__lista--9 .caso--2{grid-column:7/10;grid-row:1;margin-top:2vh}
+  .galeria__lista--9 .caso--3{grid-column:10/13;grid-row:1;margin-top:10vh}
+  .galeria__lista--9 .caso--4{grid-column:1/4;grid-row:2;margin-top:-4vh}
+  .galeria__lista--9 .caso--5{grid-column:5/8;grid-row:2;margin-top:6vh}
+  .galeria__lista--9 .caso--6{grid-column:9/13;grid-row:2;margin-top:0}
+  .galeria__lista--9 .caso--7{grid-column:2/5;grid-row:3;margin-top:-6vh}
+  .galeria__lista--9 .caso--8{grid-column:7/11;grid-row:3;margin-top:4vh}
+}
+/* v5.9 · Portada B (Álvaro 28/09): el titular manda. H1 enorme a todo el ancho con «más llamadas» en fucsia,
+   la G+F 3D pegada a la última palabra del titular (va en línea, así cae siempre detrás de «zona», sea cual sea
+   el ancho), la nota de Google junto a los botones y la cinta abriendo la galería */
+.portada-a{grid-template-rows:auto 1fr auto}
+.portada-a__top{position:relative;z-index:2}
+.h1-caja{font-size:clamp(3rem,.4rem + 7.6vw,8.75rem);font-weight:700;letter-spacing:-.055em;line-height:.9;color:var(--t1)}
+.portada-a .h1-home{display:inline;font-size:1em;font-weight:inherit;letter-spacing:inherit;line-height:inherit;max-width:none}
+.h1-home__acento{color:var(--acento)}
+.h1-caja__obj{display:inline-block;position:relative;width:1.05em;height:.9em;margin-left:.1em;vertical-align:-.08em}
+.h1-caja__obj .objeto{position:absolute;left:50%;top:50%;width:1.25em;transform:translate(-50%,-50%) rotate(-8deg);z-index:3}
+.portada-a__nota{margin-top:2px}
+@media (min-width:900px){.portada-a{grid-template-rows:auto minmax(40px,1fr) auto}.portada-a__top{grid-template-columns:1fr}}
+@media (min-width:900px) and (max-height:820px){.h1-caja{font-size:clamp(3rem,.4rem + 6.2vw,7rem)}}
+.galeria__cinta{overflow:hidden;margin:0 0 clamp(16px,3vh,40px)}
+.galeria__cinta .cinta--gigante{font-size:clamp(64px,8vw,140px)}
+.h1-home__fin{white-space:nowrap}
+.h1-caja__obj .objeto,.h1-caja__obj .objeto__flota,.h1-caja__obj .objeto__lienzo{display:block}
+@media (max-width:599px){.h1-caja__obj{width:.9em}.h1-caja__obj .objeto{width:1.05em}}

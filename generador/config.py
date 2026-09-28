@@ -327,7 +327,7 @@ SAME_AS = [FICHA]   # v5.7 (Álvaro 27/09): sin redes sociales. La marca no tien
 LOGOS_ORIGEN = "/home/claude/gyf/logos-clientes"
 LOGOS_TITULO = "Negocios que confían en nosotros"
 LOGOS_NOMBRES = {"asesoria-mayo": "Asesoría Mayo", "jif-2026": "JIF 2026", "ele-room": "Ele Room", "las-tejas": "Restaurante Las Tejas",
-                 "marcos-cerrajeros": "Marcos Cerrajeros", "ines-ingenieros": "Inés Ingenieros", "psicorazon": "Psicorazon",
+                 "marcos-cerrajeros": "Marcos Cerrajeros", "apuntolet": "Apuntolet", "psicorazon": "Psicorazon",
                  "vinos-gallegos-pousada": "Vinos Gallegos Pousada", "aquita": "Aquita", "balgas": "Balgas", "solvento": "Solvento",
                  "expertise": "Expertise",
                  "ayuntamiento-madrid": "Ayuntamiento de Madrid", "dotti-peluqueria": "Dotti Peluquería", "imdea": "IMDEA Materiales",
@@ -448,7 +448,18 @@ CASO_URL.update({
     "/agencia-seo-fuenlabrada/": "Balgas", "/agencia-seo-villaviciosa-de-odon/": "Marcos Cerrajeros",
     "/agencia-seo-brunete/": "Aquita", "/agencia-seo-boadilla-del-monte/": "Dotti Peluquería", "/agencia-seo-majadahonda/": "Dotti Peluquería",
 })
-CASOS_RECIENTES = ["Balgas", "Marcos Cerrajeros", "Aquita"]   # v5 · «Lo más reciente» de la home (los de SEO local)
+H1_ACENTO = "más llamadas"   # v5.9 · parte del H1 de la home en fucsia (portada B)
+CASOS_RECIENTES = ["Balgas", "Marcos Cerrajeros", "Aquita"]
+# v5.8 (Álvaro 28/09: «tengo muchos más») · Trabajos que solo salen en la galería de la portada, además de los de CASOS
+# que no están en «Lo más reciente». No entran en CASOS para no cambiar el caso de las páginas de servicio y municipio.
+# (título, qué se hizo, imagen de la galería, enlace o "" si no hay, formato v/h/g)
+GALERIA_EXTRA = [
+    ("Vinos Gallegos Pousada", "Imagen de marca y web", "diseno-web-caso-vinos-pousada-vertical.jpg", "https://vinospousada.es/", "g"),
+    ("JIF 2026", "Web del congreso", "diseno-web-caso-jif-2026-movil.jpg", "https://jif26.es/", "v"),
+    ("Psicorazon", "Web", "diseno-web-caso-psicorazon-portatil.jpg", "https://psicorazon.com/", "h"),
+    ("Expertise", "Web", "diseno-web-caso-expertise-vertical.jpg", "https://www.expertise.es/inicio/", "g"),
+    ("Delfinia Piscinas", "Imagen de marca", "diseno-grafico-caso-delfinia-portatil.jpg", "https://delfiniapiscinas.com/", "h"),
+]   # v5 · «Lo más reciente» de la home (los de SEO local)
 
 # v5 · «Quiénes somos»: cada agente de IA con el objeto 3D de su oficio (sin caras: decisión de Álvaro)
 AGENTES_OBJETO = {"Jean Pierre": "simbolo-cromo", "Jean Paul": "abanico", "Merche": "bocadillo", "Matías": "chincheta",
@@ -483,6 +494,5 @@ OPINION_CITA_PAGINA = {u: {"Sergio": _SERGIO_RES} for u in ("/google-ads/", "/se
 MUESTRA_FOTO = {"JIF 2026": ("diseno-web-caso-jif-2026-muestra.jpg", "Web del congreso"),
                 "Delfinia Piscinas": ("diseno-grafico-caso-delfinia-muestra.jpg", "Imagen de marca"),
                 "Vinos Gallegos Pousada": ("diseno-web-caso-vinos-pousada-muestra.jpg", "Imagen de marca y web"),
-                "Inés Ingenieros": ("diseno-web-caso-ines-ingenieros-muestra.jpg", "Web"),
                 "Psicorazon": ("diseno-web-caso-psicorazon-muestra.jpg", "Web"),
                 "Expertise": ("diseno-web-caso-expertise-muestra.jpg", "Web")}

@@ -450,27 +450,34 @@ def portada_home(p):
      <a class="tarjeta__ir" href="#te-llamamos" data-zona="tarjeta_portada"><span>{texto("tarjeta_titulo")}</span><strong>{texto("tarjeta_ir")} ↓</strong></a>
      {extra}
     </aside>"""
+    # v5.9 (portada B, Álvaro 28/09): titular enorme con la parte clave en fucsia; la G+F encajada junto al final del
+    # titular; la cinta sale de la portada y abre la galería. Fuera la chincheta y la estrella sueltas.
+    h1_home = esc(p['h1'])
+    ac = getattr(C, "H1_ACENTO", "")
+    if ac and ac in p['h1']:
+        h1_home = esc(p['h1']).replace(esc(ac), f'<span class="h1-home__acento">{esc(ac)}</span>', 1)
+    # La G+F va dentro del H1, pegada a la última palabra (sin salto entre las dos), decorativa y sin texto alternativo
+    obj = re.sub(r'alt="[^"]*"', 'alt=""', objeto_html()).replace("<div ", "<span ").replace("</div>", "</span>")   # dentro del H1, sin div
+    pre, _, ult = h1_home.rpartition(" ")
+    h1_home = f'{pre} <span class="h1-home__fin">{ult}<span class="h1-caja__obj" aria-hidden="true">{obj}</span></span>'
     galeria = ""
     # v5.2: la galería de portada no repite los casos que se cuentan en «Lo más reciente»
     gal = [c for c in CASOS if c[0] not in getattr(C, "CASOS_RECIENTES", [])][:7] or CASOS[:7]
+    gal = gal + list(getattr(C, "GALERIA_EXTRA", []))   # v5.8: la galería enseña también los trabajos de la muestra
     if CASOS:
         galeria = (f'<section class="galeria" aria-label="Trabajos recientes" data-galeria>'
+                   f'<div class="galeria__cinta">{T.cinta(CINTA_PORTADA, "cinta--gigante")}</div>'
                    f'<ul class="galeria__lista galeria__lista--{len(gal)}">{"".join(caso_html(c, i) for i, c in enumerate(gal))}</ul></section>')
     return f"""<div class="hero{' hero--galeria' if galeria else ''}" data-hero>
 <section class="portada-a" data-portada>
  <div class="contenedor portada-a__top" data-sale>
   <p class="etiqueta">{T.simbolo("etiqueta__sim")}{etiqueta}</p>
-  <h1 class="h1-home">{esc(p['h1'])}</h1>
+  <div class="h1-caja"><h1 class="h1-home">{h1_home}</h1></div>
   <p class="portada-a__corta">{corta}</p>
   <div class="acciones">{T.btn_llamar(extra=' data-zona="portada_boton"')}{T.btn_whatsapp("btn--linea")}</div>
+  {T.nota("portada-a__nota", "#opiniones" if OPINIONES else FICHA)}
   <p class="portada-a__gratis">{T.ico("check")}{esc(texto("portada_gratis"))}</p>
  </div>
- <div class="portada-a__centro">
-  {T.cinta(CINTA_PORTADA, "cinta--gigante")}
-  {objeto_html()}
- </div>
- <span class="portada-a__extra portada-a__extra--a" aria-hidden="true" data-sale>{T.objeto("chincheta", "220px", "flota-lenta")}</span>
- <span class="portada-a__extra portada-a__extra--b" aria-hidden="true" data-sale>{T.objeto("estrella-cromo", "150px", "flota-lenta")}</span>
  <div class="contenedor portada-a__pie">
   <nav class="portada-a__serv" aria-label="Servicios" data-sale><ul>{serv}</ul></nav>
   {tarjeta}

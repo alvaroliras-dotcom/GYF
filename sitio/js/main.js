@@ -565,7 +565,8 @@
     if (gal && w.matchMedia("(min-width: 900px) and (min-height: 800px)").matches) {
       G.to(hero.querySelectorAll("[data-sale]"), { y: -80, scaleY: 1.3, opacity: 0, transformOrigin: "50% 0%", ease: "sine.in",
         scrollTrigger: { trigger: gal, start: "top 92%", end: "top 38%", scrub: true } });
-      G.to(hero.querySelector(".portada-a__centro"), { opacity: 0, ease: "none",
+      var cen = hero.querySelector(".portada-a__centro");   // v5.9: la portada B ya no tiene capa central
+      if (cen) G.to(cen, { opacity: 0, ease: "none",
         scrollTrigger: { trigger: gal, start: "bottom 150%", end: "bottom 100%", scrub: true } });
     }
     /* R22 · Paralaje de las fotos dentro de su marco (×1,2) */
