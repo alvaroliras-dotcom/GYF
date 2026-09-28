@@ -16,7 +16,7 @@ La normativa obliga a revisar la caldera aunque funcione bien:
 - **Caldera de gas natural:** cada 2 años.
 - **Caldera de gasoil:** cada año. La combustión del gasoil ensucia más y el quemador pide más atención.
 
-Si la caldera tiene muchos años o la usas a diario todo el invierno, una revisión al año no sobra. Si quieres, te avisamos: cuando pasa un año, te llamamos o te escribimos para recordártelo, y hacemos la revisión cuando a ti te venga bien. El mejor momento es septiembre u octubre: si hay que cambiar una pieza, no te pilla sin calefacción.
+Si la caldera tiene muchos años o la usas a diario todo el invierno, una revisión al año no sobra. No hacemos contratos de mantenimiento, pero si nos lo pides, cada año te llamamos o te escribimos por WhatsApp para recordarte la revisión y darte cita. Sin compromiso: la haces solo si quieres y cuando a ti te venga bien. El mejor momento es septiembre u octubre: si hay que cambiar una pieza, no te pilla sin calefacción.
 
 ## ¿Qué incluye el mantenimiento de la caldera?
 
@@ -53,9 +53,9 @@ El quemador es el centro de la revisión: boquilla, filtro, bomba y fotocélula.
 Se confunden a menudo:
 
 - **La revisión de la caldera** es el mantenimiento del aparato. La hace un técnico autorizado, como nosotros, cada 1 o 2 años según el combustible.
-- **La inspección periódica de gas** es obligatoria y se realiza cada 5 años sobre la instalación de gas de la vivienda. Si te toca y tienes dudas, llámanos: te decimos a quién acudir o te damos presupuesto.
+- **La inspección periódica de gas** es obligatoria, se realiza cada 5 años sobre la instalación de gas de la vivienda y la puede hacer cualquier instalador de gas autorizado. Te recomendamos la que organiza tu compañía de gas: al hacer el portal o la calle entera, te sale bastante más barata que si la encargas por tu cuenta, también a nosotros.
 
-Si la inspección encuentra un defecto en la caldera o en la instalación, te da un plazo para corregirlo. Vamos, lo corregimos según la normativa y la dejamos lista para la siguiente. También hacemos certificados de gas. Balgas es instalador de gas habilitado por el Ministerio de Industria y la Comunidad de Madrid, categoría IGA nº 1442, registro 202026, con carnet APMR (certificado CA-03174).
+Donde sí te ayudamos es después: si la inspección encuentra un defecto en la caldera o en la instalación, te da un plazo para corregirlo. Vamos, lo corregimos según la normativa y la dejamos lista para la siguiente. También hacemos certificados de gas. Balgas es instalador de gas habilitado por el Ministerio de Industria y la Comunidad de Madrid, categoría IGA nº 1442, registro 202026, con carnet APMR (certificado CA-03174).
 
 ## ¿Cómo saber si tu caldera necesita una revisión ya?
 
@@ -90,7 +90,7 @@ FAQ
 
 **¿Es obligatorio revisar la caldera?** Sí. Cada 2 años si es de gas y cada año si es de gasoil, aunque funcione bien.
 
-**¿La revisión de la caldera es lo mismo que la inspección de gas?** No. La inspección periódica es obligatoria, se realiza cada 5 años y mira la instalación de gas. La revisión es el mantenimiento del aparato y la hace un técnico autorizado. Si la inspección te marca un defecto, lo corregimos y hacemos certificados de gas, como instaladores habilitados por el Ministerio de Industria y la Comunidad de Madrid.
+**¿La revisión de la caldera es lo mismo que la inspección de gas?** No. La inspección periódica es obligatoria, se realiza cada 5 años, mira la instalación de gas y la puede hacer cualquier instalador autorizado (normalmente te sale más barata con la que organiza tu compañía de gas). La revisión es el mantenimiento del aparato y la hace un técnico autorizado. Si la inspección te marca un defecto, lo corregimos y hacemos certificados de gas, como instaladores habilitados por el Ministerio de Industria y la Comunidad de Madrid.
 
 **¿Qué pasa si en la revisión encontráis una avería?** Te la explicamos y te damos el presupuesto. Tú decides si se repara. Llevamos stock de las piezas más habituales y hacemos todo lo posible por dejarla reparada en esa misma visita o cuanto antes.
 
