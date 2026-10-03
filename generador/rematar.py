@@ -26,6 +26,9 @@ def css():
     v4 = R("cliente", "css", "v4.css")
     if os.path.exists(v4):   # v4: fotos artísticas y el logotipo como elemento gráfico
         tema += "\n" + open(v4, encoding="utf-8").read()
+    v5 = R("cliente", "css", "v5.css")
+    if os.path.exists(v5):   # v5.7: el escaparate de casos
+        tema += "\n" + open(v5, encoding="utf-8").read()
     # el tema va DESPUÉS de la base para que sus variables manden; las @font-face, arriba
     fuentes = "".join(re.findall(r"@font-face\{[^}]+\}", tema))
     tema = re.sub(r"@font-face\{[^}]+\}", "", tema)
@@ -56,21 +59,22 @@ def imagenes():
     en WebP con alfa y 840 en PNG (respaldo)."""
     os.makedirs(S("img"), exist_ok=True)
     n = 0
-    for carpeta in ("fotos", "casos"):
+    for carpeta in ("fotos", "casos", "escaparate"):
         d = R("recursos", carpeta)
+        anchos = ANCHOS_FOTO + ((2400,) if carpeta == "escaparate" else ())   # v5.7: tarjetas de 1.240 px en pantallas 2×
         if not os.path.isdir(d):
             continue
         for f in sorted(os.listdir(d)):
             if not f.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
                 continue
             b = f.rsplit(".", 1)[0]
-            if al_dia(os.path.join(d, f), [S("img", f"{b}-{w}.{e}") for w in ANCHOS_FOTO for e in ("jpg", "webp")]):
+            if al_dia(os.path.join(d, f), [S("img", f"{b}-{w}.{e}") for w in anchos for e in ("jpg", "webp")]):
                 n += 1; continue
             im = Image.open(os.path.join(d, f)).convert("RGB")
-            for w in ANCHOS_FOTO:
+            for w in anchos:
                 v = im if im.width == w else im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
                 # v5: tope de peso por ancho; si se pasa, baja la calidad (fotos con mucho grano pesaban 480 KB)
-                tope = {800: 90_000, 1200: 150_000, 1600: 190_000}[w]
+                tope = {800: 90_000, 1200: 150_000, 1600: 190_000, 2400: 320_000}[w]
                 for q in (76, 70, 64, 58, 50, 44):
                     v.save(S("img", f"{b}-{w}.webp"), "WEBP", quality=q, method=6)
                     if os.path.getsize(S("img", f"{b}-{w}.webp")) <= tope:
@@ -79,7 +83,7 @@ def imagenes():
                     from PIL import ImageFilter
                     v = v.filter(ImageFilter.GaussianBlur(0.6))
                     v.save(S("img", f"{b}-{w}.webp"), "WEBP", quality=62, method=6)
-                for q in (80 if w == 1600 else 78, 72, 66, 60, 52, 46):
+                for q in (80 if w >= 1600 else 78, 72, 66, 60, 52, 46):
                     v.save(S("img", f"{b}-{w}.jpg"), "JPEG", quality=q, optimize=True, progressive=True)
                     if os.path.getsize(S("img", f"{b}-{w}.jpg")) <= tope * 1.35:
                         break

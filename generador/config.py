@@ -5,7 +5,7 @@ contenido/resenas.json. Arquitectura y 301: nuria2/arquitectura.md (sección c).
 Lo que falta confirmar está marcado [PENDIENTE] y sale como aviso en controles.py.
 """
 
-VERSION = "5"
+VERSION = "5.10"
 
 # ---------- Sitio ----------
 DOMINIO = "https://elgordoyelflaco.es"
@@ -449,7 +449,18 @@ CASO_URL.update({
     "/agencia-seo-brunete/": "Aquita", "/agencia-seo-boadilla-del-monte/": "Dotti Peluquería", "/agencia-seo-majadahonda/": "Dotti Peluquería",
 })
 H1_ACENTO = "más llamadas"   # v5.9 · parte del H1 de la home en fucsia (portada B)
-CASOS_RECIENTES = ["Balgas", "Marcos Cerrajeros", "Aquita"]
+CASOS_RECIENTES = ["Balgas", "Marcos Cerrajeros", "Aquita"]   # v5 · «Lo más reciente» de la home (los de SEO local)
+# v5.7 · Escaparate de «Lo más reciente» (Álvaro 03/10): todos los casos en tarjetas grandes que pasan solas.
+# Maquetas 16:9 de herramientas/maquetas/escaparate.py → recursos/escaparate/. (archivo, texto alternativo)
+ESCAPARATE = {
+    "Balgas": ("escaparate-balgas.jpg", "Web de Balgas, reparación de calderas en Alcorcón, en un portátil y en el móvil"),
+    "Marcos Cerrajeros": ("escaparate-marcos-cerrajeros.jpg", "Web de Marcos Cerrajeros, cerrajero en Alcorcón, en un portátil y en el móvil"),
+    "Aquita": ("escaparate-aquita.jpg", "Web de Aquita, control de plagas en Arroyomolinos, en un ordenador de sobremesa y en el móvil"),
+    "Las Tejas": ("escaparate-las-tejas.jpg", "Web del Restaurante Las Tejas de Alcorcón en un ordenador de sobremesa y en el móvil"),
+    "Solvento": ("escaparate-solvento.jpg", "Web de Solvento en un ordenador de sobremesa y en el móvil"),
+    "RFG Andrade": ("escaparate-rfg-andrade.jpg", "Web de RFG Andrade en un portátil y en el móvil"),
+    "Dotti Peluquería": ("escaparate-dotti-peluqueria.jpg", "Ficha de Google de Dotti Peluquería: la búsqueda en un portátil y el mapa con la ficha en el móvil"),
+}
 # v5.8 (Álvaro 28/09: «tengo muchos más») · Trabajos que solo salen en la galería de la portada, además de los de CASOS
 # que no están en «Lo más reciente». No entran en CASOS para no cambiar el caso de las páginas de servicio y municipio.
 # (título, qué se hizo, imagen de la galería, enlace o "" si no hay, formato v/h/g)
@@ -459,7 +470,17 @@ GALERIA_EXTRA = [
     ("Psicorazon", "Web", "diseno-web-caso-psicorazon-portatil.jpg", "https://psicorazon.com/", "h"),
     ("Expertise", "Web", "diseno-web-caso-expertise-vertical.jpg", "https://www.expertise.es/inicio/", "g"),
     ("Delfinia Piscinas", "Imagen de marca", "diseno-grafico-caso-delfinia-portatil.jpg", "https://delfiniapiscinas.com/", "h"),
-]   # v5 · «Lo más reciente» de la home (los de SEO local)
+]
+CASOS_ETQ.update({"Vinos Gallegos Pousada": ["Imagen de marca", "Web"], "JIF 2026": ["Web"], "Psicorazon": ["Web"],
+                  "Expertise": ["Web"], "Delfinia Piscinas": ["Imagen de marca"]})
+ESCAPARATE.update({
+    "Vinos Gallegos Pousada": ("escaparate-vinos-pousada.jpg", "Web de Vinos Gallegos Pousada en un portátil"),
+    "JIF 2026": ("escaparate-jif-2026.jpg", "Web del congreso JIF 2026 en un ordenador de sobremesa y en el móvil"),
+    "Psicorazon": ("escaparate-psicorazon.jpg", "Web de Psicorazon en un portátil"),
+    "Expertise": ("escaparate-expertise.jpg", "Web de Expertise en un ordenador de sobremesa"),
+    "Delfinia Piscinas": ("escaparate-delfinia.jpg", "Web de Delfinia Piscinas en un ordenador de sobremesa"),
+})
+GALERIA_PORTADA = False   # v5.7: la galería pequeña bajo la portada se quita; los casos se ven en el escaparate
 
 # v5 · «Quiénes somos»: cada agente de IA con el objeto 3D de su oficio (sin caras: decisión de Álvaro)
 AGENTES_OBJETO = {"Jean Pierre": "simbolo-cromo", "Jean Paul": "abanico", "Merche": "bocadillo", "Matías": "chincheta",

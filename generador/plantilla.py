@@ -107,7 +107,7 @@ def btn_whatsapp(clase="btn--linea", pueblo=None, t=None, rotulo="WhatsApp"):
 # ---------- Imágenes (las genera rematar.py: 800 y 1600, JPG y WebP) ----------
 def medida(archivo):
     from PIL import Image
-    for d in ("fotos", "casos"):
+    for d in ("fotos", "casos", "escaparate"):
         r = os.path.join(RAIZ, "recursos", d, archivo)
         if os.path.exists(r):
             with Image.open(r) as im:
@@ -120,8 +120,9 @@ def foto(archivo, alt, sizes="(max-width: 900px) 100vw, 50vw", prioridad=False, 
     w, h = medida(archivo)
     alto = round(1600 * h / w)
     carga = 'fetchpriority="high"' if prioridad else 'loading="lazy" decoding="async"'
-    return (f'<picture class="{clase}"><source type="image/webp" srcset="/img/{base}-800.webp 800w, /img/{base}-1200.webp 1200w, /img/{base}-1600.webp 1600w" sizes="{sizes}">'
-            f'<img src="/img/{base}-1600.jpg" srcset="/img/{base}-800.jpg 800w, /img/{base}-1200.jpg 1200w, /img/{base}-1600.jpg 1600w" sizes="{sizes}" '
+    xl = ", ".join(f"/img/{base}-{x}.{{e}} {x}w" for x in ((800, 1200, 1600, 2400) if base.startswith("escaparate-") else (800, 1200, 1600)))
+    return (f'<picture class="{clase}"><source type="image/webp" srcset="{xl.format(e="webp")}" sizes="{sizes}">'
+            f'<img src="/img/{base}-1600.jpg" srcset="{xl.format(e="jpg")}" sizes="{sizes}" '
             f'width="1600" height="{alto}" alt="{A(alt)}" {carga}></picture>')
 
 
