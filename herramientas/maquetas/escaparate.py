@@ -217,8 +217,8 @@ def composiciones():
         + obj("estrella", 1040, 470, 140, 10, 4))
     C["escaparate-solvento"] = (F_MALVA,
         simbolo_marca(-40, 60, 600, "#FFFFFF", .45) + resplandor(700, 260, 300, "#FFFFFF", .5) + suelo(380, 640, 520, 22, .45)
-        + sobremesa(270, 18, 760, ruta("solvento-escritorio.jpg"), "solvento.es")
-        + movil(130, 210, 190, ruta("solvento-movil.jpg"))
+        + sobremesa(270, 18, 760, hd("solvento-v2-escritorio", (0, 0, 1904, 919)), "solvento.es")   # web v2 (03/10)
+        + movil(130, 210, 190, "file://" + os.path.join(CRUDO, "solvento-v2-movil.jpg"))
         + obj("abanico", 1030, 40, 140, 8, 4))
     C["escaparate-rfg-andrade"] = (F_FUCSIA,
         simbolo_marca(640, -80, 760, "#FF5AAB", .32) + suelo(150, 610, 880, 30, .6)
