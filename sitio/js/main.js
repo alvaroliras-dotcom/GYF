@@ -66,6 +66,119 @@
     ioL.observe(logos);
   }
 
+  /* ---------- v5.7 · Escaparate de casos: pila de tarjetas grandes que pasa sola cada 6 s; al pinchar la tarjeta,
+     a la siguiente. Botones anterior / pausa / siguiente, flechas del teclado y deslizar con el dedo. Se para fuera de
+     pantalla, con la pestaña oculta, con el foco dentro y con «reducir movimiento» (ahí no arranca sola). ---------- */
+  var esc = d.querySelector("[data-esc]");
+  if (esc) (function () {
+    var items = [].slice.call(esc.querySelectorAll("[data-esc-item]")), n = items.length;
+    if (n < 2) return;
+    var mando = esc.querySelector("[data-esc-mando]"), barra = esc.querySelector("[data-esc-barra]"), num = esc.querySelector("[data-esc-n]");
+    var nombres = [].slice.call(esc.querySelectorAll(".esc__nombres span")), bPausa = esc.querySelector("[data-esc-pausa]");
+    var DUR = 6000, act = 0, t0 = 0, resto = DUR, raf = 0, visible = false, pausado = reducido, foco = false, ocupado = false;
+    /* las imágenes de las tarjetas escondidas no se piden hasta que asoman (si no, 7 maquetas grandes de golpe) */
+    items.forEach(function (li, i) {
+      if (i < 3) return;
+      li.querySelectorAll("source, img").forEach(function (e) {
+        if (e.srcset) { e.setAttribute("data-srcset", e.srcset); e.removeAttribute("srcset"); }
+        if (e.tagName === "IMG" && e.getAttribute("src")) { e.setAttribute("data-src", e.getAttribute("src")); e.removeAttribute("src"); }
+      });
+    });
+    function carga(li) {
+      li.querySelectorAll("[data-srcset], [data-src]").forEach(function (e) {
+        if (e.getAttribute("data-srcset")) { e.srcset = e.getAttribute("data-srcset"); e.removeAttribute("data-srcset"); }
+        if (e.getAttribute("data-src")) { e.src = e.getAttribute("data-src"); e.removeAttribute("data-src"); }
+      });
+    }
+    function pinta() {
+      items.forEach(function (li, i) {
+        var p = (i - act + n) % n;
+        li.setAttribute("data-pos", p > 3 ? 3 : p);
+        li.setAttribute("aria-hidden", p === 0 ? "false" : "true");
+        li.querySelectorAll("a, button").forEach(function (a) { a.tabIndex = p === 0 ? 0 : -1; });
+        if (p <= 2) carga(li);
+      });
+      if (num) num.textContent = (act + 1 < 10 ? "0" : "") + (act + 1);
+      nombres.forEach(function (s, i) { s.classList.toggle("on", i === act); });
+    }
+    function ve(a, sentido) {
+      if (ocupado) return;
+      var sale = items[act];
+      a = (a + n) % n;
+      if (reducido) { act = a; pinta(); reinicia(); return; }
+      ocupado = true;
+      if (sentido > 0) {
+        /* la de arriba sale volando a la izquierda y vuelve al fondo de la pila */
+        sale.classList.add("sale");
+        act = a; pinta();
+        sale.setAttribute("data-pos", "0");
+        setTimeout(function () {
+          sale.classList.add("sin-trans"); sale.classList.remove("sale");
+          sale.setAttribute("data-pos", Math.min((items.indexOf(sale) - act + n) % n, 3));
+          void sale.offsetWidth; sale.classList.remove("sin-trans"); ocupado = false;
+        }, 920);
+      } else {
+        /* la anterior entra desde la izquierda por encima */
+        var entra = items[a];
+        carga(entra);
+        entra.classList.add("sin-trans", "sale"); entra.setAttribute("data-pos", "0");
+        void entra.offsetWidth;
+        entra.classList.remove("sin-trans");
+        act = a; pinta();
+        requestAnimationFrame(function () { entra.classList.remove("sale"); });
+        setTimeout(function () { ocupado = false; }, 920);
+      }
+      reinicia();
+    }
+    function sig() { ve(act + 1, 1); }
+    function ant() { ve(act - 1, -1); }
+    function corre() { return visible && !pausado && !foco && !d.hidden; }
+    function reinicia() { resto = DUR; t0 = performance.now(); if (barra) barra.style.transform = "scaleX(0)"; }
+    function tic(t) {
+      raf = requestAnimationFrame(tic);
+      if (!corre()) { t0 = t - (DUR - resto); return; }
+      resto = DUR - (t - t0);
+      if (barra) barra.style.transform = "scaleX(" + Math.min(1, 1 - resto / DUR).toFixed(4) + ")";
+      if (resto <= 0) sig();
+    }
+    function ponPausa(v) {
+      pausado = v; esc.classList.toggle("esc--pausado", v);
+      if (bPausa) { bPausa.setAttribute("aria-pressed", v ? "true" : "false"); bPausa.setAttribute("aria-label", v ? "Reanudar el pase de trabajos" : "Pausar el pase de trabajos"); }
+    }
+    esc.classList.add("esc--vivo");
+    if (mando) mando.hidden = false;
+    ponPausa(pausado);
+    pinta(); reinicia();
+    /* pinchar la tarjeta de arriba = la siguiente (menos el enlace «Ver la web») */
+    esc.querySelector("[data-esc-pila]").addEventListener("click", function (e) {
+      if (e.target.closest("a")) return;
+      if (arrastre) { arrastre = false; return; }
+      sig();
+    });
+    esc.querySelector("[data-esc-sig]").addEventListener("click", sig);
+    esc.querySelector("[data-esc-ant]").addEventListener("click", ant);
+    if (bPausa) bPausa.addEventListener("click", function () { ponPausa(!pausado); if (!pausado) reinicia(); });
+    esc.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); sig(); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); ant(); }
+    });
+    /* con el foco dentro (teclado) no pasa sola: quien lee con el tabulador manda */
+    esc.addEventListener("focusin", function (e) { foco = e.target.matches(":focus-visible"); });
+    esc.addEventListener("focusout", function () { foco = false; });
+    /* deslizar con el dedo */
+    var x0 = null, y0 = 0, arrastre = false;
+    esc.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+    esc.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) { arrastre = true; dx < 0 ? sig() : ant(); setTimeout(function () { arrastre = false; }, 400); }
+    }, { passive: true });
+    if ("IntersectionObserver" in w) {
+      new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: .45 }).observe(esc);
+    } else visible = true;
+    raf = requestAnimationFrame(tic);
+  })();
+
   /* ---------- Cabecera: siempre a la vista (Álvaro, 27/09: el menú no puede desaparecer); al bajar, compacta y con fondo ---------- */
   var cab = d.querySelector("[data-cab]"), menu = d.querySelector("[data-menu]"), yAnt = 0;
   function alScroll() {
