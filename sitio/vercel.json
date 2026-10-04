@@ -263,23 +263,13 @@
    "permanent": true
   },
   {
-   "source": "/trabajos/psicorazon/",
-   "destination": "/",
-   "permanent": true
-  },
-  {
-   "source": "/trabajos/maribel-yebenes/",
-   "destination": "/",
-   "permanent": true
-  },
-  {
    "source": "/trabajos/vinos-pousada/",
-   "destination": "/",
+   "destination": "/trabajos/vinos-gallegos-pousada/",
    "permanent": true
   },
   {
    "source": "/trabajos/expertise/",
-   "destination": "/",
+   "destination": "/trabajos/",
    "permanent": true
   },
   {
@@ -318,24 +308,9 @@
    "permanent": true
   },
   {
-   "source": "/trabajos/delfinia-piscinas/",
-   "destination": "/",
-   "permanent": true
-  },
-  {
    "source": "/trabajos/sure-limpieza-sostenible/",
    "destination": "/",
    "permanent": true
-  },
-  {
-   "source": "/trabajos/",
-   "destination": "/",
-   "permanent": false
-  },
-  {
-   "source": "/trabajos/solvento/",
-   "destination": "/",
-   "permanent": false
   },
   {
    "source": "/trabajos/la-casita-de-los-animales/",
