@@ -1,0 +1,14 @@
+recursos/casos/diseno-web-caso-expertise-muestra.jpg
+recursos/casos/diseno-web-caso-expertise-vertical.jpg
+sitio/img/diseno-web-caso-expertise-muestra-1200.jpg
+sitio/img/diseno-web-caso-expertise-muestra-1200.webp
+sitio/img/diseno-web-caso-expertise-muestra-1600.jpg
+sitio/img/diseno-web-caso-expertise-muestra-1600.webp
+sitio/img/diseno-web-caso-expertise-muestra-800.jpg
+sitio/img/diseno-web-caso-expertise-muestra-800.webp
+sitio/img/diseno-web-caso-expertise-vertical-1200.jpg
+sitio/img/diseno-web-caso-expertise-vertical-1200.webp
+sitio/img/diseno-web-caso-expertise-vertical-1600.jpg
+sitio/img/diseno-web-caso-expertise-vertical-1600.webp
+sitio/img/diseno-web-caso-expertise-vertical-800.jpg
+sitio/img/diseno-web-caso-expertise-vertical-800.webp

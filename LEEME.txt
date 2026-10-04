@@ -1,13 +1,19 @@
-WEB GYF · v5.10 · SUBIR A GITHUB (repositorio alvaroliras-dotcom/GYF)
+WEB GYF · v5.12 · SUBIR A GITHUB (repositorio alvaroliras-dotcom/GYF)
 
-QUÉ PASÓ: el 28/09 por la tarde se subieron al repositorio de GYF los archivos de la web de Balgas
-(su generador, 30 textos de páginas, 55 páginas de reparación de calderas y sus fotos). La web de GYF que se ve
-no se rompió porque nada enlazaba esas páginas, pero el generador de GYF quedó sustituido por el de Balgas.
-Ya está arreglado: la copia buena es la de 08-WEB/REPOSITORIO-GYF-v5.10 (con todo su historial).
+Sustituye a v5.11-SUBIR-A-GITHUB (lleva todo lo de la v5.10 y la v5.11 más los cambios de la v5.12).
+Base: 19436e1, lo último de GYF que hay en GitHub. Las tandas de la v5.11 nunca se subieron, así que esta las incluye.
 
 QUÉ HAY QUE HACER EN GITHUB
-1. Subir TANDA-1 y después TANDA-2 (Add file > Upload files > arrastrar las carpetas de dentro > Commit changes).
-2. Borrar los 112 archivos de Balgas de archivos-de-balgas-a-borrar.txt. Si quieres, lo hago yo desde tu Chrome.
+1. Subir las tandas en orden, de TANDA-1 a TANDA-5 (Add file > Upload files > arrastrar las carpetas de dentro > Commit changes).
+2. Borrar los 112 archivos de Balgas de archivos-de-balgas-a-borrar.txt (se subieron por error el 28/09).
+3. Borrar los 14 archivos de Expertise de archivos-de-expertise-a-borrar.txt (imágenes que ya no usa ninguna página).
+   Si quieres, los pasos 2 y 3 los hago yo desde tu Chrome.
+4. En Hostinger, el día de publicar, subir también el .htaccess nuevo (redirecciones de /trabajos/expertise y /trabajos/maribel-yebenes).
 
-QUÉ CAMBIA EN LA WEB (solo la portada): el escaparate de «Lo más reciente» con 12 trabajos en tarjetas grandes
-que pasan solas como las hojas de un bloc; fuera las tarjetas pequeñas de debajo de la portada (la cinta grande se queda).
+QUÉ CAMBIA EN LA v5.12
+- Expertise sale del portfolio: ficha, escaparate, galería y muestras de «Quiénes somos». /trabajos/expertise lleva a /trabajos/ (301).
+  Su logotipo sigue en la tira de clientes.
+- Nueva ficha: /trabajos/maribel-yebenes (web, arquitectura, redacción SEO, posicionamiento y tienda en WooCommerce).
+  También en el escaparate de la portada y en la muestra de «Quiénes somos». La antigua redirección de esa URL a la portada se quita.
+
+(Y lo de la v5.11: portfolio /trabajos/ con filtros, una ficha por trabajo y «Trabajos» en el menú.)
