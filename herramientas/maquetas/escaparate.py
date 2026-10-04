@@ -245,10 +245,11 @@ def composiciones():
         resplandor(600, 300, 380, "#FFFFFF", .55) + suelo(170, 600, 860, 30, .5)
         + portatil(160, 70, 880, ruta("psicorazon-escritorio.jpg"), "psicorazon.com")
         + obj("bocadillo", 40, 420, 150, -8, 4))
-    C["escaparate-expertise"] = (F_FUCSIA,
-        simbolo_marca(700, -60, 760, "#FF5AAB", .32) + suelo(330, 640, 540, 22, .6)
-        + sobremesa(250, 22, 700, hd("expertise-escritorio", (225, 0, 1695, 880)), "expertise.es")
-        + obj("cursor", 1010, 60, 140, -10, 4))
+    C["escaparate-maribel-yebenes"] = (F_CREMA,   # v5.12 (sustituye a Expertise)
+        resplandor(560, 300, 380, "#E6D9CB", .9) + suelo(150, 610, 880, 30, .55)
+        + portatil(130, 86, 820, hd("maribel-yebenes-escritorio", None), "maribelyebenes.com")
+        + movil(872, 210, 200, "file://" + os.path.join(CRUDO, "maribel-yebenes-movil.jpg"))
+        + obj("estrella-cromo", 30, 440, 160, -8, 4))
     C["escaparate-delfinia"] = (F_MALVA,
         resplandor(600, 280, 360, "#FFFFFF", .5) + suelo(350, 640, 500, 22, .45)
         + sobremesa(290, 18, 620, hd("delfinia-escritorio", (298, 0, 1608, 840)), "delfiniapiscinas.com")

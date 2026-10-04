@@ -81,7 +81,7 @@ Una selección de proyectos, de sectores muy distintos:
 - **Delfinia Piscinas**, mantenimiento de piscinas: imagen completa y rotulación.
 - **Vinos Gallegos Pousada**, distribución de vino gallego para bares y restaurantes: imagen de marca y web.
 - **Psicorazon**, gabinete de psicólogos y psiquiatras: su web.
-- **Expertise**, medios publicitarios: su web.
+- **Maribel Yébenes**, instituto de belleza y medicina estética en Madrid y Málaga: le hicimos la web, la tienda y el posicionamiento.
 
 ## Opiniones de nuestros clientes
 

@@ -1,0 +1,153 @@
+# -*- coding: utf-8 -*-
+"""GYF · v5.12 · Portfolio (/trabajos/ y una ficha por trabajo). Estructura de la página de proyectos y de la ficha de
+caso de ajaestudio.com (destripada por Jack: 000-BIBLIOTECA PLANTILLAS/004-AJA, §10), con la marca, los colores y la
+tipografía de GYF. Poco texto: qué es, dónde está, qué hicimos y, cuando lo hay, el resultado con su fuente.
+
+REGLA: aquí solo va lo que consta (Álvaro, reseñas literales o capturas). Lo que falta se deja en None y la ficha no
+lo enseña. Para completar un trabajo basta con rellenar sus campos y volver a generar.
+
+Campos de cada trabajo
+  slug, nombre, frase (una línea, la del caso), municipio, relacion (año o «Desde 2016»…), servicios (filtros),
+  url (su web o su ficha), dominio (lo que sale en la barra del navegador), entrada (2-3 frases),
+  partida (titular, texto) · piezas [(nombre, línea o None)] · frase_suelta · resultado [frases] · fuente_resultado
+  imagenes: tarjeta (rejilla 4:5), maqueta (16:9 del escaparate), web (captura de escritorio), movil, mapa (ficha en Maps)
+"""
+
+# Filtros de la página general (servicio → etiqueta). El orden es el de los filtros.
+FILTROS = [("web", "Diseño web"), ("ficha", "Ficha de Google"), ("ads", "Google Ads"), ("marca", "Imagen de marca"),
+           ("textos", "Textos")]
+
+TRABAJOS = [
+    {
+        "slug": "balgas", "nombre": "Balgas", "frase": "De no posicionar en tres años a salir arriba en tres meses.",
+        "municipio": "Alcorcón", "relacion": None, "servicios": ["web", "ficha", "ads"],
+        "url": "https://reparacioncalderasbalgas.es/", "dominio": "reparacioncalderasbalgas.es",
+        "entrada": "Reparación de calderas en Alcorcón y alrededores. Venía de una web hecha por otra agencia que, en tres años, no había conseguido posicionar.",
+        "partida": ("Una web que no aparecía.", "Tres años con una web de otra agencia, pagando un mantenimiento mensual, y sin salir en Google."),
+        "piezas": [("Web nueva", None), ("Ficha de Google", None), ("Google Ads", None)],
+        "frase_suelta": None,
+        "resultado": ["«En unos 3 meses nuestra empresa \"calderas Balgas\" posicionaba en los 10 primeros resultados de Google en las zonas solicitadas»."],
+        "fuente_resultado": "Sergio, dueño de Balgas, en su reseña de Google.",
+        "imagenes": {"tarjeta": "tarjeta-balgas.jpg", "maqueta": "escaparate-balgas.jpg", "web": "web-balgas.jpg",
+                     "movil": "movil-balgas.jpg", "mapa": "mapa-balgas.jpg"},
+    },
+    {
+        "slug": "marcos-cerrajeros", "nombre": "Marcos Cerrajeros", "frase": "Su cerrajero en Alcorcón, también en Google.",
+        "municipio": "Alcorcón", "relacion": None, "servicios": ["web", "ficha"],
+        "url": "https://www.marcoscerrajeros.es/", "dominio": "marcoscerrajeros.es",
+        "entrada": "Cerrajería en Alcorcón. Partía de una web antigua y de una ficha de Google sin trabajar.",
+        "partida": ("Una web antigua y una ficha olvidada.", None),
+        "piezas": [("Ficha de Google", None), ("Web nueva", None)],
+        "frase_suelta": None,
+        "resultado": ["Hoy sale en Google Maps cuando se busca cerrajero en Alcorcón."],
+        "fuente_resultado": None,
+        "imagenes": {"tarjeta": "tarjeta-marcos-cerrajeros.jpg", "maqueta": "escaparate-marcos-cerrajeros.jpg",
+                     "web": "web-marcos-cerrajeros.jpg", "movil": "movil-marcos-cerrajeros.jpg", "mapa": "mapa-marcos-cerrajeros.jpg"},
+    },
+    {
+        "slug": "aquita", "nombre": "Aquita", "frase": "De no tener web a salir en Maps en su pueblo.",
+        "municipio": "Arroyomolinos", "relacion": None, "servicios": ["web", "ficha"],
+        "url": "https://aquita.es/", "dominio": "aquita.es",
+        "entrada": "Control de plagas en Arroyomolinos y el sur de Madrid. Partía sin web y con la ficha de Google sin trabajar.",
+        "partida": ("Sin web y con la ficha a medias.", None),
+        "piezas": [("Ficha de Google", None), ("Web desde cero", None)],
+        "frase_suelta": None,
+        "resultado": ["Hoy sale en Google Maps cuando se busca control de plagas en Arroyomolinos."],
+        "fuente_resultado": None,
+        "imagenes": {"tarjeta": "tarjeta-aquita.jpg", "maqueta": "escaparate-aquita.jpg", "web": "web-aquita.jpg",
+                     "movil": "movil-aquita.jpg", "mapa": None},
+    },
+    {
+        "slug": "las-tejas", "nombre": "Las Tejas", "frase": "Un restaurante de 1978 con una web de hoy.",
+        "municipio": "Alcorcón", "relacion": None, "servicios": ["web", "textos"],
+        "url": "https://www.restaurantelastejas.es/", "dominio": "restaurantelastejas.es",
+        "entrada": "Restaurante de cocina casera en Alcorcón, abierto desde 1978.",
+        "partida": None,
+        "piezas": [("Web", None), ("Textos", None)],
+        "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        "imagenes": {"tarjeta": "tarjeta-las-tejas.jpg", "maqueta": "escaparate-las-tejas.jpg", "web": "web-las-tejas.jpg",
+                     "movil": "movil-las-tejas.jpg", "mapa": None},
+    },
+    {
+        "slug": "solvento", "nombre": "Solvento", "frase": "Una marca desde cero: de la furgoneta a la web.",
+        "municipio": "Leganés", "relacion": None, "servicios": ["marca", "web"],
+        "url": "https://solvento.es/", "dominio": "solvento.es",
+        "entrada": "Mantenimiento de edificios en el sur de Madrid, con nave en Leganés. Partía de cero.",
+        "partida": None,
+        "piezas": [("Imagen de marca", None), ("Rotulación", None), ("Papelería", None), ("Web", None)],
+        "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        "imagenes": {"tarjeta": "tarjeta-solvento.jpg", "maqueta": "escaparate-solvento.jpg", "web": "web-solvento.jpg",
+                     "movil": "movil-solvento.jpg", "mapa": None},
+    },
+    {
+        "slug": "rfg-andrade", "nombre": "RFG Andrade", "frase": "La web de una consulta privada.",
+        "municipio": "Madrid", "relacion": None, "servicios": ["web", "textos"],
+        "url": "https://www.rfgandrade.es/", "dominio": "rfgandrade.es",
+        "entrada": "Web de presentación de una consulta privada en Madrid.",
+        "partida": None, "piezas": [("Web", None), ("Textos", None)],
+        "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        "imagenes": {"tarjeta": "tarjeta-rfg-andrade.jpg", "maqueta": "escaparate-rfg-andrade.jpg", "web": "web-rfg-andrade.jpg",
+                     "movil": "movil-rfg-andrade.jpg", "mapa": None},
+    },
+    {
+        "slug": "dotti-peluqueria", "nombre": "Dotti Peluquería", "frase": "Sin web: todo, en la ficha de Google.",
+        "municipio": "Aravaca", "relacion": None, "servicios": ["ficha"],
+        "url": "https://www.google.com/maps/search/?api=1&query=Sal%C3%B3n+de+Belleza+Dotti+Peluquer%C3%ADa+Aravaca", "dominio": "google.com/maps",
+        "entrada": "Salón de belleza en Aravaca, junto a Pozuelo. Sin web: todo el trabajo, en su ficha de Google.",
+        "partida": None, "piezas": [("Ficha de Google", None)],
+        "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        "imagenes": {"tarjeta": "tarjeta-dotti-peluqueria.jpg", "maqueta": "escaparate-dotti-peluqueria.jpg", "web": None,
+                     "movil": None, "mapa": "mapa-dotti-peluqueria.jpg"},
+    },
+    {
+        "slug": "maribel-yebenes", "nombre": "Maribel Yébenes", "frase": "Una estrella del mundo de la estética.",
+        "municipio": "Madrid y Málaga", "relacion": None, "servicios": ["web", "textos"],
+        "url": "https://maribelyebenes.com/", "dominio": "maribelyebenes.com",
+        "entrada": "Instituto de belleza y medicina estética, con centros en Madrid y en Málaga. Le hicimos la web entera: el diseño, la arquitectura, los textos, el posicionamiento y la tienda.",
+        "partida": None,
+        "piezas": [("Diseño web", None), ("Arquitectura", None), ("Redacción SEO", None), ("Posicionamiento", None),
+                   ("Tienda en WooCommerce", None)],
+        "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        "imagenes": {"tarjeta": "tarjeta-maribel-yebenes.jpg", "maqueta": "escaparate-maribel-yebenes.jpg",
+                     "web": "web-maribel-yebenes.jpg", "movil": "movil-maribel-yebenes.jpg", "mapa": None},
+    },
+    {
+        "slug": "vinos-gallegos-pousada", "nombre": "Vinos Gallegos Pousada", "frase": "Marca y web para una distribuidora de vino gallego.",
+        "municipio": None, "relacion": None, "servicios": ["marca", "web"],
+        "url": "https://vinospousada.es/", "dominio": "vinospousada.es",
+        "entrada": "Distribuidora de vinos gallegos.", "partida": None,
+        "piezas": [("Imagen de marca", None), ("Web", None)],
+        "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        "imagenes": {"tarjeta": "tarjeta-vinos-gallegos-pousada.jpg", "maqueta": "escaparate-vinos-pousada.jpg",
+                     "web": "web-vinos-gallegos-pousada.jpg", "movil": None, "mapa": None},
+    },
+    {
+        "slug": "jif-2026", "nombre": "JIF 2026", "frase": "La web de un congreso científico.",
+        "municipio": "Segovia", "relacion": "2026", "servicios": ["web"],
+        "url": "https://jif26.es/", "dominio": "jif26.es",
+        "entrada": "IX Jornadas Ibéricas de Fotoquímica, en Segovia.", "partida": None,
+        "piezas": [("Web del congreso", None)],
+        "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        "imagenes": {"tarjeta": "tarjeta-jif-2026.jpg", "maqueta": "escaparate-jif-2026.jpg", "web": "web-jif-2026.jpg",
+                     "movil": "movil-jif-2026.jpg", "mapa": None},
+    },
+    {
+        "slug": "psicorazon", "nombre": "Psicorazon", "frase": None,
+        "municipio": None, "relacion": None, "servicios": ["web"],
+        "url": "https://psicorazon.com/", "dominio": "psicorazon.com",
+        "entrada": None, "partida": None, "piezas": [("Web", None)],
+        "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        "imagenes": {"tarjeta": "tarjeta-psicorazon.jpg", "maqueta": "escaparate-psicorazon.jpg", "web": "web-psicorazon.jpg",
+                     "movil": None, "mapa": None},
+    },
+    {
+        "slug": "delfinia-piscinas", "nombre": "Delfinia Piscinas", "frase": "Imagen de marca para una empresa de piscinas.",
+        "municipio": None, "relacion": None, "servicios": ["marca"],
+        "url": "https://delfiniapiscinas.com/", "dominio": "delfiniapiscinas.com",
+        "entrada": "Mantenimiento de piscinas.", "partida": None,
+        "piezas": [("Imagen de marca", None)],
+        "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        "imagenes": {"tarjeta": "tarjeta-delfinia-piscinas.jpg", "maqueta": "escaparate-delfinia.jpg", "web": "web-delfinia-piscinas.jpg",
+                     "movil": None, "mapa": None},
+    },
+]

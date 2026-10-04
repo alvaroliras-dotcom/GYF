@@ -695,7 +695,11 @@ def escaparate_html(sec):
         if url:
             ext = ' rel="noopener" target="_blank"' if url.startswith("http") else ""
             txt_ver = getattr(C, "CASOS_VER_CASO", {}).get(tit, CASOS_VER)
-            ver = f'<a class="esc__ver" href="{A(url)}"{ext} data-zona="escaparate_ver">{esc(txt_ver)}{T.ico("flecha-diagonal")}<span class="sr"> de {esc(tit)} (se abre en otra pestaña)</span></a>'
+            from trabajos import TRABAJOS as _TR
+            _t = next((x for x in _TR if x["nombre"] == tit), None)
+            if _t:   # v5.11: la tarjeta lleva a la ficha del trabajo; la web del cliente se enlaza desde la ficha
+                url, ext, txt_ver = f"/trabajos/{_t['slug']}/", "", "Ver el trabajo"
+            ver = f'<a class="esc__ver" href="{A(url)}"{ext} data-zona="escaparate_ver">{esc(txt_ver)}{T.ico("flecha-diagonal")}<span class="sr"> de {esc(tit)}{" (se abre en otra pestaña)" if ext else ""}</span></a>'
         items.append(f"""<li class="esc__item" data-esc-item aria-roledescription="diapositiva" aria-label="{i + 1} de {total}: {A(tit)}">
    <article class="esc__tarjeta">
     <div class="esc__marco">{foto}<ul class="esc__etq">{etq}</ul></div>
@@ -1541,6 +1545,11 @@ def main():
     for url, tit, md in legales():
         escribir(url, pagina_legal(url, tit, md))
         urls.append((url, fecha_mod(os.path.join(RAIZ, "contenido", "legales", "legales.md"))))
+    # v5.11 · Portfolio (/trabajos/ y una ficha por trabajo): generador/portfolio.py + trabajos.py
+    import portfolio
+    for url, h in portfolio.paginas():
+        escribir(url, montar(h))
+        urls.append((url, fecha_mod(os.path.join(RAIZ, "generador", "trabajos.py"))))
     open(os.path.join(SITIO, "404.html"), "w", encoding="utf-8").write(pagina_404())
     sm = "".join(f"<url><loc>{DOMINIO}{u}</loc><lastmod>{f}</lastmod></url>" for u, f in urls)
     open(os.path.join(SITIO, "sitemap.xml"), "w", encoding="utf-8").write(

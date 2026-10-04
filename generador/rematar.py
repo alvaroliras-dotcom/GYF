@@ -29,6 +29,9 @@ def css():
     v5 = R("cliente", "css", "v5.css")
     if os.path.exists(v5):   # v5.7: el escaparate de casos
         tema += "\n" + open(v5, encoding="utf-8").read()
+    v6 = R("cliente", "css", "v6.css")
+    if os.path.exists(v6):   # v5.11: el portfolio
+        tema += "\n" + open(v6, encoding="utf-8").read()
     # el tema va DESPUÉS de la base para que sus variables manden; las @font-face, arriba
     fuentes = "".join(re.findall(r"@font-face\{[^}]+\}", tema))
     tema = re.sub(r"@font-face\{[^}]+\}", "", tema)
@@ -59,7 +62,7 @@ def imagenes():
     en WebP con alfa y 840 en PNG (respaldo)."""
     os.makedirs(S("img"), exist_ok=True)
     n = 0
-    for carpeta in ("fotos", "casos", "escaparate"):
+    for carpeta in ("fotos", "casos", "escaparate", "trabajos"):
         d = R("recursos", carpeta)
         anchos = ANCHOS_FOTO + ((2400,) if carpeta == "escaparate" else ())   # v5.7: tarjetas de 1.240 px en pantallas 2×
         if not os.path.isdir(d):

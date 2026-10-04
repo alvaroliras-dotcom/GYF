@@ -279,10 +279,10 @@ def composiciones():
         C["diseno-web-caso-psicorazon-muestra"] = (800, 600, F_ROSA,
             resplandor(400, 250, 260, "#FFFFFF", .45)
             + laptop(110, 90, 600, ruta_hd("psicorazon-escritorio"), "rotateY(-14deg) rotateX(4deg)"))
-    if os.path.exists(os.path.join(CRUDO_HD, "expertise-escritorio.png")):
-        C["diseno-web-caso-expertise-muestra"] = (800, 600, F_MALVA,
-            simbolo_marca(-80, 60, 640, "#FFFFFF", .45)
-            + laptop(110, 100, 600, ruta_hd("expertise-escritorio", RECORTE_HD.get("expertise-escritorio")), "rotateY(-12deg) rotateX(4deg)"))
+    if os.path.exists(os.path.join(CRUDO_HD, "maribel-yebenes-escritorio.png")):   # v5.12 (sustituye a Expertise)
+        C["diseno-web-caso-maribel-yebenes-muestra"] = (800, 600, F_CREMA,
+            resplandor(400, 540, 320, "#E6D9CB", .9)
+            + laptop(110, 100, 600, ruta_hd("maribel-yebenes-escritorio"), "rotateY(-12deg) rotateX(4deg)"))
     # --- v5.8 · Las mismas muestras en los formatos de la galería de la portada ---
     if os.path.exists(os.path.join(CRUDO_HD, "vinos-pousada-escritorio.png")):
         C["diseno-web-caso-vinos-pousada-vertical"] = (600, 800, F_FUCSIA,
@@ -298,11 +298,6 @@ def composiciones():
         C["diseno-web-caso-psicorazon-portatil"] = (750, 500, F_ROSA,
             resplandor(400, 250, 260, "#FFFFFF", .45)
             + laptop(90, 70, 640, ruta_hd("psicorazon-escritorio"), "rotateY(14deg) rotateX(4deg)"))
-    if os.path.exists(os.path.join(CRUDO_HD, "expertise-escritorio.png")):
-        C["diseno-web-caso-expertise-vertical"] = (600, 800, F_MALVA,
-            simbolo_marca(160, 360, 520, "#FFFFFF", .5)
-            + laptop(40, 250, 520, ruta_hd("expertise-escritorio", RECORTE_HD.get("expertise-escritorio")), "rotateY(-6deg) rotateX(3deg)")
-            + obj("abanico", 30, 560, 160, 8, 4))
     if os.path.exists(os.path.join(CRUDO_HD, "delfinia-escritorio.png")):
         C["diseno-grafico-caso-delfinia-portatil"] = (750, 500, F_CREMA,
             resplandor(380, 470, 300, "#E6D9CB", .9)
@@ -312,7 +307,7 @@ def composiciones():
 
 
 # v5.7 · Recorte de una captura HD antes de ponerla en pantalla (x0, y0, x1, y1), p. ej. para quitar el aviso de cookies
-RECORTE_HD = {"delfinia-escritorio": (298, 0, 1608, 840), "expertise-escritorio": (225, 0, 1695, 880)}   # columna de la web, sin el fondo lateral ni el aviso de cookies
+RECORTE_HD = {"delfinia-escritorio": (298, 0, 1608, 840)}   # columna de la web, sin el fondo lateral ni el aviso de cookies
 
 
 def ruta_hd(n, caja=None):

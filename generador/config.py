@@ -5,7 +5,7 @@ contenido/resenas.json. Arquitectura y 301: nuria2/arquitectura.md (sección c).
 Lo que falta confirmar está marcado [PENDIENTE] y sale como aviso en controles.py.
 """
 
-VERSION = "5.10"
+VERSION = "5.12"
 
 # ---------- Sitio ----------
 DOMINIO = "https://elgordoyelflaco.es"
@@ -119,6 +119,7 @@ MENU = [
     ("Inicio", "/"),
     ("Servicios", [(t, u) for t, _, u, _, _, _ in SERVICIOS_HOME]),
     ("Zonas", [(n, u) for u, n in MUNICIPIOS]),
+    ("Trabajos", "/trabajos/"),   # v5.11 · portfolio
     ("Quiénes somos", "/quienes-somos/"),
     ("Contacto", "/contacto/"),
 ]
@@ -468,16 +469,16 @@ GALERIA_EXTRA = [
     ("Vinos Gallegos Pousada", "Imagen de marca y web", "diseno-web-caso-vinos-pousada-vertical.jpg", "https://vinospousada.es/", "g"),
     ("JIF 2026", "Web del congreso", "diseno-web-caso-jif-2026-movil.jpg", "https://jif26.es/", "v"),
     ("Psicorazon", "Web", "diseno-web-caso-psicorazon-portatil.jpg", "https://psicorazon.com/", "h"),
-    ("Expertise", "Web", "diseno-web-caso-expertise-vertical.jpg", "https://www.expertise.es/inicio/", "g"),
+    ("Maribel Yébenes", "Web y tienda", "diseno-web-caso-maribel-yebenes-muestra.jpg", "https://maribelyebenes.com/", "h"),   # v5.12
     ("Delfinia Piscinas", "Imagen de marca", "diseno-grafico-caso-delfinia-portatil.jpg", "https://delfiniapiscinas.com/", "h"),
 ]
 CASOS_ETQ.update({"Vinos Gallegos Pousada": ["Imagen de marca", "Web"], "JIF 2026": ["Web"], "Psicorazon": ["Web"],
-                  "Expertise": ["Web"], "Delfinia Piscinas": ["Imagen de marca"]})
+                  "Maribel Yébenes": ["Web", "Tienda", "Textos"], "Delfinia Piscinas": ["Imagen de marca"]})
 ESCAPARATE.update({
     "Vinos Gallegos Pousada": ("escaparate-vinos-pousada.jpg", "Web de Vinos Gallegos Pousada en un portátil"),
     "JIF 2026": ("escaparate-jif-2026.jpg", "Web del congreso JIF 2026 en un ordenador de sobremesa y en el móvil"),
     "Psicorazon": ("escaparate-psicorazon.jpg", "Web de Psicorazon en un portátil"),
-    "Expertise": ("escaparate-expertise.jpg", "Web de Expertise en un ordenador de sobremesa"),
+    "Maribel Yébenes": ("escaparate-maribel-yebenes.jpg", "Web de Maribel Yébenes, instituto de belleza y medicina estética, en un portátil y en el móvil"),
     "Delfinia Piscinas": ("escaparate-delfinia.jpg", "Web de Delfinia Piscinas en un ordenador de sobremesa"),
 })
 GALERIA_PORTADA = False   # v5.7: la galería pequeña bajo la portada se quita; los casos se ven en el escaparate
@@ -516,4 +517,4 @@ MUESTRA_FOTO = {"JIF 2026": ("diseno-web-caso-jif-2026-muestra.jpg", "Web del co
                 "Delfinia Piscinas": ("diseno-grafico-caso-delfinia-muestra.jpg", "Imagen de marca"),
                 "Vinos Gallegos Pousada": ("diseno-web-caso-vinos-pousada-muestra.jpg", "Imagen de marca y web"),
                 "Psicorazon": ("diseno-web-caso-psicorazon-muestra.jpg", "Web"),
-                "Expertise": ("diseno-web-caso-expertise-muestra.jpg", "Web")}
+                "Maribel Yébenes": ("diseno-web-caso-maribel-yebenes-muestra.jpg", "Web y tienda")}   # v5.12: fuera Expertise

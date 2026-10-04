@@ -59,10 +59,8 @@ REDIRECCIONES = [
     ("trabajos/luxurycomm", "/"),                                            # 61
     ("trabajos/el-atelier-de-fabula", "/"),                                  # 62
     ("trabajos/ines-ingenieros-consultores", "/"),                           # 63
-    ("trabajos/psicorazon", "/"),                                            # 64
-    ("trabajos/maribel-yebenes", "/"),                                       # 65
-    ("trabajos/vinos-pousada", "/"),                                         # 66
-    ("trabajos/expertise", "/"),                                             # 67
+    ("trabajos/vinos-pousada", "/trabajos/vinos-gallegos-pousada/"),        # 66 (v5.11: ya hay portfolio)
+    ("trabajos/expertise", "/trabajos/"),                                    # v5.12: Expertise sale del portfolio (Álvaro 04/10)
     ("trabajos/apunto-let", "/"),                                            # 68
     ("trabajos/zinzin-madrid", "/"),                                         # 69
     ("trabajos/momentos-madrid", "/"),                                       # 70
@@ -70,14 +68,11 @@ REDIRECCIONES = [
     ("trabajos/mundo-calor", "/"),                                           # 72
     ("trabajos/aurea", "/"),                                                 # 73
     ("trabajos/red-yellow-red", "/"),                                        # 74
-    ("trabajos/delfinia-piscinas", "/"),                                     # 75
     ("trabajos/sure-limpieza-sostenible", "/"),                              # 76
 ]
 
-# 302 temporales: /trabajos/ y los dos casos que volverán a servir 200 cuando exista el portfolio
+# 302 temporales. v5.11: /trabajos/, /trabajos/solvento, psicorazon y delfinia-piscinas ya sirven 200 (portfolio); v5.12: maribel-yebenes también
 REDIRECCIONES_302 = [
-    ("trabajos", "/"),  # 57
-    ("trabajos/solvento", "/"),  # 58
     ("trabajos/la-casita-de-los-animales", "/"),  # 59
 ]
 

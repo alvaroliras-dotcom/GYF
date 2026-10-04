@@ -179,6 +179,35 @@
     raf = requestAnimationFrame(tic);
   })();
 
+  /* ---------- v5.11 · Portfolio (/trabajos/): filtros por servicio y vista rejilla / lista. Tras filtrar se recalcula
+     qué tarjeta baja (columna derecha) y cuál es cuadrada, como en la rejilla desfasada. ---------- */
+  var pf = d.querySelector("[data-pf]");
+  if (pf) (function () {
+    var lista = pf.querySelector("[data-pf-lista]"), items = [].slice.call(pf.querySelectorAll("[data-pf-item]"));
+    var estado = pf.querySelector("[data-pf-estado]");
+    function recoloca() {
+      items.filter(function (li) { return !li.hidden; }).forEach(function (li, i) {
+        li.classList.toggle("par", i % 2 === 1); li.classList.toggle("cuadrada", i % 3 === 1);
+      });
+    }
+    pf.querySelectorAll("[data-pf-filtro]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var f = b.getAttribute("data-pf-filtro"), n = 0;
+        pf.querySelectorAll("[data-pf-filtro]").forEach(function (x) { x.classList.toggle("is-on", x === b); x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        items.forEach(function (li) { var ok = f === "todos" || (" " + li.getAttribute("data-servicios") + " ").indexOf(" " + f + " ") > -1; li.hidden = !ok; if (ok) n++; });
+        recoloca();
+        if (estado) estado.textContent = n + (n === 1 ? " trabajo" : " trabajos");
+      });
+    });
+    pf.querySelectorAll("[data-pf-vista]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var v = b.getAttribute("data-pf-vista");
+        pf.querySelectorAll("[data-pf-vista]").forEach(function (x) { x.classList.toggle("is-on", x === b); x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        lista.classList.toggle("is-rejilla", v === "rejilla"); lista.classList.toggle("is-lista", v === "lista");
+      });
+    });
+  })();
+
   /* ---------- Cabecera: siempre a la vista (Álvaro, 27/09: el menú no puede desaparecer); al bajar, compacta y con fondo ---------- */
   var cab = d.querySelector("[data-cab]"), menu = d.querySelector("[data-menu]"), yAnt = 0;
   function alScroll() {

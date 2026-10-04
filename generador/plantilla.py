@@ -107,7 +107,7 @@ def btn_whatsapp(clase="btn--linea", pueblo=None, t=None, rotulo="WhatsApp"):
 # ---------- Imágenes (las genera rematar.py: 800 y 1600, JPG y WebP) ----------
 def medida(archivo):
     from PIL import Image
-    for d in ("fotos", "casos", "escaparate"):
+    for d in ("fotos", "casos", "escaparate", "trabajos"):
         r = os.path.join(RAIZ, "recursos", d, archivo)
         if os.path.exists(r):
             with Image.open(r) as im:
