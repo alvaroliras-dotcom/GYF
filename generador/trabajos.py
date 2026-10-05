@@ -15,7 +15,7 @@ Campos de cada trabajo
 
 # Filtros de la página general (servicio → etiqueta). El orden es el de los filtros.
 FILTROS = [("web", "Diseño web"), ("ficha", "Ficha de Google"), ("ads", "Google Ads"), ("marca", "Imagen de marca"),
-           ("textos", "Textos")]
+           ("textos", "Textos"), ("analitica", "Analítica"), ("consultoria", "Consultoría")]
 
 TRABAJOS = [
     {
@@ -59,14 +59,14 @@ TRABAJOS = [
     },
     {
         "slug": "las-tejas", "nombre": "Las Tejas", "frase": "Un restaurante de 1978 con una web de hoy.",
-        "municipio": "Alcorcón", "relacion": None, "servicios": ["web", "textos"],
+        "municipio": "Alcorcón", "relacion": None, "servicios": ["web", "ficha", "textos"],
         "url": "https://www.restaurantelastejas.es/", "dominio": "restaurantelastejas.es",
         "entrada": "Restaurante de cocina casera en Alcorcón, abierto desde 1978.",
         "partida": None,
-        "piezas": [("Web", None), ("Textos", None)],
+        "piezas": [("Web", None), ("Ficha de Google", None), ("Textos", None)],
         "frase_suelta": None, "resultado": [], "fuente_resultado": None,
         "imagenes": {"tarjeta": "tarjeta-las-tejas.jpg", "maqueta": "escaparate-las-tejas.jpg", "web": "web-las-tejas.jpg",
-                     "movil": "movil-las-tejas.jpg", "mapa": None},
+                     "movil": "movil-las-tejas.jpg", "mapa": "mapa-las-tejas.jpg"},
     },
     {
         "slug": "solvento", "nombre": "Solvento", "frase": "Una marca desde cero: de la furgoneta a la web.",
@@ -74,17 +74,17 @@ TRABAJOS = [
         "url": "https://solvento.es/", "dominio": "solvento.es",
         "entrada": "Mantenimiento de edificios en el sur de Madrid, con nave en Leganés. Partía de cero.",
         "partida": None,
-        "piezas": [("Imagen de marca", None), ("Rotulación", None), ("Papelería", None), ("Web", None)],
+        "piezas": [("Imagen de marca", None), ("Papelería corporativa", "Presupuestos, facturas, informes, camisetas y polos"), ("Tarjeta de visita", None), ("Cartel para el local", None), ("Diseño y producción de toda la flota de furgonetas", None), ("Web", None)],
         "frase_suelta": None, "resultado": [], "fuente_resultado": None,
         "imagenes": {"tarjeta": "tarjeta-solvento.jpg", "maqueta": "escaparate-solvento.jpg", "web": "web-solvento.jpg",
                      "movil": "movil-solvento.jpg", "mapa": None},
     },
     {
         "slug": "rfg-andrade", "nombre": "RFG Andrade", "frase": "La web de una consulta privada.",
-        "municipio": "Madrid", "relacion": None, "servicios": ["web", "textos"],
+        "municipio": "Madrid", "relacion": None, "servicios": ["web", "textos", "analitica"],
         "url": "https://www.rfgandrade.es/", "dominio": "rfgandrade.es",
         "entrada": "Web de presentación de una consulta privada en Madrid.",
-        "partida": None, "piezas": [("Web", None), ("Textos", None)],
+        "partida": None, "piezas": [("Textos", None), ("Diseño", None), ("Analítica", None)],
         "frase_suelta": None, "resultado": [], "fuente_resultado": None,
         "imagenes": {"tarjeta": "tarjeta-rfg-andrade.jpg", "maqueta": "escaparate-rfg-andrade.jpg", "web": "web-rfg-andrade.jpg",
                      "movil": "movil-rfg-andrade.jpg", "mapa": None},
@@ -101,22 +101,22 @@ TRABAJOS = [
     },
     {
         "slug": "maribel-yebenes", "nombre": "Maribel Yébenes", "frase": "Una estrella del mundo de la estética.",
-        "municipio": "Madrid y Málaga", "relacion": None, "servicios": ["web", "textos"],
+        "municipio": "Madrid y Málaga", "relacion": None, "servicios": ["web", "textos", "consultoria"],
         "url": "https://maribelyebenes.com/", "dominio": "maribelyebenes.com",
         "entrada": "Instituto de belleza y medicina estética, con centros en Madrid y en Málaga. Le hicimos la web entera: el diseño, la arquitectura, los textos, el posicionamiento y la tienda.",
         "partida": None,
         "piezas": [("Diseño web", None), ("Arquitectura", None), ("Redacción SEO", None), ("Posicionamiento", None),
-                   ("Tienda en WooCommerce", None)],
+                   ("Tienda en WooCommerce", None), ("Consultoría de marketing", None)],
         "frase_suelta": None, "resultado": [], "fuente_resultado": None,
         "imagenes": {"tarjeta": "tarjeta-maribel-yebenes.jpg", "maqueta": "escaparate-maribel-yebenes.jpg",
                      "web": "web-maribel-yebenes.jpg", "movil": "movil-maribel-yebenes.jpg", "mapa": None},
     },
     {
-        "slug": "vinos-gallegos-pousada", "nombre": "Vinos Gallegos Pousada", "frase": "Marca y web para una distribuidora de vino gallego.",
-        "municipio": None, "relacion": None, "servicios": ["marca", "web"],
+        "slug": "vinos-gallegos-pousada", "nombre": "Vinos Gallegos Pousada", "frase": "La marca de una distribuidora de vino gallego, de la tarjeta a la furgoneta.",
+        "municipio": None, "relacion": None, "servicios": ["marca"],
         "url": "https://vinospousada.es/", "dominio": "vinospousada.es",
         "entrada": "Distribuidora de vinos gallegos.", "partida": None,
-        "piezas": [("Imagen de marca", None), ("Web", None)],
+        "piezas": [("Imagen de marca", None), ("Papelería corporativa", "Presupuestos, facturas, informes, camisetas y polos"), ("Tarjeta de visita", None), ("Cartel para el local", None), ("Diseño y producción de toda la flota de furgonetas", None)],
         "frase_suelta": None, "resultado": [], "fuente_resultado": None,
         "imagenes": {"tarjeta": "tarjeta-vinos-gallegos-pousada.jpg", "maqueta": "escaparate-vinos-pousada.jpg",
                      "web": "web-vinos-gallegos-pousada.jpg", "movil": None, "mapa": None},
@@ -145,7 +145,7 @@ TRABAJOS = [
         "municipio": None, "relacion": None, "servicios": ["marca"],
         "url": "https://delfiniapiscinas.com/", "dominio": "delfiniapiscinas.com",
         "entrada": "Mantenimiento de piscinas.", "partida": None,
-        "piezas": [("Imagen de marca", None)],
+        "piezas": [("Imagen de marca", None), ("Papelería corporativa", "Presupuestos, facturas, informes, camisetas y polos"), ("Tarjeta de visita", None), ("Cartel para el local", None), ("Diseño y producción de toda la flota de furgonetas", None)],
         "frase_suelta": None, "resultado": [], "fuente_resultado": None,
         "imagenes": {"tarjeta": "tarjeta-delfinia-piscinas.jpg", "maqueta": "escaparate-delfinia.jpg", "web": "web-delfinia-piscinas.jpg",
                      "movil": None, "mapa": None},

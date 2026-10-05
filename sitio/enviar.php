@@ -23,7 +23,7 @@ if ($tipo === 'llamada') { $vuelta = $pagina; $clave = 'llamada'; $ancla = '#te-
 elseif ($tipo === 'auditoria') { $vuelta = '/auditoria-seo-local/'; $clave = 'auditoria'; $ancla = '#pedir-auditoria'; $ancla_ko = '#pedir-auditoria'; }
 else { $vuelta = '/contacto/'; $clave = 'enviado'; $ancla = '#form-ok'; $ancla_ko = '#form-error'; }
 if (!$ok) { header('Location: ' . $vuelta . '?' . $clave . '=0&motivo=' . $motivo . $ancla_ko); exit; }
-$para = 'info@elgordoyelflaco.es';
+$para = 'info@elgordoyelflaco.es, alvaroliras@gmail.com';   /* info@ es alias de alvaro@ (Hostinger); Gmail lo recoge por POP3 con retraso, así que va también directo */
 if ($tipo === 'llamada') {
   $asunto = '=?UTF-8?B?' . base64_encode('QUE ME LLAMEN · ' . $nombre . ' · ' . $telefono) . '?=';
   $cuerpo = "Petición de llamada desde la web.\n\nNombre: $nombre\nTeléfono: $telefono\nPágina: https://elgordoyelflaco.es$pagina\n";
@@ -34,6 +34,6 @@ if ($tipo === 'llamada') {
   $asunto = '=?UTF-8?B?' . base64_encode('Web El Gordo y el Flaco: ' . $nombre . ($municipio ? ' (' . $municipio . ')' : '')) . '?=';
   $cuerpo = "Nombre: $nombre\nTeléfono: $telefono\nMunicipio: $municipio\n\n$mensaje\n\n" . ($origen !== '' ? "Venía de: https://elgordoyelflaco.es$origen\n" : '') . "-- Enviado desde elgordoyelflaco.es/contacto/";
 }
-$cab = "From: Web El Gordo y el Flaco <web@elgordoyelflaco.es>\r\nContent-Type: text/plain; charset=UTF-8\r\n";
+$cab = "From: Web El Gordo y el Flaco <web@elgordoyelflaco.es>\r\nReply-To: info@elgordoyelflaco.es\r\nContent-Type: text/plain; charset=UTF-8\r\n";
 $enviado = @mail($para, $asunto, $cuerpo, $cab);
 header('Location: ' . $vuelta . '?' . $clave . '=' . ($enviado ? '1' . $ancla : '0&motivo=envio' . $ancla_ko));

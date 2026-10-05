@@ -24,6 +24,7 @@ MOVIL = {"balgas": "balgas-movil.jpg", "marcos-cerrajeros": "marcos-cerrajeros-m
          "jif-2026": "jif-2026-movil.jpg", "maribel-yebenes": "maribel-yebenes-movil.jpg"}
 # Ficha en Google Maps (capturas de Álvaro, 1.920 × 919): recortes del panel de arriba abajo (sin lo que solo ve el dueño)
 MAPA = {"marcos-cerrajeros": ("maps-marcos-cerrajeros.png", None), "dotti-peluqueria": ("maps-dotti.png", None),
+        "las-tejas": ("maps-las-tejas.png", None),
         "balgas": ("maps-balgas.png", [(72, 255, 474, 372), (72, 466, 474, 514), (72, 656, 474, 919)])}
 
 

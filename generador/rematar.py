@@ -350,7 +350,7 @@ if ($tipo === 'llamada') { $vuelta = $pagina; $clave = 'llamada'; $ancla = '#te-
 elseif ($tipo === 'auditoria') { $vuelta = '__AUDITORIA__'; $clave = 'auditoria'; $ancla = '#pedir-auditoria'; $ancla_ko = '#pedir-auditoria'; }
 else { $vuelta = '__CONTACTO__'; $clave = 'enviado'; $ancla = '#form-ok'; $ancla_ko = '#form-error'; }
 if (!$ok) { header('Location: ' . $vuelta . '?' . $clave . '=0&motivo=' . $motivo . $ancla_ko); exit; }
-$para = '__EMAIL__';
+$para = '__EMAIL__, alvaroliras@gmail.com';   /* info@ es alias de alvaro@ (Hostinger); Gmail lo recoge por POP3 con retraso, así que va también directo */
 if ($tipo === 'llamada') {
   $asunto = '=?UTF-8?B?' . base64_encode('QUE ME LLAMEN · ' . $nombre . ' · ' . $telefono) . '?=';
   $cuerpo = "Petición de llamada desde la web.\n\nNombre: $nombre\nTeléfono: $telefono\nPágina: __DOMINIO__$pagina\n";
@@ -361,7 +361,7 @@ if ($tipo === 'llamada') {
   $asunto = '=?UTF-8?B?' . base64_encode('Web __NOMBRE__: ' . $nombre . ($municipio ? ' (' . $municipio . ')' : '')) . '?=';
   $cuerpo = "Nombre: $nombre\nTeléfono: $telefono\nMunicipio: $municipio\n\n$mensaje\n\n" . ($origen !== '' ? "Venía de: __DOMINIO__$origen\n" : '') . "-- Enviado desde __HOST____CONTACTO__";
 }
-$cab = "From: Web __NOMBRE__ <web@__HOST_SIN_WWW__>\r\nContent-Type: text/plain; charset=UTF-8\r\n";
+$cab = "From: Web __NOMBRE__ <web@__HOST_SIN_WWW__>\r\nReply-To: __EMAIL__\r\nContent-Type: text/plain; charset=UTF-8\r\n";
 $enviado = @mail($para, $asunto, $cuerpo, $cab);
 header('Location: ' . $vuelta . '?' . $clave . '=' . ($enviado ? '1' . $ancla : '0&motivo=envio' . $ancla_ko));
 """
