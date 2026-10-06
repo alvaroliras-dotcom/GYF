@@ -1,0 +1,39 @@
+<?php
+/* El Gordo y el Flaco · formularios de la web: «Que me llaman» (tarjeta de la portada) y contacto.
+   Antispam: trampa + tiempo en la página + sin enlaces en el mensaje. Sin captcha. El mensaje es opcional.
+   «t» lo rellena main.js al enviar: milisegundos que lleva la página abierta (performance.now()),
+   así no depende del reloj del servidor ni del del móvil. Válido entre 3 s y 24 h. */
+header('X-Robots-Tag: noindex');
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: /contacto/'); exit; }
+$c = function ($k, $max) { return trim(mb_substr(strip_tags($_POST[$k] ?? ''), 0, $max)); };
+$tp = $_POST['tipo'] ?? ''; $tipo = in_array($tp, ['llamada', 'auditoria'], true) ? $tp : 'contacto';
+$pagina = $c('pagina', 120);
+if (!preg_match('#^/[a-z0-9\-/]*$#', $pagina) || strpos($pagina, '//') !== false) { $pagina = '/'; }
+$nombre = $c('nombre', 80); $telefono = $c('telefono', 20); $municipio = $c('municipio', 60); $mensaje = $c('mensaje', 2000);
+$revisar = $c('revisar', 40); $negocio = $c('negocio', 160);
+$origen = $c('origen', 120); if (!preg_match('#^/[a-z0-9\-/]*$#', $origen)) { $origen = ''; }
+$trampa = $_POST['web'] ?? ''; $t_txt = trim((string)($_POST['t'] ?? '')); $t = (int)$t_txt;
+$motivo = '';
+if ($trampa !== '') { $motivo = 'trampa'; }
+elseif ($t_txt !== '' && ($t < 3000 || $t > 86400000)) { $motivo = 'tiempo'; }   /* sin JS «t» llega vacío: vale, la trampa sigue */
+elseif ($nombre === '' || !preg_match('/^[0-9 +()\-]{9,20}$/', $telefono)) { $motivo = 'datos'; }
+elseif (preg_match_all('#https?://#i', $mensaje) > 0) { $motivo = 'enlaces'; }
+$ok = $motivo === '';
+if ($tipo === 'llamada') { $vuelta = $pagina; $clave = 'llamada'; $ancla = '#te-llamamos'; $ancla_ko = '#te-llamamos'; }
+elseif ($tipo === 'auditoria') { $vuelta = '/auditoria-seo-local/'; $clave = 'auditoria'; $ancla = '#pedir-auditoria'; $ancla_ko = '#pedir-auditoria'; }
+else { $vuelta = '/contacto/'; $clave = 'enviado'; $ancla = '#form-ok'; $ancla_ko = '#form-error'; }
+if (!$ok) { header('Location: ' . $vuelta . '?' . $clave . '=0&motivo=' . $motivo . $ancla_ko); exit; }
+$para = 'info@elgordoyelflaco.es, alvaroliras@gmail.com';   /* info@ es alias de alvaro@ (Hostinger); Gmail lo recoge por POP3 con retraso, así que va también directo */
+if ($tipo === 'llamada') {
+  $asunto = '=?UTF-8?B?' . base64_encode('QUE ME LLAMEN · ' . $nombre . ' · ' . $telefono) . '?=';
+  $cuerpo = "Petición de llamada desde la web.\n\nNombre: $nombre\nTeléfono: $telefono\nPágina: https://elgordoyelflaco.es$pagina\n";
+} elseif ($tipo === 'auditoria') {
+  $asunto = '=?UTF-8?B?' . base64_encode('AUDITORÍA GRATIS · ' . $nombre . ' · ' . $telefono) . '?=';
+  $cuerpo = "Petición de auditoría gratuita desde la web.\n\nQué revisar: $revisar\nNombre: $nombre\nTeléfono: $telefono\nWeb o negocio: $negocio\n" . ($origen !== '' ? "Venía de: https://elgordoyelflaco.es$origen\n" : '');
+} else {
+  $asunto = '=?UTF-8?B?' . base64_encode('Web El Gordo y el Flaco: ' . $nombre . ($municipio ? ' (' . $municipio . ')' : '')) . '?=';
+  $cuerpo = "Nombre: $nombre\nTeléfono: $telefono\nMunicipio: $municipio\n\n$mensaje\n\n" . ($origen !== '' ? "Venía de: https://elgordoyelflaco.es$origen\n" : '') . "-- Enviado desde elgordoyelflaco.es/contacto/";
+}
+$cab = "From: Web El Gordo y el Flaco <web@elgordoyelflaco.es>\r\nReply-To: info@elgordoyelflaco.es\r\nContent-Type: text/plain; charset=UTF-8\r\n";
+$enviado = @mail($para, $asunto, $cuerpo, $cab);
+header('Location: ' . $vuelta . '?' . $clave . '=' . ($enviado ? '1' . $ancla : '0&motivo=envio' . $ancla_ko));
