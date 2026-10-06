@@ -1,0 +1,183 @@
+# El Gordo y el Flaco · servidor Apache/LiteSpeed (Hostinger)
+Options -Indexes
+DirectoryIndex index.html
+AddType font/woff2 .woff2
+AddType application/manifest+json .webmanifest
+AddCharset utf-8 .txt
+
+# Nada de copias, volcados ni registros a la vista
+<FilesMatch "\.(zip|sql|bak|old|log|sh|ini|env|git.*|md|py|csv)$">
+  Require all denied
+</FilesMatch>
+ErrorDocument 404 /404.html
+ErrorDocument 410 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# ORDEN (paso 26): primero las reglas de ruta, con destino ABSOLUTO (https y sin www), y después las de host.
+# Así http://www.…/servicios/seo-local llega en UN salto a https://elgordoyelflaco.es/seo-local/, nunca en cadena.
+
+# 1 · Redirecciones del cambio de web (nuria2/arquitectura.md §c.1)
+RewriteRule ^servicios/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^mapa-de-servicios/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^servicios/seo-local/?$ https://elgordoyelflaco.es/seo-local/ [L,R=301]
+RewriteRule ^servicios/seo-local/optimizacion-ficha-gbp-02/?$ https://elgordoyelflaco.es/seo-local/ [L,R=301]
+RewriteRule ^servicios/seo-local/optimizacion-ficha-gbp/?$ https://elgordoyelflaco.es/seo-local/ [L,R=301]
+RewriteRule ^servicios/seo-local/estrategia-resenas-reputacion/?$ https://elgordoyelflaco.es/seo-local/ [L,R=301]
+RewriteRule ^servicios/seo-local/auditoria-seo-local/?$ https://elgordoyelflaco.es/auditoria-seo-local/ [L,R=301]
+RewriteRule ^servicios/seo-local/redaccion-seo-local/?$ https://elgordoyelflaco.es/redaccion-seo-copywriting/ [L,R=301]
+RewriteRule ^auditoria-gratis/?$ https://elgordoyelflaco.es/auditoria-seo-local/ [L,R=301]
+RewriteRule ^servicios/diseno-web/?$ https://elgordoyelflaco.es/diseno-web/ [L,R=301]
+RewriteRule ^servicios/diseno-web/webs-para-conversion/?$ https://elgordoyelflaco.es/diseno-web/ [L,R=301]
+RewriteRule ^servicios/diseno-web/responsive-velocidad/?$ https://elgordoyelflaco.es/diseno-web/ [L,R=301]
+RewriteRule ^servicios/diseno-web/integraciones-analitica-ficha-google/?$ https://elgordoyelflaco.es/diseno-web/ [L,R=301]
+RewriteRule ^servicios/diseno-web/arquitectura-web-seo/?$ https://elgordoyelflaco.es/diseno-web/ [L,R=301]
+RewriteRule ^servicios/desarrollo-paginas-web/?$ https://elgordoyelflaco.es/diseno-web/ [L,R=301]
+RewriteRule ^servicios/mantenimiento/?$ https://elgordoyelflaco.es/diseno-web/ [L,R=301]
+RewriteRule ^servicios/google-ads/?$ https://elgordoyelflaco.es/google-ads/ [L,R=301]
+RewriteRule ^servicios/google-ads/google-ads-local/?$ https://elgordoyelflaco.es/google-ads/ [L,R=301]
+RewriteRule ^servicios/google-ads/paginas-aterrizaje-conversion/?$ https://elgordoyelflaco.es/google-ads/ [L,R=301]
+RewriteRule ^servicios/google-ads/display-geolocalizado/?$ https://elgordoyelflaco.es/google-ads/ [L,R=301]
+RewriteRule ^servicios/google-ads/anuncios-en-maps-youtube/?$ https://elgordoyelflaco.es/google-ads/ [L,R=301]
+RewriteRule ^servicios/diseno-grafico/?$ https://elgordoyelflaco.es/diseno-grafico/ [L,R=301]
+RewriteRule ^servicios/diseno-grafico/imagen-marca-branding/?$ https://elgordoyelflaco.es/diseno-grafico/ [L,R=301]
+RewriteRule ^servicios/diseno-grafico/diseno-grafico-para-web-y-redes-sociales/?$ https://elgordoyelflaco.es/diseno-grafico/ [L,R=301]
+RewriteRule ^servicios/diseno-grafico/packaging-etiquetado-producto/?$ https://elgordoyelflaco.es/diseno-grafico/ [L,R=301]
+RewriteRule ^servicios/diseno-grafico/diseno-editorial-y-publicitario/?$ https://elgordoyelflaco.es/diseno-grafico/ [L,R=301]
+RewriteRule ^servicios/diseno/?$ https://elgordoyelflaco.es/diseno-grafico/ [L,R=301]
+RewriteRule ^servicios/marketing-contenidos/?$ https://elgordoyelflaco.es/redaccion-seo-copywriting/ [L,R=301]
+RewriteRule ^servicios/marketing-contenidos/redaccion-seo-web/?$ https://elgordoyelflaco.es/redaccion-seo-copywriting/ [L,R=301]
+RewriteRule ^servicios/marketing-contenidos/copywriting-emocional/?$ https://elgordoyelflaco.es/redaccion-seo-copywriting/ [L,R=301]
+RewriteRule ^servicios/marketing-contenidos/entradas-blog-local/?$ https://elgordoyelflaco.es/redaccion-seo-copywriting/ [L,R=301]
+RewriteRule ^servicios/marketing-contenidos/publicaciones-para-gbp/?$ https://elgordoyelflaco.es/seo-local/ [L,R=301]
+RewriteRule ^servicios/estrategia-contenido/?$ https://elgordoyelflaco.es/redaccion-seo-copywriting/ [L,R=301]
+RewriteRule ^servicios/analitica-web/?$ https://elgordoyelflaco.es/analitica-web/ [L,R=301]
+RewriteRule ^servicios/analitica-web/implementacion-ga4-search-console/?$ https://elgordoyelflaco.es/analitica-web/ [L,R=301]
+RewriteRule ^servicios/analitica-web/informes-mensuales-personalizados/?$ https://elgordoyelflaco.es/analitica-web/ [L,R=301]
+RewriteRule ^servicios/analitica-web/cuadro-de-mando-local/?$ https://elgordoyelflaco.es/analitica-web/ [L,R=301]
+RewriteRule ^servicios/analitica-web/auditorias-de-rendimiento-local/?$ https://elgordoyelflaco.es/analitica-web/ [L,R=301]
+RewriteRule ^informes-mensuales-personalizados/?$ https://elgordoyelflaco.es/analitica-web/ [L,R=301]
+RewriteRule ^servicios/estrategia/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^servicios/posicionamiento-buscadores/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^sobre-gyf/?$ https://elgordoyelflaco.es/quienes-somos/ [L,R=301]
+RewriteRule ^empresa/?$ https://elgordoyelflaco.es/quienes-somos/ [L,R=301]
+RewriteRule ^formulario-ampliado-de-contaco/?$ https://elgordoyelflaco.es/contacto/ [L,R=301]
+RewriteRule ^arrancamos/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^en-construccion/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^politica-de-cookies-ue/?$ https://elgordoyelflaco.es/politica-de-cookies/ [L,R=301]
+RewriteRule ^mas-informacion-sobre-las-cookies/?$ https://elgordoyelflaco.es/politica-de-cookies/ [L,R=301]
+RewriteRule ^trabajos/curso-de-google-analytics/?$ https://elgordoyelflaco.es/analitica-web/ [L,R=301]
+RewriteRule ^trabajos/luxurycomm/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^trabajos/el-atelier-de-fabula/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^trabajos/ines-ingenieros-consultores/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^trabajos/vinos-pousada/?$ https://elgordoyelflaco.es/trabajos/vinos-gallegos-pousada/ [L,R=301]
+RewriteRule ^trabajos/expertise/?$ https://elgordoyelflaco.es/trabajos/ [L,R=301]
+RewriteRule ^trabajos/apunto-let/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^trabajos/zinzin-madrid/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^trabajos/momentos-madrid/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^trabajos/maria-lisboa-villa/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^trabajos/mundo-calor/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^trabajos/aurea/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^trabajos/red-yellow-red/?$ https://elgordoyelflaco.es/ [L,R=301]
+RewriteRule ^trabajos/sure-limpieza-sostenible/?$ https://elgordoyelflaco.es/ [L,R=301]
+# 2 · Temporales (302): URLs reservadas que volverán a servir 200 (el día que exista /trabajos/, se quitan)
+RewriteRule ^trabajos/la-casita-de-los-animales/?$ https://elgordoyelflaco.es/ [L,R=302]
+# 3 · 410: ya no existen y no vuelven (restos de WordPress, adjuntos, categorías, error-404 y cookies viejas)
+RewriteRule ^(wp-admin|wp-content|wp-includes|wp-json)(/.*)?$ - [G,L]
+RewriteRule ^(wp-login\.php|xmlrpc\.php|wp-cron\.php|feed/?|comments/feed/?)$ - [G,L]
+RewriteRule ^(author|category|tag|page)(/.*)?$ - [G,L]
+RewriteCond %{QUERY_STRING} (^|&)(p|page_id|attachment_id|cat|author)=[0-9]+ [NC]
+RewriteRule ^(index\.php)?$ - [G,L]
+RewriteRule ^error-404/?$ - [G,L]
+RewriteRule ^cookies/?$ - [G,L]
+RewriteRule ^lifestyle/?$ - [G,L]
+RewriteRule ^mobile/?$ - [G,L]
+RewriteRule ^motion/?$ - [G,L]
+RewriteRule ^news/?$ - [G,L]
+RewriteRule ^photography/?$ - [G,L]
+RewriteRule ^priest/?$ - [G,L]
+RewriteRule ^sport/?$ - [G,L]
+RewriteRule ^subjects/?$ - [G,L]
+RewriteRule ^technology/?$ - [G,L]
+RewriteRule ^uncategorized/?$ - [G,L]
+RewriteRule ^00-slider-sobre-gyf/?$ - [G,L]
+RewriteRule ^000-equipo-gyf/?$ - [G,L]
+RewriteRule ^001-alvaro-liras-grande-jpg/?$ - [G,L]
+RewriteRule ^001-alvaro-liras-grande/?$ - [G,L]
+RewriteRule ^001-alvaro-liras/?$ - [G,L]
+RewriteRule ^002-jean-pierre/?$ - [G,L]
+RewriteRule ^003-merche/?$ - [G,L]
+RewriteRule ^004-jean-paul/?$ - [G,L]
+RewriteRule ^005-inaki/?$ - [G,L]
+RewriteRule ^006-marta/?$ - [G,L]
+RewriteRule ^007-gonzalo/?$ - [G,L]
+RewriteRule ^008-matias/?$ - [G,L]
+RewriteRule ^009-dani/?$ - [G,L]
+RewriteRule ^010-vanesa/?$ - [G,L]
+RewriteRule ^011-lorena/?$ - [G,L]
+RewriteRule ^146-diseno-piezas/?$ - [G,L]
+RewriteRule ^147-coherencia-entre-piezas/?$ - [G,L]
+RewriteRule ^148-gerarquia-claridad/?$ - [G,L]
+RewriteRule ^149-adaptacion-soporte/?$ - [G,L]
+RewriteRule ^154-sobre-gyf-01/?$ - [G,L]
+RewriteRule ^155-sobre-gyf-02/?$ - [G,L]
+RewriteRule ^156-sobre-gyf-03/?$ - [G,L]
+RewriteRule ^chatgpt-image-5-ene-2026-05_48_12-p-m/?$ - [G,L]
+RewriteRule ^diseno-editorial-01/?$ - [G,L]
+RewriteRule ^diseno-editorial-02/?$ - [G,L]
+RewriteRule ^diseno-editorial-03/?$ - [G,L]
+RewriteRule ^diseno-editorial-04/?$ - [G,L]
+RewriteRule ^diseno-marca/?$ - [G,L]
+RewriteRule ^legit-2-png/?$ - [G,L]
+RewriteRule ^materiales-impresos-no-funcionan/?$ - [G,L]
+RewriteRule ^reunion-trabajo-barman/?$ - [G,L]
+RewriteRule ^servicios/seo-local/01-slider-servicios-seo-local-00/?$ - [G,L]
+RewriteRule ^tarjeta-logo-gyf/?$ - [G,L]
+RewriteRule ^servicios/[^/]+/[^/]+/[^/]+/?$ - [G,L]
+RewriteRule ^(auditoria-gratis|contacto|home-gyf|icono-gyf)/[^/]+/?$ - [G,L]
+RewriteRule ^index\.php$ - [G,L]
+# 4 · Sitemaps viejos de WordPress / Yoast / Rank Math → el nuevo
+RewriteRule ^(sitemap_index\.xml|wp-sitemap\.xml|[a-z0-9_-]+-sitemap[0-9]*\.xml)$ https://elgordoyelflaco.es/sitemap.xml [L,R=301]
+# 5 · Barra final en las URLs de carpeta (absoluta: arregla también host y https en el mismo salto)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(\.[a-z0-9]{2,5})$ [NC]
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ https://elgordoyelflaco.es/$1/ [L,R=301]
+# 6 · Host: sin www (paso 18)
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://elgordoyelflaco.es%{REQUEST_URI} [L,R=301]
+# 7 · A https. Solo si ni el servidor ni un proxy delante dicen que ya es https:
+# así no entra en bucle detrás de un proxy (lo que tiró la web de Marcos).
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+RewriteCond %{HTTP:X-Forwarded-SSL} !on [NC]
+RewriteRule ^ https://elgordoyelflaco.es%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/json text/xml application/xml
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/html "access plus 0 seconds"
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+ExpiresByType application/manifest+json "access plus 1 week"
+ExpiresByType application/json "access plus 0 seconds"
+ExpiresByType application/xml "access plus 1 hour"
+ExpiresByType text/xml "access plus 1 hour"
+</IfModule>
+
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
