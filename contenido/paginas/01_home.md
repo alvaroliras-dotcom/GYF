@@ -1,13 +1,13 @@
 URL: /
-Title: Agencia SEO en Alcorcón y marketing online | GYF
-Meta description: Agencia SEO y de marketing online en Alcorcón para negocios locales. Vamos a su negocio y el desplazamiento corre de nuestra cuenta. Pida una reunión.
-Keyword principal: agencia SEO en Alcorcón
-H1: Agencia SEO en Alcorcón: más llamadas de clientes de su zona
-Etiqueta: Agencia SEO y marketing online · Alcorcón
+Title: Diseño web y SEO local en Alcorcón | El Gordo y el Flaco
+Meta description: Diseño web y SEO local en Alcorcón para negocios de la zona. Vamos a su negocio y el desplazamiento corre de nuestra cuenta. Pida una reunión.
+Keyword principal: diseño web y SEO local en Alcorcón
+H1: Diseño web y SEO local en Alcorcón: más llamadas de clientes de su zona
+Etiqueta: Diseño web y SEO local · Alcorcón
 Entrada corta: Ficha de Google, web y anuncios para negocios de Alcorcón y alrededores. Quien le coge el teléfono es quien dirige su proyecto.
 ---
 
-El Gordo y el Flaco es una agencia SEO y de marketing online para negocios locales, abierta en Alcorcón desde 2013. Trabajamos su ficha de Google, su web y sus anuncios para que le encuentren y le llamen quienes buscan cerca. Un solo interlocutor lleva su proyecto. Vamos a su negocio y el desplazamiento corre de nuestra cuenta.
+El Gordo y el Flaco hace diseño web y SEO para negocios locales, abierta en Alcorcón desde 2013. Trabajamos su ficha de Google, su web y sus anuncios para que le encuentren y le llamen quienes buscan cerca. Un solo interlocutor lleva su proyecto. Vamos a su negocio y el desplazamiento corre de nuestra cuenta.
 
 - **Vamos a verle.** A su negocio o a donde le venga bien, en Alcorcón y alrededores.
 - **Primero le escuchamos.** Una reunión y, después, un presupuesto hecho para su caso.

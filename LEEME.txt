@@ -1,1 +1,109 @@
-Solvento completo (sustituye al zip de Solvento anterior). Súbelo después de las 3 tandas de gyf-tandas.zip: arrastra el contenido de tanda-1 a la raíz del repositorio.
+EL GORDO Y EL FLACO · elgordoyelflaco.es · WEB NUEVA · v1
+Pasos 23 a 29 del protocolo web v8 (caso E: sustituye al WordPress). 27/09/2026.
+Jean Paul (diseño) y Bruno (SEO técnico).
+
+------------------------------------------------------------------
+1. QUÉ ES
+------------------------------------------------------------------
+La primera versión completa de la web nueva, hecha con el tema 003 Rayo configurado con GYF
+(la maqueta aprobada en el paso 22), con los textos definitivos de Merche (textos-v2), las 11
+reseñas reales, los legales definitivos y las redirecciones de la web vieja.
+
+  - 20 páginas: inicio, 7 servicios, quiénes somos, contacto y 10 municipios.
+  - 3 legales (aviso legal, privacidad y cookies) y la página 404.
+  - Cada página con su imagen para redes (1200 × 630) en /og/.
+  - .htaccess con 65 redirecciones 301, 3 temporales 302 (/trabajos/ y dos casos que volverán)
+    y 410 para lo que desaparece (restos de WordPress, adjuntos de la mediateca, categorías,
+    /error-404/ y /cookies/). Todo en UN salto, también desde http y desde www.
+  - vercel.json: noindex en toda la vista previa. En el hosting (Apache) no hace nada, así
+    que producción sale indexable.
+
+Estado de los controles:
+  - controles.py: 0 errores, 0 avisos (v1.1: festivos locales 6/4 y 8/9 ya puestos).
+  - Navegador (paso 29), 5 páginas × 5 anchos (390, 768, 1.024, 1.280 y 1.440): sin desbordes,
+    sin errores de JavaScript, sin texto invisible. El aviso de cookies no tapa el botón de
+    llamar en la primera visita. El menú abre bien. Los avisos de vuelta de los formularios
+    (enviado y error) funcionan y el formulario se oculta al enviar.
+  - Capturas: 08-WEB/capturas-v1/ (con control29.txt, el informe completo).
+
+------------------------------------------------------------------
+2. CÓMO SE SUBE
+------------------------------------------------------------------
+Es la primera subida: van TODOS los archivos. En la página del repositorio de GitHub,
+Add file > Upload files, y en este orden:
+  1. v1-CAMBIOS/TANDA-1: arrastra juntas sus carpetas (base, cliente, contenido, generador,
+     herramientas, recursos) y Commit changes.
+  2. v1-CAMBIOS/TANDA-2: arrastra su carpeta sitio y Commit changes.
+  3. v1-CAMBIOS/TANDA-3: arrastra su carpeta sitio y Commit changes.
+En Vercel, el directorio raíz del proyecto es «sitio» (para que lea sitio/vercel.json).
+GitHub no sube los archivos que empiezan por punto (.htaccess, .gitignore): el .htaccess va
+al hosting a mano el día de publicar. La copia completa y al día está en 08-WEB/v1/.
+
+------------------------------------------------------------------
+3. CÓMO SE GENERA
+------------------------------------------------------------------
+Desde la raíz del repositorio (nunca se toca sitio/ a mano):
+  python3 generador/build.py && python3 generador/rematar.py && python3 generador/controles.py
+Control en el navegador (sirve la web él mismo, sin nada en segundo plano):
+  python3 herramientas/control29.py --salida capturas/v1
+
+Dónde se cambia cada cosa:
+  - Datos del negocio, festivos, GTM, casos, cifras y textos fijos: generador/config.py
+  - Redirecciones: generador/redirecciones.py (sale de nuria2/arquitectura.md, sección c)
+  - Nota y reseñas: contenido/resenas.json (un número y commit)
+  - Textos de las páginas: contenido/paginas/*.md · legales: contenido/legales/legales.md
+  - Logotipos de clientes: recursos/clientes/ (el generador los copia de gyf/logos-clientes/)
+
+------------------------------------------------------------------
+4. QUÉ FALTA (DE ÁLVARO)
+------------------------------------------------------------------
+  a) Los dos festivos locales de Alcorcón de 2026. Las fuentes no coinciden: el 8 de
+     septiembre sale en todas; el otro es el 6 de abril o el 9 de septiembre. Hay que
+     confirmarlo en el BOCM y añadirlo en config.py (NEGOCIO["festivos"], con formato
+     «d/m/aaaa»). Hasta entonces el estado «abierto/cerrado» no los marca. Los nacionales y
+     los de la Comunidad de Madrid ya están (con los traslados del 2/11 y el 7/12).
+  b) El piso de la oficina: los legales dicen «6.º C izquierda», heredado del aviso legal
+     viejo (la política de privacidad vieja decía «6º P.»). Confirmar.
+  c) LinkedIn de empresa: cuando esté corregido (sin «S.L.», con la web sin www), se añade a
+     SAME_AS en config.py. Hoy el schema solo enlaza la ficha de Google.
+  d) La S.L. B87595229 sigue activa en los registros mercantiles; la web dice autónomo.
+     Cerrarlo con la gestoría.
+  e) Revisar los nombres de los logotipos (texto alternativo): sobre todo «Inés Ingenieros»
+     (la tilde es deducción nuestra) y que el logotipo de Psicorazón se lee «piscorazon».
+     Y confirmar el permiso de cada cliente para salir en la tira y en los casos.
+  f) Crear el proyecto en Vercel (directorio raíz: sitio) y revisar la vista previa
+     (paso 31, siempre con ?v=N).
+
+------------------------------------------------------------------
+5. DECISIONES DE ESTA VERSIÓN (para que nadie las deshaga sin querer)
+------------------------------------------------------------------
+  - Sin aggregateRating en el schema. Google no enseña estrellas a un negocio por sus propias
+    reseñas, y en la web no se muestra el número de reseñas (decisión de Álvaro): marcar en
+    el schema un dato que no está a la vista va contra las directrices de datos estructurados.
+    La nota vive en la ficha, enlazada por CID en hasMap y sameAs. Si un día se enseña el
+    número, se activa con SCHEMA_VALORACION = True.
+  - Schema ProfessionalService con el nombre de la ficha («El Gordo y el Flaco MKonline»),
+    alternateName «El Gordo y el Flaco», coordenadas de la ficha (40.34983, -3.81639),
+    horario L-V 9-19, 11 municipios en areaServed y sin persona. Sin legalName ni NIF.
+  - El nombre del titular solo aparece en los legales. En contacto aparece «Álvaro» porque lo
+    trae el texto («le atenderá Álvaro, que es quien dirige su proyecto»). controles.py lo
+    vigila.
+  - Legales indexables y en el sitemap: en producción ninguna página lleva noindex (regla 10).
+  - Sin «Diseño y SEO: El Gordo y el Flaco» en el pie: es la web de la propia agencia.
+  - Metas acortadas sin cambiar el sentido (en contenido/paginas; pasar el cambio a textos-v2):
+      Arroyomolinos: «…Vamos a verle y el desplazamiento lo pagamos.»
+      Quiénes somos: «…profesionales de confianza y agentes de IA con nombre propio.»
+  - Legales: en privacidad, los datos que se recogen son los reales de los formularios
+    (nombre, teléfono y, si los añade, municipio y mensaje).
+  - Cambios de la maqueta tras el control en el navegador: las opiniones toman el alto de la
+    reseña que se ve (las largas dejaban un hueco blanco enorme en el móvil) y la tira de
+    logotipos va en rejilla de 3 / 4 / 6 columnas sin huérfanos.
+
+------------------------------------------------------------------
+6. LO QUE NO SE HA COMPROBADO
+------------------------------------------------------------------
+  - El .htaccess no se ha probado en un Apache real: las 76 filas de la arquitectura se han
+    comprobado con una simulación de las reglas (0 fallos). Se prueba en el hosting antes del
+    cambio.
+  - Lighthouse (paso 30) y la vista publicada en Vercel (paso 31): pendientes.
+  - El mapa de Google no carga en local (sin salida a maps.google.com): se ve en la vista previa.

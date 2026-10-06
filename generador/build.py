@@ -442,7 +442,7 @@ def portada_home(p):
     Debajo, la galería de casos que sube por encima de la portada fija (R5, solo ordenador)."""
     etiqueta, corta = etiqueta_y_entrada(p)
     serv = "".join(f'<li><a href="{u}">{T.ico(ic)}<span>{esc(t)}</span></a></li>' for t, _, u, ic, _, _ in SERVICIOS_HOME)
-    extra = f'<a class="tarjeta__extra" href="{CTA_EXTRA[1]}">{esc(CTA_EXTRA[0])} {T.ico("flecha-diagonal")}</a>' if CTA_EXTRA else ""
+    extra = f'<a class="tarjeta__extra" href="#pedir-auditoria">{esc(CTA_EXTRA[0])} {T.ico("flecha-diagonal")}</a>' if CTA_EXTRA else ""
     tarjeta = f"""<aside class="tarjeta" aria-label="Contacto" data-sale>
      <span class="tarjeta__obj" aria-hidden="true">{T.objeto("estrella", "96px", "flota-lenta")}</span>
      {T.estado()}
@@ -503,6 +503,8 @@ def portada_interior(p, t):
     pild = T.ico(ic) if ic and ic in T.SIMBOLOS else T.simbolo()
     pb = pueblo_de(u) if t == "municipio" else None
     extra = T.boton(CTA_EXTRA[0], CTA_EXTRA[1], "btn--linea") if CTA_EXTRA and CTA_EXTRA[1] != u and t != "contacto" else ""
+    if t == "home" and extra:   # v5.17: en la portada, la auditoría tiene su sección y el botón baja a ella
+        extra = T.boton(CTA_EXTRA[0], "#pedir-auditoria", "btn--linea")
     if u == URLS.get("auditoria", "/auditoria-seo-local/"):   # v5.1: en la auditoría, lo primero es pedirla
         acciones_portada = (T.boton(texto("aud_boton"), "#pedir-auditoria", "btn--acento", "flecha-diagonal", ' data-zona="portada_auditoria"')
                             + T.btn_whatsapp("btn--linea", t=texto("whatsapp_auditoria"), rotulo="Pedirla por WhatsApp")
@@ -1124,7 +1126,7 @@ def cita_banda(url, salto=0):
 def banda(url, titulo=None, texto_b=None):
     titulo = titulo or esc(BANDA_TIT.get(url) or texto("banda_titulo"))
     texto_b = texto_b or esc(texto("banda_texto"))
-    extra = f'<a class="banda__extra" href="{CTA_EXTRA[1]}">{esc(CTA_EXTRA[0])} {T.ico("flecha-diagonal")}</a>' if CTA_EXTRA and not CTA_EXTRA[1].startswith(url if url != "/" else "#") else ""
+    extra = f'<a class="banda__extra" href="{"#pedir-auditoria" if url == "/" else CTA_EXTRA[1]}">{esc(CTA_EXTRA[0])} {T.ico("flecha-diagonal")}</a>' if CTA_EXTRA and not CTA_EXTRA[1].startswith(url if url != "/" else "#") else ""
     obj = (f'<span class="banda__objeto" aria-hidden="true">{T.objeto("simbolo-despiece", "(max-width: 1000px) 40vw, 380px", "flota-lenta")}</span>'
            if OBJETO_PORTADA.get("en_banda") else "")
     return f"""<section class="banda-sec" aria-label="Contacto">
@@ -1389,6 +1391,7 @@ def pagina(p):
         cuerpo.append(portada_home(p))
         dec, resto = reparte_intro(intro)
         cuerpo.append(manifiesto(p, dec, ul))
+        cuerpo.append(auditoria_form())   # v5.18: el gancho arriba (Álvaro): la auditoría gratuita, justo tras la portada y el manifiesto
         if resto and normales:
             normales[0]["bl"] = resto + normales[0]["bl"]
         hay_filas = any(sum(1 for tt, c in s["bl"] if tt == "p" and FILA.match(c)) >= 3 for s in normales)

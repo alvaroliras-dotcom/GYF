@@ -121,6 +121,30 @@ def bloque_texto(etq, tit, txt):
     return f'<section class="pf-b pf-texto"><div class="contenedor pf-rej"><p class="pf-etq">{esc(etq)}</p><div class="pf-texto__cuerpo"><h2 class="pf-texto__tit">{esc(tit)}</h2>{p}</div></div></section>'
 
 
+def filas(n, maximo):
+    """Reparte n piezas en filas equilibradas de como mucho `maximo`, sin ninguna fila huérfana (7 → 4+3, 5 → 3+2)."""
+    k = -(-n // maximo)
+    base, extra = divmod(n, k)
+    return [base + (1 if i < extra else 0) for i in range(k)]
+
+
+def galeria(items):
+    anchas = [x for x in items if x[3] == "ancha"]
+    chicas = [x for x in items if x[3] != "ancha"]
+
+    def fig(f, alt, pie, forma, sz):
+        return (f'<figure class="pf-gal__it pf-gal__it--{forma}">{T.foto(f, alt, sz, clase="pf-gal__foto")}'
+                f'<figcaption>{esc(pie)}</figcaption></figure>')
+    out = []
+    for lista, maximo, tipo, sz in ((anchas, 3, "ancha", "(max-width: 700px) 92vw, 420px"), (chicas, 4, "chica", "(max-width: 700px) 46vw, 320px")):
+        i = 0
+        for n in filas(len(lista), maximo) if lista else []:
+            fs = "".join(fig(*x, sz) for x in lista[i:i + n]); i += n
+            out.append(f'<div class="pf-gal__fila pf-gal__fila--{tipo}" style="--n:{n}">{fs}</div>')
+    return (f'<section class="pf-b pf-gal"><div class="contenedor"><div class="pf-rej pf-piezas__cab"><p class="pf-etq">Las piezas</p>'
+            f'<h2 class="pf-piezas__tit">Lo que se ve en la calle.</h2></div><div class="pf-gal__rej">{"".join(out)}</div></div></section>')
+
+
 def pagina_caso(i, t):
     url = url_de(t)
     im = t["imagenes"]
@@ -138,14 +162,20 @@ def pagina_caso(i, t):
     entrada = f'<p class="pf-intro__lead">{esc(t["entrada"])}</p>' if t.get("entrada") else ""
     nom = t["nombre"]
     alt_maq = f"{nom}: maqueta de su trabajo"
-    bloques = [f'<section class="pf-b pf-media"><div class="pf-media__marco">{T.foto(im["maqueta"], alt_maq, "100vw", prioridad=True, clase="pf-media__foto")}</div></section>']
+    bloques = [f'<section class="pf-b pf-media{" pf-media--foto" if t.get("galeria") else ""}"><div class="pf-media__marco">{T.foto(im["maqueta"], alt_maq, "100vw", prioridad=True, clase="pf-media__foto")}</div></section>']
+    if t.get("dato"):
+        num, txt = t["dato"]
+        bloques.append(f'<section class="pf-b pf-dato"><div class="contenedor pf-rej"><p class="pf-etq">El resultado</p><div class="pf-dato__cuerpo"><p class="pf-dato__num">{esc(num)}</p><p class="pf-dato__txt">{esc(txt)}</p></div></div></section>')
     if t.get("partida"):
         bloques.append(bloque_texto("Cómo estaba", *t["partida"]))
     piezas = "".join(f'<li class="pf-pieza"><span class="pf-pieza__n">{k + 1:02d}</span><h3 class="pf-pieza__nombre">{esc(n)}</h3>'
                      f'{("<p class=pf-pieza__txt>" + esc(l) + "</p>") if l else ""}</li>' for k, (n, l) in enumerate(t["piezas"]))
-    bloques.append(f'<section class="pf-b pf-piezas"><div class="contenedor"><div class="pf-rej pf-piezas__cab"><p class="pf-etq">Qué hicimos</p>'
+    if len(t["piezas"]) > 1 or t.get("galeria"):
+      bloques.append(f'<section class="pf-b pf-piezas"><div class="contenedor"><div class="pf-rej pf-piezas__cab"><p class="pf-etq">Qué hicimos</p>'
                    f'<h2 class="pf-piezas__tit">{"Todo, con un solo interlocutor." if len(t["piezas"]) > 1 else "Una sola pieza, bien hecha."}</h2></div>'
                    f'<ol class="pf-piezas__lista">{piezas}</ol></div></section>')
+    if t.get("galeria"):
+        bloques.append(galeria(t["galeria"]))
     if t.get("frase_suelta"):
         bloques.append(f'<section class="pf-b pf-suelta"><div class="contenedor"><p class="pf-suelta__txt">{esc(t["frase_suelta"])}</p></div></section>')
     if im.get("web"):

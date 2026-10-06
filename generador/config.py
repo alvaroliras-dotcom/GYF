@@ -5,7 +5,7 @@ contenido/resenas.json. Arquitectura y 301: nuria2/arquitectura.md (sección c).
 Lo que falta confirmar está marcado [PENDIENTE] y sale como aviso en controles.py.
 """
 
-VERSION = "5.12"
+VERSION = "5.19"
 
 # ---------- Sitio ----------
 DOMINIO = "https://elgordoyelflaco.es"
@@ -454,8 +454,8 @@ CASOS_RECIENTES = ["Balgas", "Marcos Cerrajeros", "Aquita"]   # v5 · «Lo más 
 # v5.7 · Escaparate de «Lo más reciente» (Álvaro 03/10): todos los casos en tarjetas grandes que pasan solas.
 # Maquetas 16:9 de herramientas/maquetas/escaparate.py → recursos/escaparate/. (archivo, texto alternativo)
 ESCAPARATE = {
-    "Balgas": ("escaparate-balgas.jpg", "Web de Balgas, reparación de calderas en Alcorcón, en un portátil y en el móvil"),
-    "Marcos Cerrajeros": ("escaparate-marcos-cerrajeros.jpg", "Web de Marcos Cerrajeros, cerrajero en Alcorcón, en un portátil y en el móvil"),
+    "Balgas": ("escaparate2-balgas.jpg", "Web de Balgas, reparación de calderas en Alcorcón, en un portátil y en el móvil"),
+    "Marcos Cerrajeros": ("escaparate2-marcos-cerrajeros.jpg", "Web de Marcos Cerrajeros, cerrajero en Alcorcón, en un portátil y en el móvil"),
     "Aquita": ("escaparate-aquita.jpg", "Web de Aquita, control de plagas en Arroyomolinos, en un ordenador de sobremesa y en el móvil"),
     "Las Tejas": ("escaparate-las-tejas.jpg", "Web del Restaurante Las Tejas de Alcorcón en un ordenador de sobremesa y en el móvil"),
     "Solvento": ("escaparate-solvento.jpg", "Web de Solvento en un ordenador de sobremesa y en el móvil"),
@@ -479,7 +479,7 @@ ESCAPARATE.update({
     "JIF 2026": ("escaparate-jif-2026.jpg", "Web del congreso JIF 2026 en un ordenador de sobremesa y en el móvil"),
     "Psicorazon": ("escaparate-psicorazon.jpg", "Web de Psicorazon en un portátil"),
     "Maribel Yébenes": ("escaparate-maribel-yebenes.jpg", "Web de Maribel Yébenes, instituto de belleza y medicina estética, en un portátil y en el móvil"),
-    "Delfinia Piscinas": ("escaparate-delfinia.jpg", "Web de Delfinia Piscinas en un ordenador de sobremesa"),
+    "Delfinia Piscinas": ("escaparate-delfinia-imac.jpg", "Web de Delfinia Piscinas en un ordenador de sobremesa"),
 })
 GALERIA_PORTADA = False   # v5.7: la galería pequeña bajo la portada se quita; los casos se ven en el escaparate
 
