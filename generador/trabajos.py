@@ -29,6 +29,11 @@ TRABAJOS = [
         "resultado": ["«En unos 3 meses nuestra empresa \"calderas Balgas\" posicionaba en los 10 primeros resultados de Google en las zonas solicitadas»."],
         "fuente_resultado": "Sergio, dueño de Balgas, en su reseña de Google.",
         "dato": ("Top 10", "en Google, en unos tres meses, en las zonas que pidió."),
+        # v5.21 · ficha a medida
+        "tema": {"fondo": "#0A1640", "tono": "#F05400", "claro": "#FDEBDD"},
+        "bloques": [
+            {"tipo": "web", "etq": "La web", "tit": "Una web que sí aparece.", "fondo": "fondo", "pie": 'Pensada primero para el móvil, que es desde donde le buscan y le llaman.'},
+        ],
         "imagenes": {"tarjeta": "tarjeta2-balgas.jpg", "maqueta": "escaparate2-balgas.jpg", "web": "web-balgas.jpg",
                      "movil": "movil-balgas.jpg", "mapa": "mapa-balgas.jpg"},
     },
@@ -42,6 +47,11 @@ TRABAJOS = [
         "frase_suelta": None,
         "resultado": ["Hoy sale en Google Maps cuando se busca cerrajero en Alcorcón."],
         "fuente_resultado": None,
+        # v5.21 · ficha a medida
+        "tema": {"fondo": "#1E1712", "tono": "#FCB400", "claro": "#FFF3D6"},
+        "bloques": [
+            {"tipo": "web", "etq": "La web", "tit": "Su cerrajero, a una llamada.", "fondo": "fondo", "pie": 'Pensada primero para el móvil, que es desde donde le buscan y le llaman.'},
+        ],
         "imagenes": {"tarjeta": "tarjeta2-marcos-cerrajeros.jpg", "maqueta": "escaparate2-marcos-cerrajeros.jpg",
                      "web": "web-marcos-cerrajeros.jpg", "movil": "movil-marcos-cerrajeros.jpg", "mapa": "mapa-marcos-cerrajeros.jpg"},
     },
@@ -55,6 +65,11 @@ TRABAJOS = [
         "frase_suelta": None,
         "resultado": ["Hoy sale en Google Maps cuando se busca control de plagas en Arroyomolinos."],
         "fuente_resultado": None,
+        # v5.21 · ficha a medida
+        "tema": {"fondo": "#2E4A00", "tono": "#548400", "claro": "#EEF3DF"},
+        "bloques": [
+            {"tipo": "web", "etq": "La web", "tit": "De no tener web a tener la suya.", "fondo": "fondo", "pie": 'Pensada primero para el móvil, que es desde donde le buscan y le llaman.'},
+        ],
         "imagenes": {"tarjeta": "tarjeta2-aquita.jpg", "maqueta": "escaparate2-aquita.jpg", "web": "web-aquita.jpg",
                      "movil": "movil-aquita.jpg", "mapa": None},
     },
@@ -66,6 +81,11 @@ TRABAJOS = [
         "partida": None,
         "piezas": [("Web", None), ("Ficha de Google", None), ("Textos", None)],
         "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        # v5.21 · ficha a medida
+        "tema": {"fondo": "#1D0D06", "tono": "#8A3B1D", "claro": "#F6EDE4"},
+        "bloques": [
+            {"tipo": "web", "etq": "La web", "tit": "Una web de hoy para un restaurante de 1978.", "fondo": "fondo", "pie": 'Pensada primero para el móvil, que es desde donde le buscan y le llaman.'},
+        ],
         "imagenes": {"tarjeta": "tarjeta2-las-tejas.jpg", "maqueta": "escaparate2-las-tejas.jpg", "web": "web-las-tejas.jpg",
                      "movil": "movil-las-tejas.jpg", "mapa": "mapa-las-tejas.jpg"},
     },
@@ -120,6 +140,11 @@ TRABAJOS = [
         "entrada": "Web de presentación de una consulta privada en Madrid.",
         "partida": None, "piezas": [("Textos", None), ("Diseño", None), ("Analítica", None)],
         "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        # v5.21 · ficha a medida
+        "tema": {"fondo": "#503732", "tono": "#7A5650", "claro": "#F4EEEA"},
+        "bloques": [
+            {"tipo": "web", "etq": "La web", "tit": "Una consulta, bien presentada.", "fondo": "fondo", "pie": 'Pensada primero para el móvil, que es desde donde le buscan y le llaman.'},
+        ],
         "imagenes": {"tarjeta": "tarjeta2-rfg-andrade.jpg", "maqueta": "escaparate2-rfg-andrade.jpg", "web": "web-rfg-andrade.jpg",
                      "movil": "movil-rfg-andrade.jpg", "mapa": None},
     },
@@ -142,15 +167,20 @@ TRABAJOS = [
         "piezas": [("Diseño web", None), ("Arquitectura", None), ("Redacción SEO", None), ("Posicionamiento", None),
                    ("Tienda en WooCommerce", None), ("Consultoría de marketing", None)],
         "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        # v5.21 · ficha a medida
+        "tema": {"fondo": "#672E0F", "tono": "#B75A2C", "claro": "#F8EBDF"},
+        "bloques": [
+            {"tipo": "web", "etq": "La web", "tit": "Un instituto con tienda propia.", "fondo": "fondo", "pie": 'Pensada primero para el móvil, que es desde donde le buscan y le llaman.'},
+        ],
         "imagenes": {"tarjeta": "tarjeta2-maribel-yebenes.jpg", "maqueta": "escaparate2-maribel-yebenes.jpg",
                      "web": "web-maribel-yebenes.jpg", "movil": "movil-maribel-yebenes.jpg", "mapa": None},
     },
     {
         "slug": "vinos-gallegos-pousada", "nombre": "Vinos Gallegos Pousada", "frase": "La marca de una distribuidora de vino gallego, de la tarjeta a la furgoneta.",
-        "municipio": None, "relacion": None, "servicios": ["marca"],
+        "municipio": None, "relacion": None, "servicios": ["marca", "web"],
         "url": "https://vinospousada.es/", "dominio": "vinospousada.es",
         "entrada": "Distribuidora de vinos gallegos.", "partida": None,
-        "piezas": [("Imagen de marca", None), ("Tarjeta de visita", None), ("Rótulo y persiana del local", None), ("Tarifa de precios 2026", "Rediseñada por completo"), ("Diseño y producción de toda la flota de furgonetas", None)],
+        "piezas": [("Imagen de marca", None), ("Tarjeta de visita", None), ("Rótulo y persiana del local", None), ("Tarifa de precios 2026", "Rediseñada por completo"), ("Diseño y producción de toda la flota de furgonetas", None), ("Web nueva", None)],
         "frase_suelta": None, "resultado": [], "fuente_resultado": None,
         "galeria": [
             ("pousada-catalogo-tarifa.jpg", "Catálogo y tarifa de precios 2026 de Pousada Vinos Gallegos sobre una mesa de madera, con una copa de vino blanco", "El catálogo y la tarifa de precios 2026.", "ancha"),
@@ -158,6 +188,21 @@ TRABAJOS = [
             ("pousada-coche.jpg", "Coche de Pousada Vinos Gallegos con el logotipo en la puerta", "El coche, ya en la calle.", "normal"),
             ("pousada-furgoneta.jpg", "Furgoneta de Pousada con el racimo de uvas grande en el lateral", "La furgoneta.", "ancha"),
             ("pousada-tarifa.jpg", "Tarifa de precios 2026 de Pousada Vinos Gallegos", "La tarifa de precios 2026.", "alta"),
+        ],
+        "tema": {"fondo": "#12302D", "tono": "#1F6F69", "claro": "#E4F3F1"},
+        "bloques": [
+            {"tipo": "papeleria", "etq": "Catálogo y tarifa", "tit": "La tarifa de precios 2026.",
+             "bodegon": ("pousada-catalogo-tarifa.jpg", "Catálogo y tarifa de precios 2026 de Pousada Vinos Gallegos sobre una mesa de madera, con una copa de vino blanco", "El catálogo y la tarifa de precios 2026."),
+             "hojas": [("pousada-tarifa.jpg", "Tarifa de precios 2026 de Pousada Vinos Gallegos")],
+             "lista": ["Imagen de marca", "Tarjeta de visita", "Tarifa de precios 2026", "Rediseñada por completo"]},
+            {"tipo": "split", "etq": "El local", "tit": "Rótulo y persiana.",
+             "pie": "El racimo de uvas, a escala de fachada.",
+             "fotos": [("pousada-persiana.jpg", "Persiana del local de Pousada con el racimo de uvas y el rótulo en verde azulado", "50% 50%")]},
+            {"tipo": "par", "etq": "La flota", "tit": "Coche y furgoneta, ya en la calle.",
+             "fotos": [("pousada-coche.jpg", "Coche de Pousada Vinos Gallegos con el logotipo en la puerta", "El coche."),
+                       ("pousada-furgoneta.jpg", "Furgoneta de Pousada con el racimo de uvas grande en el lateral", "La furgoneta.")]},
+            {"tipo": "web", "etq": "La web", "tit": "La web.", "fondo": "claro",
+             "pie": "Catálogo, vino turbio y un formulario para pedir la tarifa."},
         ],
         "imagenes": {"tarjeta": "tarjeta2-vinos-gallegos-pousada.jpg", "maqueta": "pousada-flota.jpg",
                      "web": "web-vinos-gallegos-pousada.jpg", "movil": None, "mapa": None},
@@ -169,6 +214,11 @@ TRABAJOS = [
         "entrada": "IX Jornadas Ibéricas de Fotoquímica, en Segovia.", "partida": None,
         "piezas": [("Web del congreso", None)],
         "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        # v5.21 · ficha a medida
+        "tema": {"fondo": "#142432", "tono": "#186CB4", "claro": "#E3EEF7"},
+        "bloques": [
+            {"tipo": "web", "etq": "La web", "tit": "Un congreso, una web.", "fondo": "fondo", "pie": 'Pensada primero para el móvil, que es desde donde le buscan y le llaman.'},
+        ],
         "imagenes": {"tarjeta": "tarjeta2-jif-2026.jpg", "maqueta": "escaparate2-jif-2026.jpg", "web": "web-jif-2026.jpg",
                      "movil": "movil-jif-2026.jpg", "mapa": None},
     },
@@ -178,6 +228,11 @@ TRABAJOS = [
         "url": "https://psicorazon.com/", "dominio": "psicorazon.com",
         "entrada": None, "partida": None, "piezas": [("Web", None)],
         "frase_suelta": None, "resultado": [], "fuente_resultado": None,
+        # v5.21 · ficha a medida
+        "tema": {"fondo": "#735152", "tono": "#B88A69", "claro": "#F5EAE1"},
+        "bloques": [
+            {"tipo": "web", "etq": "La web", "tit": "Su web.", "fondo": "fondo", "pie": None},
+        ],
         "imagenes": {"tarjeta": "tarjeta4-psicorazon.jpg", "maqueta": "escaparate4-psicorazon.jpg", "web": "web-psicorazon.jpg",
                      "movil": None, "mapa": None},
     },
@@ -198,7 +253,28 @@ TRABAJOS = [
             ("delfinia-sello.jpg", "Sello de Delfinia con el delfín y la web", "El sello.", "normal"),
             ("delfinia-usb.jpg", "Memoria USB roja con el logotipo de Delfinia", "La memoria USB.", "normal"),
         ],
+        "tema": {"fondo": "#14306E", "tono": "#1E4694", "claro": "#E6EDF8"},
+        "bloques": [
+            {"tipo": "marca", "alta": True, "etq": "La marca", "tit": "Un delfín que sale del agua.",
+             "positivo": ("delfinia-logotipo.jpg", "Logotipo de Delfinia, un delfín azul con cola naranja", "En positivo."),
+             "negativo": ("delfinia-tarjeta.jpg", "Tarjeta de visita de Delfinia, azul y blanca", "En negativo, sobre el azul de la marca.", "50% 0%")},
+            {"tipo": "papeleria", "etq": "La papelería", "tit": "Papelería corporativa.",
+             "bodegon": ("delfinia-papeleria.jpg", "Papelería de Delfinia sobre una mesa de piedra: folio, sobre, carpeta, folleto, sello y memoria USB", "Folio, sobre, carpeta, folleto, sello y memoria USB."),
+             "hojas": [("delfinia-cartel.jpg", "Cartel de Delfinia en azul, blanco y naranja"), ("delfinia-sello.jpg", "Sello de Delfinia con el delfín y la web")],
+             "lista": ["Folio", "Sobre", "Carpeta", "Folleto", "Tarjeta de visita", "Cartel para el local", "Sello", "Memoria USB"]},
+            {"tipo": "par", "etq": "La flota", "tit": "Toda la flota, rotulada.",
+             "fotos": [("delfinia-furgoneta-lateral.jpg", "Furgoneta de Delfinia rotulada con el delfín, el teléfono y olas azules", "La furgoneta, de lado."),
+                       ("delfinia-furgoneta-frontal.jpg", "Capó de la furgoneta de Delfinia con el logotipo", "El capó.")]},
+            {"tipo": "web", "etq": "La web", "tit": "La web.", "fondo": "claro",
+             "pie": "La web de Delfinia, en el ordenador."},
+        ],
         "imagenes": {"tarjeta": "tarjeta2-delfinia-piscinas.jpg", "maqueta": "escaparate-delfinia-imac.jpg", "web": "web-delfinia-piscinas.jpg",
                      "movil": None, "mapa": None},
     },
 ]
+
+
+# v5.21 · orden de la página general: primero lo que mejor enseña el oficio (marca de cero y piezas reales), luego los resultados y el resto.
+_ORDEN = ["solvento", "vinos-gallegos-pousada", "balgas", "marcos-cerrajeros", "delfinia-piscinas", "aquita", "las-tejas",
+          "maribel-yebenes", "rfg-andrade", "jif-2026", "psicorazon", "dotti-peluqueria"]
+TRABAJOS.sort(key=lambda t: _ORDEN.index(t["slug"]) if t["slug"] in _ORDEN else 99)

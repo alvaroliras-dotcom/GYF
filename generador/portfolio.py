@@ -157,8 +157,9 @@ def _cab_pv(etq, tit):
 
 
 def b_marca(b, t):
+    neg = b["negativo"]
     return (f'<section class="pv pv--fondo"><div class="contenedor">{_cab_pv(b["etq"], b["tit"])}'
-            f'<div class="pv-marca">{_fig(*b["positivo"], clase="pv-fig--blanco")}{_fig(*b["negativo"])}</div></div></section>')
+            f'<div class="pv-marca{" pv-marca--alta" if b.get("alta") else ""}">{_fig(*b["positivo"], clase="pv-fig--blanco")}{_fig(neg[0], neg[1], neg[2], pos=(neg[3] if len(neg) > 3 else None))}</div></div></section>')
 
 
 def b_par(b, t):
@@ -169,19 +170,21 @@ def b_par(b, t):
 
 def b_split(b, t):
     figs = "".join(_fig(f, alt, None, "", "(max-width: 900px) 50vw, 30vw", pos=pos) for f, alt, pos in b["fotos"])
+    una = " pv-split__fotos--una" if len(b["fotos"]) == 1 else ""
+    figs = figs.replace('class="pv-split__fotos"', "")
     return (f'<section class="pv-split"><div class="pv-split__txt"><p class="pv-split__etq">{esc(b["etq"])}</p>'
             f'<h2 class="pv-split__tit">{esc(b["tit"])}</h2><p class="pv-split__pie">{esc(b["pie"])}</p></div>'
-            f'<div class="pv-split__fotos">{figs}</div></section>')
+            f'<div class="pv-split__fotos{una}">{figs}</div></section>')
 
 
 def b_papeleria(b, t):
     f, alt, pie = b["bodegon"]
-    ha, hb = b["hojas"]
     hoja = lambda h, k: f'<figure class="pv-hoja pv-hoja--{k}">{T.foto(h[0], h[1], "(max-width: 900px) 40vw, 240px")}</figure>'
+    hojas = hoja(b["hojas"][0], "sola") if len(b["hojas"]) == 1 else hoja(b["hojas"][0], "a") + hoja(b["hojas"][1], "b")
     lista = "".join(f"<li>{esc(x)}</li>" for x in b["lista"])
     return (f'<section class="pv pv--crema"><div class="contenedor">{_cab_pv(b["etq"], b["tit"])}'
             f'<div class="pv-pap"><div>{_fig(f, alt, None, "pv-pap__bodegon", "(max-width: 900px) 100vw, 58vw")}<p class="pv-pap__pie">{esc(pie)}</p></div>'
-            f'<div class="pv-pap__hojas">{hoja(ha, "a")}{hoja(hb, "b")}</div></div>'
+            f'<div class="pv-pap__hojas">{hojas}</div></div>'
             f'<ul class="pv-pap__lista">{lista}</ul></div></section>')
 
 
@@ -195,8 +198,10 @@ def b_web(b, t):
     im, nom = t["imagenes"], t["nombre"]
     mov = f'<div class="pv-web__movil">{movil(im["movil"], "Web de " + nom + " en el móvil")}</div>' if im.get("movil") else ""
     nav = navegador(im["web"], t["dominio"], "Web de " + nom + " en el ordenador", t["url"], "La web, en el ordenador.")
-    return (f'<section class="pv pv--claro"><div class="contenedor">{_cab_pv(b["etq"], b["tit"])}<div class="pv-web">{nav}{mov}</div>'
-            f'<p class="pv-web__pie">{esc(b["pie"])}</p></div></section>')
+    fondo = b.get("fondo", "claro")
+    pie = f'<p class="pv-web__pie">{esc(b["pie"])}</p>' if b.get("pie") else ""
+    return (f'<section class="pv pv--{fondo}"><div class="contenedor">{_cab_pv(b["etq"], b["tit"])}<div class="pv-web{" pv-web--sin-movil" if not mov else ""}">{nav}{mov}</div>'
+            f'{pie}</div></section>')
 
 
 BLOQUES = {"marca": b_marca, "par": b_par, "split": b_split, "papeleria": b_papeleria, "sangre": b_sangre, "web": b_web}

@@ -5,7 +5,7 @@ contenido/resenas.json. Arquitectura y 301: nuria2/arquitectura.md (sección c).
 Lo que falta confirmar está marcado [PENDIENTE] y sale como aviso en controles.py.
 """
 
-VERSION = "5.19"
+VERSION = "5.21"
 
 # ---------- Sitio ----------
 DOMINIO = "https://elgordoyelflaco.es"
