@@ -145,8 +145,70 @@ def galeria(items):
             f'<h2 class="pf-piezas__tit">Lo que se ve en la calle.</h2></div><div class="pf-gal__rej">{"".join(out)}</div></div></section>')
 
 
+# ---------- v5.20 · ficha a medida: secciones con fondo propio, en los colores de la marca del cliente ----------
+def _fig(f, alt, pie=None, clase="", sizes="(max-width: 800px) 100vw, 50vw", pos=None):
+    cap = f"<figcaption>{esc(pie)}</figcaption>" if pie else ""
+    estilo = f' style="--pos:{pos}"' if pos else ""
+    return f'<figure class="pv-fig {clase}"{estilo}>{T.foto(f, alt, sizes)}{cap}</figure>'
+
+
+def _cab_pv(etq, tit):
+    return f'<div class="pf-rej pv__cab"><p class="pf-etq">{esc(etq)}</p><h2 class="pv__tit">{esc(tit)}</h2></div>'
+
+
+def b_marca(b, t):
+    return (f'<section class="pv pv--fondo"><div class="contenedor">{_cab_pv(b["etq"], b["tit"])}'
+            f'<div class="pv-marca">{_fig(*b["positivo"], clase="pv-fig--blanco")}{_fig(*b["negativo"])}</div></div></section>')
+
+
+def b_par(b, t):
+    figs = "".join(_fig(f, alt, pie, "pv-fig--43") for f, alt, pie in b["fotos"])
+    return (f'<section class="pv pv--sin-pad-inf"><div class="contenedor">{_cab_pv(b["etq"], b["tit"])}</div>'
+            f'<div class="pv-par">{figs}</div></section>')
+
+
+def b_split(b, t):
+    figs = "".join(_fig(f, alt, None, "", "(max-width: 900px) 50vw, 30vw", pos=pos) for f, alt, pos in b["fotos"])
+    return (f'<section class="pv-split"><div class="pv-split__txt"><p class="pv-split__etq">{esc(b["etq"])}</p>'
+            f'<h2 class="pv-split__tit">{esc(b["tit"])}</h2><p class="pv-split__pie">{esc(b["pie"])}</p></div>'
+            f'<div class="pv-split__fotos">{figs}</div></section>')
+
+
+def b_papeleria(b, t):
+    f, alt, pie = b["bodegon"]
+    ha, hb = b["hojas"]
+    hoja = lambda h, k: f'<figure class="pv-hoja pv-hoja--{k}">{T.foto(h[0], h[1], "(max-width: 900px) 40vw, 240px")}</figure>'
+    lista = "".join(f"<li>{esc(x)}</li>" for x in b["lista"])
+    return (f'<section class="pv pv--crema"><div class="contenedor">{_cab_pv(b["etq"], b["tit"])}'
+            f'<div class="pv-pap"><div>{_fig(f, alt, None, "pv-pap__bodegon", "(max-width: 900px) 100vw, 58vw")}<p class="pv-pap__pie">{esc(pie)}</p></div>'
+            f'<div class="pv-pap__hojas">{hoja(ha, "a")}{hoja(hb, "b")}</div></div>'
+            f'<ul class="pv-pap__lista">{lista}</ul></div></section>')
+
+
+def b_sangre(b, t):
+    f, alt, pie = b["foto"]
+    return (f'<section class="pv-sangre">{T.foto(f, alt, "100vw")}<span class="pv-sangre__velo" aria-hidden="true"></span>'
+            f'<div class="contenedor pv-sangre__txt"><p class="pv-sangre__etq">{esc(b["etq"])}</p><p class="pv-sangre__pie">{esc(pie)}</p></div></section>')
+
+
+def b_web(b, t):
+    im, nom = t["imagenes"], t["nombre"]
+    mov = f'<div class="pv-web__movil">{movil(im["movil"], "Web de " + nom + " en el móvil")}</div>' if im.get("movil") else ""
+    nav = navegador(im["web"], t["dominio"], "Web de " + nom + " en el ordenador", t["url"], "La web, en el ordenador.")
+    return (f'<section class="pv pv--claro"><div class="contenedor">{_cab_pv(b["etq"], b["tit"])}<div class="pv-web">{nav}{mov}</div>'
+            f'<p class="pv-web__pie">{esc(b["pie"])}</p></div></section>')
+
+
+BLOQUES = {"marca": b_marca, "par": b_par, "split": b_split, "papeleria": b_papeleria, "sangre": b_sangre, "web": b_web}
+
+
+def bloques_a_medida(t):
+    return [BLOQUES[b["tipo"]](b, t) for b in t["bloques"]]
+
+
 def pagina_caso(i, t):
     url = url_de(t)
+    a_medida = bool(t.get("bloques"))
     im = t["imagenes"]
     sig = TRABAJOS[(i + 1) % len(TRABAJOS)]
     cad = [("/", "Inicio"), (URL_HUB, "Trabajos"), (url, t["nombre"])]
@@ -174,13 +236,15 @@ def pagina_caso(i, t):
       bloques.append(f'<section class="pf-b pf-piezas"><div class="contenedor"><div class="pf-rej pf-piezas__cab"><p class="pf-etq">Qué hicimos</p>'
                    f'<h2 class="pf-piezas__tit">{"Todo, con un solo interlocutor." if len(t["piezas"]) > 1 else "Una sola pieza, bien hecha."}</h2></div>'
                    f'<ol class="pf-piezas__lista">{piezas}</ol></div></section>')
-    if t.get("galeria"):
+    if a_medida:
+        bloques.extend(bloques_a_medida(t))
+    elif t.get("galeria"):
         bloques.append(galeria(t["galeria"]))
     if t.get("frase_suelta"):
         bloques.append(f'<section class="pf-b pf-suelta"><div class="contenedor"><p class="pf-suelta__txt">{esc(t["frase_suelta"])}</p></div></section>')
-    if im.get("web"):
+    if im.get("web") and not a_medida:
         bloques.append(f'<section class="pf-b"><div class="contenedor">{navegador(im["web"], t["dominio"], "Web de " + nom + " en el ordenador", t["url"], "La web, en el ordenador.")}</div></section>')
-    if im.get("movil"):
+    if im.get("movil") and not a_medida:
         bloques.append(f'<section class="pf-b pf-movil-b"><div class="contenedor pf-rej"><p class="pf-etq">En el móvil</p><div class="pf-movil-b__fila">{movil(im["movil"], "Web de " + nom + " en el móvil")}'
                        f'<p class="pf-movil-b__txt">Pensada primero para el móvil, que es desde donde le buscan y le llaman.</p></div></div></section>')
     if im.get("mapa"):
@@ -207,7 +271,10 @@ def pagina_caso(i, t):
         meta = meta[:155].rsplit(" ", 1)[0] + "…"
     if len(titulo) < 35:
         titulo = titulo.replace(" | GYF", " | El Gordo y el Flaco")
-    cuerpo = f"""<main id="contenido" class="pf pf-caso">
+    tm = t.get("tema") or {}
+    vestido = (f' data-vestido style="--cl-fondo:{tm.get("fondo", "#1C1219")};--cl-tono:{tm.get("tono", "#E0067A")};--cl-claro:{tm.get("claro", "#F5F1EC")}"'
+               if a_medida else "")
+    cuerpo = f"""<main id="contenido" class="pf pf-caso"{vestido}>
 <section class="pf-caso-cab"><div class="contenedor">
  {migas(cad)}
  <p class="etiqueta">{T.simbolo("etiqueta__sim")}Trabajo {i + 1:02d}{f" · {esc(lugar)}" if lugar else ""}</p>

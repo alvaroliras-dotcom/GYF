@@ -1,0 +1,92 @@
+/* ==========================================================================
+   v5.20 · Fichas de trabajo «a medida» (vestido por secciones).
+   Mismo esqueleto que v6 (portada tipográfica, ficha + entradilla, qué hicimos, llamada, siguiente),
+   pero el cuerpo se viste con los colores de la marca del cliente: cada sección tiene su fondo,
+   su escala y su recorte. Se activa solo en los trabajos que traen «bloques» en trabajos.py.
+   Colores del cliente: --cl-fondo (el más oscuro de su marca), --cl-tono (el de su logotipo),
+   --cl-claro (tinte muy suave). Se declaran en el <main> de cada ficha.
+   ========================================================================== */
+.pv{padding:clamp(56px,7vw,128px) 0;position:relative}
+.pv--crema{background:#F5F1EC}
+.pv--fondo{background:var(--cl-fondo);color:#fff}
+.pv--tono{background:var(--cl-tono);color:#fff}
+.pv--claro{background:var(--cl-claro)}
+.pv--sin-pad-sup{padding-top:0}
+.pv--sin-pad-inf{padding-bottom:0}
+.pv__cab{margin-bottom:clamp(32px,4.5vw,72px)}
+.pv__tit{grid-column:1/-1;margin:0;font-size:clamp(2.5rem,.8rem + 4.4vw,6.5rem);line-height:.95;letter-spacing:-.05em;font-weight:600;color:inherit;text-wrap:balance}
+@media (min-width:900px){.pv__tit{grid-column:4/span 9}}
+.pv--fondo .pf-etq,.pv--tono .pf-etq{color:rgba(255,255,255,.78)}
+.pv__txt{margin:0;max-width:40ch;font-size:clamp(1.125rem,1rem + .5vw,1.5rem);line-height:1.3;letter-spacing:-.015em;color:inherit}
+
+/* ---------- pareja a sangre (la flota): dos fotos del mismo alto, sin fichas ni bandas vacías ---------- */
+.pv-par{display:grid;grid-template-columns:1fr;gap:6px;margin-top:clamp(8px,1vw,16px)}
+@media (min-width:800px){.pv-par{grid-template-columns:1fr 1fr}}
+.pv-fig{position:relative;margin:0;overflow:hidden;background:var(--cl-fondo)}
+.pv-fig picture,.pv-fig img{display:block;width:100%;height:100%;object-fit:cover}
+.pv-fig img{transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
+.pv-fig--43{aspect-ratio:4/3}
+.pv-fig figcaption{position:absolute;left:0;right:0;bottom:0;padding:64px clamp(16px,2vw,32px) clamp(14px,1.6vw,24px);background:linear-gradient(rgba(11,20,22,0),rgba(11,20,22,.72));color:#fff;font-size:.875rem;line-height:1.35}
+@media (hover:hover){.pv-fig:hover img{transform:scale(1.035)}}
+
+/* ---------- la marca: positivo y negativo, mismo marco ---------- */
+.pv-marca{display:grid;grid-template-columns:1fr;gap:clamp(10px,1.4vw,20px)}
+@media (min-width:800px){.pv-marca{grid-template-columns:1fr 1fr}}
+.pv-marca .pv-fig{aspect-ratio:16/10;border-radius:10px}
+.pv-marca .pv-fig--blanco{background:#fff}
+.pv-marca .pv-fig--blanco img{object-fit:contain;padding:11%;box-sizing:border-box}
+.pv-marca .pv-fig--blanco figcaption{background:none;color:var(--t3,#5b5560)}
+.pv-marca .pv-fig--blanco figcaption{padding-top:0}
+
+/* ---------- pieza protagonista: panel de color + foto a sangre ---------- */
+.pv-split{display:grid;grid-template-columns:1fr;background:var(--cl-tono);color:#fff}
+@media (min-width:900px){.pv-split{grid-template-columns:5fr 7fr;min-height:min(88vh,860px)}}
+.pv-split__txt{display:flex;flex-direction:column;justify-content:space-between;gap:clamp(32px,5vw,80px);padding:clamp(40px,6vw,112px) var(--gutter,24px)}
+.pv-split__etq{margin:0;font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.pv-split__tit{margin:0;font-size:clamp(2.75rem,1rem + 4.6vw,6.25rem);line-height:.92;letter-spacing:-.055em;font-weight:600;text-wrap:balance}
+.pv-split__pie{margin:0;max-width:30ch;font-size:.9375rem;line-height:1.4;color:rgba(255,255,255,.88)}
+/* dos tiras verticales (recorte con --pos para que cada foto enseñe lo mejor de sí) */
+.pv-split__fotos{display:grid;grid-template-columns:1fr 1fr;gap:6px;min-height:0}
+.pv-split__fotos .pv-fig{min-height:clamp(320px,70vw,620px)}
+.pv-split__fotos .pv-fig img{object-position:var(--pos,50% 50%)}
+@media (min-width:900px){.pv-split__fotos .pv-fig{min-height:0}}
+
+/* ---------- papelería: bodegón + hojas sobre un tinte de marca ---------- */
+.pv-pap{display:grid;grid-template-columns:1fr;gap:clamp(10px,1.4vw,20px)}
+@media (min-width:900px){.pv-pap{grid-template-columns:7fr 5fr}}
+.pv-pap .pv-fig{border-radius:10px}
+.pv-pap__bodegon{aspect-ratio:3/2}
+.pv-pap__hojas{position:relative;border-radius:10px;overflow:hidden;background:var(--cl-claro);min-height:clamp(360px,80vw,520px)}
+@media (min-width:900px){.pv-pap__hojas{min-height:0}}
+.pv-hoja{position:absolute;margin:0;width:50%;box-shadow:0 28px 50px -24px rgba(11,59,63,.55),0 2px 6px rgba(11,59,63,.12);background:#fff;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.pv-hoja picture,.pv-hoja img{display:block;width:100%;height:auto}
+.pv-hoja--a{left:5%;top:9%;transform:rotate(-4deg)}
+.pv-hoja--b{right:5%;top:14%;transform:rotate(3deg)}
+@media (hover:hover){.pv-pap__hojas:hover .pv-hoja--a{transform:rotate(-6deg) translateY(-6px)}.pv-pap__hojas:hover .pv-hoja--b{transform:rotate(5deg) translateY(-6px)}}
+.pv-pap__pie{margin:14px 0 0;font-size:.875rem;line-height:1.4;color:var(--t3,#5b5560)}
+.pv-pap__lista{margin:clamp(24px,3vw,40px) 0 0;display:flex;flex-wrap:wrap;gap:10px;padding:0;list-style:none}
+.pv-pap__lista li{padding:8px 16px;border:1px solid rgba(28,18,25,.22);border-radius:99px;font-size:.9375rem;font-weight:500;color:var(--t1,#161616)}
+
+/* ---------- foto a sangre con rótulo ---------- */
+.pv-sangre{position:relative;height:clamp(380px,78vh,780px);overflow:hidden;background:var(--cl-fondo);color:#fff}
+.pv-sangre picture,.pv-sangre img{display:block;width:100%;height:100%;object-fit:cover}
+.pv-sangre__velo{position:absolute;inset:0;background:linear-gradient(rgba(11,20,22,0) 45%,rgba(11,20,22,.78) 100%)}
+.pv-sangre__txt{position:absolute;left:0;right:0;bottom:0;padding-bottom:clamp(28px,5vw,72px)}
+.pv-sangre__etq{margin:0 0 12px;font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.pv-sangre__pie{margin:0;max-width:18ch;font-size:clamp(1.75rem,1rem + 3vw,4.25rem);line-height:.98;letter-spacing:-.045em;font-weight:600;text-wrap:balance}
+
+/* ---------- la web: navegador y móvil juntos sobre el tinte de marca ---------- */
+.pv-web{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(16px,2vw,32px);align-items:end}
+.pv-web .pf-nav{grid-column:1/-1;margin-bottom:clamp(40px,10vw,64px)}
+@media (min-width:900px){.pv-web .pf-nav{margin-bottom:0}}
+.pv-web__movil{grid-column:1/-1;display:flex;justify-content:center;margin-top:clamp(-120px,-12vw,-40px);position:relative;z-index:2}
+.pv-web__movil .pf-movil{width:min(300px,64vw)}
+@media (min-width:900px){
+  .pv-web .pf-nav{grid-column:1/span 9;grid-row:1}
+  .pv-web__movil{grid-column:8/span 4;grid-row:1;margin:0 0 -48px;justify-content:flex-end;align-self:end}
+  .pv-web__movil .pf-movil{width:min(300px,100%)}
+}
+.pv-web__pie{margin:clamp(40px,5vw,72px) 0 0;max-width:30ch;font-size:clamp(1.25rem,1rem + .8vw,1.75rem);line-height:1.2;letter-spacing:-.02em;font-weight:500;color:var(--t1,#161616)}
+.pv-web .pf-nav__pie{justify-content:flex-start;gap:8px 28px}
+.pv--claro .pf-nav__marco{box-shadow:0 50px 90px -50px rgba(11,59,63,.7)}
+@media (prefers-reduced-motion:reduce){.pv *{transition:none!important}}

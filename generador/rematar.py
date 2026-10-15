@@ -32,6 +32,9 @@ def css():
     v6 = R("cliente", "css", "v6.css")
     if os.path.exists(v6):   # v5.11: el portfolio
         tema += "\n" + open(v6, encoding="utf-8").read()
+    v7 = R("cliente", "css", "v7.css")
+    if os.path.exists(v7):   # v5.20: fichas de trabajo a medida (vestido por secciones, colores del cliente)
+        tema += "\n" + open(v7, encoding="utf-8").read()
     # el tema va DESPUÉS de la base para que sus variables manden; las @font-face, arriba
     fuentes = "".join(re.findall(r"@font-face\{[^}]+\}", tema))
     tema = re.sub(r"@font-face\{[^}]+\}", "", tema)
