@@ -1,8 +1,8 @@
 URL: /seo-local/
 Title: Optimizar su ficha de Google y SEO local en Alcorcón | GYF
-Meta description: Optimizamos su ficha de Google Business Profile (antes Google My Business) para que su negocio salga en Google Maps cuando le buscan cerca.
-Keyword principal: optimizar ficha de Google My Business
-H1: SEO local: su negocio, arriba en Google Maps
+Meta description: Optimizamos su ficha de Google Business Profile (antes Google My Business) para que su negocio de Alcorcón salga en Google Maps cuando le buscan cerca.
+Keyword principal: SEO local en Alcorcón
+H1: SEO local en Alcorcón: su negocio, arriba en Google Maps
 Etiqueta: SEO local y ficha de Google · Alcorcón
 Entrada corta: Ficha de Google, reseñas y publicaciones al día, para que el cliente de su barrio le encuentre en el mapa y le llame.
 ---

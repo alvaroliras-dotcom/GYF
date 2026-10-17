@@ -3,3 +3,4 @@ Allow: /
 Disallow: /enviar.php
 
 Sitemap: https://elgordoyelflaco.es/sitemap.xml
+Sitemap: https://elgordoyelflaco.es/sitemap-redirecciones.xml

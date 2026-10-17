@@ -1,0 +1,42 @@
+GYF · CAMBIOS SEO DEL 17/10/2026
+Esto NO es la web entera: solo los archivos que cambian. Se suben encima de lo que ya hay.
+
+Una sola tanda (34 archivos, por debajo del límite de 99): carpeta TANDA-1.
+
+QUÉ CAMBIA
+1. Cinco servicios ya llevan «Alcorcón» en el título, la descripción y el H1:
+   /seo-local/ (H1 y descripción), /auditoria-seo-local/, /diseno-grafico/,
+   /redaccion-seo-copywriting/ y /analitica-web/. Sus imágenes para redes se han rehecho con el H1 nuevo.
+   /diseno-web/, /google-ads/ y la home no se tocan: ya lo llevaban.
+2. Nuevo sitemap-redirecciones.xml con 18 URL de la web vieja (/servicios/...) que Google aún
+   tiene en el índice y que ya redirigen con 301. Sirve para que Google las rastree otra vez,
+   vea el 301 y pase la posición a la URL nueva (/diseno-web/ y /seo-local/ siguen sin indexar).
+3. robots.txt lista los dos sitemaps. sitemap.xml pone fecha de hoy (17/10) solo a las 5 páginas cambiadas.
+4. Fuentes: contenido/paginas (5 .md) y generador/build.py llevan el mismo cambio, para que la
+   próxima vez que se genere la web no se pierda.
+
+DÓNDE VA CADA COSA
+- Las carpetas y archivos de la raíz de TANDA-1 (seo-local, og, robots.txt, sitemap.xml...)
+  son la copia que va al hosting (Hostinger) por FTP.
+- La carpeta TANDA-1/sitio es la misma copia para GitHub/Vercel.
+- GitHub no sube a mano los archivos que empiezan por punto; aquí no hay ninguno.
+- .htaccess no cambia.
+
+DESPUÉS DE SUBIR
+- Search Console > Sitemaps: añadir sitemap-redirecciones.xml. Es normal que avise de
+  «URL con redirección»: es lo que se busca.
+- Yo pido la indexación de las páginas cambiadas, una a una, y vuelvo a inspeccionar
+  /diseno-web/ y /seo-local/ a los 5-7 días.
+
+LIMPIEZA PENDIENTE (no la puedo hacer con archivos)
+- En el repositorio quedan restos de la web de Balgas: los 112 archivos de
+  archivos-de-balgas-a-borrar.txt y las carpetas sitio/reparacion-calderas-*,
+  sitio/productos-o-calderas, sitio/avisos-legales y sitio/reparacion-de-*.
+  Con esos .md dentro de contenido/paginas, el generador mete URL de Balgas en el sitemap de
+  elgordoyelflaco.es. Hay que borrarlos desde GitHub antes de volver a generar la web.
+
+LO QUE NO SE HA COMPROBADO
+- Que Google indexe las páginas: eso lo decide Google. Solo se puede pedir y comprobar.
+- El sitemap de redirecciones no se ha probado en el servidor real.
+- Se ha ejecutado el generador (build, rematar y controles): 0 errores. Los 4 avisos que salen
+  son de páginas de /trabajos/ y ya estaban.

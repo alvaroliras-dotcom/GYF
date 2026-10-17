@@ -1,8 +1,8 @@
 URL: /diseno-grafico/
-Title: Diseño gráfico para empresas e imagen de marca | GYF
-Meta description: Logotipo, imagen y manual de marca, folletos, carteles y rotulación, con archivos para imprenta y la impresión gestionada. Diseño gráfico desde Alcorcón.
-Keyword principal: diseño gráfico para empresas
-H1: Diseño gráfico para empresas: que le reconozcan y le elijan
+Title: Diseño gráfico en Alcorcón: imagen de marca y logotipo | GYF
+Meta description: Diseño gráfico en Alcorcón: logotipo, imagen y manual de marca, folletos, carteles y rotulación, con archivos para imprenta y la impresión gestionada.
+Keyword principal: diseño gráfico en Alcorcón
+H1: Diseño gráfico en Alcorcón: que le reconozcan y le elijan
 Etiqueta: Diseño gráfico e imagen de marca · Alcorcón
 Entrada corta: La imagen de su empresa o su comercio, del logotipo al rótulo de la puerta, diseñada en Alcorcón para negocios de la zona.
 ---

@@ -1,8 +1,8 @@
 URL: /redaccion-seo-copywriting/
-Title: Redacción SEO y publicitaria para empresas | GYF
-Meta description: Escribimos los textos de su web, su ficha de Google, sus anuncios y su material impreso para que Google los entienda y el cliente se decida a llamar.
-Keyword principal: redacción SEO
-H1: Redacción SEO: textos que Google entiende y el cliente lee
+Title: Redacción SEO y publicitaria en Alcorcón | GYF
+Meta description: Escribimos los textos de su web, su ficha de Google, sus anuncios y sus folletos en Alcorcón para que Google los entienda y el cliente se decida a llamar.
+Keyword principal: redacción SEO en Alcorcón
+H1: Redacción SEO en Alcorcón: textos que Google entiende y el cliente lee
 Etiqueta: Redacción SEO y publicitaria · Alcorcón
 Entrada corta: Páginas de servicio, ficha de Google, anuncios y folletos para negocios de Alcorcón y alrededores, escritos con oficio de publicidad.
 ---

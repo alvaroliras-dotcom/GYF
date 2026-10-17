@@ -1557,8 +1557,25 @@ def main():
     sm = "".join(f"<url><loc>{DOMINIO}{u}</loc><lastmod>{f}</lastmod></url>" for u, f in urls)
     open(os.path.join(SITIO, "sitemap.xml"), "w", encoding="utf-8").write(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n')
+    # v5.22 · Sitemap de redirecciones: las URL de la web vieja que Google aún tiene en el índice (todas devuelven
+    # 301 a la nueva, ver redirecciones.py). Sirve para que Google las vuelva a rastrear, vea el 301 y pase la
+    # posición a la URL nueva. Se puede quitar de Search Console cuando el informe de páginas ya no las muestre.
+    import datetime
+    viejas = ["/servicios/", "/mapa-de-servicios/", "/auditoria-gratis/", "/servicios/seo-local/",
+              "/servicios/seo-local/optimizacion-ficha-gbp-02/", "/servicios/diseno-web/",
+              "/servicios/diseno-web/responsive-velocidad/", "/servicios/google-ads/",
+              "/servicios/google-ads/google-ads-local/", "/servicios/google-ads/anuncios-en-maps-youtube/",
+              "/servicios/google-ads/display-geolocalizado/", "/servicios/diseno-grafico/",
+              "/servicios/diseno-grafico/diseno-editorial-y-publicitario/",
+              "/servicios/diseno-grafico/diseno-grafico-para-web-y-redes-sociales/",
+              "/servicios/marketing-contenidos/", "/servicios/marketing-contenidos/publicaciones-para-gbp/",
+              "/servicios/analitica-web/", "/servicios/analitica-web/cuadro-de-mando-local/"]
+    hoy = datetime.date.today().isoformat()
+    smr = "".join(f"<url><loc>{DOMINIO}{u}</loc><lastmod>{hoy}</lastmod></url>" for u in viejas)
+    open(os.path.join(SITIO, "sitemap-redirecciones.xml"), "w", encoding="utf-8").write(
+        f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{smr}</urlset>\n')
     open(os.path.join(SITIO, "robots.txt"), "w", encoding="utf-8").write(
-        f"User-agent: *\nAllow: /\nDisallow: /enviar.php\n\nSitemap: {DOMINIO}/sitemap.xml\n")
+        f"User-agent: *\nAllow: /\nDisallow: /enviar.php\n\nSitemap: {DOMINIO}/sitemap.xml\nSitemap: {DOMINIO}/sitemap-redirecciones.xml\n")
     datos_neg = [f"- Nombre: {N['nombre']} ({N['razon_social']}).",
                  f"- Dirección: {N['calle']}, {N['cp']} {N['localidad']} ({N['provincia']}).",
                  f"- Teléfono: {N['telefono']} · Correo: {N['email']} · Ficha de Google: {FICHA}",

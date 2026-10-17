@@ -1,8 +1,8 @@
 URL: /analitica-web/
-Title: Analítica web para negocios: GA4 e informes | GYF
-Meta description: Configuramos Google Analytics 4 y Search Console, medimos llamadas y formularios y cada mes le explicamos, en claro, qué funciona y qué conviene cambiar.
-Keyword principal: analítica web para negocios
-H1: Analítica web para negocios: sepa de dónde vienen sus clientes
+Title: Analítica web en Alcorcón: GA4 e informes mensuales | GYF
+Meta description: Configuramos Google Analytics 4 y Search Console para su negocio de Alcorcón, medimos llamadas y formularios y cada mes le explicamos qué funciona.
+Keyword principal: analítica web en Alcorcón
+H1: Analítica web en Alcorcón: sepa de dónde vienen sus clientes
 Etiqueta: Analítica web · Alcorcón
 Entrada corta: Google Analytics 4, Search Console y un informe mensual en claro, para negocios de Alcorcón y alrededores.
 ---
